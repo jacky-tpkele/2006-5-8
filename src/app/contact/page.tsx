@@ -49,7 +49,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               <span className="line-icon">☏</span>
               <p>
                 <strong>WhatsApp</strong>
-                {site.phone}
+                <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">
+                  {site.phone}
+                </a>
               </p>
             </div>
           </div>

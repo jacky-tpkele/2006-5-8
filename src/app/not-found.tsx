@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 
 export default function NotFound() {
   return (
@@ -11,9 +12,7 @@ export default function NotFound() {
           <Link className="btn primary" href="/products">
             View Products
           </Link>
-          <Link className="btn ghost dark" href="/contact?intent=quote">
-            Contact Us
-          </Link>
+          <InquiryModal triggerLabel="Contact Us" triggerClassName="btn ghost dark" intent="quote" />
         </div>
       </section>
     </main>

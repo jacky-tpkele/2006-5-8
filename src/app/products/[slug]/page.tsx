@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { InquiryModal } from "@/components/InquiryModal";
 import { findProduct, categorySlugMap, products, site, subCategoryBySlug } from "@/data/site";
 
 type ProductPageProps = {
@@ -83,9 +84,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             ))}
           </ul>
           <div className="button-row">
-            <Link className="btn primary" href={`/contact?product=${encodeURIComponent(product.name)}&intent=quote`}>
-              Request Quote
-            </Link>
+            <InquiryModal
+              triggerLabel="Request Quote"
+              triggerClassName="btn primary"
+              product={product.name}
+              intent="quote"
+            />
             <Link className="btn ghost dark" href={backHref}>
               Back to {backLabel}
             </Link>

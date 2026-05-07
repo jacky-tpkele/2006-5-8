@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
 import { blogPosts } from "@/data/site";
 
@@ -24,9 +24,11 @@ export default function BlogPage() {
                 </time>
                 <h2>{post.title}</h2>
                 <p>{post.excerpt}</p>
-                <Link className="text-link" href={`/contact?intent=${encodeURIComponent(post.intent)}`}>
-                  Read More
-                </Link>
+                <InquiryModal
+                  triggerLabel="Read More"
+                  triggerClassName="text-link"
+                  intent={post.intent}
+                />
               </div>
             </article>
           ))}

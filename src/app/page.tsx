@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import { applications, categorySlugMap, productFamilies, site } from "@/data/site";
 
 export default function HomePage() {
@@ -28,9 +29,7 @@ export default function HomePage() {
             <Link className="btn primary" href="/products">
               View Products
             </Link>
-            <Link className="btn ghost" href="/contact?intent=quote">
-              Get Quote
-            </Link>
+            <InquiryModal triggerLabel="Get Quote" triggerClassName="btn ghost" intent="quote" />
           </div>
         </div>
         <div className="hero-visual" aria-label="TPKELE low voltage product family">
@@ -102,9 +101,7 @@ export default function HomePage() {
           <p className="eyebrow">Fast Quotation</p>
           <h2>Send your project list and receive product matching support.</h2>
         </div>
-        <Link className="btn primary" href="/contact?intent=quote">
-          Submit Inquiry
-        </Link>
+        <InquiryModal triggerLabel="Submit Inquiry" triggerClassName="btn primary" intent="quote" />
       </section>
     </main>
   );

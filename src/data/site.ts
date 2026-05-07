@@ -82,9 +82,9 @@ export const site = {
   url: "https://www.tpkele.com",
   description:
     "TPKELE manufactures low voltage electrical protection products including MCB, SPD, ATS, combiner boxes and DIN rail energy meters.",
-  phone: "+86 180 0000 0001",
-  whatsapp: "8618000000001",
-  email: "sales@tpkele.com",
+  phone: "+86 15067704501",
+  whatsapp: "8615067704501",
+  email: "jacky@tpkele.com",
   address: "Zhijiang, Wenzhou, Zhejiang, China",
 };
 

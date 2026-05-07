@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
+import { InquiryModal } from "@/components/InquiryModal";
 import {
   categoryBySlug,
   categoryContent,
@@ -94,9 +95,12 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
             ))}
           </ul>
           <div className="button-row">
-            <Link className="btn primary" href={`/contact?intent=quote&product=${encodeURIComponent(category)}`}>
-              Request Quote
-            </Link>
+            <InquiryModal
+              triggerLabel="Request Quote"
+              triggerClassName="btn primary"
+              product={category}
+              intent="quote"
+            />
             <Link className="btn ghost dark" href="/products">
               All Categories
             </Link>

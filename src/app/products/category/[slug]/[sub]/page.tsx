@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { InquiryModal } from "@/components/InquiryModal";
 import {
   categoryBySlug,
   categoryContent,
@@ -91,9 +92,12 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
           <h1>{subCat.hero}</h1>
           <p className="detail-copy">{subCat.intro}</p>
           <div className="button-row">
-            <Link className="btn primary" href={`/contact?intent=quote&product=${encodeURIComponent(subCat.label)}`}>
-              Request Quote
-            </Link>
+            <InquiryModal
+              triggerLabel="Request Quote"
+              triggerClassName="btn primary"
+              product={subCat.label}
+              intent="quote"
+            />
             <Link className="btn ghost dark" href={`/products/category/${slug}`}>
               Back to {category}
             </Link>
@@ -129,12 +133,12 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
                   <Link className="small-btn outline" href={`/products/${product.slug}`}>
                     View Details
                   </Link>
-                  <Link
-                    className="small-btn primary"
-                    href={`/contact?product=${encodeURIComponent(product.name)}&intent=quote`}
-                  >
-                    Inquire Now
-                  </Link>
+                  <InquiryModal
+                    triggerLabel="Inquire Now"
+                    triggerClassName="small-btn primary"
+                    product={product.name}
+                    intent="quote"
+                  />
                 </div>
               </div>
             </article>

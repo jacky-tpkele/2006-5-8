@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
 
 export const metadata: Metadata = {
@@ -45,9 +45,7 @@ export default function AboutPage() {
             We serve distributors, panel builders, solar installers and infrastructure contractors who need stable quality, responsive
             communication and flexible OEM/ODM cooperation.
           </p>
-          <Link className="btn primary" href="/contact?intent=factory">
-            Learn More About Us
-          </Link>
+          <InquiryModal triggerLabel="Learn More About Us" triggerClassName="btn primary" intent="factory" />
         </div>
         <Image className="feature-image" src="/assets/about/building.webp" alt="TPKELE headquarters and factory building" width={620} height={378} />
       </section>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { InquiryModal } from "@/components/InquiryModal";
 import type { Product, ProductCategory } from "@/data/site";
 
 type SeriesOption = { label: string; href: string };
@@ -131,12 +132,12 @@ export function CategoryProductGrid({
                 <Link className="small-btn outline" href={`/products/${product.slug}`}>
                   View Details
                 </Link>
-                <Link
-                  className="small-btn primary"
-                  href={`/contact?product=${encodeURIComponent(product.name)}&intent=quote`}
-                >
-                  Inquire Now
-                </Link>
+                <InquiryModal
+                  triggerLabel="Inquire Now"
+                  triggerClassName="small-btn primary"
+                  product={product.name}
+                  intent="quote"
+                />
               </div>
             </div>
           </article>

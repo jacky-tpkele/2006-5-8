@@ -1619,3 +1619,83 @@ textarea {
   font-weight: 700;
   color: var(--green);
 }
+
+/* Inquiry Modal */
+.inquiry-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.inquiry-modal {
+  background: #fff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: modalIn 0.22s ease-out;
+  overflow: hidden;
+}
+
+.inquiry-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.inquiry-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.inquiry-modal-close {
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.inquiry-modal-close:hover {
+  background: #f3f4f6;
+  color: var(--ink);
+}
+
+.inquiry-modal-body {
+  padding: 22px 24px 26px;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .inquiry-modal-backdrop { padding: 12px; }
+  .inquiry-modal { max-height: 94vh; }
+  .inquiry-modal-header { padding: 14px 18px; }
+  .inquiry-modal-body { padding: 18px; }
+}

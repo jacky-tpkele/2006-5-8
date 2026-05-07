@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import { categorySlugMap, productFamilies, site } from "@/data/site";
 
 export function Footer() {
@@ -47,9 +48,13 @@ export function Footer() {
         </div>
         <p className="copyright">© 2026 TPKELE. All Rights Reserved.</p>
       </footer>
-      <Link className="float-contact" href="/contact?intent=quote" aria-label="Submit inquiry">
-        ↑
-      </Link>
+      <InquiryModal
+        triggerLabel="Submit inquiry"
+        triggerClassName="float-contact"
+        triggerAriaLabel="Submit inquiry"
+        triggerContent={<span aria-hidden="true">↑</span>}
+        intent="quote"
+      />
     </>
   );
 }
