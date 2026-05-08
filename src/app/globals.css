@@ -1713,15 +1713,17 @@ textarea {
   display: grid;
   grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
   gap: clamp(28px, 5vw, 60px);
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .product-gallery {
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .product-gallery-main {
+  flex: 1;
   position: relative;
   background: var(--wash);
   border: 1px solid var(--line);
@@ -1730,17 +1732,20 @@ textarea {
   flex-direction: column;
   overflow: hidden;
   padding: 18px 18px 14px;
+  min-height: 0;
 }
 
 .product-gallery-main-stage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  flex: 1;
+  min-height: 0;
 }
 
 .product-gallery-main-image {
+  position: absolute !important;
+  inset: 0;
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
   max-width: 100%;
   display: block;
   object-fit: contain;
