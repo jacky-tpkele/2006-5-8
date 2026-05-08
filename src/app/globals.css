@@ -1711,7 +1711,6 @@ textarea {
 .product-gallery {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .product-gallery-main {
@@ -1720,19 +1719,24 @@ textarea {
   background: var(--wash);
   border: 1px solid var(--line);
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr auto;
   overflow: hidden;
-  padding: 22px 22px 14px;
+  padding: 18px 18px 14px;
+}
+
+.product-gallery-main-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
 }
 
 .product-gallery-main-image {
   width: auto !important;
-  max-width: 100%;
   height: auto !important;
-  max-height: 78%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   animation: galleryFade 0.25s ease-out;
 }
@@ -1744,10 +1748,9 @@ textarea {
 
 .product-gallery-thumbs {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
-  margin-top: 12px;
-  width: 100%;
+  padding-top: 12px;
 }
 
 .product-gallery-thumb {
@@ -1756,8 +1759,8 @@ textarea {
   border-radius: 6px;
   padding: 4px;
   cursor: pointer;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
