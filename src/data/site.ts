@@ -24,6 +24,8 @@ export type Product = ProductFamily & {
   description: string;
   specs: string[];
   seoKeywords: string[];
+  gallery?: string[];
+  technicalSpecs?: Array<{ label: string; value: string }>;
 };
 
 export type SubCategory = {
@@ -650,4 +652,94 @@ export const blogPosts = [
 
 export function findProduct(slug: string) {
   return products.find((product) => product.slug === slug);
+}
+
+const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: string; value: string }>> = {
+  MCB: [
+    { label: "Poles", value: "1P / 2P / 3P / 4P" },
+    { label: "Rated Current", value: "6A, 10A, 16A, 20A, 25A, 32A, 40A, 50A, 63A" },
+    { label: "Rated Voltage", value: "120V / 230V / 400V AC" },
+    { label: "Breaking Capacity", value: "4.5 kA, 6 kA, 10 kA" },
+    { label: "Trip Curve", value: "B, C, D" },
+    { label: "Housing Material", value: "Flame-Retardant Thermoplastic" },
+    { label: "Mechanical Life", value: "20,000 operations" },
+    { label: "Electrical Life", value: "10,000 operations" },
+    { label: "Mounting", value: "DIN-rail 35mm" },
+    { label: "Certification", value: "CE, RoHS, IEC 60898-1" },
+    { label: "Contact Material", value: "High-Conductivity Copper Alloy" },
+  ],
+  SPD: [
+    { label: "Type", value: "Type 1 / Type 2 / Type 1+2" },
+    { label: "Max Continuous Voltage Uc", value: "275V / 385V / 440V AC" },
+    { label: "Nominal Discharge Current In", value: "20 kA (8/20μs)" },
+    { label: "Max Discharge Current Imax", value: "40 kA (8/20μs)" },
+    { label: "Voltage Protection Level Up", value: "≤ 1.5 kV" },
+    { label: "Response Time", value: "≤ 25 ns" },
+    { label: "Indicator", value: "Visual status window" },
+    { label: "Mounting", value: "DIN-rail 35mm" },
+    { label: "Certification", value: "CE, RoHS, IEC 61643-11" },
+  ],
+  ATS: [
+    { label: "Poles", value: "2P / 3P / 4P" },
+    { label: "Rated Current", value: "16A – 125A" },
+    { label: "Rated Voltage", value: "230V / 400V AC" },
+    { label: "Transfer Time", value: "≤ 0.4 s" },
+    { label: "Mechanical Life", value: "8,000 operations" },
+    { label: "Electrical Life", value: "2,000 operations" },
+    { label: "Mounting", value: "DIN-rail 35mm" },
+    { label: "Certification", value: "CE, IEC 60947-6-1" },
+  ],
+  "Combiner Box": [
+    { label: "Enclosure", value: "Plastic / Metal" },
+    { label: "Protection Rating", value: "IP65" },
+    { label: "Inputs", value: "2 / 4 / 6 / 8 / 12 / 16 strings" },
+    { label: "Max DC Voltage", value: "1000V / 1500V DC" },
+    { label: "Internal Components", value: "DC fuse, DC SPD, DC breaker" },
+    { label: "Operating Temperature", value: "-25°C to +60°C" },
+    { label: "Mounting", value: "Wall mount" },
+    { label: "Certification", value: "CE, IEC 61439" },
+  ],
+  "Voltage Protector": [
+    { label: "Phase", value: "Single phase / Three phase" },
+    { label: "Rated Voltage", value: "230V / 400V AC" },
+    { label: "Over Voltage Trip", value: "Adjustable, 245V – 280V" },
+    { label: "Under Voltage Trip", value: "Adjustable, 150V – 210V" },
+    { label: "Reconnection Delay", value: "Adjustable, 5s – 600s" },
+    { label: "Response Time", value: "< 200 ms" },
+    { label: "Mounting", value: "DIN-rail 35mm" },
+    { label: "Certification", value: "CE, RoHS" },
+  ],
+  "Energy Meter": [
+    { label: "Phase", value: "Single phase / Three phase" },
+    { label: "Rated Voltage", value: "230V / 400V AC" },
+    { label: "Rated Current", value: "5(80)A direct / CT operated" },
+    { label: "Accuracy Class", value: "Class 1 (active energy)" },
+    { label: "Display", value: "LCD digital display" },
+    { label: "Communication", value: "Pulse output / RS485 Modbus (optional)" },
+    { label: "Mounting", value: "DIN-rail 35mm" },
+    { label: "Certification", value: "CE, IEC 62052/62053" },
+  ],
+};
+
+export function getProductTechnicalSpecs(product: Product) {
+  if (product.technicalSpecs && product.technicalSpecs.length > 0) return product.technicalSpecs;
+  return defaultTechnicalSpecsByCategory[product.parentCategory] ?? [];
+}
+
+export function getProductGallery(product: Product): string[] {
+  const fallback = [product.image, product.image, product.image];
+  if (!product.gallery || product.gallery.length === 0) return fallback;
+  const list = [...product.gallery];
+  while (list.length < 3) list.push(product.image);
+  return list.slice(0, 3);
+}
+
+export function getRelatedProducts(product: Product, limit = 8): Product[] {
+  const sameSub = product.subCategorySlug
+    ? products.filter((p) => p.subCategorySlug === product.subCategorySlug && p.slug !== product.slug)
+    : [];
+  const sameCategory = products.filter(
+    (p) => p.parentCategory === product.parentCategory && p.slug !== product.slug && !sameSub.includes(p),
+  );
+  return [...sameSub, ...sameCategory].slice(0, limit);
 }

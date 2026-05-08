@@ -3,7 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { InquiryModal } from "@/components/InquiryModal";
-import { findProduct, categorySlugMap, products, site, subCategoryBySlug } from "@/data/site";
+import { ProductGallery } from "@/components/ProductGallery";
+import {
+  findProduct,
+  categorySlugMap,
+  getProductGallery,
+  getProductTechnicalSpecs,
+  getRelatedProducts,
+  products,
+  site,
+  subCategoryBySlug,
+} from "@/data/site";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -39,14 +49,17 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const categorySlug = categorySlugMap[product.parentCategory];
   const subCat = product.subCategorySlug ? subCategoryBySlug[product.subCategorySlug] : undefined;
-  const backHref = subCat ? `/products/category/${categorySlug}/${subCat.slug}` : `/products/category/${categorySlug}`;
-  const backLabel = subCat ? subCat.label : product.parentCategory;
+
+  const gallery = getProductGallery(product);
+  const technicalSpecs = getProductTechnicalSpecs(product);
+  const related = getRelatedProducts(product, 8);
+  const relatedScopeLabel = subCat ? subCat.label : product.parentCategory;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    image: `${site.url}${product.image}`,
+    image: gallery.map((src) => `${site.url}${src}`),
     description: product.description,
     brand: { "@type": "Brand", name: site.name },
     manufacturer: { "@type": "Organization", name: site.name, url: site.url },
@@ -70,32 +83,91 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <span aria-hidden="true">/</span>
         <span className="current">{product.name}</span>
       </nav>
-      <section className="section detail-hero">
-        <div className="detail-visual">
-          <Image src={product.image} alt={product.name} width={360} height={390} priority />
-        </div>
-        <div>
+
+      <section className="section product-detail-hero">
+        <ProductGallery images={gallery} alt={product.name} />
+        <div className="product-detail-info">
           <p className="eyebrow">{product.category}{subCat ? ` / ${subCat.label}` : ""}</p>
-          <h1>{product.name} for {product.application}</h1>
-          <p className="detail-copy">{product.description}</p>
-          <ul className="spec-list">
-            {product.specs.map((spec) => (
-              <li key={spec}>{spec}</li>
-            ))}
-          </ul>
+          <h1>{product.name}</h1>
+          <p className="product-detail-description">{product.description}</p>
+          <div className="product-detail-features">
+            <h2 className="features-heading">Key Features</h2>
+            <ul>
+              {product.specs.map((spec) => (
+                <li key={spec}>{spec}</li>
+              ))}
+            </ul>
+          </div>
           <div className="button-row">
             <InquiryModal
-              triggerLabel="Request Quote"
+              triggerLabel="Request Quotation"
               triggerClassName="btn primary"
               product={product.name}
               intent="quote"
             />
-            <Link className="btn ghost dark" href={backHref}>
-              Back to {backLabel}
-            </Link>
+            <InquiryModal
+              triggerLabel="Ask Technical Question"
+              triggerClassName="btn ghost dark"
+              product={product.name}
+              intent="technical"
+              title="Ask Technical Question"
+            />
           </div>
         </div>
       </section>
+
+      {technicalSpecs.length > 0 && (
+        <section className="section product-spec-section">
+          <h2 className="product-spec-title">Technical Specifications</h2>
+          <div className="product-spec-table-wrap">
+            <table className="product-spec-table">
+              <tbody>
+                {technicalSpecs.map((row) => (
+                  <tr key={row.label}>
+                    <th scope="row">{row.label}</th>
+                    <td>{row.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {related.length > 0 && (
+        <section className="section product-related-section">
+          <div className="product-related-head">
+            <h2 className="product-related-title">More in {relatedScopeLabel}</h2>
+            <Link
+              className="text-link"
+              href={
+                subCat
+                  ? `/products/category/${categorySlug}/${subCat.slug}`
+                  : `/products/category/${categorySlug}`
+              }
+            >
+              View all
+            </Link>
+          </div>
+          <div className="product-related-grid">
+            {related.map((item) => (
+              <Link
+                key={item.slug}
+                className="product-related-card"
+                href={`/products/${item.slug}`}
+              >
+                <div className="product-related-image">
+                  <Image src={item.image} alt={item.name} width={220} height={220} />
+                </div>
+                <div className="product-related-body">
+                  <h3>{item.name}</h3>
+                  <p>{item.application}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
