@@ -930,17 +930,21 @@ textarea {
 }
 
 .detail-visual {
-  display: grid;
-  place-items: center;
-  min-height: 380px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   background: var(--wash);
   border: 1px solid var(--line);
   border-radius: 8px;
+  padding: 14px;
+  overflow: hidden;
 }
 
 .detail-visual img {
-  width: min(330px, 78%);
+  width: 100%;
+  max-width: 100%;
   height: auto;
+  display: block;
   object-fit: contain;
 }
 
