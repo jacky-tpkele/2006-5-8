@@ -926,24 +926,25 @@ textarea {
   display: grid;
   grid-template-columns: minmax(280px, 0.84fr) minmax(320px, 1fr);
   gap: clamp(28px, 6vw, 70px);
-  align-items: center;
+  align-items: stretch;
 }
 
 .detail-visual {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  position: relative;
   background: var(--wash);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px;
   overflow: hidden;
+  min-height: 320px;
 }
 
 .detail-visual img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+  position: absolute;
+  inset: 14px;
+  width: calc(100% - 28px);
+  height: calc(100% - 28px);
+  max-width: none;
   display: block;
   object-fit: contain;
 }
