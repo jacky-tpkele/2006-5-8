@@ -726,6 +726,63 @@ export function getProductTechnicalSpecs(product: Product) {
   return defaultTechnicalSpecsByCategory[product.parentCategory] ?? [];
 }
 
+const extraKeyFeaturesByCategory: Record<ProductCategory, string[]> = {
+  MCB: [
+    "CE & RoHS certified – accepted in EU, UK, and global markets",
+    "High-conductivity copper alloy contacts – 20,000 mechanical operations rated",
+    "Flame-retardant thermoplastic housing for fire safety",
+    "ISO 9001 certified manufacturing facility",
+    "Stable lead time and project quantity supply support",
+  ],
+  SPD: [
+    "Pluggable module design for fast field replacement",
+    "Visual status window for easy maintenance inspection",
+    "CE, RoHS and IEC 61643 compliant for global projects",
+    "Suitable for AC distribution, telecom and PV combiner protection",
+    "ISO 9001 certified manufacturing facility",
+  ],
+  ATS: [
+    "Mechanical and electrical interlock for safe transfer",
+    "Compatible with mains plus diesel generator setups",
+    "DIN-rail mount fits standard low voltage distribution boards",
+    "CE and IEC 60947-6-1 compliant",
+    "ISO 9001 certified manufacturing facility",
+  ],
+  "Combiner Box": [
+    "IP65 weather-rated enclosure for outdoor PV sites",
+    "Pre-assembled with DC SPD, DC fuse and DC breaker",
+    "Configurable string inputs for residential to utility-scale projects",
+    "Custom labelling and wiring layout supported",
+    "ISO 9001 certified manufacturing facility",
+  ],
+  "Voltage Protector": [
+    "Automatic disconnect on over voltage and under voltage",
+    "Auto reconnection with adjustable delay",
+    "Protects refrigerators, AC, electronics and sensitive loads",
+    "CE and RoHS compliant",
+    "ISO 9001 certified manufacturing facility",
+  ],
+  "Energy Meter": [
+    "Class 1 active energy accuracy",
+    "Pulse output and RS485 Modbus options for monitoring",
+    "Suitable for sub-metering, tenant billing and energy management",
+    "Direct connect and CT operated versions",
+    "ISO 9001 certified manufacturing facility",
+  ],
+};
+
+export function getProductKeyFeatures(product: Product, target = 7): string[] {
+  const own = product.specs ?? [];
+  if (own.length >= target) return own.slice(0, target);
+  const extras = extraKeyFeaturesByCategory[product.parentCategory] ?? [];
+  const merged = [...own];
+  for (const item of extras) {
+    if (merged.length >= target) break;
+    if (!merged.includes(item)) merged.push(item);
+  }
+  return merged.slice(0, target);
+}
+
 export function getProductGallery(product: Product): string[] {
   const fallback = [product.image, product.image, product.image];
   if (!product.gallery || product.gallery.length === 0) return fallback;

@@ -8,6 +8,7 @@ import {
   findProduct,
   categorySlugMap,
   getProductGallery,
+  getProductKeyFeatures,
   getProductTechnicalSpecs,
   getRelatedProducts,
   products,
@@ -51,6 +52,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const subCat = product.subCategorySlug ? subCategoryBySlug[product.subCategorySlug] : undefined;
 
   const gallery = getProductGallery(product);
+  const keyFeatures = getProductKeyFeatures(product, 7);
   const technicalSpecs = getProductTechnicalSpecs(product);
   const related = getRelatedProducts(product, 8);
   const relatedScopeLabel = subCat ? subCat.label : product.parentCategory;
@@ -93,7 +95,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <div className="product-detail-features">
             <h2 className="features-heading">Key Features</h2>
             <ul>
-              {product.specs.map((spec) => (
+              {keyFeatures.map((spec) => (
                 <li key={spec}>{spec}</li>
               ))}
             </ul>
