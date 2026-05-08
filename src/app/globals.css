@@ -926,25 +926,22 @@ textarea {
   display: grid;
   grid-template-columns: minmax(280px, 0.84fr) minmax(320px, 1fr);
   gap: clamp(28px, 6vw, 70px);
-  align-items: stretch;
+  align-items: start;
 }
 
 .detail-visual {
-  position: relative;
   background: var(--wash);
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 14px;
+  padding: 10px;
   overflow: hidden;
-  min-height: 320px;
+  display: block;
 }
 
 .detail-visual img {
-  position: absolute;
-  inset: 14px;
-  width: calc(100% - 28px);
-  height: calc(100% - 28px);
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
   object-fit: contain;
 }
@@ -1729,9 +1726,10 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
-  padding: 18px 18px 14px;
+  padding: 10px;
+  gap: 10px;
   min-height: 0;
 }
 
@@ -1759,9 +1757,10 @@ textarea {
 
 .product-gallery-thumbs {
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  padding-top: 12px;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+  align-self: stretch;
 }
 
 .product-gallery-thumb {
@@ -1770,12 +1769,13 @@ textarea {
   border-radius: 6px;
   padding: 4px;
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  flex-shrink: 0;
 }
 
 .product-gallery-thumb img {

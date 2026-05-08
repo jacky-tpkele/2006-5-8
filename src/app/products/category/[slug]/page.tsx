@@ -90,7 +90,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <h1>{content.hero}</h1>
           <p className="detail-copy">{content.intro}</p>
           <ul className="spec-list">
-            {content.bullets.map((b) => (
+            {content.bullets.slice(0, 2).map((b) => (
               <li key={b}>{b}</li>
             ))}
           </ul>

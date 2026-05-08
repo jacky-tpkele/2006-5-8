@@ -52,7 +52,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const subCat = product.subCategorySlug ? subCategoryBySlug[product.subCategorySlug] : undefined;
 
   const gallery = getProductGallery(product);
-  const keyFeatures = getProductKeyFeatures(product, 7);
+  const keyFeatures = getProductKeyFeatures(product, 5);
   const technicalSpecs = getProductTechnicalSpecs(product);
   const related = getRelatedProducts(product, 8);
   const relatedScopeLabel = subCat ? subCat.label : product.parentCategory;
