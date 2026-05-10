@@ -117,12 +117,12 @@ export const site = {
 };
 
 export const certifications = [
-  { code: "CE", label: "CE Marking", note: "EU low voltage & EMC directives" },
-  { code: "RoHS", label: "RoHS", note: "Restricted hazardous substances" },
-  { code: "IEC", label: "IEC Standards", note: "60898 / 60947 / 61643 / 62052" },
-  { code: "ISO", label: "ISO 9001", note: "Quality management system" },
-  { code: "TUV", label: "TUV Tested", note: "Independent lab verification" },
-  { code: "CB", label: "CB Scheme", note: "Globally recognized test report" },
+  { code: "CE", icon: "/assets/certs/ce.png" },
+  { code: "RoHS", icon: "/assets/certs/rohs.png" },
+  { code: "IEC", icon: "/assets/certs/iec.png" },
+  { code: "ISO", icon: "/assets/certs/iso.png" },
+  { code: "TUV", icon: "/assets/certs/tuv.png" },
+  { code: "CB", icon: "/assets/certs/cb.png" },
 ];
 
 export const exportMarkets = [
