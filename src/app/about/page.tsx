@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
 import { certifications, exportMarkets, oemCapabilities } from "@/data/site";
@@ -55,7 +56,9 @@ export default function AboutPage() {
         <div className="cert-row">
           {certifications.map((cert) => (
             <div className="cert-chip" key={cert.code}>
-              <Image src={cert.icon} alt={`${cert.code} certification`} width={136} height={136} />
+              <CertIcon code={cert.code} className="cert-chip-icon" />
+              <strong>{cert.label}</strong>
+              <span>{cert.description}</span>
             </div>
           ))}
         </div>

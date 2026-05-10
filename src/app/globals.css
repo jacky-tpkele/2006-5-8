@@ -2776,17 +2776,36 @@ textarea {
   flex: 1 1 0;
   min-width: 160px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 22px 16px;
+  text-align: center;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
 }
-.cert-chip img {
-  width: 136px;
-  height: 136px;
-  object-fit: contain;
+.cert-chip-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--green);
+  flex-shrink: 0;
+}
+.cert-chip strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+.cert-chip span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 /* Buyer segment grid */
