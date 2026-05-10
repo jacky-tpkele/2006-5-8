@@ -2766,33 +2766,27 @@ textarea {
   line-height: 1.2;
 }
 .cert-row {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .cert-chip {
+  flex: 1 1 0;
+  min-width: 120px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 16px 12px;
-  text-align: center;
+  padding: 18px;
   background: var(--wash);
   border: 1px solid var(--line);
   border-radius: 8px;
 }
 .cert-chip img {
-  width: 56px;
-  height: 56px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-}
-.cert-chip strong {
-  display: block;
-  color: var(--green);
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
 }
 
 /* Buyer segment grid */
@@ -3046,13 +3040,11 @@ textarea {
 }
 
 @media (max-width: 1024px) {
-  .cert-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .segment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .market-band .market-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .oem-band { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .cert-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .segment-grid { grid-template-columns: 1fr; }
   .market-band .market-grid { grid-template-columns: 1fr; }
   .inline-cta-card { grid-template-columns: 1fr; }

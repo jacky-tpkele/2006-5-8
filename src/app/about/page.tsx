@@ -55,8 +55,7 @@ export default function AboutPage() {
         <div className="cert-row">
           {certifications.map((cert) => (
             <div className="cert-chip" key={cert.code}>
-              <Image src={cert.icon} alt={`${cert.code} certification`} width={64} height={64} />
-              <strong>{cert.code}</strong>
+              <Image src={cert.icon} alt={`${cert.code} certification`} width={80} height={80} />
             </div>
           ))}
         </div>
