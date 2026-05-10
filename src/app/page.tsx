@@ -169,13 +169,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="hero-banner-visual" aria-hidden="true">
+            <div className="hero-banner-visual">
               <Image
                 src="/assets/hero.png"
-                alt=""
-                width={1200}
-                height={900}
+                alt="TPKELE Solar DC and Low Voltage Protection — solar PV panels with city skyline"
+                width={1537}
+                height={1023}
                 priority
+                sizes="(max-width: 1024px) 100vw, 720px"
                 className="hero-panel-img"
               />
             </div>
