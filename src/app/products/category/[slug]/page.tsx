@@ -90,20 +90,34 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <h1>{content.hero}</h1>
           <p className="detail-copy">{content.intro}</p>
           <ul className="spec-list">
-            {content.bullets.slice(0, 2).map((b) => (
+            {content.bullets.slice(0, 3).map((b) => (
               <li key={b}>{b}</li>
             ))}
           </ul>
-          <div className="button-row">
+          {content.applications && content.applications.length > 0 && (
+            <div className="app-pill-row" aria-label="Typical applications">
+              {content.applications.slice(0, 5).map((a) => (
+                <span className="app-pill" key={a}>{a}</span>
+              ))}
+            </div>
+          )}
+          {content.buyerPersona && (
+            <div className="persona-note">{content.buyerPersona}</div>
+          )}
+          <div className="button-row" style={{ marginTop: 22 }}>
             <InquiryModal
-              triggerLabel="Request Quote"
+              triggerLabel="Request Quote & Datasheet"
               triggerClassName="btn primary"
               product={category}
               intent="quote"
             />
-            <Link className="btn ghost dark" href="/products">
-              All Categories
-            </Link>
+            <InquiryModal
+              triggerLabel="Download Catalog"
+              triggerClassName="btn ghost dark"
+              product={category}
+              intent="catalog"
+              title="Request Catalog"
+            />
           </div>
         </div>
         {heroImage && (

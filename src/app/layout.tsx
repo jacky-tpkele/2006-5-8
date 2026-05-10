@@ -7,18 +7,38 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "TPKELE | Low Voltage Power Solutions",
+    default: "TPKELE | Solar & Low Voltage Electrical Protection Manufacturer",
     template: "%s | TPKELE",
   },
   description: site.description,
-  keywords: ["low voltage products", "MCB", "SPD", "ATS", "combiner box", "DIN rail energy meter", "OEM ODM electrical manufacturer"],
+  keywords: [
+    "DC MCB",
+    "AC MCB",
+    "DC SPD",
+    "AC SPD",
+    "PV combiner box",
+    "solar circuit breaker",
+    "surge protective device",
+    "automatic transfer switch",
+    "voltage protector",
+    "DIN rail energy meter",
+    "low voltage electrical manufacturer",
+    "solar protection OEM",
+  ],
+  alternates: { canonical: site.url },
   openGraph: {
-    title: "TPKELE | Low Voltage Power Solutions",
+    title: "TPKELE | Solar & Low Voltage Electrical Protection Manufacturer",
     description: site.description,
     url: site.url,
     siteName: site.name,
-    images: [{ url: "/assets/hero-products.webp", width: 900, height: 520, alt: "TPKELE low voltage product family" }],
+    images: [{ url: "/assets/hero-products.webp", width: 900, height: 520, alt: "TPKELE solar and low voltage protection products" }],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TPKELE | Solar & Low Voltage Electrical Protection Manufacturer",
+    description: site.description,
+    images: ["/assets/hero-products.webp"],
   },
 };
 

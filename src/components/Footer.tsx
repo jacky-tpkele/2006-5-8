@@ -11,7 +11,7 @@ export function Footer() {
             <Link className="brand footer-brand" href="/">
               {site.name}
             </Link>
-            <p>Manufacturer of low voltage electrical products for global distribution and project customers.</p>
+            <p>{site.tagline}. CE / IEC / RoHS certified — exporting to 100+ countries across Europe, the Middle East, Southeast Asia and South America.</p>
             <div className="social-row" aria-label="Social links">
               <a href="#" aria-label="Facebook">
                 f

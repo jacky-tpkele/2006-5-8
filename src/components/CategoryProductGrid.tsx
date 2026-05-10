@@ -67,7 +67,7 @@ export function CategoryProductGrid({
           {subs.map((s) => (
             <Link key={s.slug} className="sub-card" href={`/products/category/${categorySlug}/${s.slug}`}>
               <div className="sub-card-image">
-                {s.image && <Image src={s.image} alt={s.label} width={220} height={220} />}
+                {s.image && <Image src={s.image} alt={s.label} width={320} height={320} />}
               </div>
               <div className="sub-card-body">
                 <h3>{s.label}</h3>

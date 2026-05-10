@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-import { categorySlugMap, products, site, subCategories } from "@/data/site";
+import { blogPosts, categorySlugMap, products, site, subCategories } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/products", "/blog", "/contact"].map((path) => ({
+  const staticRoutes = ["", "/about", "/products", "/solar-dc-protection", "/blog", "/contact"].map((path) => ({
     url: `${site.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
@@ -30,5 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...subCategoryRoutes, ...productRoutes];
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${site.url}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...categoryRoutes, ...subCategoryRoutes, ...productRoutes, ...blogRoutes];
 }

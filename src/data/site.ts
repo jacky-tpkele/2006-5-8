@@ -13,6 +13,7 @@ export type ProductFamily = {
   category: ProductCategory;
   image: string;
   summary: string;
+  description: string;
 };
 
 export type Product = ProductFamily & {
@@ -44,25 +45,49 @@ export const subCategories: SubCategory[] = [
     slug: "ac-mcb",
     label: "AC MCB",
     parent: "MCB",
-    hero: "AC Miniature Circuit Breakers (1P–4P)",
+    hero: "AC Miniature Circuit Breakers (1P–4P) for Low Voltage Distribution",
     intro:
-      "TPKELE AC MCBs cover branch circuit protection for low voltage AC distribution systems in residential, commercial and industrial buildings. Available in 1P, 2P, 3P and 4P configurations with multiple current ratings and curve types.",
-    seoTitle: "AC MCB Manufacturer | 1P 2P 3P 4P AC Circuit Breakers",
+      "TPKELE AC MCBs deliver overload and short-circuit protection for residential, commercial and industrial AC distribution boards. Engineered to IEC 60898-1 with 6kA / 10kA breaking capacity, B/C/D trip curves and 1P–4P pole configurations, they suit panel builders, electrical distributors and EPC contractors who need a reliable, certified AC branch protection device.",
+    seoTitle: "AC MCB Manufacturer | 1P 2P 3P 4P AC Miniature Circuit Breaker",
     seoDescription:
-      "TPKELE AC MCB series covers 1P, 2P, 3P and 4P AC miniature circuit breakers for distribution boards, residential and commercial branch protection.",
-    seoKeywords: ["AC MCB", "1P MCB", "2P MCB", "3P MCB", "4P MCB", "AC circuit breaker"],
+      "TPKELE AC MCB factory: 1P/2P/3P/4P AC miniature circuit breakers, 6A–63A, 6/10kA, B/C/D curves, IEC 60898-1, CE & RoHS. OEM & project supply for distributors and panel builders.",
+    seoKeywords: ["AC MCB", "AC miniature circuit breaker", "1P AC MCB", "2P AC MCB", "3P AC MCB", "4P AC MCB", "AC circuit breaker manufacturer", "IEC 60898 MCB", "C curve MCB"],
   },
   {
     slug: "dc-mcb",
     label: "DC MCB",
     parent: "MCB",
-    hero: "DC Miniature Circuit Breakers (1P–4P) for Solar & Battery",
+    hero: "DC Miniature Circuit Breakers for Solar PV & Battery Storage",
     intro:
-      "TPKELE DC MCBs are engineered for direct current circuit protection in photovoltaic strings, battery banks and DC distribution panels. Specialized arc-quenching contacts handle DC arc breaking up to high system voltages, with 1P, 2P, 3P and 4P pole options.",
-    seoTitle: "DC MCB Manufacturer | 1P 2P 3P 4P DC Circuit Breakers",
+      "TPKELE DC MCBs are purpose-built for photovoltaic strings, battery energy storage and DC bus protection. Special arc-quenching contacts safely break DC arcs up to 1000V/1500V system voltages. 1P, 2P, 3P and 4P pole configurations support residential rooftop to utility-scale PV — the right DC circuit breaker for solar EPCs, combiner box assemblers and BESS integrators.",
+    seoTitle: "DC MCB Manufacturer | Solar PV DC Circuit Breaker 1000V 1500V",
     seoDescription:
-      "TPKELE DC MCB series covers 1P, 2P, 3P and 4P DC miniature circuit breakers for PV strings, battery and DC distribution applications.",
-    seoKeywords: ["DC MCB", "DC 1P MCB", "PV DC breaker", "solar DC breaker", "battery DC MCB"],
+      "TPKELE DC MCB factory for solar PV, battery and DC distribution. 1P–4P, up to 1500V DC, 6A–63A, IEC 60947-2 design, CE & RoHS, OEM ready. Solar circuit breaker built for EPCs and panel builders.",
+    seoKeywords: ["DC MCB", "solar circuit breaker", "PV DC breaker", "1000V DC MCB", "1500V DC MCB", "battery DC breaker", "DC miniature circuit breaker manufacturer", "photovoltaic DC breaker"],
+  },
+  {
+    slug: "ac-spd",
+    label: "AC SPD",
+    parent: "SPD",
+    hero: "AC Surge Protective Devices — Type 1, Type 2, Type 1+2",
+    intro:
+      "TPKELE AC SPDs protect low voltage distribution boards, telecom cabinets and inverter AC outputs against lightning surges and switching transients. Available as Type 1, Type 2 and Type 1+2 modules with pluggable cartridges, visual status indicators and remote signaling — compliant with IEC 61643-11 for European, Middle East and Southeast Asian project tenders.",
+    seoTitle: "AC SPD Manufacturer | Type 1 Type 2 AC Surge Protector 230V 400V",
+    seoDescription:
+      "TPKELE AC SPD factory: Type 1, Type 2, Type 1+2 AC surge protective devices for distribution panels, inverter AC output and telecom. 20kA / 40kA, IEC 61643-11, CE & RoHS, OEM ready.",
+    seoKeywords: ["AC SPD", "AC surge protector", "Type 1 SPD", "Type 2 SPD", "Type 1+2 SPD", "230V SPD", "400V SPD", "IEC 61643 SPD", "AC surge protective device manufacturer"],
+  },
+  {
+    slug: "dc-spd",
+    label: "DC SPD",
+    parent: "SPD",
+    hero: "DC Surge Protective Devices for Solar PV — 600V / 1000V / 1500V",
+    intro:
+      "TPKELE DC SPDs protect photovoltaic systems and DC distribution against lightning-induced surges. Designed for PV string inputs, DC combiner boxes and inverter DC sides, they support Uoc up to 1500V DC with Type 1+2 / Type 2 protection levels and clear visual status windows. The trusted PV surge protector for solar EPCs, distributors and OEM buyers worldwide.",
+    seoTitle: "DC SPD Manufacturer | PV Solar Surge Protector 1000V 1500V",
+    seoDescription:
+      "TPKELE DC SPD factory: Type 1+2 and Type 2 DC surge protective devices for solar PV, 600V/1000V/1500V Uoc, 20kA/40kA, IEC 61643-31, CE & RoHS. PV surge protector built for solar projects.",
+    seoKeywords: ["DC SPD", "PV SPD", "solar SPD", "1500V DC SPD", "1000V DC SPD", "PV surge protector", "photovoltaic surge protective device", "solar surge arrester", "Type 1+2 DC SPD"],
   },
 ];
 
@@ -81,14 +106,81 @@ export type ProductMenuGroup = {
 
 export const site = {
   name: "TPKELE",
+  tagline: "Solar & Low Voltage Electrical Protection Manufacturer",
   url: "https://www.tpkele.com",
   description:
-    "TPKELE manufactures low voltage electrical protection products including MCB, SPD, ATS, combiner boxes and DIN rail energy meters.",
+    "TPKELE is a Solar & Low Voltage Electrical Protection Manufacturer producing DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS, voltage protectors and DIN rail energy meters for solar EPCs, electrical distributors, OEM buyers and panel builders worldwide.",
   phone: "+86 15067704501",
   whatsapp: "8615067704501",
   email: "jacky@tpkele.com",
   address: "Zhijiang, Wenzhou, Zhejiang, China",
 };
+
+export const certifications = [
+  { code: "CE", label: "CE Marking", note: "EU low voltage & EMC directives" },
+  { code: "RoHS", label: "RoHS", note: "Restricted hazardous substances" },
+  { code: "IEC", label: "IEC Standards", note: "60898 / 60947 / 61643 / 62052" },
+  { code: "ISO", label: "ISO 9001", note: "Quality management system" },
+  { code: "TUV", label: "TUV Tested", note: "Independent lab verification" },
+  { code: "CB", label: "CB Scheme", note: "Globally recognized test report" },
+];
+
+export const exportMarkets = [
+  { region: "Europe", countries: "Germany, Spain, Italy, Netherlands, Poland, UK" },
+  { region: "Middle East", countries: "UAE, Saudi Arabia, Jordan, Egypt, Turkey" },
+  { region: "Southeast Asia", countries: "Vietnam, Philippines, Thailand, Indonesia, Malaysia" },
+  { region: "South America", countries: "Brazil, Chile, Colombia, Peru, Mexico" },
+  { region: "Africa", countries: "South Africa, Nigeria, Kenya, Morocco" },
+  { region: "Oceania", countries: "Australia, New Zealand" },
+];
+
+export const buyerSegments = [
+  {
+    title: "Solar EPC Companies",
+    icon: "PV",
+    text: "PV combiner boxes, DC SPDs, DC MCBs and metering for utility, C&I and rooftop solar projects.",
+    cta: "Solar protection bundle",
+  },
+  {
+    title: "Electrical Distributors",
+    icon: "DS",
+    text: "Catalog-ready MCB, SPD and ATS lines with stable lead time, OEM labeling and color options.",
+    cta: "Distributor pricing",
+  },
+  {
+    title: "OEM / ODM Buyers",
+    icon: "OE",
+    text: "Logo, color, packaging and certificate documentation tailored to your brand program.",
+    cta: "OEM proposal",
+  },
+  {
+    title: "Panel Builders",
+    icon: "PB",
+    text: "DIN-rail components specified by current rating, breaking capacity and curve for switchboard projects.",
+    cta: "Component selection",
+  },
+  {
+    title: "Industrial Contractors",
+    icon: "IC",
+    text: "Voltage protectors, ATS and SPDs for factory, infrastructure and process power continuity.",
+    cta: "Project package",
+  },
+  {
+    title: "Importers",
+    icon: "IM",
+    text: "Container-load supply with CE/IEC certificates, export packaging and reliable shipping documentation.",
+    cta: "Container quote",
+  },
+];
+
+export const oemCapabilities = [
+  "Custom logo printing on housing and packaging",
+  "Color housing variants for product line differentiation",
+  "Private-label catalogs and datasheet customization",
+  "Project-spec drawings, single-line diagrams and labels",
+  "Container-load supply with export documentation",
+  "Sample preparation within 5–10 working days",
+];
 
 export const navItems = [
   { label: "Home", href: "/" },
@@ -105,7 +197,9 @@ export const productFamilies: ProductFamily[] = [
     shortName: "MCB",
     category: "MCB",
     image: "/assets/home-products-normalized/mcb.webp",
-    summary: "Overload and short circuit protection",
+    summary: "AC & DC miniature circuit breakers, 1P–4P, 6–63A",
+    description:
+      "TPKELE supplies miniature circuit breakers (MCBs) for AC distribution boards, DC photovoltaic systems and battery energy storage.",
   },
   {
     slug: "spd",
@@ -113,15 +207,9 @@ export const productFamilies: ProductFamily[] = [
     shortName: "SPD",
     category: "SPD",
     image: "/assets/home-products-normalized/spd.webp",
-    summary: "Lightning and surge protection",
-  },
-  {
-    slug: "over-voltage-protector",
-    name: "Voltage Protector",
-    shortName: "OVP",
-    category: "Voltage Protector",
-    image: "/assets/home-products-normalized/over-voltage-protector.webp",
-    summary: "Voltage monitoring and protection",
+    summary: "AC & DC surge protectors, Type 1/2, up to 1500V",
+    description:
+      "TPKELE surge protective devices (SPDs) safeguard low voltage equipment from lightning strikes and switching transients.",
   },
   {
     slug: "ats",
@@ -129,15 +217,29 @@ export const productFamilies: ProductFamily[] = [
     shortName: "ATS",
     category: "ATS",
     image: "/assets/home-products-normalized/ats.webp",
-    summary: "Automatic power transfer",
+    summary: "Automatic transfer switch, 16–125A, 2/3/4P",
+    description:
+      "TPKELE automatic transfer switches (ATS) move critical loads between primary and backup power sources within milliseconds.",
   },
   {
     slug: "combiner-box",
     name: "Combiner Box",
-    shortName: "Combiner Box",
+    shortName: "PV Combiner",
     category: "Combiner Box",
     image: "/assets/home-products-normalized/combiner-box.webp",
-    summary: "PV protection and wiring",
+    summary: "Solar string combiner — IP65, 1000V/1500V",
+    description:
+      "TPKELE PV combiner boxes aggregate solar strings and bring DC fuses, DC SPDs and DC breakers into one IP-rated enclosure.",
+  },
+  {
+    slug: "over-voltage-protector",
+    name: "Voltage Protector",
+    shortName: "OVP",
+    category: "Voltage Protector",
+    image: "/assets/home-products-normalized/over-voltage-protector.webp",
+    summary: "Over / under voltage and phase-loss protection",
+    description:
+      "TPKELE voltage protectors monitor incoming mains voltage and disconnect downstream loads when the line moves outside safe limits.",
   },
   {
     slug: "din-rail-energy-meter",
@@ -145,7 +247,9 @@ export const productFamilies: ProductFamily[] = [
     shortName: "DIN Meter",
     category: "Energy Meter",
     image: "/assets/home-products-normalized/din-rail-energy-meter.webp",
-    summary: "Smart metering and monitoring",
+    summary: "DIN-rail kWh meters with Modbus / pulse output",
+    description:
+      "TPKELE DIN rail energy meters measure active energy, current and voltage for distribution boards, sub-metering and tenant billing.",
   },
 ];
 
@@ -296,13 +400,14 @@ export const products: Product[] = [
     shortName: "AC SPD",
     category: "SPD",
     parentCategory: "SPD",
+    subCategorySlug: "ac-spd",
     series: "AC SPD",
     application: "AC surge protection",
     image: "/assets/home-products-normalized/spd.webp",
-    summary: "AC surge protective device for building and distribution systems.",
-    description: "TPKELE AC SPD products help protect AC electrical equipment from lightning surge and transient overvoltage events.",
-    specs: ["AC system protection", "Visual status window", "Pluggable module design"],
-    seoKeywords: ["AC SPD", "surge protective device", "AC surge protection"],
+    summary: "Type 1 / Type 2 AC surge protective device for distribution boards.",
+    description: "TPKELE AC SPD products protect AC electrical equipment from lightning surge and switching transients. Suitable for low voltage distribution boards, telecom cabinets and inverter AC outputs, with pluggable Type 1, Type 2 and Type 1+2 modules per IEC 61643-11.",
+    specs: ["AC system protection up to 400V", "Type 1 / Type 2 / Type 1+2 modules", "Visual status window + remote signaling option", "Pluggable cartridge for fast field replacement", "20kA / 40kA Imax (8/20μs)", "IEC 61643-11, CE & RoHS compliant"],
+    seoKeywords: ["AC SPD", "AC surge protector", "Type 1 SPD", "Type 2 SPD", "230V SPD", "400V AC surge protective device"],
   },
   {
     slug: "dc-spd",
@@ -310,13 +415,14 @@ export const products: Product[] = [
     shortName: "DC SPD",
     category: "SPD",
     parentCategory: "SPD",
+    subCategorySlug: "dc-spd",
     series: "DC SPD",
     application: "PV DC surge protection",
     image: "/assets/home-products-normalized/spd.webp",
-    summary: "DC surge protective device for PV strings and solar systems.",
-    description: "TPKELE DC SPD products are used for photovoltaic DC-side surge protection in solar combiner and distribution systems.",
-    specs: ["PV DC system protection", "High surge discharge capacity options", "Modular DIN rail installation"],
-    seoKeywords: ["DC SPD", "PV surge protection", "solar SPD"],
+    summary: "PV DC surge protective device — 600V / 1000V / 1500V Uoc options.",
+    description: "TPKELE DC SPD products protect photovoltaic strings, combiner boxes and inverter DC inputs from lightning-induced surges. Available in 600V, 1000V and 1500V DC Uoc, with Type 1+2 / Type 2 protection levels and visual status windows. The PV surge protector specified by solar EPCs and combiner-box assemblers worldwide.",
+    specs: ["PV DC system protection 600V / 1000V / 1500V", "Type 1+2 / Type 2 modules for solar", "Visual status window for inspection", "Pluggable module for fast service", "20kA / 40kA Imax (8/20μs)", "IEC 61643-31, CE & RoHS compliant"],
+    seoKeywords: ["DC SPD", "PV SPD", "solar SPD", "1500V DC SPD", "1000V DC SPD", "PV surge protector", "photovoltaic surge protective device"],
   },
   {
     slug: "green-spd-series",
@@ -464,122 +570,162 @@ export type CategoryContent = {
   seoTitle: string;
   seoDescription: string;
   seoKeywords: string[];
+  applications?: string[];
+  buyerPersona?: string;
 };
 
 export const categoryContent: Record<ProductCategory, CategoryContent> = {
   MCB: {
-    hero: "Miniature Circuit Breakers for AC and DC Distribution",
+    hero: "MCB Manufacturer — AC & DC Miniature Circuit Breakers",
     intro:
-      "TPKELE supplies miniature circuit breakers (MCBs) for AC distribution boards, DC photovoltaic systems and battery energy storage. Our DZ47 and DZ47Z series cover 1P to 4P configurations, with curve types and rated currents that match standard low voltage protection projects worldwide.",
+      "TPKELE manufactures AC and DC miniature circuit breakers for low voltage distribution boards, photovoltaic strings and battery energy storage. Our DZ47 / DZ47Z series cover 1P–4P pole configurations, 6A–63A current ratings and B / C / D trip curves to IEC 60898-1, with breaking capacities up to 10kA. Trusted by solar EPCs, electrical distributors and panel builders across Europe, the Middle East, Southeast Asia and South America.",
     bullets: [
-      "AC MCB and DC MCB series for distribution and solar applications",
-      "1P / 2P / 3P / 4P pole options with multiple current ratings",
-      "Tested for overload and short circuit protection performance",
-      "OEM logo, color and packaging customization for distributors",
+      "AC MCB & DC MCB series for distribution and solar / BESS applications",
+      "1P / 2P / 3P / 4P pole configurations, 6A–63A rated currents",
+      "B / C / D trip curves, 6kA / 10kA breaking capacity",
+      "Tested to IEC 60898-1 / IEC 60947-2, CE & RoHS compliant",
+      "OEM logo, color housing and packaging customization",
+      "Stable lead time and container-load supply for distributors",
     ],
+    applications: ["Residential & commercial distribution boards", "Solar PV string protection (DC MCB)", "Battery energy storage systems (BESS)", "Industrial panel building", "Infrastructure & data center distribution"],
+    buyerPersona: "Specified by panel builders, solar EPCs and electrical distributors looking for IEC-compliant DC and AC circuit breakers with reliable lead times and OEM flexibility.",
     faq: [
-      { q: "What is the difference between AC MCB and DC MCB?", a: "AC MCBs are designed for alternating current circuits in buildings and factories. DC MCBs handle direct current arcs from PV strings, batteries and DC bus systems and use specialized contact and arc-extinguishing structures." },
-      { q: "Do you support OEM branding for MCBs?", a: "Yes. We support OEM logo printing, custom color housing and dedicated packaging for distributor and brand owner programs." },
+      { q: "What is the difference between AC MCB and DC MCB?", a: "AC MCBs are designed for alternating current circuits — the AC zero-crossing helps extinguish arcs naturally. DC MCBs handle direct current with no zero-crossing, requiring specialized arc-quenching contact structures and magnets. Solar PV strings, batteries and DC bus systems must use DC MCBs rated for the system Uoc." },
+      { q: "What system voltages do your DC MCBs cover?", a: "Standard DC MCBs cover up to 1000V DC; for utility-scale PV we offer up to 1500V DC versions using 3P / 4P series configuration." },
+      { q: "Which curve should I choose — B, C or D?", a: "B curve (3–5 In) for resistive loads, C curve (5–10 In) for general-purpose distribution and mixed loads, D curve (10–20 In) for inductive loads with high inrush currents like motors and transformers." },
+      { q: "Do you support OEM branding for MCBs?", a: "Yes — logo printing, custom housing color, dedicated packaging and private-label catalogs are supported for distributor and brand-owner programs." },
+      { q: "Do your MCBs carry CE certification?", a: "Yes, all TPKELE MCBs are CE & RoHS compliant and tested per IEC 60898-1. Test reports are available for project tenders and customs documentation." },
     ],
-    seoTitle: "MCB Manufacturer | AC & DC Miniature Circuit Breakers",
+    seoTitle: "MCB Manufacturer | AC & DC Miniature Circuit Breakers — TPKELE",
     seoDescription:
-      "TPKELE manufactures AC MCB and DC MCB miniature circuit breakers for low voltage distribution, solar and battery systems. OEM and project supply available.",
-    seoKeywords: ["MCB manufacturer", "miniature circuit breaker", "AC MCB", "DC MCB", "DZ47", "low voltage breaker"],
+      "TPKELE: MCB manufacturer of AC MCB and DC MCB miniature circuit breakers, 1P–4P, 6A–63A, B/C/D curves, IEC 60898-1, CE & RoHS. OEM and project supply for distributors, panel builders and solar EPCs.",
+    seoKeywords: ["MCB manufacturer", "miniature circuit breaker", "AC MCB", "DC MCB", "DZ47", "solar circuit breaker", "PV DC breaker", "low voltage breaker", "IEC 60898 MCB"],
   },
   SPD: {
-    hero: "Surge Protective Devices for AC, DC and Solar Systems",
+    hero: "SPD Manufacturer — AC & DC Solar Surge Protective Devices",
     intro:
-      "TPKELE surge protective devices (SPDs) safeguard low voltage equipment from lightning strikes and switching transients. Our AC SPD, DC SPD and color series cover building distribution, telecom cabinets and photovoltaic combiner protection with pluggable Type 1, Type 2 and Type 1+2 modules.",
+      "TPKELE manufactures surge protective devices (SPDs) for AC distribution and DC photovoltaic systems. Our AC SPD line covers Type 1, Type 2 and Type 1+2 protection per IEC 61643-11; our DC SPD line is built specifically for solar with 600V / 1000V / 1500V Uoc options per IEC 61643-31. Pluggable modules, visual status windows and remote signaling make field service simple — the trusted surge protector choice for solar EPCs, panel builders and distributors.",
     bullets: [
-      "AC SPD for distribution boards and commercial buildings",
-      "DC SPD up to 1500V for PV string and inverter input protection",
-      "Color housing series (green / white) for OEM and catalog programs",
-      "Visual status window and pluggable module replacement",
+      "AC SPD: Type 1 / Type 2 / Type 1+2 for distribution panels and inverters",
+      "DC SPD: 600V / 1000V / 1500V Uoc for PV combiner boxes and inverter DC sides",
+      "20kA / 40kA Imax (8/20μs), Up ≤ 1.5 kV",
+      "Pluggable cartridges for fast field replacement",
+      "Visual status window + optional remote signaling contact",
+      "IEC 61643-11 / 61643-31, CE & RoHS compliant",
     ],
+    applications: ["PV combiner boxes & inverter DC inputs", "AC distribution boards & sub-panels", "Telecom cabinets & base stations", "Inverter AC outputs & grid-tie connections", "Industrial process & data-center power"],
+    buyerPersona: "Specified by solar EPCs, distributors and OEM buyers needing IEC-compliant AC and PV DC surge protectors with visible status indication and pluggable serviceability.",
     faq: [
-      { q: "Which SPD type do I need for solar projects?", a: "PV strings and combiner boxes typically use DC SPDs rated for the system Uoc, while the AC output side uses AC Type 2 SPDs. We can recommend the right type based on your system voltage and structure." },
-      { q: "Are TPKELE SPDs CE certified?", a: "Yes, our SPDs comply with CE and IEC 61643 standard requirements. Test reports are available for project files and tenders." },
+      { q: "Which SPD type do I need for a solar PV project?", a: "PV strings, combiner boxes and inverter DC inputs require DC SPDs sized to the system Uoc (600V / 1000V / 1500V). Inverter AC outputs and the building distribution board use AC SPDs (Type 2 standard, Type 1+2 if direct lightning exposure is possible)." },
+      { q: "What is the difference between Type 1, Type 2 and Type 1+2?", a: "Type 1 (10/350μs waveform) protects against direct lightning strike currents at the building entrance. Type 2 (8/20μs) protects against induced surges downstream. Type 1+2 combines both — used at the main distribution board when a lightning protection system is present." },
+      { q: "What does Imax / In mean on an SPD?", a: "In = nominal discharge current (8/20μs) the SPD can pass repeatedly. Imax = maximum one-shot discharge current the SPD can handle once and remain functional. Choose In/Imax based on lightning exposure and project specs." },
+      { q: "Are TPKELE SPDs CE certified?", a: "Yes — all SPDs comply with CE, RoHS and IEC 61643-11 (AC) / IEC 61643-31 (DC PV). Test reports are available for project files and tenders." },
+      { q: "Do you offer SPDs with remote signaling output?", a: "Yes, selected models include a remote signaling contact (NO/NC) so you can monitor SPD health from a central control system or BMS." },
     ],
-    seoTitle: "SPD Manufacturer | AC, DC and Solar Surge Protectors",
+    seoTitle: "SPD Manufacturer | AC SPD & DC PV Surge Protector — TPKELE",
     seoDescription:
-      "TPKELE manufactures AC SPD, DC SPD and color series surge protective devices for distribution, telecom and PV systems. CE compliant and OEM ready.",
-    seoKeywords: ["SPD manufacturer", "surge protective device", "AC SPD", "DC SPD", "PV SPD", "lightning surge protection"],
+      "TPKELE: SPD manufacturer of AC surge protectors (Type 1 / 2 / 1+2) and DC PV surge protectors (600V / 1000V / 1500V). IEC 61643-11 / 31, CE & RoHS, pluggable modules. OEM-ready solar surge protection.",
+    seoKeywords: ["SPD manufacturer", "surge protective device", "AC SPD", "DC SPD", "PV SPD", "solar surge protector", "Type 1 SPD", "Type 2 SPD", "1500V DC SPD", "lightning surge protection"],
   },
   ATS: {
-    hero: "Automatic Transfer Switches for Backup Power",
+    hero: "ATS Manufacturer — Automatic Transfer Switches for Backup Power",
     intro:
-      "TPKELE automatic transfer switches (ATS) move critical loads between primary and backup power sources within milliseconds. Designed for low voltage distribution boards, generator integration and standby power systems, our ATS modules combine fast transfer with compact DIN rail mounting.",
+      "TPKELE automatic transfer switches (ATS) move critical loads between mains and backup sources within milliseconds. Designed for low voltage distribution, generator integration and standby power, our ATS modules combine 2P / 3P / 4P configurations, 16A–125A current ratings, mechanical interlock and DIN-rail mounting per IEC 60947-6-1. Built for industrial contractors, panel builders and project distributors who need reliable source transfer.",
     bullets: [
-      "Automatic source transfer between mains and generator",
-      "Modular DIN rail mount, compatible with standard distribution boards",
-      "Mechanical and electrical interlock for safe transfer",
-      "Used in critical loads, hospitals, data rooms and process lines",
+      "Automatic source transfer between mains and generator / backup",
+      "2P / 3P / 4P, 16A–125A current ratings",
+      "Transfer time ≤ 0.4s, mechanical & electrical interlock",
+      "DIN-rail mount — fits standard low voltage distribution boards",
+      "IEC 60947-6-1 design, CE compliant",
+      "Used in hospitals, data centers, factories and continuity-critical sites",
     ],
+    applications: ["Hospitals & life-safety circuits", "Data centers & telecom rooms", "Process industry continuity loads", "Commercial buildings with diesel generator backup", "Solar / hybrid systems with grid-failover"],
+    buyerPersona: "Specified by industrial contractors, panel builders and electrical distributors needing IEC-compliant automatic transfer switches with proven reliability and competitive lead time.",
     faq: [
-      { q: "What current ratings are available?", a: "Our ATS modules are available in standard low voltage current ratings to fit common distribution panel projects. Contact us with your line current to confirm a model." },
-      { q: "Can the ATS work with diesel generators?", a: "Yes, the ATS is designed to work with utility plus diesel generator setups, transferring loads when the primary source fails." },
+      { q: "What current ratings are available?", a: "Standard ATS modules range from 16A to 125A across 2P, 3P and 4P configurations. Contact us with your line current and we will confirm a model and breaking specification." },
+      { q: "Can the ATS work with diesel generators?", a: "Yes — the ATS is designed to work with mains plus diesel generator setups. It transfers loads automatically when the primary source fails and returns when mains is restored." },
+      { q: "What is the typical transfer time?", a: "Transfer time is ≤ 0.4 seconds, suitable for non-UPS critical loads. For zero-break operation, an upstream UPS is recommended." },
+      { q: "Do you support OEM branding for ATS?", a: "Yes — logo, label and packaging customization are available for distributor and brand-owner programs." },
     ],
-    seoTitle: "ATS Manufacturer | Automatic Transfer Switch",
+    seoTitle: "ATS Manufacturer | Automatic Transfer Switch 2P 3P 4P — TPKELE",
     seoDescription:
-      "TPKELE supplies automatic transfer switches (ATS) for backup power, generator integration and low voltage critical load distribution.",
-    seoKeywords: ["ATS manufacturer", "automatic transfer switch", "backup power transfer", "generator transfer switch"],
+      "TPKELE: automatic transfer switch (ATS) manufacturer for backup power and generator integration. 2P/3P/4P, 16A–125A, ≤ 0.4s transfer, IEC 60947-6-1, CE compliant. OEM-ready ATS modules.",
+    seoKeywords: ["ATS manufacturer", "automatic transfer switch", "ATS 4P", "generator transfer switch", "backup power transfer", "IEC 60947-6 ATS", "DIN rail ATS"],
   },
   "Combiner Box": {
-    hero: "PV Combiner Boxes for Solar String Aggregation",
+    hero: "PV Combiner Box Manufacturer — Plastic & Metal IP65 Series",
     intro:
-      "TPKELE PV combiner boxes aggregate solar strings and bring DC fuses, DC SPDs and DC breakers into one IP-rated enclosure. Our plastic and metal series cover residential, commercial and utility-scale photovoltaic projects with configurable input and output layouts.",
+      "TPKELE PV combiner boxes aggregate solar strings and integrate DC fuses, DC SPDs and DC MCBs in IP65-rated enclosures. Plastic and metal series cover residential rooftop to utility-scale PV with 2 / 4 / 6 / 8 / 12 / 16 string inputs, 1000V / 1500V DC ratings and configurable single-line diagrams. Trusted by solar EPCs, panel builders and distributors across Europe, the Middle East, Southeast Asia and South America.",
     bullets: [
-      "Plastic and metal box series for indoor and outdoor PV sites",
-      "Configurable string inputs with DC fuse and SPD protection",
-      "IP65 weather-rated enclosures for rooftop and ground installations",
-      "Custom labelling, wiring layout and project-spec drawings supported",
+      "Plastic and metal PV combiner box series — IP65 outdoor rated",
+      "2 / 4 / 6 / 8 / 12 / 16 string input configurations",
+      "1000V DC / 1500V DC system options",
+      "Pre-assembled with DC fuse, DC SPD and DC MCB",
+      "Custom single-line diagram, labelling and wiring layout",
+      "IEC 61439 design, CE & RoHS compliant",
     ],
+    applications: ["Utility-scale solar farms & ground-mount PV", "Commercial & industrial rooftop solar", "Residential PV systems", "Solar + storage hybrid plants", "Off-grid and mini-grid solar projects"],
+    buyerPersona: "Specified by solar EPCs, project developers and OEM buyers needing IP65-rated combiner boxes with configurable string inputs, certified protection components and project-specific drawings.",
     faq: [
-      { q: "Plastic or metal combiner box, which should I choose?", a: "Plastic boxes are lighter and corrosion resistant, ideal for residential and rooftop projects. Metal boxes provide higher mechanical strength and are common in utility-scale and harsh environments." },
-      { q: "Do combiner boxes include SPD and fuses?", a: "Yes, our standard combiner boxes are pre-assembled with DC SPDs and DC fuses. We can adjust the configuration based on your project single line diagram." },
+      { q: "Plastic or metal PV combiner box — which should I choose?", a: "Plastic boxes are lighter, fully corrosion-resistant and ideal for residential and rooftop projects. Metal boxes provide greater mechanical strength, better heat dissipation and are common in utility-scale and harsh environments such as desert or coastal sites." },
+      { q: "What system voltage do your combiner boxes support?", a: "We offer both 1000V DC and 1500V DC versions. 1500V DC is now the standard for utility-scale PV due to lower BOS cost." },
+      { q: "Do combiner boxes include SPD, fuse and breaker?", a: "Yes — our standard combiner boxes are pre-assembled with DC fuses, DC SPDs and DC MCBs. The configuration is adjusted to match your project single-line diagram." },
+      { q: "Do you provide drawings and BOMs for tender packs?", a: "Yes — we provide CAD drawings, single-line diagrams and BOMs in formats suitable for EPC tender submissions and engineer review." },
+      { q: "What is the standard IP rating?", a: "Standard rating is IP65 for outdoor use. IP66 is available on request for harsh environments." },
     ],
-    seoTitle: "PV Combiner Box Manufacturer | Plastic & Metal Series",
+    seoTitle: "PV Combiner Box Manufacturer | Solar DC Combiner Box 1500V — TPKELE",
     seoDescription:
-      "TPKELE manufactures PV combiner boxes with DC SPD, DC fuse and DC breaker integration. Plastic and metal series for residential to utility solar projects.",
-    seoKeywords: ["PV combiner box", "solar combiner box", "DC combiner box", "string combiner", "photovoltaic combiner manufacturer"],
+      "TPKELE: PV combiner box manufacturer with plastic & metal IP65 series. 2–16 string inputs, 1000V/1500V DC, pre-assembled DC fuse / SPD / MCB. CE, IEC 61439. Custom drawings for EPC projects.",
+    seoKeywords: ["PV combiner box", "solar combiner box", "DC combiner box", "string combiner", "1500V combiner box", "photovoltaic combiner manufacturer", "IP65 combiner box", "solar combiner OEM"],
   },
   "Voltage Protector": {
-    hero: "Voltage Protectors for Mains Quality Monitoring",
+    hero: "Voltage Protector Manufacturer — Over & Under Voltage Protection",
     intro:
-      "TPKELE voltage protectors monitor incoming mains voltage and disconnect downstream loads when the line moves outside safe limits. Designed for residential, commercial and light industrial use, they reduce equipment damage from over voltage, under voltage and phase loss events.",
+      "TPKELE voltage protectors monitor incoming mains and disconnect downstream loads when voltage moves outside safe limits. Single-phase and three-phase versions on DIN rail protect refrigerators, AC, motors and electronics from over-voltage, under-voltage and phase-loss events — a high-volume product for distributors serving regions with unstable grid quality.",
     bullets: [
-      "Automatic disconnect on over voltage and under voltage events",
-      "Auto-reset with adjustable delay options",
-      "DIN rail mount, compatible with standard consumer units",
-      "Single phase and three phase models for residential and commercial use",
+      "Automatic disconnect on over-voltage and under-voltage",
+      "Adjustable trip thresholds and reconnection delay",
+      "Single-phase and three-phase DIN-rail models",
+      "Phase-loss / phase-sequence detection (3-phase)",
+      "Auto reset after voltage returns to safe range",
+      "CE & RoHS compliant — high-volume distributor stock item",
     ],
+    applications: ["Residential consumer units in unstable grid markets", "Light commercial & retail circuits", "Motor and pump protection", "Sensitive appliances (refrigeration, HVAC)", "Emerging-market distributor stock programs"],
+    buyerPersona: "Specified by electrical distributors and importers in markets with unstable mains, panel builders and contractors looking for reliable consumer-protection devices with stable supply.",
     faq: [
-      { q: "When should I install a voltage protector?", a: "Voltage protectors are recommended where mains supply is unstable or where sensitive appliances such as refrigerators, air conditioners and electronics need protection from voltage fluctuations." },
-      { q: "Does the voltage protector reset automatically?", a: "Yes. After the mains voltage returns to a safe range, the protector reconnects the load automatically after a configurable delay." },
+      { q: "When should I install a voltage protector?", a: "Voltage protectors are recommended where mains supply is unstable or where sensitive appliances such as refrigerators, air conditioners and electronics need protection from voltage fluctuations and phase-loss events." },
+      { q: "Does the voltage protector reset automatically?", a: "Yes — after the mains voltage returns to a safe range, the protector reconnects the load automatically after a configurable delay (typically 5–600s)." },
+      { q: "Do you have three-phase models with phase-loss protection?", a: "Yes, our three-phase voltage protectors detect over/under voltage on each phase, plus phase loss and phase sequence errors." },
     ],
-    seoTitle: "Voltage Protector Manufacturer | Over & Under Voltage",
+    seoTitle: "Voltage Protector Manufacturer | Over & Under Voltage Protection — TPKELE",
     seoDescription:
-      "TPKELE voltage protectors disconnect downstream loads on over voltage and under voltage events. DIN rail single and three phase models available.",
-    seoKeywords: ["voltage protector", "over voltage protection", "under voltage protection", "DIN rail voltage protector"],
+      "TPKELE: voltage protector manufacturer with single-phase & three-phase DIN-rail over/under voltage protection. Adjustable thresholds, auto reset, CE & RoHS. High-volume distributor program.",
+    seoKeywords: ["voltage protector", "over voltage protection", "under voltage protection", "phase loss protection", "DIN rail voltage protector", "automatic voltage protector"],
   },
   "Energy Meter": {
-    hero: "DIN Rail Energy Meters for Smart Monitoring",
+    hero: "DIN Rail Energy Meter Manufacturer — Single & Three Phase",
     intro:
-      "TPKELE DIN rail energy meters measure active energy, current and voltage for distribution boards, sub-metering and tenant billing. With single phase and three phase versions and optional pulse or RS485 output, they integrate easily with monitoring systems and energy management platforms.",
+      "TPKELE DIN-rail energy meters measure active energy, current and voltage for distribution boards, sub-metering and tenant billing. Single-phase and three-phase versions, direct-connect and CT-operated, pulse and RS485 Modbus output — designed to integrate with energy management platforms, BMS and SCADA systems for industrial and commercial customers.",
     bullets: [
-      "Single phase and three phase DIN rail energy meters",
-      "Direct connect and CT operated versions",
-      "Pulse and RS485 Modbus output options for monitoring",
-      "Used for sub-metering, tenant billing and energy management",
+      "Single-phase and three-phase DIN-rail energy meters",
+      "Direct-connect and CT-operated versions",
+      "Class 1 active energy accuracy",
+      "Pulse output and RS485 Modbus communication options",
+      "Clear LCD digital display",
+      "IEC 62052 / 62053, CE & RoHS compliant",
     ],
+    applications: ["Sub-metering in commercial buildings", "Tenant billing & landlord metering", "Industrial energy management & ISO 50001", "Solar self-consumption and feed-in metering", "Data center power monitoring"],
+    buyerPersona: "Specified by energy management integrators, panel builders, building contractors and distributors needing certified DIN-rail meters with Modbus integration.",
     faq: [
-      { q: "Do you support Modbus communication?", a: "Yes, RS485 Modbus output is available on selected models for integration with energy management and SCADA systems." },
-      { q: "What accuracy class do the meters offer?", a: "Our standard meters meet Class 1 active energy accuracy, sufficient for sub-metering and operational monitoring applications." },
+      { q: "Do you support Modbus communication?", a: "Yes — RS485 Modbus output is available on selected models for integration with energy management, BMS and SCADA systems." },
+      { q: "What accuracy class do the meters offer?", a: "Standard meters meet Class 1 active energy accuracy per IEC 62053-21, suitable for sub-metering and operational monitoring. Higher accuracy available on request." },
+      { q: "Direct connect vs CT operated — which do I need?", a: "Direct-connect meters wire the load current directly through the meter, suitable up to 80A or 100A. CT-operated meters use external current transformers for higher currents (typically 100A and above)." },
+      { q: "Are the meters MID approved?", a: "Standard models are CE / IEC certified. MID-approved versions for billing applications in the EU are available on request." },
     ],
-    seoTitle: "DIN Rail Energy Meter Manufacturer | Single & Three Phase",
+    seoTitle: "DIN Rail Energy Meter Manufacturer | Modbus kWh Meter — TPKELE",
     seoDescription:
-      "TPKELE DIN rail energy meters for distribution boards, sub-metering and tenant billing. Direct, CT, pulse and RS485 Modbus output options.",
-    seoKeywords: ["DIN rail energy meter", "energy meter manufacturer", "kWh meter", "Modbus energy meter", "sub-meter"],
+      "TPKELE: DIN-rail energy meter manufacturer. Single & three phase, direct & CT, pulse & RS485 Modbus, Class 1 accuracy, IEC 62052/62053, CE & RoHS. Built for sub-metering and energy management.",
+    seoKeywords: ["DIN rail energy meter", "energy meter manufacturer", "kWh meter", "Modbus energy meter", "RS485 power meter", "sub-meter", "three phase energy meter"],
   },
 };
 
@@ -596,9 +742,8 @@ export const productMenu: ProductMenuGroup[] = [
     label: "SPD",
     href: "/products/category/spd",
     children: [
-      { label: "AC SPD", href: "/products/category/spd?series=AC%20SPD" },
-      { label: "DC SPD", href: "/products/category/spd?series=DC%20SPD" },
-      { label: "Color Series", href: "/products/category/spd?series=Color%20Series" },
+      { label: "AC SPD", href: "/products/category/spd/ac-spd" },
+      { label: "DC SPD (Solar)", href: "/products/category/spd/dc-spd" },
     ],
   },
   {
@@ -627,11 +772,11 @@ export const productMenu: ProductMenuGroup[] = [
 ];
 
 export const applications = [
-  { title: "Industrial", icon: "IN", text: "Factory power cabinets and machinery protection." },
-  { title: "Solar Energy", icon: "PV", text: "PV combiner boxes, surge protection and metering." },
-  { title: "Building", icon: "BD", text: "Commercial distribution boards and branch circuits." },
-  { title: "Data Center", icon: "DC", text: "Reliable transfer, monitoring and circuit safety." },
-  { title: "Infrastructure", icon: "IF", text: "Municipal, rail and public power systems." },
+  { title: "Solar PV", icon: "PV", text: "DC MCB, DC SPD and PV combiner boxes for utility, C&I and rooftop solar." },
+  { title: "Industrial", icon: "IN", text: "ATS, voltage protectors and SPDs for factory and process power." },
+  { title: "Commercial", icon: "CB", text: "Distribution boards, branch protection and energy meters." },
+  { title: "Data Center", icon: "DC", text: "Reliable transfer, surge protection and circuit-level safety." },
+  { title: "Infrastructure", icon: "IF", text: "Municipal, telecom, rail and public-sector power systems." },
 ];
 
 export const blogPosts = [

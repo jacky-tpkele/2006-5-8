@@ -6,11 +6,14 @@ import { InquiryModal } from "@/components/InquiryModal";
 import { ProductGallery } from "@/components/ProductGallery";
 import {
   findProduct,
+  categoryContent,
   categorySlugMap,
+  certifications,
   getProductGallery,
   getProductKeyFeatures,
   getProductTechnicalSpecs,
   getRelatedProducts,
+  oemCapabilities,
   products,
   site,
   subCategoryBySlug,
@@ -56,6 +59,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const technicalSpecs = getProductTechnicalSpecs(product);
   const related = getRelatedProducts(product, 8);
   const relatedScopeLabel = subCat ? subCat.label : product.parentCategory;
+  const catContent = categoryContent[product.parentCategory];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -65,11 +69,33 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     description: product.description,
     brand: { "@type": "Brand", name: site.name },
     manufacturer: { "@type": "Organization", name: site.name, url: site.url },
+    category: product.parentCategory,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      seller: { "@type": "Organization", name: site.name },
+    },
   };
+
+  const faqJsonLd = catContent?.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: catContent.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
       <nav className="slim-breadcrumb" aria-label="Breadcrumb">
         <Link href="/">Home</Link>
         <span aria-hidden="true">/</span>
@@ -115,8 +141,30 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               title="Ask Technical Question"
             />
           </div>
+          <div className="inline-cta-card">
+            <p>Need full datasheet, drawing or certificates for tender?</p>
+            <InquiryModal
+              triggerLabel="Get Datasheet"
+              triggerClassName="btn primary"
+              product={product.name}
+              intent="datasheet"
+              title="Request Datasheet"
+            />
+          </div>
         </div>
       </section>
+
+      {catContent?.applications && catContent.applications.length > 0 && (
+        <section className="section product-application-section">
+          <span className="section-mark" aria-hidden="true" />
+          <h2 className="sub-section-title">Typical Applications</h2>
+          <div className="app-pill-row">
+            {catContent.applications.map((a) => (
+              <span className="app-pill" key={a}>{a}</span>
+            ))}
+          </div>
+        </section>
+      )}
 
       {technicalSpecs.length > 0 && (
         <section className="section product-spec-section">
@@ -132,6 +180,64 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+      )}
+
+      <section className="section">
+        <div className="trust-band-head">
+          <div>
+            <p className="eyebrow" style={{ marginBottom: 6 }}>Certifications & Standards</p>
+            <h2 className="sub-section-title">Verified to international standards for global tenders</h2>
+          </div>
+        </div>
+        <div className="cert-row">
+          {certifications.map((cert) => (
+            <div className="cert-chip" key={cert.code}>
+              <strong>{cert.code}</strong>
+              <span>{cert.label}</span>
+              <small>{cert.note}</small>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section muted">
+        <div className="oem-band">
+          <div>
+            <p className="eyebrow">OEM / ODM Available</p>
+            <h2 className="sub-section-title">Private label this {product.parentCategory} for your brand</h2>
+            <p style={{ color: "var(--muted)", marginTop: 10 }}>
+              Logo, color housing, packaging and certificate documentation tailored to distributor and brand-owner programs.
+            </p>
+            <div className="button-row" style={{ marginTop: 16 }}>
+              <InquiryModal
+                triggerLabel="Get OEM Proposal"
+                triggerClassName="btn primary"
+                product={product.name}
+                intent="factory"
+              />
+            </div>
+          </div>
+          <ul>
+            {oemCapabilities.map((cap) => (
+              <li key={cap}>{cap}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {catContent?.faq?.length > 0 && (
+        <section className="section product-faq-section">
+          <span className="section-mark" aria-hidden="true" />
+          <h2 className="sub-section-title">Frequently Asked Questions</h2>
+          <div className="faq-list">
+            {catContent.faq.map((item) => (
+              <details key={item.q} className="faq-item">
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
           </div>
         </section>
       )}

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
+import { certifications, exportMarkets, oemCapabilities } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn about TPKELE manufacturing, factory capability, exhibitions and quality control.",
+  title: "About TPKELE | Solar & Low Voltage Protection Manufacturer",
+  description: "TPKELE — ISO 9001 manufacturer of DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS and energy meters. CE / IEC / RoHS certified, exporting to 100+ countries.",
+  alternates: { canonical: "/about" },
 };
 
 const factoryImages = [
@@ -36,18 +38,29 @@ export default function AboutPage() {
       <section className="section split">
         <div>
           <p className="eyebrow">Who We Are</p>
-          <h2>Reliable low voltage manufacturing for project buyers.</h2>
+          <h2>Solar & low voltage protection manufacturing for project buyers worldwide.</h2>
           <p>
-            TPKELE focuses on low voltage electrical protection products and supports customers with product selection, sample preparation,
-            packaging design and project delivery coordination.
+            TPKELE is an ISO 9001 manufacturer dedicated to solar DC protection and low voltage electrical components. Our product program covers DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS, voltage protectors and DIN-rail energy meters — engineered to IEC standards and CE / RoHS compliant. We support solar EPCs, electrical distributors, OEM buyers, panel builders, industrial contractors and importers with technical product matching, certificate documentation, custom OEM programs and reliable container-load delivery.
           </p>
-          <p>
-            We serve distributors, panel builders, solar installers and infrastructure contractors who need stable quality, responsive
-            communication and flexible OEM/ODM cooperation.
-          </p>
-          <InquiryModal triggerLabel="Learn More About Us" triggerClassName="btn primary" intent="factory" />
+          <InquiryModal triggerLabel="Request Factory Profile" triggerClassName="btn primary" intent="factory" />
         </div>
         <Image className="feature-image" src="/assets/about/building.webp" alt="TPKELE headquarters and factory building" width={620} height={378} />
+      </section>
+
+      <section className="trust-band">
+        <div className="trust-band-head">
+          <p className="eyebrow">Certifications & Standards</p>
+          <h2>Independently verified for international tenders</h2>
+        </div>
+        <div className="cert-row">
+          {certifications.map((cert) => (
+            <div className="cert-chip" key={cert.code}>
+              <strong>{cert.code}</strong>
+              <span>{cert.label}</span>
+              <small>{cert.note}</small>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="section compact">
@@ -71,6 +84,41 @@ export default function AboutPage() {
           {exhibitionImages.map((image) => (
             <Image src={image.src} alt={image.alt} width={390} height={200} key={image.src} />
           ))}
+        </div>
+      </section>
+
+      <section className="section market-band muted">
+        <div className="section-heading centered">
+          <p className="eyebrow">Global Reach</p>
+          <h2>Exporting to 100+ countries across six regions</h2>
+        </div>
+        <div className="market-grid">
+          {exportMarkets.map((m) => (
+            <div className="market-card" key={m.region}>
+              <strong>{m.region}</strong>
+              <span>{m.countries}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="oem-band">
+          <div>
+            <p className="eyebrow">OEM / ODM Manufacturing</p>
+            <h2>Your brand, our factory.</h2>
+            <p>
+              We partner with distributors, importers and brand owners to deliver complete private-label protection programs — from logo and packaging through to custom catalogs and project documentation.
+            </p>
+            <div className="button-row">
+              <InquiryModal triggerLabel="Get OEM Proposal" triggerClassName="btn primary" intent="factory" />
+            </div>
+          </div>
+          <ul>
+            {oemCapabilities.map((cap) => (
+              <li key={cap}>{cap}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
