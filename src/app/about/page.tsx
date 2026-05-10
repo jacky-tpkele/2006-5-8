@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 };
 
 const factoryImages = [
-  { src: "/assets/about/factory-1.webp", alt: "Factory assembly line" },
-  { src: "/assets/about/factory-2.webp", alt: "Electrical product production workshop" },
-  { src: "/assets/about/factory-3.webp", alt: "Quality inspection area" },
+  { src: "/assets/about/factory-1.png", alt: "Factory assembly line" },
+  { src: "/assets/about/factory-2.png", alt: "Electrical product production workshop" },
+  { src: "/assets/about/factory-3.png", alt: "Quality inspection area" },
 ];
 
 const exhibitionImages = [
-  { src: "/assets/about/exhibition-1.webp", alt: "TPKELE exhibition booth" },
-  { src: "/assets/about/exhibition-2.webp", alt: "Product discussion at exhibition" },
-  { src: "/assets/about/exhibition-3.webp", alt: "TPKELE team at industry exhibition" },
+  { src: "/assets/about/exhibition-1.png", alt: "TPKELE exhibition booth" },
+  { src: "/assets/about/exhibition-2.png", alt: "Product discussion at exhibition" },
+  { src: "/assets/about/exhibition-3.png", alt: "TPKELE team at industry exhibition" },
 ];
 
 const values = [
@@ -44,7 +44,7 @@ export default function AboutPage() {
           </p>
           <InquiryModal triggerLabel="Request Factory Profile" triggerClassName="btn primary" intent="factory" />
         </div>
-        <Image className="feature-image" src="/assets/about/building.webp" alt="TPKELE headquarters and factory building" width={620} height={378} />
+        <Image className="feature-image" src="/assets/about/building.png" alt="TPKELE headquarters and factory building" width={620} height={378} />
       </section>
 
       <section className="trust-band">
