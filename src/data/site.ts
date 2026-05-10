@@ -817,54 +817,374 @@ export const applications = [
   { title: "Infrastructure", icon: "IF", text: "Municipal, telecom, rail and public-sector power systems." },
 ];
 
-export const blogPosts = [
+export type BlogSection = {
+  heading: string;
+  paragraphs?: string[];
+  bullets?: string[];
+};
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  seoTitle?: string;
+  seoDescription: string;
+  date: string;
+  image: string;
+  excerpt: string;
+  intent: string;
+  body: BlogSection[];
+  faq?: { question: string; answer: string }[];
+  relatedProducts?: string[];
+};
+
+export const blogPosts: BlogPost[] = [
   {
     slug: "choose-right-mcb",
     title: "How to Choose the Right MCB for Your Application",
+    seoTitle: "How to Choose the Right MCB — AC & DC Miniature Circuit Breaker Selection Guide",
+    seoDescription:
+      "Step-by-step MCB selection guide: rated current, breaking capacity, B/C/D trip curve, pole count and AC vs DC differences for solar and low voltage projects.",
     date: "2026-05-26",
     image: "/assets/blog/mcb-guide.webp",
     excerpt: "A practical guide to matching rated current, breaking capacity and pole configuration.",
     intent: "MCB selection support",
+    body: [
+      {
+        heading: "Why MCB Selection Matters",
+        paragraphs: [
+          "A miniature circuit breaker (MCB) is the first line of overcurrent and short-circuit protection in any low voltage distribution board. Pick the wrong rating and you either get nuisance tripping that frustrates the end-user, or worse — a breaker that fails to trip during a fault and exposes downstream equipment and people to risk.",
+          "This guide walks through the four parameters professional installers and panel builders evaluate every time: rated current, breaking capacity, trip curve and pole configuration. We also cover the difference between [AC MCB](/products/category/mcb/ac-mcb) and [DC MCB](/products/category/mcb/dc-mcb) — they look similar but cannot be substituted.",
+        ],
+      },
+      {
+        heading: "Step 1 — Match the Rated Current (In)",
+        paragraphs: [
+          "The rated current is the continuous current the MCB will carry without tripping. It must be larger than the calculated load current but smaller than the cable ampacity behind it. Standard ratings on TPKELE [AC MCBs](/products/category/mcb/ac-mcb) include 6A, 10A, 16A, 20A, 25A, 32A, 40A, 50A and 63A.",
+          "A common rule for branch circuits: pick the next standard rating above the load, then verify the cable rated for that current at the install temperature.",
+        ],
+      },
+      {
+        heading: "Step 2 — Choose the Right Breaking Capacity (Icn)",
+        paragraphs: [
+          "Breaking capacity is the highest short-circuit current the MCB can interrupt safely. For residential and small commercial boards, 4.5 kA is usually adequate. Industrial boards close to a transformer often need 6 kA or 10 kA. Always check the prospective short-circuit current at the installation point before specifying.",
+        ],
+      },
+      {
+        heading: "Step 3 — Pick a Trip Curve (B, C, or D)",
+        paragraphs: [
+          "The trip curve defines how fast the magnetic element responds to fault currents above the rated value:",
+        ],
+        bullets: [
+          "B curve (3–5x In) — resistive loads, lighting circuits, residential.",
+          "C curve (5–10x In) — general purpose with mixed inductive loads (most commercial).",
+          "D curve (10–20x In) — high inrush loads such as motors, transformers, X-ray equipment.",
+        ],
+      },
+      {
+        heading: "Step 4 — Get the Pole Count Right",
+        paragraphs: [
+          "1P for single-phase line protection, 2P when you need to switch the neutral too, 3P for three-phase three-wire systems, and 4P for three-phase plus switched neutral. For solar DC strings, 2P MCBs disconnect both the positive and negative conductors — never use a single-pole AC MCB on a DC circuit.",
+        ],
+      },
+      {
+        heading: "AC vs DC: Don't Confuse Them",
+        paragraphs: [
+          "DC arcs are sustained — they do not extinguish naturally at zero crossings the way AC arcs do. A [DC MCB](/products/category/mcb/dc-mcb) uses arc-quenching chambers and magnetic blow-out designed for the energy in a PV string. Substituting an AC MCB on a DC circuit is one of the most dangerous mistakes in solar installation.",
+          "TPKELE DC MCBs cover up to 1500V DC for utility-scale [solar DC protection](/solar-dc-protection).",
+        ],
+      },
+      {
+        heading: "Quick Selection Checklist",
+        bullets: [
+          "Load current calculated and 1.25x safety factor applied.",
+          "Cable ampacity ≥ MCB rating at install temperature.",
+          "Short-circuit current at panel < MCB breaking capacity.",
+          "Trip curve matches load type (B/C/D).",
+          "Pole count matches system topology.",
+          "AC or DC variant matches circuit type.",
+          "Certifications (CE, IEC 60898-1) verified for tender.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Can I use an AC MCB on a DC solar circuit?",
+        answer:
+          "No. AC MCBs are not designed to interrupt DC arcs and may fail to break a fault current safely. Always use a dedicated DC MCB rated for the system voltage.",
+      },
+      {
+        question: "What breaking capacity is enough for residential boards?",
+        answer:
+          "4.5 kA is generally sufficient for residential distribution boards far from the transformer. Verify the prospective short-circuit current at your specific installation point.",
+      },
+      {
+        question: "Do I need C-curve or D-curve for a motor circuit?",
+        answer:
+          "D-curve handles the higher inrush of motors, transformers and welding equipment without nuisance tripping. C-curve is acceptable for small motors with soft-start drives.",
+      },
+    ],
+    relatedProducts: ["ac-mcb-1p", "ac-mcb-3p", "dc-mcb-2p"],
   },
   {
     slug: "understanding-spd-surge",
     title: "Understanding SPD: Protection Against Surge",
+    seoTitle: "Understanding SPD — Type 1, Type 2 & Type 1+2 Surge Protection Device Guide",
+    seoDescription:
+      "How surge protective devices work, where to install Type 1 / Type 2 / Type 1+2 SPDs, and how to compare AC SPD vs DC SPD specifications for solar and AC distribution.",
     date: "2026-05-20",
     image: "/assets/blog/spd-surge.webp",
     excerpt: "Where to install surge protection devices and how to choose levels for different systems.",
     intent: "SPD project support",
+    body: [
+      {
+        heading: "What Is a Surge?",
+        paragraphs: [
+          "A surge — also called transient overvoltage — is a brief, high-amplitude voltage spike that can damage electronic equipment in milliseconds. The two main causes are direct or nearby lightning strikes and switching events on the utility grid (capacitor banks, large motor starts, fault clearing).",
+          "A surge protective device ([SPD](/products/category/spd)) clamps the overvoltage to a safe level by diverting the surge current to ground, protecting downstream equipment such as PV inverters, control systems and telecom gear.",
+        ],
+      },
+      {
+        heading: "Type 1, Type 2, and Type 1+2 Explained",
+        bullets: [
+          "Type 1 — installed at the service entrance to handle direct lightning current (10/350µs waveform). Required where there is an external lightning protection system.",
+          "Type 2 — installed in distribution panels to clamp residual surges and switching transients (8/20µs waveform). The most common SPD class.",
+          "Type 1+2 — combined unit for projects that need both direct-strike capability and downstream clamping in a single device.",
+        ],
+      },
+      {
+        heading: "Where to Install SPDs",
+        paragraphs: [
+          "Best practice is a coordinated cascade: a Type 1 (or 1+2) at the main panel, Type 2 in sub-panels, and finer protection close to sensitive equipment. In a solar PV system, install [DC SPDs](/products/category/spd/dc-spd) in the combiner box and at the inverter DC input, plus [AC SPDs](/products/category/spd/ac-spd) on the inverter AC output and at the grid interconnect.",
+          "Keep SPD lead lengths short (typically under 50 cm total loop length) — long leads add inductance that defeats the protection.",
+        ],
+      },
+      {
+        heading: "AC SPD vs DC SPD",
+        paragraphs: [
+          "AC SPDs are sized by Uc (maximum continuous operating voltage) — typical values are 275V for 230V AC systems and 385–440V for 400V AC three-phase. DC SPDs are sized for the maximum PV string voltage at the coldest expected temperature: 600V, 1000V or 1500V Uoc options cover most installations.",
+          "DC arcs do not self-extinguish, so a DC SPD must include disconnection technology that isolates a failed varistor without sustaining an arc.",
+        ],
+      },
+      {
+        heading: "Key Specs to Compare",
+        bullets: [
+          "Type (1 / 2 / 1+2) — matches install location and lightning risk.",
+          "Uc / Uoc — must exceed the system's maximum continuous voltage.",
+          "In (nominal discharge current) — typically 20 kA for Type 2.",
+          "Imax (maximum discharge current) — repeated 8/20µs withstand.",
+          "Up (voltage protection level) — clamping voltage seen by the load; lower is better.",
+          "Indicator window — visual end-of-life status.",
+          "Certification — IEC 61643-11 (AC) / IEC 61643-31 (DC).",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Do I need an SPD if I have a lightning rod?",
+        answer:
+          "Yes. A lightning rod handles direct strikes to the structure, but coupled surges still propagate on the power lines. SPDs clamp those induced overvoltages before they reach equipment.",
+      },
+      {
+        question: "How often should SPDs be replaced?",
+        answer:
+          "An SPD with an indicator window should be inspected during every electrical maintenance visit. Replace immediately if the indicator shows red or the unit has been exposed to a major surge event.",
+      },
+    ],
+    relatedProducts: ["ac-spd", "dc-spd", "green-spd-series"],
   },
   {
     slug: "ats-modern-distribution",
     title: "ATS in Modern Power Distribution Systems",
+    seoTitle: "ATS Guide — Automatic Transfer Switch Sizing & Use Cases for Backup Power",
+    seoDescription:
+      "How an automatic transfer switch (ATS) protects critical loads, common applications, sizing rules and the difference between ATS and manual transfer switches.",
     date: "2026-05-15",
     image: "/assets/blog/ats-system.webp",
     excerpt: "Automatic transfer switch use cases for standby power and continuity-critical facilities.",
     intent: "ATS solution inquiry",
+    body: [
+      {
+        heading: "What an ATS Does",
+        paragraphs: [
+          "An automatic transfer switch ([ATS](/products/category/ats)) monitors the primary utility supply and, when it falls outside acceptable limits, transfers connected loads to a secondary source — usually a generator or alternate utility feed — within milliseconds. When utility power returns, the ATS retransfers loads back automatically.",
+          "Without an ATS, transfer between sources is manual and slow, which is unacceptable for hospitals, data centers and any facility with continuity-critical loads.",
+        ],
+      },
+      {
+        heading: "Common Applications",
+        bullets: [
+          "Hospitals and clinics — life-safety circuits, OR/ICU equipment.",
+          "Data centers and telecom — server, cooling and BMS continuity.",
+          "Industrial process plants — avoid product loss from interrupted batches.",
+          "Commercial buildings — fire pumps, elevators, emergency lighting.",
+          "Rural and off-grid sites — utility plus diesel generator handover.",
+        ],
+      },
+      {
+        heading: "Specifying an ATS",
+        paragraphs: [
+          "The four core parameters: pole count (2P / 3P / 4P depending on neutral switching needs), rated current (TPKELE [ATS units](/products/category/ats) cover 16A–125A for branch and small main applications), rated voltage (230V or 400V AC), and transfer time (typically ≤ 0.4s for IEC 60947-6-1 Class CB).",
+          "Mechanical and electrical life ratings tell you how many transfer cycles the unit will survive — important for facilities that test their backup weekly.",
+        ],
+      },
+      {
+        heading: "ATS vs Manual Transfer Switch",
+        paragraphs: [
+          "Manual transfer switches are cheaper and simpler but require an operator to physically move the handle when utility fails. They make sense for sites where downtime is tolerable. For anything with safety, financial or continuity stakes, an ATS pays for itself the first time it operates without human intervention at 3 a.m.",
+        ],
+      },
+      {
+        heading: "Sizing Tips for Generator Backup",
+        bullets: [
+          "Confirm the generator's continuous output rating exceeds the connected load with margin (typically 1.25x).",
+          "Match the ATS rated current to the generator output, not the utility feed.",
+          "If the generator is downstream of a step-down transformer, account for inrush during retransfer.",
+          "Coordinate ATS settings with generator warm-up and cool-down times to avoid premature retransfer.",
+        ],
+      },
+    ],
+    relatedProducts: ["ats"],
   },
   {
     slug: "solar-combiner-box-safety",
     title: "Solar Combiner Box: The Key to PV System Safety",
+    seoTitle: "PV Combiner Box Guide — DC Protection and Safety for Solar Arrays",
+    seoDescription:
+      "What a PV combiner box does, what's inside it, how to choose between plastic and metal enclosures, and how to specify string count, voltage class and IP rating.",
     date: "2026-05-10",
     image: "/assets/blog/combiner-box.webp",
     excerpt: "How combiner boxes simplify wiring, improve safety and protect solar branches.",
     intent: "PV combiner box quote",
+    body: [
+      {
+        heading: "Why PV Systems Need a Combiner Box",
+        paragraphs: [
+          "A [PV combiner box](/products/category/combiner-box) consolidates multiple solar string outputs into a single DC trunk that feeds the inverter. Beyond simplifying field wiring, the combiner box concentrates protection — fuses, breakers, disconnects and surge protection — at one accessible point.",
+          "On utility-scale farms, combiner boxes also provide string-level monitoring data so operators can detect a single underperforming string out of dozens without sending a technician up the field.",
+        ],
+      },
+      {
+        heading: "What's Inside a TPKELE Combiner Box",
+        bullets: [
+          "DC fuses or DC MCBs on every string for overcurrent protection.",
+          "DC SPD (Type 1+2 or Type 2) for lightning and switching surges.",
+          "Lockable DC isolator for safe maintenance disconnection.",
+          "Surge-suppressed monitoring outputs (optional, on smart boxes).",
+          "IP65 enclosure for outdoor mounting.",
+        ],
+      },
+      {
+        heading: "Choosing String Count, IP Rating and Voltage Class",
+        paragraphs: [
+          "Pick the string count that matches your array layout — TPKELE offers boxes for 2 to 16 string inputs. IP65 is standard for ground-mount and rooftop installations; IP66 is preferred for marine and dusty industrial environments.",
+          "The voltage class must match the system's open-circuit voltage at the coldest temperature: 1000V Uoc for residential and many commercial installations, 1500V Uoc for utility-scale arrays where higher voltage reduces conductor losses.",
+        ],
+      },
+      {
+        heading: "Plastic vs Metal Enclosures",
+        paragraphs: [
+          "[Plastic (ABS) combiner boxes](/products/plastic-box-series) are corrosion-immune, light, easy to drill in the field, and the right choice for coastal and humid sites. [Metal enclosures](/products/products/metal-box-series) provide better mechanical protection on industrial sites and on poles where impact and vandalism are concerns.",
+        ],
+      },
+      {
+        heading: "Common Specifications",
+        bullets: [
+          "Residential rooftop — 2 to 4 strings, plastic, 1000V Uoc.",
+          "Commercial / C&I — 4 to 8 strings, plastic or metal, 1000V or 1500V.",
+          "Utility-scale — 8 to 16 strings, metal, 1500V, with monitoring.",
+        ],
+      },
+    ],
+    relatedProducts: ["plastic-box-series", "metal-box-series", "dc-spd"],
   },
   {
     slug: "energy-meter-selection",
     title: "Energy Meter Selection Guide for Industrial Use",
+    seoTitle: "Industrial Energy Meter Guide — DIN Rail kWh Meters for Sub-Metering",
+    seoDescription:
+      "How to choose a DIN-rail energy meter: single vs three-phase, direct vs CT connect, accuracy class, and Modbus / MID communications for industrial sub-metering.",
     date: "2026-05-05",
     image: "/assets/blog/energy-meter.webp",
     excerpt: "What to check when choosing metering, monitoring and DIN rail installation options.",
     intent: "Energy meter selection",
+    body: [
+      {
+        heading: "Why Metering Matters in Modern Distribution",
+        paragraphs: [
+          "Sub-metering is no longer optional in commercial real estate, manufacturing and multi-tenant facilities. Tenants expect transparent cost allocation, and operations teams need consumption data to identify waste and verify equipment efficiency.",
+          "A modern [DIN-rail energy meter](/products/category/energy-meter) replaces costly mechanical meters with compact, accurate electronic units that measure active energy, current, voltage, power factor and frequency in a 1 or 4-module form factor.",
+        ],
+      },
+      {
+        heading: "Single-Phase vs Three-Phase",
+        paragraphs: [
+          "Use a single-phase meter for residential apartments, retail tenant sub-metering and lighting circuits. Use a three-phase meter for HVAC plants, motor feeders, EV chargers and industrial process equipment. Always confirm the system topology — three-phase three-wire versus three-phase four-wire (with neutral) — affects meter wiring and accuracy.",
+        ],
+      },
+      {
+        heading: "Direct Connect vs CT Connect",
+        paragraphs: [
+          "Direct-connect meters wire the load current straight through the meter, typically up to 80A or 100A. Above that current, use a CT-connect meter with current transformers — this lets a small meter measure feeders rated 200A, 400A or higher without huge conductors crossing the meter terminals.",
+        ],
+      },
+      {
+        heading: "Accuracy Class",
+        paragraphs: [
+          "IEC 62052-11 specifies accuracy classes 0.5S, 1 and 2. Class 1 is adequate for cost-allocation sub-metering. Class 0.5S is required for revenue-grade and utility tariff metering, and worth the modest premium when the data is used for billing.",
+        ],
+      },
+      {
+        heading: "Communication Options",
+        bullets: [
+          "Modbus RTU (RS-485) — most common; integrates with BMS, PLCs and energy dashboards.",
+          "Pulse output — simple kWh pulse that any logger can count.",
+          "MID approval — required in EU member states for sub-tenant billing.",
+          "M-Bus, KNX or LoRa — niche options for specific BMS or smart-building protocols.",
+        ],
+      },
+    ],
+    relatedProducts: ["din-rail-energy-meter"],
   },
   {
     slug: "tpkele-snec-2026",
     title: "TPKELE at SNEC 2026 Exhibition",
+    seoTitle: "TPKELE at SNEC 2026 — Solar DC Protection Highlights from Shanghai",
+    seoDescription:
+      "TPKELE recap from SNEC 2026 Shanghai: 1500V DC MCBs, PV combiner boxes, DC SPD updates and customer feedback themes from Asia's largest solar exhibition.",
     date: "2026-04-25",
     image: "/assets/blog/exhibition.webp",
     excerpt: "Product updates and customer discussions from the renewable energy exhibition floor.",
     intent: "Exhibition follow-up",
+    body: [
+      {
+        heading: "SNEC 2026 — Asia's Largest Solar Show",
+        paragraphs: [
+          "SNEC PV Power Expo is the largest annual gathering for the global solar industry, held every spring in Shanghai. The 2026 edition drew over 3,000 exhibitors and engineers, EPCs and distributors from 100+ countries — a critical chance for the TPKELE team to meet partners face-to-face and showcase our latest [solar DC protection](/solar-dc-protection) range.",
+        ],
+      },
+      {
+        heading: "Products We Showed",
+        bullets: [
+          "1500V [DC MCBs](/products/category/mcb/dc-mcb) for utility-scale string protection.",
+          "Updated [DC SPD](/products/category/spd/dc-spd) range with improved indicator windows.",
+          "Pre-assembled [plastic combiner boxes](/products/plastic-box-series) for 4 / 8 / 12 / 16 string inputs.",
+          "Smart string-monitoring metal combiner boxes for utility EPCs.",
+        ],
+      },
+      {
+        heading: "Customer Feedback Themes",
+        paragraphs: [
+          "Three topics dominated booth conversations. First, EPCs in MENA and Latin America asked for shorter lead times on container loads — we are expanding warehouse capacity in response. Second, distributors increasingly request OEM logo and packaging programs to differentiate against generic imports. Third, solar developers want longer warranty windows tied to documented quality data — TPKELE is preparing extended warranty programs for verified project lots.",
+        ],
+      },
+      {
+        heading: "What's Next",
+        paragraphs: [
+          "Beyond SNEC we are attending Intersolar Europe and Solar Power International in 2026. If you would like a sample kit, project quotation or factory visit, [reach out via the contact form](/contact) and we will respond within one business day.",
+        ],
+      },
+    ],
+    relatedProducts: ["dc-mcb-2p", "dc-spd", "plastic-box-series"],
   },
 ];
 
