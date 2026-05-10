@@ -181,50 +181,6 @@ export default function HomePage() {
               />
             </div>
           </div>
-
-          <div className="hero-banner-products">
-            <div className="hbp-group hbp-solar">
-              <h2 className="hbp-title">SOLAR DC PROTECTION</h2>
-              <div className="hbp-row">
-                <Link className="hbp-card" href="/products/category/spd/dc-spd">
-                  <Image src="/assets/home-products-normalized/spd.webp" alt="DC SPD" width={160} height={140} />
-                  <strong>SPD</strong>
-                  <span>Surge Protective Device</span>
-                </Link>
-                <Link className="hbp-card" href="/products/category/mcb/dc-mcb">
-                  <Image src="/assets/home-products-normalized/mcb.webp" alt="DC MCB" width={160} height={140} />
-                  <strong>MCB</strong>
-                  <span>Miniature Circuit Breaker</span>
-                </Link>
-                <Link className="hbp-card" href="/products/category/combiner-box">
-                  <Image src="/assets/home-products-normalized/combiner-box.webp" alt="PV Combiner Box" width={160} height={140} />
-                  <strong>COMBINER BOX</strong>
-                  <span>PV Combiner Box</span>
-                </Link>
-              </div>
-            </div>
-
-            <div className="hbp-group hbp-lv">
-              <h2 className="hbp-title">LOW VOLTAGE PROTECTION</h2>
-              <div className="hbp-row">
-                <Link className="hbp-card" href="/products/category/energy-meter">
-                  <Image src="/assets/home-products-normalized/din-rail-energy-meter.webp" alt="DIN Rail Energy Meter" width={160} height={140} />
-                  <strong>ENERGY METER</strong>
-                  <span>DIN Rail Energy Meter</span>
-                </Link>
-                <Link className="hbp-card" href="/products/category/voltage-protector">
-                  <Image src="/assets/home-products-normalized/over-voltage-protector.webp" alt="Voltage Protector" width={160} height={140} />
-                  <strong>VOLTAGE PROTECTOR</strong>
-                  <span>Adjustable Voltage Protector</span>
-                </Link>
-                <Link className="hbp-card" href="/products/category/ats">
-                  <Image src="/assets/home-products-normalized/ats.webp" alt="Automatic Transfer Switch" width={160} height={140} />
-                  <strong>ATS</strong>
-                  <span>Automatic Transfer Switch</span>
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="hero-banner-features">
@@ -257,11 +213,7 @@ export default function HomePage() {
 
       <section className="trust-band" aria-label="Certifications and standards">
         <div className="trust-band-head">
-          <div>
-            <p className="eyebrow" style={{ marginBottom: 6 }}>Certified for Global Tenders</p>
-            <h2>CE / IEC / RoHS — Standards Buyers Trust</h2>
-          </div>
-          <Link className="text-link" href="/about">View certifications →</Link>
+          <p className="eyebrow" style={{ marginBottom: 0, textAlign: "center", width: "100%" }}>Certified for Global Tenders</p>
         </div>
         <div className="cert-row">
           {certifications.map((cert) => (
@@ -278,10 +230,6 @@ export default function HomePage() {
         <div className="track-heading">
           <span className="track-tag">Core Track · For Solar EPCs &amp; Installers</span>
           <h2 className="logo-color-title">Solar DC Protection</h2>
-          <p>
-            Purpose-built for photovoltaic strings, combiner boxes and battery storage. DC arc-quenching design rated up to 1500V — the
-            range specified by solar EPCs and PV combiner-box assemblers worldwide.
-          </p>
         </div>
         <div className="family-grid family-grid-3">
           {solarDcTrack.map((item) => (
@@ -304,12 +252,8 @@ export default function HomePage() {
 
       <section className="section compact track-section track-lv">
         <div className="track-heading">
-          <span className="track-tag muted-tag">Foundation Track · For Distributors &amp; Panel Builders</span>
-          <h2>Low Voltage Electrical Protection</h2>
-          <p>
-            A complete AC line for distribution panels, backup power and energy management — IEC-compliant components with stable lead
-            times, OEM flexibility and container-load supply.
-          </p>
+          <span className="track-tag">Foundation Track · For Distributors &amp; Panel Builders</span>
+          <h2 className="logo-color-title">Low Voltage Electrical Protection</h2>
         </div>
         <div className="family-grid family-grid-5">
           {lvTrack.map((item) => (

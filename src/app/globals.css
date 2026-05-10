@@ -344,6 +344,17 @@ textarea {
   border-color: var(--line);
 }
 
+.hero-banner .btn.ghost {
+  color: var(--ink);
+  border-color: var(--line);
+  background: #fff;
+}
+
+.hero-banner .btn.ghost:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -423,12 +434,13 @@ textarea {
 .section {
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(28px, 4vw, 44px) 20px;
+  padding: clamp(20px, 2.6vw, 32px) 20px;
 }
 
 .section.compact {
-  padding-top: clamp(20px, 3vw, 32px);
-  padding-bottom: clamp(20px, 3vw, 32px);}
+  padding-top: clamp(14px, 2vw, 22px);
+  padding-bottom: clamp(14px, 2vw, 22px);
+}
 
 .product-overview {
   max-width: 1480px;
@@ -491,7 +503,7 @@ textarea {
 .section-heading.centered {
   display: block;
   max-width: 1000px;
-  margin: 0 auto 18px;
+  margin: 0 auto 12px;
   text-align: center;
 }
 
@@ -713,13 +725,13 @@ h3 {
 
 .track-heading {
   max-width: 900px;
-  margin: 0 auto 22px;
+  margin: 0 auto 14px;
   text-align: center;
 }
 
 .track-heading h2 {
   font-size: clamp(22px, 2.6vw, 30px);
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .track-heading p {
@@ -800,7 +812,7 @@ h3 {
   position: relative;
   max-width: 1480px;
   margin: 0 auto;
-  padding: clamp(36px, 4vw, 64px) clamp(20px, 3vw, 48px) clamp(28px, 3vw, 48px);
+  padding: clamp(28px, 3vw, 48px) clamp(20px, 3vw, 48px) clamp(22px, 2.4vw, 32px);
 }
 
 .hero-banner-top {
@@ -2739,13 +2751,13 @@ textarea {
 .trust-band {
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(18px, 3vw, 30px) 20px;
+  padding: clamp(14px, 2vw, 22px) 20px;
   border-bottom: 1px solid var(--line);
 }
 .trust-band-head {
   display: block;
   max-width: 900px;
-  margin: 0 auto 14px;
+  margin: 0 auto 10px;
   text-align: center;
 }
 .trust-band-head h2 {
