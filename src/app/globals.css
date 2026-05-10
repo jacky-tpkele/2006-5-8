@@ -2774,18 +2774,18 @@ textarea {
 }
 .cert-chip {
   flex: 1 1 0;
-  min-width: 120px;
+  min-width: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px;
-  background: var(--wash);
+  padding: 20px;
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
 }
 .cert-chip img {
-  width: 80px;
-  height: 80px;
+  width: 136px;
+  height: 136px;
   object-fit: contain;
 }
 
