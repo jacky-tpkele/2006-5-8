@@ -771,6 +771,44 @@ export const productMenu: ProductMenuGroup[] = [
   },
 ];
 
+export type ProductMegaItem = { label: string; href: string; tag?: string };
+export type ProductMegaColumn = {
+  key: "solar" | "lv";
+  title: string;
+  subtitle: string;
+  recommended?: boolean;
+  cta: { label: string; href: string };
+  items: ProductMegaItem[];
+};
+
+export const productMegaMenu: ProductMegaColumn[] = [
+  {
+    key: "solar",
+    title: "Solar DC Protection",
+    subtitle: "For PV Systems & Battery Storage",
+    recommended: true,
+    cta: { label: "View Solar DC →", href: "/solar-dc-protection" },
+    items: [
+      { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
+      { label: "DC SPD", href: "/products/category/spd/dc-spd" },
+      { label: "PV Combiner Box", href: "/products/category/combiner-box" },
+    ],
+  },
+  {
+    key: "lv",
+    title: "Low Voltage Protection",
+    subtitle: "For Distribution, Backup & Metering",
+    cta: { label: "View All Products →", href: "/products" },
+    items: [
+      { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
+      { label: "AC SPD", href: "/products/category/spd/ac-spd" },
+      { label: "ATS", href: "/products/category/ats" },
+      { label: "Voltage Protector", href: "/products/category/voltage-protector" },
+      { label: "Energy Meter", href: "/products/category/energy-meter" },
+    ],
+  },
+];
+
 export const applications = [
   { title: "Solar PV", icon: "PV", text: "DC MCB, DC SPD and PV combiner boxes for utility, C&I and rooftop solar." },
   { title: "Industrial", icon: "IN", text: "ATS, voltage protectors and SPDs for factory and process power." },

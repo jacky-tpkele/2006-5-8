@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
-import { navItems, productMenu, products, site } from "@/data/site";
+import { navItems, productMegaMenu, products, site } from "@/data/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -45,11 +45,27 @@ export function Header() {
                     {item.label}
                   </Link>
                   <div className="products-mega-menu">
-                    {productMenu.map((group) => (
-                      <Link className="mega-cell" href={group.href} key={group.label} onClick={() => setMenuOpen(false)}>
-                        <span className="mega-cell-label">{group.label}</span>
-                        <span className="mega-cell-arrow">→</span>
-                      </Link>
+                    {productMegaMenu.map((col) => (
+                      <div className={`mega-col mega-col-${col.key}`} key={col.key}>
+                        <div className="mega-col-head">
+                          <span className="mega-col-title">{col.title}</span>
+                          {col.recommended ? <span className="mega-col-flag">Recommended</span> : null}
+                        </div>
+                        <span className="mega-col-sub">{col.subtitle}</span>
+                        <ul className="mega-col-list">
+                          {col.items.map((item) => (
+                            <li key={item.href}>
+                              <Link href={item.href} onClick={() => setMenuOpen(false)}>
+                                <span>{item.label}</span>
+                                <span className="mega-arrow">→</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                        <Link className="mega-col-cta" href={col.cta.href} onClick={() => setMenuOpen(false)}>
+                          {col.cta.label}
+                        </Link>
+                      </div>
                     ))}
                   </div>
                 </div>

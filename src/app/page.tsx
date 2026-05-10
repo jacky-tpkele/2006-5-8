@@ -116,51 +116,85 @@ export default function HomePage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="hero">
-        <div className="hero-inner">
-          <p className="eyebrow">Solar DC & Low Voltage Protection Manufacturer</p>
-          <h1>Your Reliable Partner in Solar DC Protection &amp; Low Voltage Electrical Solutions</h1>
-          <p>
-            We engineer and manufacture IEC-certified DC circuit breakers, surge protective devices and PV combiner boxes
-            for solar installations across 100+ countries — plus a full AC line of MCB, SPD, ATS, voltage protectors and energy meters.
-          </p>
-          <p className="hero-slogan">Protect Every Watt — From Solar to Socket.</p>
-          <div className="hero-badges">
-            <span className="hero-badge">CE</span>
-            <span className="hero-badge">IEC</span>
-            <span className="hero-badge">RoHS</span>
-            <span className="hero-badge">ISO 9001</span>
-            <span className="hero-badge">OEM / ODM</span>
-          </div>
-          <div className="button-row" style={{ marginTop: 18 }}>
-            <Link className="btn primary" href="/solar-dc-protection">
-              Explore Solar DC Range
-            </Link>
-            <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost" intent="catalog" />
-          </div>
-          <div className="hero-stats">
-            <div><strong>10+</strong><span>Years Manufacturing</span></div>
-            <div><strong>100+</strong><span>Countries Served</span></div>
-            <div><strong>1500V</strong><span>Solar DC Range</span></div>
-            <div><strong>72h</strong><span>Quotation SLA</span></div>
-          </div>
-        </div>
-        <div className="hero-visual" aria-label="TPKELE solar and low voltage product family">
-          <Image src="/assets/hero-products.webp" alt="TPKELE DC MCB, DC SPD, PV combiner box, ATS and energy meter family" width={620} height={390} priority />
-        </div>
-      </section>
+      <section className="hero-banner" aria-label="TPKELE Solar DC and Low Voltage Protection Solutions">
+        <div className="hero-banner-bg" aria-hidden="true" />
+        <div className="hero-banner-inner">
+          <div className="hero-banner-content">
+            <h1 className="hero-banner-title">
+              <span className="green">SOLAR DC &amp; LOW VOLTAGE</span>
+              <span className="dark">PROTECTION SOLUTIONS</span>
+            </h1>
+            <span className="hero-banner-rule" aria-hidden="true" />
+            <p className="hero-banner-slogan">Reliable Protection. Premium Quality. Global Trust.</p>
 
-      <section className="product-chip-band" aria-label="Product range at a glance">
-        <div className="product-chip-row">
-          <Link className="product-chip solar" href="/products/category/mcb/dc-mcb">DC MCB</Link>
-          <Link className="product-chip solar" href="/products/category/spd/dc-spd">DC SPD</Link>
-          <Link className="product-chip solar" href="/products/category/combiner-box">PV Combiner Box</Link>
-          <span className="product-chip-divider" aria-hidden="true" />
-          <Link className="product-chip" href="/products/category/mcb/ac-mcb">AC MCB</Link>
-          <Link className="product-chip" href="/products/category/spd/ac-spd">AC SPD</Link>
-          <Link className="product-chip" href="/products/category/ats">ATS</Link>
-          <Link className="product-chip" href="/products/category/voltage-protector">Voltage Protector</Link>
-          <Link className="product-chip" href="/products/category/energy-meter">Energy Meter</Link>
+            <div className="hero-banner-tracks">
+              <div className="hero-banner-track">
+                <span className="hero-banner-track-icon" aria-hidden="true">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>SOLAR DC PROTECTION</strong>
+                  <span>Safe &amp; Efficient for PV Systems</span>
+                </div>
+              </div>
+              <div className="hero-banner-track">
+                <span className="hero-banner-track-icon" aria-hidden="true">
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </span>
+                <div>
+                  <strong>LOW VOLTAGE PROTECTION</strong>
+                  <span>Reliable Power, Everywhere</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="hero-banner-cta">
+              <Link className="btn primary" href="/solar-dc-protection">
+                Explore Solar DC Range
+              </Link>
+              <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost" intent="catalog" />
+            </div>
+
+            <div className="hero-banner-stats">
+              <div><strong>10+</strong><span>Years Manufacturing</span></div>
+              <div><strong>100+</strong><span>Countries Served</span></div>
+              <div><strong>1500V</strong><span>Solar DC Range</span></div>
+              <div><strong>72h</strong><span>Quotation SLA</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-banner-features">
+          <div className="hero-banner-feature">
+            <span className="hbf-icon" aria-hidden="true">✓</span>
+            <div><strong>Reliable Protection</strong></div>
+          </div>
+          <div className="hero-banner-feature">
+            <span className="hbf-icon" aria-hidden="true">◆</span>
+            <div><strong>Premium Quality</strong></div>
+          </div>
+          <div className="hero-banner-feature">
+            <span className="hbf-icon" aria-hidden="true">⚙</span>
+            <div><strong>OEM / ODM Support</strong></div>
+          </div>
+          <div className="hero-banner-feature">
+            <span className="hbf-icon" aria-hidden="true">⌾</span>
+            <div><strong>Global Solutions</strong></div>
+          </div>
+          <div className="hero-banner-feature">
+            <span className="hbf-icon" aria-hidden="true">☎</span>
+            <div><strong>Technical Support</strong></div>
+          </div>
+          <div className="hero-banner-feature">
+            <span className="hbf-icon" aria-hidden="true">★</span>
+            <div><strong>Certified Products</strong></div>
+          </div>
         </div>
       </section>
 
