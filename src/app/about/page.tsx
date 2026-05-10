@@ -48,7 +48,7 @@ export default function AboutPage() {
         <Image className="feature-image" src="/assets/about/building.png" alt="TPKELE headquarters and factory building" width={620} height={378} />
       </section>
 
-      <section className="trust-band">
+      <section className="trust-band" id="certifications">
         <div className="trust-band-head">
           <p className="eyebrow">Certifications & Standards</p>
           <h2>Independently verified for international tenders</h2>

@@ -66,17 +66,53 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
+    sku: product.slug,
+    mpn: product.slug,
     image: gallery.map((src) => `${site.url}${src}`),
     description: product.description,
     brand: { "@type": "Brand", name: site.name },
     manufacturer: { "@type": "Organization", name: site.name, url: site.url },
-    category: product.parentCategory,
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      seller: { "@type": "Organization", name: site.name },
-    },
+    category: subCat ? `${product.parentCategory} / ${subCat.label}` : product.parentCategory,
+    ...(technicalSpecs.length > 0
+      ? {
+          additionalProperty: technicalSpecs.map((row) => ({
+            "@type": "PropertyValue",
+            name: row.label,
+            value: row.value,
+          })),
+        }
+      : {}),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Products", item: `${site.url}/products` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.parentCategory,
+        item: `${site.url}/products/category/${categorySlug}`,
+      },
+      ...(subCat
+        ? [
+            {
+              "@type": "ListItem" as const,
+              position: 4,
+              name: subCat.label,
+              item: `${site.url}/products/category/${categorySlug}/${subCat.slug}`,
+            },
+          ]
+        : []),
+      {
+        "@type": "ListItem",
+        position: subCat ? 5 : 4,
+        name: product.name,
+        item: `${site.url}/products/${product.slug}`,
+      },
+    ],
   };
 
   const faqJsonLd = catContent?.faq?.length
@@ -94,6 +130,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
