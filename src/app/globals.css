@@ -942,7 +942,7 @@ h3 {
   text-transform: uppercase;
 }
 
-/* Right-side solar panel SVG visual */
+/* Right-side solar panel image visual */
 .hero-banner-visual {
   position: relative;
   min-height: 360px;
@@ -951,11 +951,12 @@ h3 {
   box-shadow: 0 18px 38px rgba(13, 34, 28, 0.08);
 }
 
-.hero-panel-svg {
+.hero-panel-img {
   display: block;
   width: 100%;
   height: 100%;
   min-height: 360px;
+  object-fit: cover;
 }
 
 /* In-hero product showcase (2 track groups) */

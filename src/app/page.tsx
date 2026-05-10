@@ -170,53 +170,14 @@ export default function HomePage() {
             </div>
 
             <div className="hero-banner-visual" aria-hidden="true">
-              <svg className="hero-panel-svg" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice">
-                <defs>
-                  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#cfe6ff" />
-                    <stop offset="100%" stopColor="#eaf6ff" />
-                  </linearGradient>
-                  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#1a3a6c" />
-                    <stop offset="100%" stopColor="#2c5b9e" />
-                  </linearGradient>
-                  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#0b9b3f" />
-                    <stop offset="100%" stopColor="#066128" />
-                  </linearGradient>
-                </defs>
-                <rect width="600" height="420" fill="url(#sky)" />
-                <ellipse cx="120" cy="80" rx="80" ry="22" fill="#fff" opacity="0.7" />
-                <ellipse cx="320" cy="60" rx="60" ry="16" fill="#fff" opacity="0.55" />
-                <ellipse cx="500" cy="100" rx="70" ry="20" fill="#fff" opacity="0.6" />
-                <path d="M0 320 L600 280 L600 420 L0 420 Z" fill="url(#ground)" opacity="0.85" />
-                <g transform="translate(180 130) skewX(-22)">
-                  {Array.from({ length: 4 }).map((_, row) => (
-                    Array.from({ length: 6 }).map((_, col) => (
-                      <rect
-                        key={`${row}-${col}`}
-                        x={col * 70}
-                        y={row * 48}
-                        width={64}
-                        height={42}
-                        fill="url(#panel)"
-                        stroke="#0c2444"
-                        strokeWidth="1.5"
-                        rx="2"
-                      />
-                    ))
-                  ))}
-                  {Array.from({ length: 4 }).map((_, row) => (
-                    Array.from({ length: 6 }).map((_, col) => (
-                      <g key={`g-${row}-${col}`}>
-                        <line x1={col * 70 + 21} y1={row * 48} x2={col * 70 + 21} y2={row * 48 + 42} stroke="#3870b8" strokeWidth="0.6" opacity="0.7" />
-                        <line x1={col * 70 + 42} y1={row * 48} x2={col * 70 + 42} y2={row * 48 + 42} stroke="#3870b8" strokeWidth="0.6" opacity="0.7" />
-                        <line x1={col * 70} y1={row * 48 + 21} x2={col * 70 + 64} y2={row * 48 + 21} stroke="#3870b8" strokeWidth="0.6" opacity="0.7" />
-                      </g>
-                    ))
-                  ))}
-                </g>
-              </svg>
+              <Image
+                src="/assets/hero.png"
+                alt=""
+                width={1200}
+                height={900}
+                priority
+                className="hero-panel-img"
+              />
             </div>
           </div>
 
