@@ -194,9 +194,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <div className="cert-row">
           {certifications.map((cert) => (
             <div className="cert-chip" key={cert.code}>
+              <Image src={cert.icon} alt={`${cert.code} certification`} width={64} height={64} />
               <strong>{cert.code}</strong>
-              <span>{cert.label}</span>
-              <small>{cert.note}</small>
             </div>
           ))}
         </div>
