@@ -117,55 +117,150 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="hero-banner" aria-label="TPKELE Solar DC and Low Voltage Protection Solutions">
-        <div className="hero-banner-bg" aria-hidden="true" />
         <div className="hero-banner-inner">
-          <div className="hero-banner-content">
-            <h1 className="hero-banner-title">
-              <span className="green">SOLAR DC &amp; LOW VOLTAGE</span>
-              <span className="dark">PROTECTION SOLUTIONS</span>
-            </h1>
-            <span className="hero-banner-rule" aria-hidden="true" />
-            <p className="hero-banner-slogan">Reliable Protection. Premium Quality. Global Trust.</p>
+          <div className="hero-banner-top">
+            <div className="hero-banner-content">
+              <h1 className="hero-banner-title">
+                <span className="green">SOLAR DC &amp; LOW VOLTAGE</span>
+                <span className="dark">PROTECTION SOLUTIONS</span>
+              </h1>
+              <span className="hero-banner-rule" aria-hidden="true" />
+              <p className="hero-banner-slogan">Reliable Protection. Premium Quality. Global Trust.</p>
 
-            <div className="hero-banner-tracks">
-              <div className="hero-banner-track">
-                <span className="hero-banner-track-icon" aria-hidden="true">
-                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
-                  </svg>
-                </span>
-                <div>
-                  <strong>SOLAR DC PROTECTION</strong>
-                  <span>Safe &amp; Efficient for PV Systems</span>
+              <div className="hero-banner-tracks">
+                <div className="hero-banner-track">
+                  <span className="hero-banner-track-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>SOLAR DC PROTECTION</strong>
+                    <span>Safe &amp; Efficient for PV Systems</span>
+                  </div>
+                </div>
+                <div className="hero-banner-track">
+                  <span className="hero-banner-track-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z" />
+                      <path d="M9 12l2 2 4-4" />
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>LOW VOLTAGE PROTECTION</strong>
+                    <span>Reliable Power, Everywhere</span>
+                  </div>
                 </div>
               </div>
-              <div className="hero-banner-track">
-                <span className="hero-banner-track-icon" aria-hidden="true">
-                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z" />
-                    <path d="M9 12l2 2 4-4" />
-                  </svg>
-                </span>
-                <div>
-                  <strong>LOW VOLTAGE PROTECTION</strong>
-                  <span>Reliable Power, Everywhere</span>
-                </div>
+
+              <div className="hero-banner-cta">
+                <Link className="btn primary" href="/solar-dc-protection">
+                  Explore Solar DC Range
+                </Link>
+                <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost" intent="catalog" />
+              </div>
+
+              <div className="hero-banner-stats">
+                <div><strong>10+</strong><span>Years Manufacturing</span></div>
+                <div><strong>100+</strong><span>Countries Served</span></div>
+                <div><strong>1500V</strong><span>Solar DC Range</span></div>
+                <div><strong>72h</strong><span>Quotation SLA</span></div>
               </div>
             </div>
 
-            <div className="hero-banner-cta">
-              <Link className="btn primary" href="/solar-dc-protection">
-                Explore Solar DC Range
-              </Link>
-              <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost" intent="catalog" />
+            <div className="hero-banner-visual" aria-hidden="true">
+              <svg className="hero-panel-svg" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#cfe6ff" />
+                    <stop offset="100%" stopColor="#eaf6ff" />
+                  </linearGradient>
+                  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#1a3a6c" />
+                    <stop offset="100%" stopColor="#2c5b9e" />
+                  </linearGradient>
+                  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0b9b3f" />
+                    <stop offset="100%" stopColor="#066128" />
+                  </linearGradient>
+                </defs>
+                <rect width="600" height="420" fill="url(#sky)" />
+                <ellipse cx="120" cy="80" rx="80" ry="22" fill="#fff" opacity="0.7" />
+                <ellipse cx="320" cy="60" rx="60" ry="16" fill="#fff" opacity="0.55" />
+                <ellipse cx="500" cy="100" rx="70" ry="20" fill="#fff" opacity="0.6" />
+                <path d="M0 320 L600 280 L600 420 L0 420 Z" fill="url(#ground)" opacity="0.85" />
+                <g transform="translate(180 130) skewX(-22)">
+                  {Array.from({ length: 4 }).map((_, row) => (
+                    Array.from({ length: 6 }).map((_, col) => (
+                      <rect
+                        key={`${row}-${col}`}
+                        x={col * 70}
+                        y={row * 48}
+                        width={64}
+                        height={42}
+                        fill="url(#panel)"
+                        stroke="#0c2444"
+                        strokeWidth="1.5"
+                        rx="2"
+                      />
+                    ))
+                  ))}
+                  {Array.from({ length: 4 }).map((_, row) => (
+                    Array.from({ length: 6 }).map((_, col) => (
+                      <g key={`g-${row}-${col}`}>
+                        <line x1={col * 70 + 21} y1={row * 48} x2={col * 70 + 21} y2={row * 48 + 42} stroke="#3870b8" strokeWidth="0.6" opacity="0.7" />
+                        <line x1={col * 70 + 42} y1={row * 48} x2={col * 70 + 42} y2={row * 48 + 42} stroke="#3870b8" strokeWidth="0.6" opacity="0.7" />
+                        <line x1={col * 70} y1={row * 48 + 21} x2={col * 70 + 64} y2={row * 48 + 21} stroke="#3870b8" strokeWidth="0.6" opacity="0.7" />
+                      </g>
+                    ))
+                  ))}
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div className="hero-banner-products">
+            <div className="hbp-group hbp-solar">
+              <h2 className="hbp-title">SOLAR DC PROTECTION</h2>
+              <div className="hbp-row">
+                <Link className="hbp-card" href="/products/category/spd/dc-spd">
+                  <Image src="/assets/home-products-normalized/spd.webp" alt="DC SPD" width={160} height={140} />
+                  <strong>SPD</strong>
+                  <span>Surge Protective Device</span>
+                </Link>
+                <Link className="hbp-card" href="/products/category/mcb/dc-mcb">
+                  <Image src="/assets/home-products-normalized/mcb.webp" alt="DC MCB" width={160} height={140} />
+                  <strong>MCB</strong>
+                  <span>Miniature Circuit Breaker</span>
+                </Link>
+                <Link className="hbp-card" href="/products/category/combiner-box">
+                  <Image src="/assets/home-products-normalized/combiner-box.webp" alt="PV Combiner Box" width={160} height={140} />
+                  <strong>COMBINER BOX</strong>
+                  <span>PV Combiner Box</span>
+                </Link>
+              </div>
             </div>
 
-            <div className="hero-banner-stats">
-              <div><strong>10+</strong><span>Years Manufacturing</span></div>
-              <div><strong>100+</strong><span>Countries Served</span></div>
-              <div><strong>1500V</strong><span>Solar DC Range</span></div>
-              <div><strong>72h</strong><span>Quotation SLA</span></div>
+            <div className="hbp-group hbp-lv">
+              <h2 className="hbp-title">LOW VOLTAGE PROTECTION</h2>
+              <div className="hbp-row">
+                <Link className="hbp-card" href="/products/category/energy-meter">
+                  <Image src="/assets/home-products-normalized/din-rail-energy-meter.webp" alt="DIN Rail Energy Meter" width={160} height={140} />
+                  <strong>ENERGY METER</strong>
+                  <span>DIN Rail Energy Meter</span>
+                </Link>
+                <Link className="hbp-card" href="/products/category/voltage-protector">
+                  <Image src="/assets/home-products-normalized/over-voltage-protector.webp" alt="Voltage Protector" width={160} height={140} />
+                  <strong>VOLTAGE PROTECTOR</strong>
+                  <span>Adjustable Voltage Protector</span>
+                </Link>
+                <Link className="hbp-card" href="/products/category/ats">
+                  <Image src="/assets/home-products-normalized/ats.webp" alt="Automatic Transfer Switch" width={160} height={140} />
+                  <strong>ATS</strong>
+                  <span>Automatic Transfer Switch</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
