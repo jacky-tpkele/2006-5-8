@@ -60,16 +60,16 @@ export function LeadForm({ initialProduct, initialIntent }: LeadFormProps) {
     <form className="lead-form" onSubmit={handleSubmit} noValidate>
       <div className="form-grid">
         <label>
-          Your Name <span>*</span>
-          <input name="name" type="text" autoComplete="name" required />
+          <span className="label-text">Your Name <span className="required">*</span></span>
+          <input name="name" type="text" autoComplete="name" placeholder="John Smith" required />
         </label>
         <label>
-          Your Email <span>*</span>
-          <input name="email" type="email" autoComplete="email" required />
+          <span className="label-text">Your Email <span className="required">*</span></span>
+          <input name="email" type="email" autoComplete="email" placeholder="you@company.com" required />
         </label>
       </div>
       <label>
-        Product Interest
+        <span className="label-text">Product Interest</span>
         <select name="product" value={product} onChange={(event) => setProduct(event.target.value)}>
           <option value="">Select a product family</option>
           {products.map((item) => (
@@ -81,12 +81,12 @@ export function LeadForm({ initialProduct, initialIntent }: LeadFormProps) {
         </select>
       </label>
       <label>
-        Subject <span>*</span>
+        <span className="label-text">Subject <span className="required">*</span></span>
         <input name="subject" type="text" value={subject} onChange={(event) => setSubject(event.target.value)} required />
       </label>
       <label>
-        Message <span>*</span>
-        <textarea name="message" rows={7} defaultValue={defaultMessage(initialIntent)} required />
+        <span className="label-text">Message <span className="required">*</span></span>
+        <textarea name="message" rows={5} defaultValue={defaultMessage(initialIntent)} required />
       </label>
       <div className="form-actions">
         <button className="btn primary" type="submit">
@@ -96,9 +96,11 @@ export function LeadForm({ initialProduct, initialIntent }: LeadFormProps) {
           WhatsApp
         </a>
       </div>
-      <p className="form-status" role="status" aria-live="polite">
-        {status}
-      </p>
+      {status ? (
+        <p className="form-status" role="status" aria-live="polite">
+          {status}
+        </p>
+      ) : null}
     </form>
   );
 }

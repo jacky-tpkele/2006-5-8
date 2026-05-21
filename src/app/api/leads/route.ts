@@ -10,6 +10,8 @@ type LeadRequest = {
   message?: string;
 };
 
+const CRM_URL = "https://crm.tpkele.com/api/website-inquiry";
+
 export async function POST(request: Request) {
   const body = (await request.json()) as LeadRequest;
   const missing = ["name", "email", "subject", "message"].filter((key) => !body[key as keyof LeadRequest]);
@@ -18,13 +20,25 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Invalid lead payload" }, { status: 400 });
   }
 
-  const leadId = `lead_${Date.now()}`;
-  console.info("TPKELE lead received", {
-    leadId,
-    product: body.product,
-    subject: body.subject,
-    email: body.email,
-  });
+  try {
+    const crmResponse = await fetch(CRM_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: body.name,
+        email: body.email,
+        product: body.product || "",
+        subject: body.subject,
+        message: body.message,
+      }),
+    });
 
-  return NextResponse.json({ ok: true, leadId });
+    if (!crmResponse.ok) {
+      console.error("CRM forward failed:", crmResponse.status);
+    }
+  } catch (err) {
+    console.error("CRM forward error:", err);
+  }
+
+  return NextResponse.json({ ok: true });
 }
