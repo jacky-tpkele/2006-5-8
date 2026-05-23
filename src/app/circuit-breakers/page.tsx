@@ -172,7 +172,7 @@ export default function CircuitBreakersPage() {
         <div className="family-grid family-grid-3" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
           {products.map((p) => (
             <article className="family-card" key={p.name}>
-              <Link href={p.href} className="family-card-media" aria-label={p.name}>
+              <Link href={p.href} className="family-card-media" style={{ background: "#fff" }} aria-label={p.name}>
                 <Image src={p.image} alt={`TPKELE ${p.name}`} width={320} height={220} />
               </Link>
               <div className="family-card-body">
