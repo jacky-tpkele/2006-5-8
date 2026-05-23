@@ -118,6 +118,15 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <section className="hero-banner" aria-label="TPKELE Solar DC and Low Voltage Protection Solutions">
+        <Image
+          src="/assets/%E5%8E%82%E6%88%BF.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hero-banner-bg"
+          aria-hidden
+        />
         <div className="hero-banner-inner">
           <div className="hero-banner-top">
             <div className="hero-banner-content">
@@ -159,7 +168,7 @@ export default function HomePage() {
                 <Link className="btn primary" href="/solar-dc-protection">
                   Explore Solar DC Range
                 </Link>
-                <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost" intent="catalog" />
+                <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost dark" intent="catalog" />
               </div>
 
               <div className="hero-banner-stats">
@@ -168,18 +177,6 @@ export default function HomePage() {
                 <div><strong>1500V</strong><span>Solar DC Range</span></div>
                 <div><strong>72h</strong><span>Quotation SLA</span></div>
               </div>
-            </div>
-
-            <div className="hero-banner-visual">
-              <Image
-                src="/assets/hero.png"
-                alt="TPKELE Solar DC and Low Voltage Protection — solar PV panels with city skyline"
-                width={1537}
-                height={1023}
-                priority
-                sizes="(max-width: 1024px) 100vw, 720px"
-                className="hero-panel-img"
-              />
             </div>
           </div>
         </div>

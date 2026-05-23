@@ -344,15 +344,18 @@ textarea {
   border-color: var(--line);
 }
 
-.hero-banner .btn.ghost {
-  color: var(--ink);
-  border-color: var(--line);
-  background: #fff;
+.hero-banner .btn.ghost,
+.hero-banner .btn.ghost.dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.hero-banner .btn.ghost:hover {
-  border-color: var(--green);
-  color: var(--green);
+.hero-banner .btn.ghost:hover,
+.hero-banner .btn.ghost.dark:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
 }
 
 .button-row {
@@ -804,27 +807,41 @@ h3 {
   width: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #ffffff 0%, #f6fbf8 65%, #eaf6ee 100%);
+  background: #051428;
+  color: #fff;
   overflow: hidden;
+}
+
+.hero-banner-bg {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 20, 40, 0.85) 0%, rgba(5, 20, 40, 0.65) 55%, rgba(5, 20, 40, 0.25) 100%);
+  z-index: 1;
 }
 
 .hero-banner-inner {
   position: relative;
+  z-index: 2;
   max-width: 1480px;
   margin: 0 auto;
-  padding: clamp(28px, 3vw, 48px) clamp(20px, 3vw, 48px) clamp(22px, 2.4vw, 32px);
+  padding: clamp(56px, 7vw, 96px) clamp(20px, 3vw, 48px) clamp(48px, 6vw, 80px);
 }
 
 .hero-banner-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(24px, 3vw, 48px);
-  align-items: center;
+  display: block;
 }
 
 .hero-banner-content {
   position: relative;
   z-index: 2;
+  max-width: 720px;
   min-width: 0;
 }
 
@@ -845,11 +862,11 @@ h3 {
 }
 
 .hero-banner-title .green {
-  color: var(--green);
+  color: #4ade80;
 }
 
 .hero-banner-title .dark {
-  color: var(--ink);
+  color: #fff;
 }
 
 .hero-banner-rule {
@@ -857,7 +874,7 @@ h3 {
   width: 96px;
   height: 4px;
   margin: 22px 0 18px;
-  background: var(--green);
+  background: #4ade80;
   border-radius: 999px;
 }
 
@@ -865,7 +882,7 @@ h3 {
   margin: 0;
   font-size: clamp(14px, 1.2vw, 17px);
   font-weight: 600;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.78);
   letter-spacing: 0.2px;
 }
 
@@ -881,9 +898,10 @@ h3 {
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(11, 155, 63, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
+  backdrop-filter: blur(4px);
 }
 
 .hero-banner-track-icon {
@@ -894,8 +912,8 @@ h3 {
   height: 42px;
   flex-shrink: 0;
   border-radius: 10px;
-  background: var(--green-soft);
-  color: var(--green);
+  background: rgba(74, 222, 128, 0.18);
+  color: #4ade80;
 }
 
 .hero-banner-track > div {
@@ -909,13 +927,13 @@ h3 {
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.3px;
-  color: var(--ink);
+  color: #fff;
   text-transform: uppercase;
 }
 
 .hero-banner-track span {
   font-size: 12.5px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .hero-banner-cta {
@@ -929,9 +947,10 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(11, 155, 63, 0.14);
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 720px;
 }
 
 .hero-banner-stats > div {
@@ -943,105 +962,15 @@ h3 {
 .hero-banner-stats strong {
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 900;
-  color: var(--green);
+  color: #4ade80;
   line-height: 1;
 }
 
 .hero-banner-stats span {
   font-size: 11.5px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.72);
   letter-spacing: 0.3px;
   text-transform: uppercase;
-}
-
-/* Right-side solar panel image visual */
-.hero-banner-visual {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #eaf6ff;
-  box-shadow: 0 14px 32px rgba(13, 34, 28, 0.07);
-}
-
-.hero-panel-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* In-hero product showcase (2 track groups) */
-.hero-banner-products {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 2.4vw, 40px);
-  margin-top: clamp(28px, 3.2vw, 48px);
-  padding-top: clamp(24px, 2.4vw, 36px);
-  border-top: 1px solid rgba(11, 155, 63, 0.18);
-}
-
-.hbp-title {
-  margin: 0 0 18px;
-  font-size: clamp(15px, 1.3vw, 17px);
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.hbp-solar .hbp-title {
-  color: var(--green);
-}
-
-.hbp-lv .hbp-title {
-  color: var(--green);
-}
-
-.hbp-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.hbp-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 10px 14px;
-  background: transparent;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.18s ease, background 0.18s ease;
-}
-
-.hbp-card:hover {
-  background: rgba(255, 255, 255, 0.7);
-  transform: translateY(-3px);
-}
-
-.hbp-card img {
-  width: 100%;
-  max-width: 130px;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-}
-
-.hbp-card strong {
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--ink);
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-}
-
-.hbp-card span {
-  font-size: 12px;
-  color: var(--muted);
 }
 
 /* Bottom green features bar */
@@ -1087,20 +1016,6 @@ h3 {
 }
 
 @media (max-width: 1024px) {
-  .hero-banner-top {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-banner-visual {
-    aspect-ratio: 16 / 10;
-    max-height: 380px;
-  }
-
-  .hero-banner-products {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
   .hero-banner-features {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1110,23 +1025,6 @@ h3 {
   .hero-banner-tracks,
   .hero-banner-stats {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .hbp-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .hbp-card {
-    padding: 8px 4px;
-  }
-
-  .hbp-card strong {
-    font-size: 11.5px;
-  }
-
-  .hbp-card span {
-    font-size: 10.5px;
   }
 
   .hero-banner-features {
