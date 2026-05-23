@@ -1729,21 +1729,33 @@ textarea {
   padding: 0;
   border: 0;
   box-shadow: none;
-  gap: 10px;
+  gap: 6px;
 }
 
 .inquiry-modal-body .form-grid {
-  gap: 10px;
+  gap: 6px;
 }
 
 .inquiry-modal-body .lead-form label {
-  gap: 3px;
+  gap: 2px;
 }
 
 .inquiry-modal-body .lead-form input,
-.inquiry-modal-body .lead-form select,
+.inquiry-modal-body .lead-form select {
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .inquiry-modal-body .lead-form textarea {
-  padding: 8px 12px;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  resize: none;
+}
+
+.inquiry-modal-body .form-actions {
+  margin-top: 4px;
 }
 
 .form-grid {
@@ -2437,7 +2449,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 10px 20px;
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -2466,7 +2478,7 @@ textarea {
 }
 
 .inquiry-modal-body {
-  padding: 16px 20px 18px;
+  padding: 12px 20px 14px;
   overflow-y: auto;
 }
 

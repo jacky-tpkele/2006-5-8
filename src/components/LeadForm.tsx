@@ -86,7 +86,7 @@ export function LeadForm({ initialProduct, initialIntent }: LeadFormProps) {
       </label>
       <label>
         <span className="label-text">Message <span className="required">*</span></span>
-        <textarea name="message" rows={5} defaultValue={defaultMessage(initialIntent)} required />
+        <textarea name="message" rows={2} defaultValue={defaultMessage(initialIntent)} required />
       </label>
       <div className="form-actions">
         <button className="btn primary" type="submit">
