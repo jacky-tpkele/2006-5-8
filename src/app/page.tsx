@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
   applications,
   buyerSegments,
-  certifications,
   exportMarkets,
   oemCapabilities,
   products,
@@ -209,21 +207,6 @@ export default function HomePage() {
               <p>Global shipping support and responsive after-sales communication.</p>
             </li>
           </ol>
-        </div>
-      </section>
-
-      <section className="trust-band" aria-label="Certifications and standards">
-        <div className="trust-band-head">
-          <p className="eyebrow" style={{ marginBottom: 0, textAlign: "center", width: "100%" }}>Certified for Global Tenders</p>
-        </div>
-        <div className="cert-row">
-          {certifications.map((cert) => (
-            <div className="cert-chip" key={cert.code}>
-              <CertIcon code={cert.code} className="cert-chip-icon" />
-              <strong>{cert.label}</strong>
-              <span>{cert.description}</span>
-            </div>
-          ))}
         </div>
       </section>
 
