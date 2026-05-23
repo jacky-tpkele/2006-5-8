@@ -1729,6 +1729,21 @@ textarea {
   padding: 0;
   border: 0;
   box-shadow: none;
+  gap: 10px;
+}
+
+.inquiry-modal-body .form-grid {
+  gap: 10px;
+}
+
+.inquiry-modal-body .lead-form label {
+  gap: 3px;
+}
+
+.inquiry-modal-body .lead-form input,
+.inquiry-modal-body .lead-form select,
+.inquiry-modal-body .lead-form textarea {
+  padding: 8px 12px;
 }
 
 .form-grid {
@@ -2422,13 +2437,13 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 24px;
+  padding: 12px 20px;
   border-bottom: 1px solid #e5e7eb;
 }
 
 .inquiry-modal-header h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -2451,7 +2466,7 @@ textarea {
 }
 
 .inquiry-modal-body {
-  padding: 22px 24px 26px;
+  padding: 16px 20px 18px;
   overflow-y: auto;
 }
 
