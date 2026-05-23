@@ -1006,15 +1006,14 @@ h3 {
   }
 }
 
-/* B2B Procurement Flow — sits directly under the hero, dark navy to echo it */
+/* B2B Procurement Flow — light section that follows the dark hero cleanly */
 .procurement-flow {
   position: relative;
   background:
-    radial-gradient(1200px 400px at 80% 0%, rgba(74, 222, 128, 0.08), transparent 60%),
-    linear-gradient(180deg, #051428 0%, #07182f 100%);
-  color: #fff;
+    radial-gradient(900px 320px at 80% 0%, rgba(11, 155, 63, 0.06), transparent 65%),
+    linear-gradient(180deg, #ffffff 0%, #f6fbf8 100%);
+  color: var(--ink);
   padding: clamp(56px, 7vw, 96px) clamp(20px, 3vw, 48px);
-  border-top: 1px solid rgba(74, 222, 128, 0.22);
 }
 
 .procurement-flow-inner {
@@ -1029,7 +1028,7 @@ h3 {
 }
 
 .procurement-eyebrow {
-  color: #4ade80;
+  color: var(--green);
   letter-spacing: 1.6px;
 }
 
@@ -1041,13 +1040,13 @@ h3 {
   line-height: 1.1;
 }
 
-.procurement-title .green { color: #4ade80; }
-.procurement-title .white { color: #fff; }
+.procurement-title .green { color: var(--green); }
+.procurement-title .white { color: var(--ink); }
 
 .procurement-lede {
   margin: 0;
   font-size: clamp(14px, 1.1vw, 16px);
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   line-height: 1.65;
 }
 
@@ -1066,11 +1065,11 @@ h3 {
 .procurement-steps::before {
   content: '';
   position: absolute;
-  top: 36px;
+  top: 60px;
   left: 12.5%;
   right: 12.5%;
   height: 0;
-  border-top: 2px dashed rgba(74, 222, 128, 0.28);
+  border-top: 2px dashed rgba(11, 155, 63, 0.32);
   z-index: 0;
 }
 
@@ -1078,17 +1077,17 @@ h3 {
   position: relative;
   z-index: 1;
   padding: 28px 22px 24px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #fff;
+  border: 1px solid rgba(11, 155, 63, 0.12);
   border-radius: 14px;
-  backdrop-filter: blur(6px);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  box-shadow: 0 6px 20px rgba(13, 34, 28, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .procurement-step:hover {
   transform: translateY(-4px);
-  border-color: rgba(74, 222, 128, 0.55);
-  background: rgba(74, 222, 128, 0.08);
+  border-color: rgba(11, 155, 63, 0.45);
+  box-shadow: 0 14px 32px rgba(13, 34, 28, 0.08);
 }
 
 .procurement-step-num {
@@ -1099,26 +1098,26 @@ h3 {
   height: 44px;
   margin-bottom: 16px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
-  color: #051428;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: #fff;
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 0.5px;
-  box-shadow: 0 6px 18px rgba(74, 222, 128, 0.35);
+  box-shadow: 0 6px 16px rgba(11, 155, 63, 0.25);
 }
 
 .procurement-step h3 {
   margin: 0 0 8px;
   font-size: 17px;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink);
   letter-spacing: 0.2px;
 }
 
 .procurement-step p {
   margin: 0;
   font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
   line-height: 1.6;
 }
 
