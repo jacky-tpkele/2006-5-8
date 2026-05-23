@@ -40,22 +40,22 @@ const options = [
   {
     name: "1P AC MCB",
     description: "Single-phase circuit protection for branch circuits in residential and light commercial panels.",
-    image: "/assets/landing/circuit-breakers/AC1P.jpg",
+    image: "/assets/landing/circuit-breakers/card-1p.png",
   },
   {
     name: "2P AC MCB",
     description: "Line and neutral protection for single-phase systems requiring full isolation.",
-    image: "/assets/landing/circuit-breakers/AC2P.png",
+    image: "/assets/landing/circuit-breakers/card-2p.png",
   },
   {
     name: "3P AC MCB",
     description: "Three-phase power distribution protection for commercial and industrial feeders.",
-    image: "/assets/landing/circuit-breakers/AC3P.png",
+    image: "/assets/landing/circuit-breakers/card-3p.png",
   },
   {
     name: "4P AC MCB",
     description: "Three-phase with neutral protection where full four-pole isolation is required.",
-    image: "/assets/landing/circuit-breakers/AC4P.png",
+    image: "/assets/landing/circuit-breakers/card-4p.png",
   },
 ];
 
@@ -115,6 +115,30 @@ export default function CircuitBreakersPage() {
         </div>
       </section>
 
+      {/* ─── Available Options ─── */}
+      <section className="section">
+        <div className="section-heading centered">
+          <p className="eyebrow">Available Options</p>
+          <h2>AC MCB Pole Configurations</h2>
+        </div>
+        <div className="cb-options-grid">
+          {options.map((o) => (
+            <article className="cb-option-card" key={o.name}>
+              <div className="cb-option-media">
+                <Image src={o.image} alt={`TPKELE ${o.name}`} width={280} height={220} unoptimized style={{ background: "#fff" }} />
+              </div>
+              <div className="cb-option-body">
+                <h3>{o.name}</h3>
+                <p>{o.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="cb-section-cta">
+          <InquiryModal triggerLabel="Send Your Specifications" triggerClassName="btn primary" intent="specs" product="AC MCB" />
+        </div>
+      </section>
+
       {/* ─── Product Overview ─── */}
       <section className="section">
         <div className="section-heading centered">
@@ -160,30 +184,6 @@ export default function CircuitBreakersPage() {
         </div>
         <div className="cb-section-cta">
           <InquiryModal triggerLabel="Request Datasheet" triggerClassName="btn primary" intent="datasheet" product="AC MCB" />
-        </div>
-      </section>
-
-      {/* ─── Available Options ─── */}
-      <section className="section">
-        <div className="section-heading centered">
-          <p className="eyebrow">Available Options</p>
-          <h2>AC MCB Pole Configurations</h2>
-        </div>
-        <div className="cb-options-grid">
-          {options.map((o) => (
-            <article className="cb-option-card" key={o.name}>
-              <div className="cb-option-media">
-                <Image src={o.image} alt={`TPKELE ${o.name}`} width={280} height={220} unoptimized style={{ background: "#fff" }} />
-              </div>
-              <div className="cb-option-body">
-                <h3>{o.name}</h3>
-                <p>{o.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="cb-section-cta">
-          <InquiryModal triggerLabel="Send Your Specifications" triggerClassName="btn primary" intent="specs" product="AC MCB" />
         </div>
       </section>
 
