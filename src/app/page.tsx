@@ -119,7 +119,7 @@ export default function HomePage() {
 
       <section className="hero-banner" aria-label="TPKELE Solar DC and Low Voltage Protection Solutions">
         <Image
-          src="/assets/%E5%8E%82%E6%88%BF.png"
+          src="/assets/factory-home.png"
           alt=""
           fill
           priority
