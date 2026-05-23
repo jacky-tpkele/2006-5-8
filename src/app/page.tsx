@@ -138,7 +138,7 @@ export default function HomePage() {
               <p className="hero-banner-slogan">Reliable Protection. Premium Quality. Global Trust.</p>
 
               <div className="hero-banner-tracks">
-                <div className="hero-banner-track">
+                <Link className="hero-banner-track" href="/solar-dc-protection">
                   <span className="hero-banner-track-icon" aria-hidden="true">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="4" />
@@ -149,8 +149,8 @@ export default function HomePage() {
                     <strong>SOLAR DC PROTECTION</strong>
                     <span>Safe &amp; Efficient for PV Systems</span>
                   </div>
-                </div>
-                <div className="hero-banner-track">
+                </Link>
+                <Link className="hero-banner-track" href="/products">
                   <span className="hero-banner-track-icon" aria-hidden="true">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z" />
@@ -161,7 +161,7 @@ export default function HomePage() {
                     <strong>LOW VOLTAGE PROTECTION</strong>
                     <span>Reliable Power, Everywhere</span>
                   </div>
-                </div>
+                </Link>
               </div>
 
               <div className="hero-banner-cta">
@@ -181,32 +181,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hero-banner-features">
-          <div className="hero-banner-feature">
-            <span className="hbf-icon" aria-hidden="true">✓</span>
-            <div><strong>Reliable Protection</strong></div>
-          </div>
-          <div className="hero-banner-feature">
-            <span className="hbf-icon" aria-hidden="true">◆</span>
-            <div><strong>Premium Quality</strong></div>
-          </div>
-          <div className="hero-banner-feature">
-            <span className="hbf-icon" aria-hidden="true">⚙</span>
-            <div><strong>OEM / ODM Support</strong></div>
-          </div>
-          <div className="hero-banner-feature">
-            <span className="hbf-icon" aria-hidden="true">⌾</span>
-            <div><strong>Global Solutions</strong></div>
-          </div>
-          <div className="hero-banner-feature">
-            <span className="hbf-icon" aria-hidden="true">☎</span>
-            <div><strong>Technical Support</strong></div>
-          </div>
-          <div className="hero-banner-feature">
-            <span className="hbf-icon" aria-hidden="true">★</span>
-            <div><strong>Certified Products</strong></div>
-          </div>
-        </div>
       </section>
 
       <section className="trust-band" aria-label="Certifications and standards">
