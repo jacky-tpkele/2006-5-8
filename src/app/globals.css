@@ -1006,6 +1006,138 @@ h3 {
   }
 }
 
+/* B2B Procurement Flow — sits directly under the hero, dark navy to echo it */
+.procurement-flow {
+  position: relative;
+  background:
+    radial-gradient(1200px 400px at 80% 0%, rgba(74, 222, 128, 0.08), transparent 60%),
+    linear-gradient(180deg, #051428 0%, #07182f 100%);
+  color: #fff;
+  padding: clamp(56px, 7vw, 96px) clamp(20px, 3vw, 48px);
+  border-top: 1px solid rgba(74, 222, 128, 0.22);
+}
+
+.procurement-flow-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.procurement-flow-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(36px, 4vw, 56px);
+}
+
+.procurement-eyebrow {
+  color: #4ade80;
+  letter-spacing: 1.6px;
+}
+
+.procurement-title {
+  margin: 10px 0 14px;
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  line-height: 1.1;
+}
+
+.procurement-title .green { color: #4ade80; }
+.procurement-title .white { color: #fff; }
+
+.procurement-lede {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+}
+
+.procurement-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  position: relative;
+  counter-reset: step;
+}
+
+/* horizontal connector dashes between cards (desktop only) */
+.procurement-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 0;
+  border-top: 2px dashed rgba(74, 222, 128, 0.28);
+  z-index: 0;
+}
+
+.procurement-step {
+  position: relative;
+  z-index: 1;
+  padding: 28px 22px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.procurement-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(74, 222, 128, 0.55);
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.procurement-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: #051428;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 18px rgba(74, 222, 128, 0.35);
+}
+
+.procurement-step h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.2px;
+}
+
+.procurement-step p {
+  margin: 0;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .procurement-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .procurement-steps::before {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .procurement-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
 .application-grid,
 .value-grid {
   display: grid;

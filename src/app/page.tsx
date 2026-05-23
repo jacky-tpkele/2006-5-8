@@ -183,6 +183,44 @@ export default function HomePage() {
 
       </section>
 
+      <section className="procurement-flow" aria-label="B2B Procurement Flow">
+        <div className="procurement-flow-inner">
+          <div className="procurement-flow-head">
+            <p className="eyebrow procurement-eyebrow">How We Work</p>
+            <h2 className="procurement-title">
+              <span className="green">Smooth B2B</span>
+              <span className="white"> Procurement Flow</span>
+            </h2>
+            <p className="procurement-lede">
+              We keep communication clear from first inquiry to final delivery, helping you shorten sourcing cycles and reduce project risk.
+            </p>
+          </div>
+
+          <ol className="procurement-steps">
+            <li className="procurement-step">
+              <span className="procurement-step-num" aria-hidden="true">1</span>
+              <h3>Share Requirements</h3>
+              <p>Send your drawings, target market, and certification requirements.</p>
+            </li>
+            <li className="procurement-step">
+              <span className="procurement-step-num" aria-hidden="true">2</span>
+              <h3>Sample &amp; Validation</h3>
+              <p>We arrange samples and technical confirmation before mass order.</p>
+            </li>
+            <li className="procurement-step">
+              <span className="procurement-step-num" aria-hidden="true">3</span>
+              <h3>Mass Production</h3>
+              <p>Stable lead time with strict quality checks throughout production.</p>
+            </li>
+            <li className="procurement-step">
+              <span className="procurement-step-num" aria-hidden="true">4</span>
+              <h3>Delivery &amp; Support</h3>
+              <p>Global shipping support and responsive after-sales communication.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       <section className="trust-band" aria-label="Certifications and standards">
         <div className="trust-band-head">
           <p className="eyebrow" style={{ marginBottom: 0, textAlign: "center", width: "100%" }}>Certified for Global Tenders</p>
