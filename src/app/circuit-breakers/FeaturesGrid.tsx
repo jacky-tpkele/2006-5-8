@@ -11,7 +11,7 @@ export function FeaturesGrid() {
         {features.map((f) => (
           <article className="cb-feat-card" key={f.title}>
             <div className="cb-feat-media">
-              <Image src={f.image} alt={f.title} width={360} height={240} unoptimized />
+              <Image src={f.image} alt={f.title} width={360} height={240} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px" />
             </div>
             <div className="cb-feat-body">
               <h3>{f.title}</h3>

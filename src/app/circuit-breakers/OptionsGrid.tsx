@@ -18,7 +18,7 @@ export function OptionsGrid() {
             triggerContent={
               <>
                 <div className="cb-option-media">
-                  <Image src={o.image} alt={`TPKELE ${o.name}`} fill unoptimized style={{ objectFit: "contain" }} />
+                  <Image src={o.image} alt={`TPKELE ${o.name}`} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px" style={{ objectFit: "contain" }} />
                 </div>
                 <div className="cb-option-body">
                   <h3>{o.name}</h3>

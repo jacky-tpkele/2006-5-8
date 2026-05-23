@@ -7,7 +7,7 @@ export function CompanySection() {
       <div className="cb-company">
         <div className="cb-company-main">
           <div className="cb-company-photo">
-            <Image src="/assets/landing/circuit-breakers/factory-building.png" alt="TPKELE manufacturing facility in Wenzhou, China" width={640} height={420} unoptimized />
+            <Image src="/assets/landing/circuit-breakers/factory-building.png" alt="TPKELE manufacturing facility in Wenzhou, China" width={640} height={420} sizes="(max-width: 1024px) 100vw, 640px" />
           </div>
           <div className="cb-company-text">
             <p className="eyebrow">About TPKELE</p>
@@ -28,11 +28,11 @@ export function CompanySection() {
           </div>
         </div>
         <div className="cb-company-gallery">
-          <Image src="/assets/landing/circuit-breakers/factory-2.webp" alt="TPKELE MCB production line" width={380} height={260} unoptimized />
-          <Image src="/assets/landing/circuit-breakers/factory-3.webp" alt="TPKELE quality testing equipment" width={380} height={260} unoptimized />
-          <Image src="/assets/landing/circuit-breakers/exhibition-1.webp" alt="TPKELE at international electrical trade show" width={380} height={260} unoptimized />
-          <Image src="/assets/landing/circuit-breakers/exhibition-2.webp" alt="TPKELE exhibition booth" width={380} height={260} unoptimized />
-          <Image src="/assets/landing/circuit-breakers/exhibition-3.webp" alt="TPKELE team at industry expo" width={380} height={260} unoptimized />
+          <Image src="/assets/landing/circuit-breakers/factory-2.webp" alt="TPKELE MCB production line" width={380} height={260} sizes="(max-width: 640px) 50vw, 380px" />
+          <Image src="/assets/landing/circuit-breakers/factory-3.webp" alt="TPKELE quality testing equipment" width={380} height={260} sizes="(max-width: 640px) 50vw, 380px" />
+          <Image src="/assets/landing/circuit-breakers/exhibition-1.webp" alt="TPKELE at international electrical trade show" width={380} height={260} sizes="(max-width: 640px) 50vw, 380px" />
+          <Image src="/assets/landing/circuit-breakers/exhibition-2.webp" alt="TPKELE exhibition booth" width={380} height={260} sizes="(max-width: 640px) 50vw, 380px" />
+          <Image src="/assets/landing/circuit-breakers/exhibition-3.webp" alt="TPKELE team at industry expo" width={380} height={260} sizes="(max-width: 640px) 50vw, 380px" />
         </div>
       </div>
     </section>
