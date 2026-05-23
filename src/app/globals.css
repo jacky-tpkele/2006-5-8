@@ -893,17 +893,17 @@ h3 {
 }
 
 .hero-banner-tracks {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 18px;
 }
 
 .hero-banner-track {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: 8px;
+  padding: 8px 14px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
@@ -923,21 +923,21 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
-  border-radius: 9px;
+  border-radius: 7px;
   background: rgba(74, 222, 128, 0.18);
   color: #4ade80;
 }
 
 .hero-banner-track-icon svg {
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
 }
 
 .hero-banner-track strong {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 800;
   letter-spacing: 0.3px;
   color: #fff;
@@ -988,7 +988,6 @@ h3 {
 }
 
 @media (max-width: 680px) {
-  .hero-banner-tracks,
   .hero-banner-stats {
     grid-template-columns: 1fr 1fr;
   }
