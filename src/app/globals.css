@@ -1133,6 +1133,211 @@ h3 {
   }
 }
 
+/* ============ Product Tracks (Solar DC + Low Voltage) ============ */
+.product-tracks {
+  position: relative;
+  background:
+    radial-gradient(900px 320px at 20% 0%, rgba(11, 155, 63, 0.06), transparent 65%),
+    linear-gradient(180deg, #f6fbf8 0%, #ffffff 100%);
+  padding: clamp(56px, 7vw, 96px) clamp(20px, 3vw, 48px);
+}
+
+.product-tracks-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.product-tracks-head {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto clamp(36px, 4vw, 56px);
+}
+
+.product-tracks-eyebrow {
+  color: var(--green);
+  letter-spacing: 1.6px;
+}
+
+.product-tracks-title {
+  margin: 10px 0 14px;
+  font-size: clamp(26px, 3.4vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  line-height: 1.1;
+}
+
+.product-tracks-title .green { color: var(--green); }
+.product-tracks-title .ink { color: var(--ink); }
+
+.product-tracks-lede {
+  margin: 0;
+  font-size: clamp(13px, 1vw, 15px);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.track-block {
+  margin-top: clamp(28px, 3.4vw, 48px);
+}
+
+.track-block:first-of-type {
+  margin-top: 0;
+}
+
+.track-block-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(11, 155, 63, 0.16);
+}
+
+.track-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--wash);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.track-pill.solar {
+  background: var(--green-soft);
+  color: var(--green-dark);
+  border-color: rgba(11, 155, 63, 0.25);
+}
+
+.track-block-title {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.2px;
+}
+
+.track-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.track-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.track-grid-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.track-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(11, 155, 63, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 6px 20px rgba(13, 34, 28, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(11, 155, 63, 0.45);
+  box-shadow: 0 14px 32px rgba(13, 34, 28, 0.08);
+}
+
+.track-card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f7fbf9 0%, #eef7f1 100%);
+  padding: 22px 18px;
+  min-height: 180px;
+}
+
+.track-card-media img {
+  width: auto;
+  max-width: 75%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.track-card:hover .track-card-media img {
+  transform: scale(1.04);
+}
+
+.track-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px 20px;
+  flex: 1;
+}
+
+.track-card-body h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.1px;
+}
+
+.track-card-body p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.track-card-link {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.2px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.track-card:hover .track-card-link {
+  color: var(--green-dark);
+}
+
+.product-tracks-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .track-grid-3,
+  .track-grid-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .track-block-head {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .track-grid-3,
+  .track-grid-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .application-grid,
 .value-grid {
   display: grid;
