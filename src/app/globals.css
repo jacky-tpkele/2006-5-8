@@ -3668,68 +3668,22 @@ button.cb-option-card {
   line-height: 1.5;
 }
 
-.cb-curve-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+.cb-curves-section {
+  padding-top: 0;
+}
+
+.cb-curves-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   max-width: var(--max);
   margin: 0 auto;
 }
 
-.cb-curve-card {
-  padding: 0;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  transition: border-color 0.2s ease;
-  overflow: hidden;
-}
-
-.cb-curve-card:hover {
-  border-color: var(--green);
-}
-
-.cb-curve-img {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: #f8f9fa;
-}
-
-.cb-curve-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-  padding: 18px 20px 0;
-}
-
-.cb-curve-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--ink);
-}
-
-.cb-curve-trip {
-  display: inline-flex;
-  align-items: center;
-  height: 26px;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: var(--green-soft);
-  color: var(--green-dark);
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.cb-curve-card p {
-  margin: 0;
-  padding: 0 20px 18px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.55;
+.cb-curves-stack img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* ─── Beyond Manufacturing ─── */
@@ -3900,9 +3854,6 @@ button.cb-option-card {
     grid-template-columns: 1fr;
   }
   .cb-feat-grid {
-    grid-template-columns: 1fr;
-  }
-  .cb-curve-grid {
     grid-template-columns: 1fr;
   }
   .cb-spec-layout {

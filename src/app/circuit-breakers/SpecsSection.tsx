@@ -52,9 +52,6 @@ export function SpecsSection() {
           </table>
         </div>
       </div>
-      <div className="cb-section-cta">
-        <InquiryModal triggerLabel="Request Datasheet" triggerClassName="btn primary" intent="datasheet" product="AC MCB" />
-      </div>
     </section>
   );
 }

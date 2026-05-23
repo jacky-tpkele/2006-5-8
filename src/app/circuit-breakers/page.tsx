@@ -41,8 +41,8 @@ export default function CircuitBreakersPage() {
       <OptionsGrid />
       <FeaturesGrid />
       <SpecsSection />
-      <CompanySection />
       <TripCurves />
+      <CompanySection />
       <BeyondSection />
       <section className="section cta-section">
         <div>
