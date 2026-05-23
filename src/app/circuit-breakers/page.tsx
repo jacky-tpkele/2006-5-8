@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { InquiryModal } from "@/components/InquiryModal";
-import { PageTitle } from "@/components/PageTitle";
 
 export const metadata: Metadata = {
   title: "AC Miniature Circuit Breaker Supplier — MCB 1P–4P | TPKELE",
@@ -93,7 +92,6 @@ export default function CircuitBreakersPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <PageTitle title="AC Miniature Circuit Breaker Supplier" crumb="Circuit Breakers" />
 
       {/* ─── Hero Section ─── */}
       <section className="cb-hero">
