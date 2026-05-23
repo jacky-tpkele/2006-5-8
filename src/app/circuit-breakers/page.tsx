@@ -1,303 +1,237 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
-import { certifications } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Circuit Breaker Manufacturer — AC MCB 1P 2P 3P 4P | TPKELE",
+  title: "AC Miniature Circuit Breaker Supplier — MCB 1P–4P | TPKELE",
   description:
-    "TPKELE circuit breaker manufacturer: AC miniature circuit breakers (MCB) 1P to 4P, 6A–63A, B/C/D trip curves, 6kA/10kA breaking capacity. IEC 60898-1 certified, CE & RoHS. OEM-ready for distributors and panel builders.",
+    "TPKELE supplies AC miniature circuit breakers (MCB) for residential, commercial, and industrial distribution. 1P to 4P, 6A–63A, B/C/D trip curves, 6kA/10kA breaking capacity. IEC 60898-1 certified, OEM-ready.",
   alternates: { canonical: "/circuit-breakers" },
   keywords: [
-    "circuit breaker manufacturer",
-    "AC MCB",
-    "miniature circuit breaker",
-    "MCB 1P",
-    "MCB 2P",
-    "MCB 3P",
-    "MCB 4P",
-    "AC circuit breaker supplier",
+    "AC miniature circuit breaker supplier",
+    "MCB manufacturer",
+    "DIN rail MCB",
+    "circuit breaker 1P 2P 3P 4P",
     "IEC 60898 MCB",
     "low voltage circuit breaker",
-    "DIN rail MCB",
-    "circuit breaker factory China",
   ],
 };
 
-const products = [
+const features = [
+  { icon: "⚡", title: "Protection", text: "Overload and short-circuit protection for low-voltage AC systems" },
+  { icon: "▣", title: "Installation", text: "35mm DIN rail mounting, tool-free snap-on design" },
+  { icon: "◫", title: "Options", text: "1P, 2P, 3P, 4P configurations available" },
+  { icon: "⊞", title: "Applications", text: "Distribution boards, control panels, machinery protection" },
+];
+
+const specs = [
+  { label: "Product Name", value: "AC Miniature Circuit Breaker" },
+  { label: "Poles", value: "1P, 2P, 3P, 4P" },
+  { label: "Rated Current", value: "6A, 10A, 16A, 20A, 25A, 32A, 40A, 50A, 63A" },
+  { label: "Rated Voltage", value: "AC 230V / 400V" },
+  { label: "Trip Curve", value: "B Curve, C Curve, D Curve" },
+  { label: "Breaking Capacity", value: "4.5kA / 6kA / 10kA (model dependent)" },
+  { label: "Mounting", value: "35mm DIN Rail" },
+  { label: "Application", value: "Low-voltage power distribution" },
+  { label: "Customization", value: "Logo, label, and packaging options available" },
+];
+
+const options = [
   {
-    name: "AC MCB 1P",
+    name: "1P AC MCB",
+    description: "Single-phase circuit protection for branch circuits in residential and light commercial panels.",
     image: "/assets/landing/circuit-breakers/AC1P.jpg",
-    description:
-      "Single-pole miniature circuit breaker for branch circuit overload and short-circuit protection in residential and light commercial distribution boards.",
-    href: "/products/category/mcb/ac-mcb",
-    bullets: ["Single pole, DIN-rail 35mm", "6A–63A rated current", "B/C/D trip curves", "6kA / 10kA breaking capacity"],
   },
   {
-    name: "AC MCB 2P",
+    name: "2P AC MCB",
+    description: "Line and neutral protection for single-phase systems requiring full isolation.",
     image: "/assets/landing/circuit-breakers/AC2P.png",
-    description:
-      "Two-pole MCB for line and neutral protection in single-phase circuits. Ideal for residential consumer units and small commercial panels.",
-    href: "/products/category/mcb/ac-mcb",
-    bullets: ["Line + neutral switching", "Single-phase full protection", "Compact 2-module width", "IEC 60898-1 certified"],
   },
   {
-    name: "AC MCB 3P",
+    name: "3P AC MCB",
+    description: "Three-phase power distribution protection for commercial and industrial feeders.",
     image: "/assets/landing/circuit-breakers/AC3P.png",
-    description:
-      "Three-pole MCB for three-phase distribution branch protection in commercial and industrial systems. Motor feeders, HVAC and process loads.",
-    href: "/products/category/mcb/ac-mcb",
-    bullets: ["Three-phase protection", "Industrial & commercial use", "High inrush tolerance (D curve)", "20,000 mechanical operations"],
   },
   {
-    name: "AC MCB 4P",
+    name: "4P AC MCB",
+    description: "Three-phase with neutral protection where full four-pole isolation is required.",
     image: "/assets/landing/circuit-breakers/AC4P.png",
-    description:
-      "Four-pole MCB for three-phase plus neutral switching. Required where neutral must be isolated for maintenance or where regulations mandate 4P protection.",
-    href: "/products/category/mcb/ac-mcb",
-    bullets: ["3-phase + neutral switching", "Full isolation capability", "Panel builder standard", "OEM logo & color available"],
   },
 ];
 
-const advantages = [
+const curves = [
   {
-    title: "IEC 60898-1 Certified",
-    text: "Every MCB tested and certified to IEC 60898-1 with CE and RoHS marking — accepted for project tenders in EU, Middle East, Southeast Asia and Latin America.",
+    curve: "B Curve",
+    trip: "3–5× rated current",
+    application: "Lighting circuits, resistive loads, cable protection",
   },
   {
-    title: "6kA / 10kA Breaking Capacity",
-    text: "High breaking capacity options for both residential (6kA) and industrial (10kA) installations, ensuring safe fault clearance close to transformers.",
+    curve: "C Curve",
+    trip: "5–10× rated current",
+    application: "General power distribution, sockets, small motors",
   },
   {
-    title: "B / C / D Trip Curves",
-    text: "Full curve range: B for resistive loads, C for general distribution, D for motors and transformers — one supplier covers all your project needs.",
-  },
-  {
-    title: "OEM & Private Label Ready",
-    text: "Custom logo printing, housing color variants, dedicated packaging and private-label catalogs for distributors and brand owners.",
-  },
-];
-
-const applications = [
-  {
-    title: "Residential Distribution Boards",
-    text: "Branch circuit protection for apartments, houses and residential complexes. 1P and 2P MCBs with B/C curves for lighting, socket and appliance circuits.",
-  },
-  {
-    title: "Commercial Buildings",
-    text: "Office towers, retail and hospitality — 3P and 4P MCBs for HVAC, elevator feeders and sub-distribution panels with 10kA breaking capacity.",
-  },
-  {
-    title: "Industrial Panel Building",
-    text: "Motor control centers, process panels and factory distribution. D-curve MCBs handle high inrush from motors, compressors and welding equipment.",
-  },
-  {
-    title: "Infrastructure & Public Works",
-    text: "Street lighting, water treatment, telecom cabinets and municipal power distribution — reliable branch protection for long-life installations.",
-  },
-];
-
-const faq = [
-  {
-    q: "What is the difference between B, C and D curve MCBs?",
-    a: "B curve trips at 3–5x rated current — best for resistive loads like lighting and heating. C curve trips at 5–10x — the general-purpose choice for mixed loads. D curve trips at 10–20x — designed for high-inrush loads like motors, transformers and X-ray equipment.",
-  },
-  {
-    q: "What breaking capacity do I need — 6kA or 10kA?",
-    a: "6kA is sufficient for residential boards far from the transformer. Industrial and commercial panels close to the supply transformer typically need 10kA. Always check the prospective short-circuit current at the installation point.",
-  },
-  {
-    q: "Do you supply MCBs with custom branding?",
-    a: "Yes — we offer OEM logo printing on the housing, custom housing colors, branded packaging and private-label product catalogs. Minimum order quantities apply for custom programs.",
-  },
-  {
-    q: "What certifications do your MCBs carry?",
-    a: "All TPKELE AC MCBs are CE marked, RoHS compliant and designed to IEC 60898-1. Test reports and declaration of conformity documents are available for project tenders and customs clearance.",
-  },
-  {
-    q: "Can I order samples before placing a bulk order?",
-    a: "Yes — sample kits with 1P through 4P MCBs in your required current ratings and curves are available within 5–10 working days. Contact us with your specifications.",
+    curve: "D Curve",
+    trip: "10–20× rated current",
+    application: "High inrush current equipment, transformers, welding machines",
   },
 ];
 
 export default function CircuitBreakersPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Circuit Breaker Manufacturer — AC MCB 1P 2P 3P 4P",
+    "@type": "Product",
+    name: "AC Miniature Circuit Breaker",
     description: metadata.description,
     url: "https://www.tpkele.com/circuit-breakers",
-    hasPart: products.map((p) => ({
-      "@type": "Product",
-      name: `TPKELE ${p.name}`,
-      description: p.description,
-      image: `https://www.tpkele.com${p.image}`,
-      url: `https://www.tpkele.com${p.href}`,
-      brand: { "@type": "Brand", name: "TPKELE" },
-    })),
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
+    brand: { "@type": "Brand", name: "TPKELE" },
+    category: "Electrical Protection Devices",
   };
 
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <PageTitle title="Circuit Breaker Manufacturer — AC MCB for Global Distribution" crumb="Circuit Breakers" />
+      <PageTitle title="AC Miniature Circuit Breaker Supplier" crumb="Circuit Breakers" />
 
-      <section className="section compact">
-        <div className="track-heading">
-          <span className="track-tag">Core Track · Low Voltage Protection</span>
-          <h2 className="logo-color-title">AC MCB · 1P · 2P · 3P · 4P</h2>
-          <p>
-            TPKELE manufactures AC miniature circuit breakers for residential, commercial and industrial distribution.
-            1P to 4P configurations, 6A–63A, B/C/D trip curves, 6kA and 10kA breaking capacity — IEC 60898-1 certified
-            and OEM-ready for distributors, panel builders and electrical contractors worldwide.
-          </p>
-          <p className="hero-slogan" style={{ marginTop: 12 }}>Protect Every Circuit — From Panel to Load.</p>
+      {/* ─── Hero Section ─── */}
+      <section className="cb-hero">
+        <div className="cb-hero-inner">
+          <div className="cb-hero-content">
+            <h2>AC Miniature Circuit Breaker Supplier</h2>
+            <p className="cb-hero-subtitle">
+              Reliable DIN rail MCBs for residential, commercial, and industrial power distribution systems.
+            </p>
+            <div className="cb-hero-params">
+              <span className="cb-param-tag">1P / 2P / 3P / 4P</span>
+              <span className="cb-param-tag">6A – 63A</span>
+              <span className="cb-param-tag">B / C / D Curve</span>
+              <span className="cb-param-tag">AC 230V / 400V</span>
+            </div>
+            <div className="cb-hero-cta">
+              <InquiryModal triggerLabel="Request a Quote" triggerClassName="btn primary" intent="quote" product="AC MCB" />
+              <InquiryModal triggerLabel="Send Your Specifications" triggerClassName="btn ghost dark" intent="specs" product="AC MCB" />
+            </div>
+          </div>
+          <div className="cb-hero-visual">
+            {/* Product image placeholder — replace with hero product image */}
+            <div className="cb-hero-image-placeholder">
+              <Image
+                src="/assets/landing/circuit-breakers/AC1P.jpg"
+                alt="TPKELE AC Miniature Circuit Breaker"
+                width={480}
+                height={400}
+                unoptimized
+                style={{ background: "#fff" }}
+              />
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="family-grid family-grid-3" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-          {products.map((p) => (
-            <article className="family-card" key={p.name}>
-              <Link href={p.href} className="family-card-media" style={{ background: "#fff" }} aria-label={p.name}>
-                <Image src={p.image} alt={`TPKELE ${p.name}`} width={320} height={220} unoptimized style={{ background: "#fff" }} />
-              </Link>
-              <div className="family-card-body">
-                <h3>{p.name}</h3>
-                <p>{p.description}</p>
-                <ul style={{ margin: "4px 0 6px", paddingLeft: 18, color: "var(--muted)", fontSize: 13, lineHeight: 1.6 }}>
-                  {p.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-                <Link className="text-link" href={p.href}>
-                  View AC MCB range →
-                </Link>
+      {/* ─── Product Overview ─── */}
+      <section className="section">
+        <div className="section-heading centered">
+          <p className="eyebrow">Product Overview</p>
+          <h2>AC MCB — Low-Voltage Overload &amp; Short-Circuit Protection</h2>
+        </div>
+        <p className="cb-overview-text">
+          AC miniature circuit breakers provide automatic overload and short-circuit protection in low-voltage AC distribution systems.
+          Designed for DIN rail installation in distribution boards, control panels, and machinery enclosures, they are the standard
+          branch protection device for residential, commercial, and industrial electrical systems worldwide.
+        </p>
+        <div className="cb-feature-grid">
+          {features.map((f) => (
+            <article className="cb-feature-card" key={f.title}>
+              <span className="cb-feature-icon">{f.icon}</span>
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="cb-section-cta">
+          <InquiryModal triggerLabel="Request a Quote" triggerClassName="btn primary" intent="quote" product="AC MCB" />
+        </div>
+      </section>
+
+      {/* ─── Technical Specifications ─── */}
+      <section className="section muted">
+        <div className="section-heading centered">
+          <p className="eyebrow">Technical Specifications</p>
+          <h2>AC MCB Specification Summary</h2>
+        </div>
+        <div className="cb-spec-table-wrap">
+          <table className="cb-spec-table">
+            <tbody>
+              {specs.map((s) => (
+                <tr key={s.label}>
+                  <th>{s.label}</th>
+                  <td>{s.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="cb-section-cta">
+          <InquiryModal triggerLabel="Request Datasheet" triggerClassName="btn primary" intent="datasheet" product="AC MCB" />
+        </div>
+      </section>
+
+      {/* ─── Available Options ─── */}
+      <section className="section">
+        <div className="section-heading centered">
+          <p className="eyebrow">Available Options</p>
+          <h2>AC MCB Pole Configurations</h2>
+        </div>
+        <div className="cb-options-grid">
+          {options.map((o) => (
+            <article className="cb-option-card" key={o.name}>
+              <div className="cb-option-media">
+                <Image src={o.image} alt={`TPKELE ${o.name}`} width={280} height={220} unoptimized style={{ background: "#fff" }} />
+              </div>
+              <div className="cb-option-body">
+                <h3>{o.name}</h3>
+                <p>{o.description}</p>
               </div>
             </article>
           ))}
         </div>
+        <div className="cb-section-cta">
+          <InquiryModal triggerLabel="Send Your Specifications" triggerClassName="btn primary" intent="specs" product="AC MCB" />
+        </div>
       </section>
 
+      {/* ─── Trip Curve Guide ─── */}
       <section className="section muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Applications</p>
-          <h2>Where TPKELE circuit breakers are installed</h2>
+          <p className="eyebrow">Selection Guide</p>
+          <h2>Trip Curve Comparison</h2>
         </div>
-        <div className="application-grid">
-          {applications.map((u) => (
-            <article className="application-item" key={u.title}>
-              <h3>{u.title}</h3>
-              <p>{u.text}</p>
+        <p className="cb-overview-text">
+          Select the correct trip curve based on the load characteristics of your circuit.
+          The trip curve determines the instantaneous magnetic trip threshold relative to the rated current.
+        </p>
+        <div className="cb-curve-grid">
+          {curves.map((c) => (
+            <article className="cb-curve-card" key={c.curve}>
+              <div className="cb-curve-header">
+                <h3>{c.curve}</h3>
+                <span className="cb-curve-trip">{c.trip}</span>
+              </div>
+              <p>{c.application}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section">
-        <div className="section-heading centered">
-          <p className="eyebrow">Why TPKELE</p>
-          <h2>Circuit breakers engineered for global distribution</h2>
-        </div>
-        <div className="segment-grid">
-          {advantages.map((r) => (
-            <article className="segment-card" key={r.title}>
-              <h3>{r.title}</h3>
-              <p>{r.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section muted">
-        <div className="section-heading centered">
-          <p className="eyebrow">Factory & Exhibition</p>
-          <h2>Manufacturing capability you can verify</h2>
-        </div>
-        <div className="family-grid family-grid-3">
-          <div className="family-card">
-            <div className="family-card-media">
-              <Image src="/assets/landing/circuit-breakers/factory-1.webp" alt="TPKELE circuit breaker production line" width={400} height={280} />
-            </div>
-            <div className="family-card-body">
-              <h3>Automated Production</h3>
-              <p>Modern assembly lines with automated testing ensure consistent quality across every batch.</p>
-            </div>
-          </div>
-          <div className="family-card">
-            <div className="family-card-media">
-              <Image src="/assets/landing/circuit-breakers/factory-2.webp" alt="TPKELE quality control laboratory" width={400} height={280} />
-            </div>
-            <div className="family-card-body">
-              <h3>Quality Laboratory</h3>
-              <p>In-house testing lab verifies breaking capacity, trip curves and endurance per IEC standards.</p>
-            </div>
-          </div>
-          <div className="family-card">
-            <div className="family-card-media">
-              <Image src="/assets/landing/circuit-breakers/exhibition-1.webp" alt="TPKELE exhibition booth" width={400} height={280} />
-            </div>
-            <div className="family-card-body">
-              <h3>Global Exhibitions</h3>
-              <p>We exhibit at SNEC, Canton Fair and Intersolar — meet us face-to-face and inspect samples.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="trust-band" aria-label="Certifications and standards">
-        <div className="trust-band-head">
-          <div>
-            <p className="eyebrow" style={{ marginBottom: 6 }}>Certified for International Tenders</p>
-            <h2>CE / IEC / RoHS — Standards Distributors Trust</h2>
-          </div>
-          <Link className="text-link" href="/about">View certifications →</Link>
-        </div>
-        <div className="cert-row">
-          {certifications.map((cert) => (
-            <div className="cert-chip" key={cert.code}>
-              <CertIcon code={cert.code} className="cert-chip-icon" />
-              <strong>{cert.label}</strong>
-              <span>{cert.description}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-heading centered">
-          <p className="eyebrow">Frequently Asked</p>
-          <h2>Circuit breaker selection — common questions</h2>
-        </div>
-        <div className="faq-list">
-          {faq.map((f) => (
-            <details className="faq-item" key={f.q}>
-              <summary>{f.q}</summary>
-              <p>{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
+      {/* ─── Final CTA ─── */}
       <section className="section cta-section">
         <div>
-          <p className="eyebrow">MCB Project Supply · 72-hour Quotation</p>
-          <h2>Send your project specs — get pricing for AC MCB 1P to 4P, any curve, any quantity.</h2>
+          <p className="eyebrow">MCB Supply · 72-Hour Quotation</p>
+          <h2>Send your project specifications — get pricing for AC MCB in any configuration.</h2>
         </div>
-        <InquiryModal triggerLabel="Request MCB Quote" triggerClassName="btn primary" intent="quote" product="AC MCB" />
+        <InquiryModal triggerLabel="Request a Quote" triggerClassName="btn primary" intent="quote" product="AC MCB" />
       </section>
     </main>
   );
