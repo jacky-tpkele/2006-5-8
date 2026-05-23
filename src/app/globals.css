@@ -3297,19 +3297,30 @@ textarea {
 
 /* ============ Circuit Breaker Landing Page ============ */
 .cb-hero {
-  background: linear-gradient(135deg, #0a1628 0%, #132744 50%, #0d2e4a 100%);
+  position: relative;
+  background: url('/assets/landing/circuit-breakers/factory-1.webp') center/cover no-repeat;
   color: #fff;
   overflow: hidden;
 }
 
+.cb-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 20, 40, 0.82) 0%, rgba(5, 20, 40, 0.6) 50%, rgba(5, 20, 40, 0.15) 100%);
+  z-index: 1;
+}
+
 .cb-hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(28px, 4vw, 56px);
-  align-items: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
+  padding: clamp(56px, 8vw, 100px) clamp(20px, 4vw, 48px);
+  min-height: 420px;
 }
 
 .cb-hero-content h2 {
@@ -3356,31 +3367,8 @@ textarea {
   margin-top: 28px;
 }
 
-.cb-hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cb-hero-image-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 6 / 5;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
-
-.cb-hero-image-placeholder img {
-  width: auto;
-  max-width: 80%;
-  height: auto;
-  max-height: 85%;
-  object-fit: contain;
+.cb-hero-content {
+  max-width: 580px;
 }
 
 .cb-overview-text {
@@ -3601,12 +3589,6 @@ textarea {
 }
 
 @media (max-width: 1024px) {
-  .cb-hero-inner {
-    grid-template-columns: 1fr;
-  }
-  .cb-hero-visual {
-    display: none;
-  }
   .cb-feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

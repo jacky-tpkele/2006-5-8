@@ -114,19 +114,6 @@ export default function CircuitBreakersPage() {
               <InquiryModal triggerLabel="Send Your Specifications" triggerClassName="btn ghost dark" intent="specs" product="AC MCB" />
             </div>
           </div>
-          <div className="cb-hero-visual">
-            {/* Product image placeholder — replace with hero product image */}
-            <div className="cb-hero-image-placeholder">
-              <Image
-                src="/assets/landing/circuit-breakers/AC1P.jpg"
-                alt="TPKELE AC Miniature Circuit Breaker"
-                width={480}
-                height={400}
-                unoptimized
-                style={{ background: "#fff" }}
-              />
-            </div>
-          </div>
         </div>
       </section>
 
