@@ -135,7 +135,6 @@ export default function HomePage() {
                 <span className="dark">PROTECTION SOLUTIONS</span>
               </h1>
               <span className="hero-banner-rule" aria-hidden="true" />
-              <p className="hero-banner-slogan">Reliable Protection. Premium Quality. Global Trust.</p>
 
               <div className="hero-banner-tracks">
                 <Link className="hero-banner-track" href="/solar-dc-protection">
@@ -145,10 +144,7 @@ export default function HomePage() {
                       <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
                     </svg>
                   </span>
-                  <div>
-                    <strong>SOLAR DC PROTECTION</strong>
-                    <span>Safe &amp; Efficient for PV Systems</span>
-                  </div>
+                  <strong>SOLAR DC PROTECTION</strong>
                 </Link>
                 <Link className="hero-banner-track" href="/products">
                   <span className="hero-banner-track-icon" aria-hidden="true">
@@ -157,10 +153,7 @@ export default function HomePage() {
                       <path d="M9 12l2 2 4-4" />
                     </svg>
                   </span>
-                  <div>
-                    <strong>LOW VOLTAGE PROTECTION</strong>
-                    <span>Reliable Power, Everywhere</span>
-                  </div>
+                  <strong>LOW VOLTAGE PROTECTION</strong>
                 </Link>
               </div>
 
@@ -191,9 +184,7 @@ export default function HomePage() {
               <span className="green">Smooth B2B</span>
               <span className="white"> Procurement Flow</span>
             </h2>
-            <p className="procurement-lede">
-              We keep communication clear from first inquiry to final delivery, helping you shorten sourcing cycles and reduce project risk.
-            </p>
+            <p className="procurement-lede">We keep communication clear from first inquiry to final delivery, helping you shorten sourcing cycles and reduce project risk.</p>
           </div>
 
           <ol className="procurement-steps">
