@@ -1,8 +1,18 @@
+import Image from "next/image";
 import { InquiryModal } from "@/components/InquiryModal";
 
 export function HeroSection() {
   return (
     <section className="cb-hero">
+      <Image
+        src="/assets/landing/circuit-breakers/factory-1.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="cb-hero-bg"
+        aria-hidden
+      />
       <div className="cb-hero-inner">
         <div className="cb-hero-content">
           <h2>AC Miniature Circuit Breaker Supplier</h2>

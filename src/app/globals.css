@@ -3325,9 +3325,14 @@ textarea {
 /* ============ Circuit Breaker Landing Page ============ */
 .cb-hero {
   position: relative;
-  background: url('/assets/landing/circuit-breakers/factory-1.webp') center/cover no-repeat;
+  background: #051428;
   color: #fff;
   overflow: hidden;
+}
+
+.cb-hero-bg {
+  object-fit: cover;
+  z-index: 0;
 }
 
 .cb-hero::before {
