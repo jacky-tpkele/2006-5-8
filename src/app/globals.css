@@ -2398,11 +2398,12 @@ textarea {
   inset: 0;
   background: rgba(15, 23, 42, 0.6);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 24px;
+  padding: 40px 24px;
   z-index: 1000;
   animation: fadeIn 0.18s ease-out;
+  overflow-y: auto;
 }
 
 .inquiry-modal {
@@ -2410,7 +2411,8 @@ textarea {
   border-radius: 14px;
   width: 100%;
   max-width: 560px;
-  max-height: 90vh;
+  max-height: none;
+  margin: auto 0;
   display: flex;
   flex-direction: column;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
@@ -3365,6 +3367,19 @@ textarea {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
+}
+
+.cb-hero .btn.ghost,
+.cb-hero .btn.ghost.dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cb-hero .btn.ghost:hover,
+.cb-hero .btn.ghost.dark:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 .cb-hero-content {
