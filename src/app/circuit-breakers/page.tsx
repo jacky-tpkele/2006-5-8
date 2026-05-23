@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 };
 
 const features = [
-  { icon: "⚡", title: "Protection", text: "Overload and short-circuit protection for low-voltage AC systems" },
-  { icon: "▣", title: "Installation", text: "35mm DIN rail mounting, tool-free snap-on design" },
-  { icon: "◫", title: "Options", text: "1P, 2P, 3P, 4P configurations available" },
-  { icon: "⊞", title: "Applications", text: "Distribution boards, control panels, machinery protection" },
+  { title: "Protection", text: "Overload and short-circuit protection for low-voltage AC systems", image: "/assets/landing/circuit-breakers/feat-protection.png" },
+  { title: "Installation", text: "35mm DIN rail mounting, tool-free snap-on design", image: "/assets/landing/circuit-breakers/feat-installation.png" },
+  { title: "Options", text: "1P, 2P, 3P, 4P configurations available", image: "/assets/landing/circuit-breakers/feat-options.png" },
+  { title: "Applications", text: "Distribution boards, control panels, machinery protection", image: "/assets/landing/circuit-breakers/feat-applications.png" },
 ];
 
 const specs = [
@@ -139,28 +139,24 @@ export default function CircuitBreakersPage() {
         </div>
       </section>
 
-      {/* ─── Product Overview ─── */}
-      <section className="section">
+      {/* ─── Features ─── */}
+      <section className="section muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Product Overview</p>
-          <h2>AC MCB — Low-Voltage Overload &amp; Short-Circuit Protection</h2>
+          <p className="eyebrow">Why Choose TPKELE MCB</p>
+          <h2>Engineered for Reliability</h2>
         </div>
-        <p className="cb-overview-text">
-          AC miniature circuit breakers provide automatic overload and short-circuit protection in low-voltage AC distribution systems.
-          Designed for DIN rail installation in distribution boards, control panels, and machinery enclosures, they are the standard
-          branch protection device for residential, commercial, and industrial electrical systems worldwide.
-        </p>
-        <div className="cb-feature-grid">
+        <div className="cb-feat-grid">
           {features.map((f) => (
-            <article className="cb-feature-card" key={f.title}>
-              <span className="cb-feature-icon">{f.icon}</span>
-              <h3>{f.title}</h3>
-              <p>{f.text}</p>
+            <article className="cb-feat-card" key={f.title}>
+              <div className="cb-feat-media">
+                <Image src={f.image} alt={f.title} width={360} height={240} unoptimized />
+              </div>
+              <div className="cb-feat-body">
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </div>
             </article>
           ))}
-        </div>
-        <div className="cb-section-cta">
-          <InquiryModal triggerLabel="Request a Quote" triggerClassName="btn primary" intent="quote" product="AC MCB" />
         </div>
       </section>
 
