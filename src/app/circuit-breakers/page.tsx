@@ -130,7 +130,7 @@ export default function CircuitBreakersPage() {
               triggerContent={
                 <>
                   <div className="cb-option-media">
-                    <Image src={o.image} alt={`TPKELE ${o.name}`} fill unoptimized style={{ objectFit: "contain", padding: "12%" }} />
+                    <Image src={o.image} alt={`TPKELE ${o.name}`} fill unoptimized style={{ objectFit: "contain" }} />
                   </div>
                   <div className="cb-option-body">
                     <h3>{o.name}</h3>
