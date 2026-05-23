@@ -173,7 +173,7 @@ export default function CircuitBreakersPage() {
           {products.map((p) => (
             <article className="family-card" key={p.name}>
               <Link href={p.href} className="family-card-media" style={{ background: "#fff" }} aria-label={p.name}>
-                <Image src={p.image} alt={`TPKELE ${p.name}`} width={320} height={220} />
+                <Image src={p.image} alt={`TPKELE ${p.name}`} width={320} height={220} unoptimized style={{ background: "#fff" }} />
               </Link>
               <div className="family-card-body">
                 <h3>{p.name}</h3>
