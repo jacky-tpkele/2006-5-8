@@ -64,16 +64,19 @@ const curves = [
     curve: "B Curve",
     trip: "3–5× rated current",
     application: "Lighting circuits, resistive loads, cable protection",
+    image: "/assets/landing/circuit-breakers/curve-b.png",
   },
   {
     curve: "C Curve",
     trip: "5–10× rated current",
     application: "General power distribution, sockets, small motors",
+    image: "/assets/landing/circuit-breakers/curve-c.png",
   },
   {
     curve: "D Curve",
     trip: "10–20× rated current",
     application: "High inrush current equipment, transformers, welding machines",
+    image: "/assets/landing/circuit-breakers/curve-d.png",
   },
 ];
 
@@ -268,6 +271,9 @@ export default function CircuitBreakersPage() {
         <div className="cb-curve-grid">
           {curves.map((c) => (
             <article className="cb-curve-card" key={c.curve}>
+              <div className="cb-curve-img">
+                <Image src={c.image} alt={`${c.curve} trip characteristic chart`} fill unoptimized style={{ objectFit: "contain" }} />
+              </div>
               <div className="cb-curve-header">
                 <h3>{c.curve}</h3>
                 <span className="cb-curve-trip">{c.trip}</span>

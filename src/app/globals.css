@@ -3677,15 +3677,22 @@ button.cb-option-card {
 }
 
 .cb-curve-card {
-  padding: 24px 22px;
+  padding: 0;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 10px;
   transition: border-color 0.2s ease;
+  overflow: hidden;
 }
 
 .cb-curve-card:hover {
   border-color: var(--green);
+}
+
+.cb-curve-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #f8f9fa;
 }
 
 .cb-curve-header {
@@ -3693,7 +3700,8 @@ button.cb-option-card {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  padding: 18px 20px 0;
 }
 
 .cb-curve-header h3 {
@@ -3718,6 +3726,7 @@ button.cb-option-card {
 
 .cb-curve-card p {
   margin: 0;
+  padding: 0 20px 18px;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.55;
