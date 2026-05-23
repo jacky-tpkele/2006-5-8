@@ -3529,9 +3529,52 @@ textarea {
   margin-top: 28px;
 }
 
-.cb-spec-table-wrap {
-  max-width: 720px;
+.cb-spec-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  max-width: 960px;
   margin: 0 auto;
+  align-items: start;
+}
+
+.cb-spec-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cb-highlight-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cb-highlight-icon {
+  color: var(--green);
+  margin-bottom: 4px;
+}
+
+.cb-highlight-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cb-highlight-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1.2;
+}
+
+.cb-spec-table-wrap {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -3789,6 +3832,18 @@ button.cb-option-card {
   }
   .cb-curve-grid {
     grid-template-columns: 1fr;
+  }
+  .cb-spec-layout {
+    grid-template-columns: 1fr;
+  }
+  .cb-spec-highlights {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cb-highlight-card {
+    flex: 1;
+    min-width: 140px;
   }
   .cb-spec-table th {
     width: 130px;
