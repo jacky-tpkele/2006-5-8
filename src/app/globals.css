@@ -3732,6 +3732,68 @@ button.cb-option-card {
   line-height: 1.55;
 }
 
+/* ─── Beyond Manufacturing ─── */
+.cb-heading-bar {
+  width: 48px;
+  height: 4px;
+  background: var(--green);
+  border-radius: 2px;
+  margin: 16px auto 20px;
+}
+
+.cb-beyond-subtitle {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.cb-beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: var(--max);
+  margin: 36px auto 0;
+}
+
+.cb-beyond-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 28px 32px;
+}
+
+.cb-beyond-card:hover {
+  border-color: var(--green);
+}
+
+.cb-beyond-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--green);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.cb-beyond-card h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cb-beyond-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 /* ─── Company Introduction ─── */
 .cb-company {
   max-width: var(--max);
@@ -3857,6 +3919,9 @@ button.cb-option-card {
   }
   .cb-spec-table th {
     width: 130px;
+  }
+  .cb-beyond-grid {
+    grid-template-columns: 1fr;
   }
   .cb-company-main {
     grid-template-columns: 1fr;
