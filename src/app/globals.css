@@ -3574,13 +3574,16 @@ textarea {
   gap: 20px;
 }
 
-.cb-option-card {
+button.cb-option-card {
+  all: unset;
   display: flex;
   flex-direction: column;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
   overflow: hidden;
+  cursor: pointer;
+  text-align: left;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 

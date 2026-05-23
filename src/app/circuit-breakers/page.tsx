@@ -123,26 +123,31 @@ export default function CircuitBreakersPage() {
         </div>
         <div className="cb-options-grid">
           {options.map((o) => (
-            <article className="cb-option-card" key={o.name}>
-              <div className="cb-option-media">
-                <Image src={o.image} alt={`TPKELE ${o.name}`} width={280} height={220} unoptimized style={{ background: "#fff" }} />
-              </div>
-              <div className="cb-option-body">
-                <h3>{o.name}</h3>
-                <p>{o.description}</p>
-              </div>
-            </article>
+            <InquiryModal
+              key={o.name}
+              triggerLabel={o.name}
+              triggerClassName="cb-option-card"
+              triggerContent={
+                <>
+                  <div className="cb-option-media">
+                    <Image src={o.image} alt={`TPKELE ${o.name}`} width={280} height={220} unoptimized style={{ background: "#fff" }} />
+                  </div>
+                  <div className="cb-option-body">
+                    <h3>{o.name}</h3>
+                    <p>{o.description}</p>
+                  </div>
+                </>
+              }
+              product={o.name}
+              intent="quote"
+            />
           ))}
-        </div>
-        <div className="cb-section-cta">
-          <InquiryModal triggerLabel="Send Your Specifications" triggerClassName="btn primary" intent="specs" product="AC MCB" />
         </div>
       </section>
 
       {/* ─── Features ─── */}
       <section className="section muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Why Choose TPKELE MCB</p>
           <h2>Engineered for Reliability</h2>
         </div>
         <div className="cb-feat-grid">
