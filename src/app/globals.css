@@ -3683,6 +3683,86 @@ button.cb-option-card {
   line-height: 1.55;
 }
 
+/* ─── Company Introduction ─── */
+.cb-company {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.cb-company-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.cb-company-photo {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cb-company-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.cb-company-text .eyebrow {
+  margin-bottom: 8px;
+}
+
+.cb-company-text h2 {
+  font-size: 28px;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.cb-company-text p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.cb-company-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 24px;
+}
+
+.cb-company-highlights li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 2;
+}
+
+.cb-company-highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.cb-company-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.cb-company-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 @media (max-width: 1024px) {
   .cb-feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3692,6 +3772,12 @@ button.cb-option-card {
   }
   .cb-feat-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .cb-company-main {
+    gap: 32px;
+  }
+  .cb-company-gallery {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -3710,5 +3796,18 @@ button.cb-option-card {
   }
   .cb-spec-table th {
     width: 130px;
+  }
+  .cb-company-main {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .cb-company-text h2 {
+    font-size: 22px;
+  }
+  .cb-company-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cb-company-gallery img {
+    height: 140px;
   }
 }
