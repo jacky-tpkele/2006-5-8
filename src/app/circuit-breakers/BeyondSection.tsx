@@ -1,13 +1,21 @@
-export function BeyondSection() {
+interface BeyondSectionProps {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+export function BeyondSection({
+  eyebrow = "Beyond Manufacturing",
+  title = "More Than Just a Circuit Breaker Manufacturer",
+  subtitle = "At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us.",
+}: BeyondSectionProps = {}) {
   return (
     <section className="section">
       <div className="section-heading centered">
-        <p className="eyebrow">Beyond Manufacturing</p>
-        <h2>More Than Just a Circuit Breaker Manufacturer</h2>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2>{title}</h2>
         <div className="cb-heading-bar"></div>
-        <p className="cb-beyond-subtitle">
-          At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us.
-        </p>
+        <p className="cb-beyond-subtitle">{subtitle}</p>
       </div>
       <div className="cb-beyond-grid">
         <article className="cb-beyond-card">

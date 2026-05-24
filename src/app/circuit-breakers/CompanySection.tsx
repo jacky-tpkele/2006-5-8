@@ -1,7 +1,35 @@
 import Image from "next/image";
 import { InquiryModal } from "@/components/InquiryModal";
 
-export function CompanySection() {
+interface CompanySectionProps {
+  eyebrow?: string;
+  title?: string;
+  intros?: string[];
+  highlights?: string[];
+  ctaLabel?: string;
+  ctaProduct?: string;
+}
+
+const DEFAULT_INTROS = [
+  "Based in Wenzhou — China's electrical manufacturing capital — TPKELE specializes in low-voltage circuit protection components for global distribution projects.",
+  "Our facility covers the full production cycle from mold tooling and injection to assembly, testing, and packaging. Every MCB batch undergoes 100% electrical verification before shipment.",
+];
+
+const DEFAULT_HIGHLIGHTS = [
+  "In-house production with full QC traceability",
+  "OEM/ODM capability — custom logo, label, and packaging",
+  "IEC 60898-1 and CE certified product lines",
+  "Export experience to 50+ countries",
+];
+
+export function CompanySection({
+  eyebrow = "About TPKELE",
+  title = "Your Dedicated MCB Supply Partner",
+  intros = DEFAULT_INTROS,
+  highlights = DEFAULT_HIGHLIGHTS,
+  ctaLabel = "Learn More About Our Factory",
+  ctaProduct = "AC MCB",
+}: CompanySectionProps = {}) {
   return (
     <section className="section">
       <div className="cb-company">
@@ -10,21 +38,17 @@ export function CompanySection() {
             <Image src="/assets/landing/circuit-breakers/factory-building.png" alt="TPKELE manufacturing facility in Wenzhou, China" width={640} height={420} sizes="(max-width: 1024px) 100vw, 640px" />
           </div>
           <div className="cb-company-text">
-            <p className="eyebrow">About TPKELE</p>
-            <h2>Your Dedicated MCB Supply Partner</h2>
-            <p>
-              Based in Wenzhou — China&apos;s electrical manufacturing capital — TPKELE specializes in low-voltage circuit protection components for global distribution projects.
-            </p>
-            <p>
-              Our facility covers the full production cycle from mold tooling and injection to assembly, testing, and packaging. Every MCB batch undergoes 100% electrical verification before shipment.
-            </p>
+            <p className="eyebrow">{eyebrow}</p>
+            <h2>{title}</h2>
+            {intros.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
             <ul className="cb-company-highlights">
-              <li>In-house production with full QC traceability</li>
-              <li>OEM/ODM capability — custom logo, label, and packaging</li>
-              <li>IEC 60898-1 and CE certified product lines</li>
-              <li>Export experience to 50+ countries</li>
+              {highlights.map((h) => (
+                <li key={h}>{h}</li>
+              ))}
             </ul>
-            <InquiryModal triggerLabel="Learn More About Our Factory" triggerClassName="btn ghost dark" intent="factory" product="AC MCB" />
+            <InquiryModal triggerLabel={ctaLabel} triggerClassName="btn ghost dark" intent="factory" product={ctaProduct} />
           </div>
         </div>
         <div className="cb-company-gallery">

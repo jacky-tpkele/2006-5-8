@@ -264,8 +264,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CompanySection />
-      <BeyondSection />
+      <CompanySection
+        title="Your Solar DC & Low Voltage Supply Partner"
+        intros={[
+          "Based in Wenzhou — China's electrical manufacturing capital — TPKELE engineers and manufactures certified protection devices for solar PV and low voltage distribution projects worldwide.",
+          "Our facility covers the full production cycle from mold tooling and injection to assembly, testing, and packaging. Every batch undergoes 100% electrical verification before shipment.",
+        ]}
+        highlights={[
+          "In-house production with full QC traceability",
+          "OEM/ODM capability — custom logo, label, and packaging",
+          "IEC, TUV, CE and CB certified product lines",
+          "Export experience to 100+ countries",
+        ]}
+        ctaProduct="Solar DC & LV Protection"
+      />
+      <BeyondSection
+        title="More Than Just a Manufacturer"
+        subtitle="At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us."
+      />
 
       <section className="section market-band muted">
         <div className="section-heading centered">
