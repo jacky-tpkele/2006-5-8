@@ -1133,6 +1133,24 @@ h3 {
   }
 }
 
+.procurement-cta {
+  margin-top: clamp(28px, 3.4vw, 44px);
+  text-align: center;
+}
+
+.procurement-cta-btn {
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgba(11, 155, 63, 0.25);
+}
+
+.procurement-cta-btn:hover {
+  box-shadow: 0 12px 30px rgba(11, 155, 63, 0.32);
+}
+
 /* ============ Product Tracks (Solar DC + Low Voltage) ============ */
 .product-tracks {
   position: relative;

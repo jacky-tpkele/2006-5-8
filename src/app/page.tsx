@@ -207,6 +207,10 @@ export default function HomePage() {
               <p>Global shipping support and responsive after-sales communication.</p>
             </li>
           </ol>
+
+          <div className="procurement-cta">
+            <InquiryModal triggerLabel="Submit Your Requirements" triggerClassName="btn primary procurement-cta-btn" intent="quote" />
+          </div>
         </div>
       </section>
 
