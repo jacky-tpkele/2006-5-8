@@ -225,53 +225,41 @@ export default function HomePage() {
             <p className="product-tracks-lede">From solar DC strings to AC distribution — one supplier, certified product families, single point of communication.</p>
           </div>
 
-          <div className="track-block">
-            <div className="track-block-head">
-              <span className="track-pill solar">For Solar EPCs &amp; Installers</span>
-              <h3 className="track-block-title">Solar DC Protection</h3>
-            </div>
-            <div className="track-grid track-grid-3">
-              {solarDcTrack.map((item) => (
-                <Link href={item.href} className="track-card" key={item.slug} aria-label={item.name}>
-                  <div className="track-card-media">
-                    <Image src={item.image} alt={item.name} width={320} height={220} />
-                  </div>
-                  <div className="track-card-body">
-                    <h4>{item.name}</h4>
-                    <p>{item.description}</p>
-                    <span className="track-card-link">
-                      View {item.count} {item.count === 1 ? "product" : "products"} →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+          <div className="track-grid track-grid-unified">
+            {solarDcTrack.map((item) => (
+              <Link href={item.href} className="track-card" key={`solar-${item.slug}`} aria-label={item.name}>
+                <span className="track-card-flag solar">Solar DC</span>
+                <div className="track-card-media">
+                  <Image src={item.image} alt={item.name} width={320} height={220} />
+                </div>
+                <div className="track-card-body">
+                  <h4>{item.name}</h4>
+                  <p>{item.description}</p>
+                  <span className="track-card-link">
+                    View {item.count} {item.count === 1 ? "product" : "products"} →
+                  </span>
+                </div>
+              </Link>
+            ))}
+            {lvTrack.map((item) => (
+              <Link href={item.href} className="track-card" key={`lv-${item.slug}`} aria-label={item.name}>
+                <span className="track-card-flag lv">Low Voltage</span>
+                <div className="track-card-media">
+                  <Image src={item.image} alt={item.name} width={320} height={220} />
+                </div>
+                <div className="track-card-body">
+                  <h4>{item.name}</h4>
+                  <p>{item.description}</p>
+                  <span className="track-card-link">
+                    View {item.count} {item.count === 1 ? "product" : "products"} →
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
 
-          <div className="track-block">
-            <div className="track-block-head">
-              <span className="track-pill">For Distributors &amp; Panel Builders</span>
-              <h3 className="track-block-title">Low Voltage Electrical Protection</h3>
-            </div>
-            <div className="track-grid track-grid-5">
-              {lvTrack.map((item) => (
-                <Link href={item.href} className="track-card" key={item.slug} aria-label={item.name}>
-                  <div className="track-card-media">
-                    <Image src={item.image} alt={item.name} width={320} height={220} />
-                  </div>
-                  <div className="track-card-body">
-                    <h4>{item.name}</h4>
-                    <p>{item.description}</p>
-                    <span className="track-card-link">
-                      View {item.count} {item.count === 1 ? "product" : "products"} →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="product-tracks-footer">
-              <Link className="btn ghost dark" href="/products">View all products →</Link>
-            </div>
+          <div className="product-tracks-footer">
+            <Link className="btn ghost dark" href="/products">View all products →</Link>
           </div>
         </div>
       </section>
