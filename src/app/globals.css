@@ -3911,16 +3911,20 @@ button.cb-option-card {
 .cb-beyond-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 20px;
   max-width: var(--max);
-  margin: 36px auto 0;
+  margin: 32px auto 0;
 }
 
 .cb-beyond-card {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: start;
+  column-gap: 18px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 28px 28px 32px;
+  padding: 22px 24px;
 }
 
 .cb-beyond-card:hover {
@@ -3935,21 +3939,22 @@ button.cb-option-card {
   color: #fff;
   display: grid;
   place-items: center;
-  margin-bottom: 16px;
+  margin: 0;
 }
 
 .cb-beyond-card h3 {
-  margin: 0 0 10px;
-  font-size: 17px;
+  margin: 0 0 6px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ink);
+  line-height: 1.3;
 }
 
 .cb-beyond-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 13.5px;
+  line-height: 1.6;
 }
 
 /* ─── Company Introduction ─── */
