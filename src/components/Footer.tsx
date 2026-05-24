@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InquiryModal } from "@/components/InquiryModal";
+import { BackToTop } from "@/components/BackToTop";
 import { ChatWidget } from "@/components/ChatWidget";
 import { blogPosts, categorySlugMap, site, subCategoryBySlug } from "@/data/site";
 
@@ -92,13 +92,7 @@ export function Footer() {
         </div>
         <p className="copyright">© 2026 TPKELE. All Rights Reserved.</p>
       </footer>
-      <InquiryModal
-        triggerLabel="Submit inquiry"
-        triggerClassName="float-contact"
-        triggerAriaLabel="Submit inquiry"
-        triggerContent={<span aria-hidden="true">↑</span>}
-        intent="quote"
-      />
+      <BackToTop />
       <ChatWidget />
     </>
   );
