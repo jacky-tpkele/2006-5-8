@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { InquiryModal } from "@/components/InquiryModal";
+import { ChatWidget } from "@/components/ChatWidget";
 import { blogPosts, categorySlugMap, site, subCategoryBySlug } from "@/data/site";
 
 const solutionLinks = [
@@ -98,6 +99,7 @@ export function Footer() {
         triggerContent={<span aria-hidden="true">↑</span>}
         intent="quote"
       />
+      <ChatWidget />
     </>
   );
 }
