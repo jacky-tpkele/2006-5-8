@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { InquiryModal } from "@/components/InquiryModal";
+import { CompanySection } from "@/app/circuit-breakers/CompanySection";
+import { BeyondSection } from "@/app/circuit-breakers/BeyondSection";
 import {
-  applications,
-  buyerSegments,
   exportMarkets,
   oemCapabilities,
   products,
@@ -264,22 +264,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="section-heading centered">
-          <p className="eyebrow">Built for Your Procurement Role</p>
-          <h2>The protection partner for solar EPCs, distributors and panel builders</h2>
-        </div>
-        <div className="segment-grid">
-          {buyerSegments.map((seg) => (
-            <article className="segment-card" key={seg.title}>
-              <span className="line-icon">{seg.icon}</span>
-              <h3>{seg.title}</h3>
-              <p>{seg.text}</p>
-              <Link className="text-link" href="/contact">{seg.cta} →</Link>
-            </article>
-          ))}
-        </div>
-      </section>
+      <CompanySection />
+      <BeyondSection />
 
       <section className="section market-band muted">
         <div className="section-heading centered">
@@ -292,22 +278,6 @@ export default function HomePage() {
               <strong>{m.region}</strong>
               <span>{m.countries}</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section muted">
-        <div className="section-heading centered">
-          <p className="eyebrow">Applications</p>
-          <h2>Engineered for solar, industrial and infrastructure power</h2>
-        </div>
-        <div className="application-grid">
-          {applications.map((item) => (
-            <article className="application-item" key={item.title}>
-              <span className="line-icon">{item.icon}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
           ))}
         </div>
       </section>
