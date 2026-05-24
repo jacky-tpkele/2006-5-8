@@ -2,14 +2,12 @@ interface BeyondSectionProps {
   eyebrow?: string;
   title?: string;
   subtitle?: string;
-  subtitleClassName?: string;
 }
 
 export function BeyondSection({
   eyebrow = "Beyond Manufacturing",
   title = "More Than Just a Circuit Breaker Manufacturer",
   subtitle = "At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us.",
-  subtitleClassName = "",
 }: BeyondSectionProps = {}) {
   return (
     <section className="section">
@@ -17,7 +15,7 @@ export function BeyondSection({
         <p className="eyebrow">{eyebrow}</p>
         <h2>{title}</h2>
         <div className="cb-heading-bar"></div>
-        <p className={`cb-beyond-subtitle ${subtitleClassName}`.trim()}>{subtitle}</p>
+        <p className="cb-beyond-subtitle">{subtitle}</p>
       </div>
       <div className="cb-beyond-grid">
         <article className="cb-beyond-card">

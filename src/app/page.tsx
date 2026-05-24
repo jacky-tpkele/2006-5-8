@@ -281,7 +281,6 @@ export default function HomePage() {
       <BeyondSection
         title="More Than Just a Manufacturer"
         subtitle="At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us."
-        subtitleClassName="cb-beyond-subtitle-2line"
       />
 
       <section className="section market-band muted">
