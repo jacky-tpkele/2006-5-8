@@ -34,8 +34,13 @@ export function CompanySection({
     <section className="section">
       <div className="cb-company">
         <div className="cb-company-main">
-          <div className="cb-company-photo">
-            <Image src="/assets/landing/circuit-breakers/factory-building.png" alt="TPKELE manufacturing facility in Wenzhou, China" width={640} height={420} sizes="(max-width: 1024px) 100vw, 640px" />
+          <div className="cb-company-photo-block">
+            <div className="cb-company-photo">
+              <Image src="/assets/landing/circuit-breakers/factory-building.png" alt="TPKELE manufacturing facility in Wenzhou, China" width={640} height={420} sizes="(max-width: 1024px) 100vw, 640px" />
+            </div>
+            <div className="cb-company-cta">
+              <InquiryModal triggerLabel={ctaLabel} triggerClassName="btn primary" intent="factory" product={ctaProduct} />
+            </div>
           </div>
           <div className="cb-company-text">
             <p className="eyebrow">{eyebrow}</p>
@@ -48,7 +53,6 @@ export function CompanySection({
                 <li key={h}>{h}</li>
               ))}
             </ul>
-            <InquiryModal triggerLabel={ctaLabel} triggerClassName="btn ghost dark" intent="factory" product={ctaProduct} />
           </div>
         </div>
         <div className="cb-company-gallery">

@@ -3952,19 +3952,43 @@ button.cb-option-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: 48px;
+}
+
+.cb-company-photo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
 }
 
 .cb-company-photo {
   border-radius: 12px;
   overflow: hidden;
+  flex: 1;
 }
 
 .cb-company-photo img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+}
+
+.cb-company-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.cb-company-cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.cb-company-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cb-company-text .eyebrow {
@@ -4071,6 +4095,12 @@ button.cb-option-card {
   .cb-company-main {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+  .cb-company-photo {
+    flex: 0 0 auto;
+  }
+  .cb-company-photo img {
+    height: auto;
   }
   .cb-company-text h2 {
     font-size: 22px;
