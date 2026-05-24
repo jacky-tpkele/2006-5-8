@@ -3918,9 +3918,13 @@ button.cb-option-card {
 
 .cb-beyond-card {
   display: grid;
-  grid-template-columns: 44px 1fr;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-areas:
+    "icon title"
+    ".    body";
+  column-gap: 16px;
+  row-gap: 6px;
   align-items: start;
-  column-gap: 18px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -3932,6 +3936,8 @@ button.cb-option-card {
 }
 
 .cb-beyond-icon {
+  grid-area: icon;
+  align-self: center;
   width: 44px;
   height: 44px;
   border-radius: 10px;
@@ -3943,18 +3949,23 @@ button.cb-option-card {
 }
 
 .cb-beyond-card h3 {
-  margin: 0 0 6px;
+  grid-area: title;
+  align-self: center;
+  margin: 0;
   font-size: 16px;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.3;
+  min-width: 0;
 }
 
 .cb-beyond-card p {
+  grid-area: body;
   margin: 0;
   color: var(--muted);
   font-size: 13.5px;
   line-height: 1.6;
+  min-width: 0;
 }
 
 /* ─── Company Introduction ─── */
