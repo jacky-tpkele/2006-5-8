@@ -335,16 +335,6 @@ export default function HomePage() {
         </div>
         <InquiryModal triggerLabel="Submit Inquiry" triggerClassName="btn primary" intent="quote" />
       </section>
-
-      <a
-        className="float-whatsapp"
-        href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hello TPKELE, I'd like a catalog and quotation for solar / low voltage protection products.")}`}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat on WhatsApp"
-      >
-        ☏
-      </a>
     </main>
   );
 }
