@@ -773,7 +773,7 @@ export const productMenu: ProductMenuGroup[] = [
 
 export type ProductMegaItem = { label: string; href: string; tag?: string };
 export type ProductMegaColumn = {
-  key: "solar" | "lv";
+  key: "solar" | "lv" | "metering";
   title: string;
   subtitle: string;
   recommended?: boolean;
@@ -784,10 +784,10 @@ export type ProductMegaColumn = {
 export const productMegaMenu: ProductMegaColumn[] = [
   {
     key: "solar",
-    title: "Solar DC Protection",
-    subtitle: "For PV Systems & Battery Storage",
+    title: "Solar Projects",
+    subtitle: "For EPCs & Installers",
     recommended: true,
-    cta: { label: "View Solar DC →", href: "/solar-dc-protection" },
+    cta: { label: "Explore Solar DC →", href: "/solar-dc-protection" },
     items: [
       { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
       { label: "DC SPD", href: "/products/category/spd/dc-spd" },
@@ -796,15 +796,23 @@ export const productMegaMenu: ProductMegaColumn[] = [
   },
   {
     key: "lv",
-    title: "Low Voltage Protection",
-    subtitle: "For Distribution, Backup & Metering",
-    cta: { label: "View All Products →", href: "/products" },
+    title: "Distribution & Backup",
+    subtitle: "For Panel Builders",
+    cta: { label: "AC MCB Landing →", href: "/circuit-breakers" },
     items: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
       { label: "AC SPD", href: "/products/category/spd/ac-spd" },
       { label: "ATS", href: "/products/category/ats" },
-      { label: "Voltage Protector", href: "/products/category/voltage-protector" },
+    ],
+  },
+  {
+    key: "metering",
+    title: "Metering & Monitoring",
+    subtitle: "For Sub-metering & Tenant Billing",
+    cta: { label: "Browse All →", href: "/products" },
+    items: [
       { label: "Energy Meter", href: "/products/category/energy-meter" },
+      { label: "Voltage Protector", href: "/products/category/voltage-protector" },
     ],
   },
 ];

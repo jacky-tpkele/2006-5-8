@@ -70,6 +70,7 @@ textarea {
 
 .site-nav {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: clamp(18px, 3vw, 40px);
   font-size: 13px;
@@ -80,7 +81,10 @@ textarea {
 .site-nav a,
 .nav-dropdown > a {
   position: relative;
+  display: inline-flex;
+  align-items: center;
   padding: 6px 0;
+  line-height: 1;
 }
 
 .site-nav a::after,
@@ -106,6 +110,8 @@ textarea {
 
 .nav-dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-dropdown::after {
@@ -130,9 +136,9 @@ textarea {
   top: calc(100% + 14px);
   left: 50%;
   z-index: 30;
-  width: min(760px, calc(100vw - 40px));
+  width: min(940px, calc(100vw - 40px));
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   padding: 0;
   background: #fff;
