@@ -787,9 +787,9 @@ export const productMegaMenu: ProductMegaColumn[] = [
     title: "Solar Projects",
     subtitle: "For EPCs & Installers",
     recommended: true,
-    cta: { label: "Explore Solar DC →", href: "/solar-dc-protection" },
+    cta: { label: "DC MCB Landing →", href: "/dc-circuit-breakers" },
     items: [
-      { label: "DC MCB", href: "/dc-circuit-breakers" },
+      { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
       { label: "DC SPD", href: "/products/category/spd/dc-spd" },
       { label: "PV Combiner Box", href: "/products/category/combiner-box" },
     ],
