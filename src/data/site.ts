@@ -789,7 +789,7 @@ export const productMegaMenu: ProductMegaColumn[] = [
     recommended: true,
     cta: { label: "Explore Solar DC →", href: "/solar-dc-protection" },
     items: [
-      { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
+      { label: "DC MCB", href: "/dc-circuit-breakers" },
       { label: "DC SPD", href: "/products/category/spd/dc-spd" },
       { label: "PV Combiner Box", href: "/products/category/combiner-box" },
     ],
