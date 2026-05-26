@@ -21,22 +21,22 @@ export const options = [
   {
     name: "1P AC MCB",
     description: "Single-phase circuit protection for branch circuits in residential and light commercial panels.",
-    image: "/assets/landing/circuit-breakers/card-1p.png",
+    image: "/assets/products/gallery/ac-mcb-1p-1.webp",
   },
   {
     name: "2P AC MCB",
     description: "Line and neutral protection for single-phase systems requiring full isolation.",
-    image: "/assets/landing/circuit-breakers/card-2p.png",
+    image: "/assets/products/gallery/ac-mcb-2p-1.webp",
   },
   {
     name: "3P AC MCB",
     description: "Three-phase power distribution protection for commercial and industrial feeders.",
-    image: "/assets/landing/circuit-breakers/card-3p.png",
+    image: "/assets/products/gallery/ac-mcb-3p-1.webp",
   },
   {
     name: "4P AC MCB",
     description: "Three-phase with neutral protection where full four-pole isolation is required.",
-    image: "/assets/landing/circuit-breakers/card-4p.png",
+    image: "/assets/products/gallery/ac-mcb-4p-1.webp",
   },
 ];
 

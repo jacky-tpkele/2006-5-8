@@ -1,6 +1,3 @@
-// TODO: replace placeholder images with DC-specific photos when available.
-// Currently reusing AC card/feature images — product line is visually similar.
-
 export const features = [
   { title: "DC Arc Extinction", text: "Magnetic blowout chamber safely interrupts sustained DC arcs that conventional AC breakers cannot quench", image: "/assets/landing/circuit-breakers/feat-protection.png" },
   { title: "Polarity-Independent", text: "Bidirectional protection for PV strings and battery banks where current can flow either direction", image: "/assets/landing/circuit-breakers/feat-options.png" },
@@ -26,22 +23,22 @@ export const options = [
   {
     name: "1P DC MCB",
     description: "Single-pole DC protection for PV string positive or negative line, up to 1000VDC per pole.",
-    image: "/assets/landing/circuit-breakers/card-1p.png",
+    image: "/assets/products/gallery/dc-mcb-1p-1.webp",
   },
   {
     name: "2P DC MCB",
     description: "Two-pole series-connected protection for higher DC voltages — typical for 1500VDC PV strings.",
-    image: "/assets/landing/circuit-breakers/card-2p.png",
+    image: "/assets/products/gallery/dc-mcb-2p-1.webp",
   },
   {
     name: "3P DC MCB",
     description: "Three-pole DC distribution protection for battery storage cabinets and DC microgrids.",
-    image: "/assets/landing/circuit-breakers/card-3p.png",
+    image: "/assets/products/gallery/dc-mcb-3p-1.webp",
   },
   {
     name: "4P DC MCB",
     description: "Four-pole DC isolation for redundant bipolar systems and high-voltage DC feeders.",
-    image: "/assets/landing/circuit-breakers/card-4p.png",
+    image: "/assets/products/gallery/dc-mcb-4p-1.webp",
   },
 ];
 
