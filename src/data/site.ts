@@ -1367,7 +1367,7 @@ export function getProductGallery(product: Product): string[] {
 
 export function getRelatedProducts(product: Product, limit = 8): Product[] {
   const sameSub = product.subCategorySlug
-    ? products.filter((p) => p.subCategorySlug === product.subCategorySlug && p.slug !== product.slug)
+    ? products.filter((p) => p.subCategorySlug === product.subCategorySlug)
     : [];
   const sameCategory = products.filter(
     (p) => p.parentCategory === product.parentCategory && p.slug !== product.slug && !sameSub.includes(p),
