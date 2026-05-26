@@ -2713,7 +2713,7 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   overflow: hidden;
   padding: 10px;
   gap: 10px;
@@ -2724,6 +2724,7 @@ textarea {
   position: relative;
   flex: 1;
   min-height: 0;
+  aspect-ratio: 1 / 1;
 }
 
 .product-gallery-main-image {
@@ -2744,10 +2745,11 @@ textarea {
 
 .product-gallery-thumbs {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
   flex-shrink: 0;
-  align-self: stretch;
+  overflow-x: auto;
+  padding-bottom: 2px;
 }
 
 .product-gallery-thumb {
@@ -2756,8 +2758,8 @@ textarea {
   border-radius: 6px;
   padding: 4px;
   cursor: pointer;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
