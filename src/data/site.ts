@@ -272,6 +272,7 @@ export const products: Product[] = [
       "/assets/products/gallery/ac-mcb-1p-1.webp",
       "/assets/products/gallery/ac-mcb-1p-2.webp",
       "/assets/products/gallery/ac-mcb-1p-3.webp",
+      "/assets/products/gallery/ac-mcb-1p-4.webp",
     ],
   },
   {
