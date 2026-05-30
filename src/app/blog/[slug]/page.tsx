@@ -4,16 +4,54 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { InquiryModal } from "@/components/InquiryModal";
-import { blogPosts, findProduct, site } from "@/data/site";
+import { blogPosts as staticBlogPosts, findProduct, site } from "@/data/site";
 
 type RouteParams = { slug: string };
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+async function getBlogPost(slug: string) {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
+    const response = await fetch(`${baseUrl}/api/blog?slug=${slug}`, {
+      next: { revalidate: 3600 }, // 缓存 1 小时
+    });
+
+    if (response.ok) {
+      return await response.json();
+    }
+  } catch (error) {
+    console.warn("Error fetching dynamic blog post:", error);
+  }
+
+  // 回退到静态数据
+  return staticBlogPosts.find((p) => p.slug === slug);
 }
 
-export function generateMetadata({ params }: { params: RouteParams }): Metadata {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+async function getAllBlogSlugs() {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
+    const response = await fetch(`${baseUrl}/api/blog`, {
+      next: { revalidate: 3600 },
+    });
+
+    if (response.ok) {
+      const posts = await response.json();
+      return posts.map((p: any) => ({ slug: p.slug }));
+    }
+  } catch (error) {
+    console.warn("Error fetching blog slugs:", error);
+  }
+
+  // 回退到静态数据
+  return staticBlogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateStaticParams() {
+  const params = await getAllBlogSlugs();
+  return params;
+}
+
+export async function generateMetadata({ params }: { params: RouteParams }): Promise<Metadata> {
+  const post = await getBlogPost(params.slug);
   if (!post) return { title: "Article not found" };
   return {
     title: post.seoTitle ?? post.title,
@@ -58,8 +96,8 @@ function renderParagraph(text: string, key: number) {
   );
 }
 
-export default function BlogArticlePage({ params }: { params: RouteParams }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogArticlePage({ params }: { params: RouteParams }) {
+  const post = await getBlogPost(params.slug);
   if (!post) notFound();
 
   const related = (post.relatedProducts ?? [])
@@ -168,6 +206,38 @@ export default function BlogArticlePage({ params }: { params: RouteParams }) {
                   </Fragment>
                 ))}
               </dl>
+            </section>
+          ) : null}
+
+          {post.internalLinks && post.internalLinks.length > 0 ? (
+            <section>
+              <h2>Related Articles</h2>
+              <ul className="blog-article-links">
+                {post.internalLinks.map((link, i) => (
+                  <li key={i}>
+                    <Link href={link.url} className="text-link">
+                      {link.title}
+                    </Link>
+                    {link.reason ? <p className="text-muted">{link.reason}</p> : null}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          {post.externalLinks && post.externalLinks.length > 0 ? (
+            <section>
+              <h2>References & Resources</h2>
+              <ul className="blog-article-links">
+                {post.externalLinks.map((link, i) => (
+                  <li key={i}>
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
+                      {link.title}
+                    </a>
+                    {link.reason ? <p className="text-muted">{link.reason}</p> : null}
+                  </li>
+                ))}
+              </ul>
             </section>
           ) : null}
         </div>

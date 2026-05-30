@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageTitle } from "@/components/PageTitle";
-import { blogPosts } from "@/data/site";
+import { blogPosts as staticBlogPosts } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Blog — Solar DC & Low Voltage Protection Knowledge Base | TPKELE",
@@ -11,7 +11,29 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-export default function BlogPage() {
+async function getBlogPosts() {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
+    const response = await fetch(`${baseUrl}/api/blog`, {
+      next: { revalidate: 3600 }, // 缓存 1 小时
+    });
+
+    if (!response.ok) {
+      console.warn("Failed to fetch dynamic blog posts, falling back to static");
+      return staticBlogPosts;
+    }
+
+    const posts = await response.json();
+    return Array.isArray(posts) ? posts : staticBlogPosts;
+  } catch (error) {
+    console.warn("Error fetching blog posts:", error);
+    return staticBlogPosts;
+  }
+}
+
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts();
+
   return (
     <main>
       <PageTitle title="Blog" crumb="Blog" />
