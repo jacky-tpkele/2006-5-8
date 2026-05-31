@@ -163,6 +163,20 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
             <Link href="/">Home</Link>
             <span aria-hidden="true">/</span>
             <Link href="/blog">Blog</Link>
+            {post.articleType ? (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link href={`/blog/category/${post.articleType}`}>
+                  {({
+                    product: "Product Knowledge",
+                    buying: "Selection Guides",
+                    comparison: "Comparisons",
+                    application: "Applications",
+                    faq: "FAQs",
+                  } as Record<string, string>)[post.articleType] || post.articleType}
+                </Link>
+              </>
+            ) : null}
             <span aria-hidden="true">/</span>
             <span aria-current="page">{post.title}</span>
           </nav>
