@@ -54,7 +54,7 @@ async function getBlogPosts() {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
     const response = await fetch(`${baseUrl}/api/blog`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 30 },
     });
     if (!response.ok) return staticBlogPosts;
     const posts = await response.json();

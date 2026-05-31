@@ -12,7 +12,7 @@ async function getBlogPost(slug: string): Promise<any> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
     const response = await fetch(`${baseUrl}/api/blog?slug=${slug}`, {
-      next: { revalidate: 3600 }, // 缓存 1 小时
+      next: { revalidate: 30 }, // 30 秒缓存，发布后最多 30s 上线
     });
 
     if (response.ok) {
@@ -30,7 +30,7 @@ async function getAllBlogSlugs() {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
     const response = await fetch(`${baseUrl}/api/blog`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 30 },
     });
 
     if (response.ok) {
