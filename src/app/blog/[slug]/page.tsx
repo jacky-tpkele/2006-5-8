@@ -8,6 +8,9 @@ import { blogPosts as staticBlogPosts, findProduct, site } from "@/data/site";
 
 type RouteParams = { slug: string };
 
+// 允许构建时未预生成的 slug 在请求时按需 SSR（CRM 新发布的文章不会 404）
+export const dynamicParams = true;
+
 async function getBlogPost(slug: string): Promise<any> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
