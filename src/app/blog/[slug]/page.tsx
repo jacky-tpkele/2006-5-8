@@ -8,7 +8,7 @@ import { blogPosts as staticBlogPosts, findProduct, site } from "@/data/site";
 
 type RouteParams = { slug: string };
 
-async function getBlogPost(slug: string) {
+async function getBlogPost(slug: string): Promise<any> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
     const response = await fetch(`${baseUrl}/api/blog?slug=${slug}`, {
@@ -97,12 +97,12 @@ function renderParagraph(text: string, key: number) {
 }
 
 export default async function BlogArticlePage({ params }: { params: RouteParams }) {
-  const post = await getBlogPost(params.slug);
+  const post: any = await getBlogPost(params.slug);
   if (!post) notFound();
 
   const related = (post.relatedProducts ?? [])
-    .map((slug) => findProduct(slug))
-    .filter((p): p is NonNullable<ReturnType<typeof findProduct>> => Boolean(p));
+    .map((slug: string) => findProduct(slug))
+    .filter((p: any): p is NonNullable<ReturnType<typeof findProduct>> => Boolean(p));
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -135,7 +135,7 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: post.faq.map((item) => ({
+        mainEntity: post.faq.map((item: any) => ({
           "@type": "Question",
           name: item.question,
           acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -181,13 +181,13 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
         />
 
         <div className="blog-article-body">
-          {post.body.map((section, idx) => (
+          {post.body.map((section: any, idx: number) => (
             <section key={idx}>
               <h2>{section.heading}</h2>
-              {section.paragraphs?.map((para, i) => renderParagraph(para, i))}
+              {section.paragraphs?.map((para: string, i: number) => renderParagraph(para, i))}
               {section.bullets ? (
                 <ul>
-                  {section.bullets.map((b, i) => (
+                  {section.bullets.map((b: string, i: number) => (
                     <li key={i}>{b}</li>
                   ))}
                 </ul>
@@ -199,7 +199,7 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
             <section>
               <h2>Frequently Asked Questions</h2>
               <dl className="blog-article-faq">
-                {post.faq.map((item, i) => (
+                {post.faq.map((item: any, i: number) => (
                   <Fragment key={i}>
                     <dt>{item.question}</dt>
                     <dd>{item.answer}</dd>
@@ -213,7 +213,7 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
             <section>
               <h2>Related Articles</h2>
               <ul className="blog-article-links">
-                {post.internalLinks.map((link, i) => (
+                {post.internalLinks.map((link: any, i: number) => (
                   <li key={i}>
                     <Link href={link.url} className="text-link">
                       {link.title}
@@ -229,7 +229,7 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
             <section>
               <h2>References & Resources</h2>
               <ul className="blog-article-links">
-                {post.externalLinks.map((link, i) => (
+                {post.externalLinks.map((link: any, i: number) => (
                   <li key={i}>
                     <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
                       {link.title}
@@ -246,7 +246,7 @@ export default async function BlogArticlePage({ params }: { params: RouteParams 
           <aside className="blog-article-related">
             <h2>Related Products</h2>
             <div className="blog-article-related-grid">
-              {related.map((product) => (
+              {related.map((product: any) => (
                 <Link key={product.slug} href={`/products/${product.slug}`} className="blog-article-related-card">
                   <Image src={product.image} alt={product.name} width={200} height={200} />
                   <div>
