@@ -53,8 +53,9 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: { params: RouteParams }): Promise<Metadata> {
-  const post = await getBlogPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<RouteParams> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
   if (!post) return { title: "Article not found" };
   return {
     title: post.seoTitle ?? post.title,
@@ -99,8 +100,9 @@ function renderParagraph(text: string, key: number) {
   );
 }
 
-export default async function BlogArticlePage({ params }: { params: RouteParams }) {
-  const post: any = await getBlogPost(params.slug);
+export default async function BlogArticlePage({ params }: { params: Promise<RouteParams> }) {
+  const { slug } = await params;
+  const post: any = await getBlogPost(slug);
   if (!post) notFound();
 
   const related = (post.relatedProducts ?? [])
