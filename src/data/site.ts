@@ -109,11 +109,16 @@ export const site = {
   tagline: "Solar & Low Voltage Electrical Protection Manufacturer",
   url: "https://www.tpkele.com",
   description:
-    "TPKELE is a Solar & Low Voltage Electrical Protection Manufacturer producing DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS, voltage protectors and DIN rail energy meters for solar EPCs, electrical distributors, OEM buyers and panel builders worldwide.",
+    "TPKELE manufactures DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS, voltage protectors and energy meters for solar EPCs and distributors worldwide.",
   phone: "+86 15067704501",
   whatsapp: "8615067704501",
   email: "jacky@tpkele.com",
   address: "Zhijiang, Wenzhou, Zhejiang, China",
+  social: {
+    linkedin: "https://www.linkedin.com/company/tpkele",
+    youtube: "https://www.youtube.com/@tpkele",
+    facebook: "https://www.facebook.com/tpkele",
+  },
 };
 
 export const certifications = [

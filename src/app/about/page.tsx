@@ -7,7 +7,7 @@ import { certifications, exportMarkets, oemCapabilities } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About TPKELE | Solar & Low Voltage Protection Manufacturer",
-  description: "TPKELE — ISO 9001 manufacturer of DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS and energy meters. CE / IEC / RoHS certified, exporting to 100+ countries.",
+  description: "TPKELE manufactures DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS and energy meters. ISO 9001 certified, CE/IEC/RoHS compliant, exporting to 100+ countries.",
   alternates: { canonical: "/about" },
 };
 

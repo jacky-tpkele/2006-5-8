@@ -13,7 +13,7 @@ import {
 export const metadata = {
   title: "Solar DC & Low Voltage Protection Manufacturer | TPKELE",
   description:
-    "TPKELE engineers and manufactures IEC-certified DC circuit breakers, surge protective devices and PV combiner boxes for solar installations across 100+ countries — plus AC MCB, SPD, ATS, voltage protectors and energy meters.",
+    "TPKELE manufactures IEC-certified DC MCB, DC SPD, PV combiner boxes, AC MCB, SPD, ATS and energy meters for solar installations in 100+ countries.",
   alternates: { canonical: "/" },
 };
 
@@ -27,7 +27,11 @@ export default function HomePage() {
     telephone: site.phone,
     address: site.address,
     description: site.description,
-    sameAs: [],
+    sameAs: [
+      site.social.linkedin,
+      site.social.youtube,
+      site.social.facebook,
+    ],
   };
 
   const countByParent = (cat: string) => products.filter((p) => p.parentCategory === cat).length;

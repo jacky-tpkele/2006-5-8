@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { WebVitals } from "@/components/WebVitals";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -26,6 +28,9 @@ export const metadata: Metadata = {
     "solar protection OEM",
   ],
   alternates: { canonical: site.url },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+  },
   openGraph: {
     title: "TPKELE | Solar & Low Voltage Electrical Protection Manufacturer",
     description: site.description,
@@ -33,6 +38,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [{ url: "/assets/hero-products.webp", width: 900, height: 520, alt: "TPKELE solar and low voltage protection products" }],
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -55,6 +61,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <GoogleAnalytics />
+        <WebVitals />
         <Header />
         {children}
         <Footer />
