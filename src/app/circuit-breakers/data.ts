@@ -45,7 +45,7 @@ export const curves = [
     curve: "B Curve",
     trip: "3–5× rated current",
     application: "Lighting circuits, resistive loads, cable protection",
-    image: "/assets/landing/circuit-breakers/curve-b.png",
+    image: "/assets/landing/circuit-breakers/curve-b.webp",
   },
   {
     curve: "C Curve",
