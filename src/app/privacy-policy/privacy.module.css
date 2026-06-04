@@ -1,0 +1,123 @@
+.page {
+  min-height: 100vh;
+  background: var(--wash);
+  padding: 80px 20px 80px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.updated {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.container section {
+  margin-bottom: 40px;
+}
+
+.container h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--green);
+}
+
+.container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.container p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.container ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.container li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.container strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.compliance {
+  margin-top: 40px;
+  padding: 20px;
+  background: var(--green-soft);
+  border-left: 4px solid var(--green);
+  border-radius: 6px;
+}
+
+.compliance p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 16px;
+  }
+
+  .container {
+    padding: 40px 24px;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+
+  .container h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 20px;
+  }
+
+  .container h1 {
+    font-size: 1.75rem;
+  }
+
+  .container h2 {
+    font-size: 1.25rem;
+  }
+}

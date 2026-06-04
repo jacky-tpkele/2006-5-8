@@ -1,0 +1,178 @@
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.98);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -10px 40px rgba(17, 23, 24, 0.12);
+  backdrop-filter: blur(14px);
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-soft);
+  border-radius: 8px;
+  color: var(--green);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.text {
+  flex: 1;
+}
+
+.text strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.link {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--green-dark);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btnReject,
+.btnAccept {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btnReject {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.btnReject:hover {
+  background: var(--wash);
+  color: var(--ink);
+  border-color: var(--muted);
+}
+
+.btnAccept {
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(11, 155, 63, 0.2);
+}
+
+.btnAccept:hover {
+  background: var(--green-dark);
+  box-shadow: 0 4px 12px rgba(11, 155, 63, 0.3);
+  transform: translateY(-1px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .banner {
+    padding: 16px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .content {
+    min-width: auto;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .btnReject,
+  .btnAccept {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .text strong {
+    font-size: 15px;
+  }
+
+  .text p {
+    font-size: 13px;
+  }
+}
