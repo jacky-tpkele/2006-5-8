@@ -1,11 +1,7 @@
 import Script from "next/script";
 
 export function GoogleAnalytics() {
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
-
-  if (!GA_MEASUREMENT_ID) {
-    return null;
-  }
+  const GA_MEASUREMENT_ID = "G-NFNG4GKSE9";
 
   return (
     <>
@@ -18,9 +14,7 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            page_path: window.location.pathname,
-          });
+          gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </Script>
     </>
