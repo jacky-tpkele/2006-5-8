@@ -6,21 +6,15 @@ export function middleware(request: NextRequest) {
 
   // 301重定向：旧URL → 新URL
   const redirects: Record<string, string> = {
-    // MCB分类
-    '/products/category/mcb': '/products/mcb',
-    '/products/category/mcb/ac-mcb': '/products/ac-mcb',
-    '/products/category/mcb/dc-mcb': '/products/dc-mcb',
+    // MCB分类 - 重定向到落地页面
+    '/products/category/mcb/ac-mcb': '/circuit-breakers',
+    '/products/category/mcb/dc-mcb': '/dc-circuit-breakers',
+    '/products/ac-mcb': '/circuit-breakers',
+    '/products/dc-mcb': '/dc-circuit-breakers',
 
     // SPD分类
-    '/products/category/spd': '/products/spd',
-    '/products/category/spd/ac-spd': '/products/ac-spd',
-    '/products/category/spd/dc-spd': '/products/dc-spd',
-
-    // 其他分类
-    '/products/category/ats': '/products/ats',
-    '/products/category/combiner-box': '/products/combiner-box',
-    '/products/category/voltage-protector': '/products/voltage-protector',
-    '/products/category/energy-meter': '/products/energy-meter',
+    '/products/category/spd/ac-spd': '/products/category/spd/ac-spd',
+    '/products/category/spd/dc-spd': '/products/category/spd/dc-spd',
   };
 
   // 检查是否需要重定向
@@ -34,5 +28,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/products/category/:path*',
+  matcher: ['/products/category/:path*', '/products/ac-mcb', '/products/dc-mcb'],
 };
