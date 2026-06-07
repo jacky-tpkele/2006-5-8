@@ -18,10 +18,6 @@ export function middleware(request: NextRequest) {
     '/blog/category/comparison': '/blog/comparisons',
     '/blog/category/application': '/blog/application-scenarios',
     '/blog/category/faq': '/blog/faqs',
-
-    // SPD分类
-    '/products/category/spd/ac-spd': '/products/category/spd/ac-spd',
-    '/products/category/spd/dc-spd': '/products/category/spd/dc-spd',
   };
 
   // 检查是否需要重定向
