@@ -6,11 +6,11 @@ export function middleware(request: NextRequest) {
 
   // 301重定向：旧URL → 新URL
   const redirects: Record<string, string> = {
-    // MCB分类 - 重定向到落地页面
-    '/products/category/mcb/ac-mcb': '/circuit-breakers',
-    '/products/category/mcb/dc-mcb': '/dc-circuit-breakers',
-    '/products/ac-mcb': '/circuit-breakers',
-    '/products/dc-mcb': '/dc-circuit-breakers',
+    // MCB分类 - 重定向到短路径
+    '/products/category/mcb/ac-mcb': '/products/ac-mcb',
+    '/products/category/mcb/dc-mcb': '/products/dc-mcb',
+    '/circuit-breakers': '/products/ac-mcb',
+    '/dc-circuit-breakers': '/products/dc-mcb',
 
     // SPD分类
     '/products/category/spd/ac-spd': '/products/category/spd/ac-spd',
@@ -28,5 +28,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/products/category/:path*', '/products/ac-mcb', '/products/dc-mcb'],
+  matcher: ['/products/category/:path*', '/circuit-breakers', '/dc-circuit-breakers'],
 };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { InquiryModal } from "@/components/InquiryModal";
-import { CompanySection } from "@/app/circuit-breakers/CompanySection";
-import { BeyondSection } from "@/app/circuit-breakers/BeyondSection";
+import { CompanySection } from "@/app/products/ac-mcb/CompanySection";
+import { BeyondSection } from "@/app/products/ac-mcb/BeyondSection";
 import { HeroSection } from "./HeroSection";
 import { OptionsGrid } from "./OptionsGrid";
 import { FeaturesGrid } from "./FeaturesGrid";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "DC Circuit Breaker Supplier — DC MCB 250V–1500V | TPKELE",
   description:
     "TPKELE supplies DC miniature circuit breakers (DC MCB) for solar PV, battery storage, EV charging and DC distribution. 1P to 4P, 6A–125A, up to 1500VDC, magnetic arc extinction, IEC 60947-2 certified, OEM-ready.",
-  alternates: { canonical: "/dc-circuit-breakers" },
+  alternates: { canonical: "/products/dc-mcb" },
   keywords: [
     "DC miniature circuit breaker supplier",
     "DC MCB manufacturer",
@@ -30,7 +30,7 @@ export default function DcCircuitBreakersPage() {
     "@type": "Product",
     name: "DC Miniature Circuit Breaker",
     description: metadata.description,
-    url: "https://www.tpkele.com/dc-circuit-breakers",
+    url: "https://www.tpkele.com/products/dc-mcb",
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Electrical Protection Devices",
   };

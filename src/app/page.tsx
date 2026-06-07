@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { InquiryModal } from "@/components/InquiryModal";
-import { CompanySection } from "@/app/circuit-breakers/CompanySection";
-import { BeyondSection } from "@/app/circuit-breakers/BeyondSection";
+import { CompanySection } from "@/app/products/ac-mcb/CompanySection";
+import { BeyondSection } from "@/app/products/ac-mcb/BeyondSection";
 import {
   exportMarkets,
   oemCapabilities,

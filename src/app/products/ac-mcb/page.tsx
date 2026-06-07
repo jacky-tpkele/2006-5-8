@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "AC Miniature Circuit Breaker Supplier — MCB 1P–4P | TPKELE",
   description:
     "TPKELE supplies AC miniature circuit breakers (MCB) for residential, commercial, and industrial distribution. 1P to 4P, 6A–63A, B/C/D trip curves, 6kA/10kA breaking capacity. IEC 60898-1 certified, OEM-ready.",
-  alternates: { canonical: "/circuit-breakers" },
+  alternates: { canonical: "/products/ac-mcb" },
   keywords: [
     "AC miniature circuit breaker supplier",
     "MCB manufacturer",
@@ -29,7 +29,7 @@ export default function CircuitBreakersPage() {
     "@type": "Product",
     name: "AC Miniature Circuit Breaker",
     description: metadata.description,
-    url: "https://www.tpkele.com/circuit-breakers",
+    url: "https://www.tpkele.com/products/ac-mcb",
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Electrical Protection Devices",
   };

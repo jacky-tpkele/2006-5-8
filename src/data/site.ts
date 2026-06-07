@@ -820,7 +820,7 @@ export const productMegaMenu: ProductMegaColumn[] = [
     title: "Solar Projects",
     subtitle: "For EPCs & Installers",
     recommended: true,
-    cta: { label: "DC MCB Landing →", href: "/dc-circuit-breakers" },
+    cta: { label: "DC MCB Landing →", href: "/products/dc-mcb" },
     items: [
       { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
       { label: "DC SPD", href: "/products/category/spd/dc-spd" },
@@ -831,7 +831,7 @@ export const productMegaMenu: ProductMegaColumn[] = [
     key: "lv",
     title: "Distribution & Backup",
     subtitle: "For Panel Builders",
-    cta: { label: "AC MCB Landing →", href: "/circuit-breakers" },
+    cta: { label: "AC MCB Landing →", href: "/products/ac-mcb" },
     items: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
       { label: "AC SPD", href: "/products/category/spd/ac-spd" },
