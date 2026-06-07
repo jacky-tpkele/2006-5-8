@@ -12,6 +12,13 @@ export function middleware(request: NextRequest) {
     '/circuit-breakers': '/products/ac-mcb',
     '/dc-circuit-breakers': '/products/dc-mcb',
 
+    // Blog 分类 - 重定向到新路径
+    '/blog/category/product': '/blog/product-knowledge',
+    '/blog/category/buying': '/blog/selection-guides',
+    '/blog/category/comparison': '/blog/comparisons',
+    '/blog/category/application': '/blog/application-scenarios',
+    '/blog/category/faq': '/blog/faqs',
+
     // SPD分类
     '/products/category/spd/ac-spd': '/products/category/spd/ac-spd',
     '/products/category/spd/dc-spd': '/products/category/spd/dc-spd',
@@ -28,5 +35,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/products/category/:path*', '/circuit-breakers', '/dc-circuit-breakers'],
+  matcher: ['/products/category/:path*', '/circuit-breakers', '/dc-circuit-breakers', '/blog/category/:path*'],
 };

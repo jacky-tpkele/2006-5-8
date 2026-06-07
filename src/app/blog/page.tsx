@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PageTitle } from "@/components/PageTitle";
 import { blogPosts as staticBlogPosts } from "@/data/site";
+import { BLOG_CATEGORY_LABELS, BLOG_CATEGORY_ORDER } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Blog — Solar DC & Low Voltage Protection Knowledge Base | TPKELE",
@@ -11,15 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
-const CATEGORY_LABELS: Record<string, string> = {
-  product: "Product Knowledge",
-  buying: "Selection Guides",
-  comparison: "Comparisons",
-  application: "Applications",
-  faq: "FAQs",
-};
-
-const CATEGORY_ORDER = ["product", "buying", "comparison", "application", "faq"];
+const CATEGORY_LABELS: Record<string, string> = BLOG_CATEGORY_LABELS;
+const CATEGORY_ORDER = BLOG_CATEGORY_ORDER;
 
 async function getBlogPosts() {
   try {
@@ -63,15 +57,17 @@ export default async function BlogPage() {
           <Link href="/blog" className="category-chip active">
             All <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts.all || 0})</span>
           </Link>
-          {CATEGORY_ORDER.map((cat) => (
+          {CATEGORY_ORDER.map((slug) => (
             <Link
-              key={cat}
-              href={`/blog/category/${cat}`}
+              key={slug}
+              href={`/blog/${slug}`}
               className="category-chip"
             >
-              {CATEGORY_LABELS[cat]}
-              {counts[cat] ? (
-                <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts[cat]})</span>
+              {CATEGORY_LABELS[slug]}
+              {counts[slug === "product-knowledge" ? "product" : slug === "selection-guides" ? "buying" : slug === "application-scenarios" ? "application" : slug === "comparisons" ? "comparison" : "faq"] ? (
+                <span style={{ opacity: 0.6, marginLeft: 4 }}>
+                  ({counts[slug === "product-knowledge" ? "product" : slug === "selection-guides" ? "buying" : slug === "application-scenarios" ? "application" : slug === "comparisons" ? "comparison" : "faq"]})
+                </span>
               ) : null}
             </Link>
           ))}

@@ -3,28 +3,38 @@ import { blogPosts as staticBlogPosts, type BlogPost as StaticBlogPost } from "@
 export const BLOG_REVALIDATE_SECONDS = 30;
 export const DEFAULT_BLOG_IMAGE = "/assets/blog/default.webp";
 
+// 新的 slug 到标签的映射
 export const BLOG_CATEGORY_LABELS: Record<string, string> = {
-  product: "Product Knowledge",
-  buying: "Selection Guides",
-  comparison: "Comparisons",
-  application: "Applications",
-  faq: "FAQs",
+  "product-knowledge": "Product Knowledge",
+  "selection-guides": "Selection Guides",
+  "comparisons": "Comparisons",
+  "application-scenarios": "Applications",
+  "faqs": "FAQs",
+};
+
+// 旧 slug 到新 slug 的映射（用于数据库兼容）
+export const OLD_TO_NEW_CATEGORY_MAP: Record<string, string> = {
+  product: "product-knowledge",
+  buying: "selection-guides",
+  comparison: "comparisons",
+  application: "application-scenarios",
+  faq: "faqs",
 };
 
 export const BLOG_CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  product:
+  "product-knowledge":
     "In-depth product knowledge and technical fundamentals for MCBs, SPDs, ATS, combiner boxes and more.",
-  buying:
+  "selection-guides":
     "Practical buying and selection guides - choose the right protection device for your project parameters.",
-  comparison:
+  "comparisons":
     "Side-by-side comparisons (MCB vs MCCB, AC vs DC SPD, etc.) to make informed sourcing decisions.",
-  application:
+  "application-scenarios":
     "Real-world application notes for solar, low-voltage distribution, and industrial installations.",
-  faq:
+  "faqs":
     "Quick answers to frequently asked questions about specifications, certifications, and installation.",
 };
 
-export const BLOG_CATEGORY_ORDER = ["product", "buying", "comparison", "application", "faq"];
+export const BLOG_CATEGORY_ORDER = ["product-knowledge", "selection-guides", "comparisons", "application-scenarios", "faqs"];
 export const VALID_BLOG_CATEGORIES = Object.keys(BLOG_CATEGORY_LABELS);
 
 export type BlogSection = {
