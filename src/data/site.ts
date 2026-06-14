@@ -40,6 +40,17 @@ export type SpecTable = {
   rows: SpecTableRow[];
 };
 
+export type SpecPairRow = {
+  parameter: string;
+  requirement: string;
+};
+
+export type SpecPairTable = {
+  title: string;
+  columns: [string, string];
+  rows: SpecPairRow[];
+};
+
 export type SubCategory = {
   slug: string;
   label: string;
@@ -50,6 +61,7 @@ export type SubCategory = {
   seoDescription: string;
   seoKeywords: string[];
   specTable?: SpecTable;
+  mechTable?: SpecPairTable;
 };
 
 export const subCategories: SubCategory[] = [
@@ -194,6 +206,20 @@ export const subCategories: SubCategory[] = [
             "Applications: Solar PV strings, combiner boxes, battery energy storage systems, DC distribution, EV charging, control cabinets",
           ],
         },
+      ],
+    },
+    mechTable: {
+      title: "Mechanical & Installation Parameters",
+      columns: ["Parameter", "Common Requirement"],
+      rows: [
+        { parameter: "Mounting", requirement: "35mm DIN rail" },
+        { parameter: "Terminal", requirement: "Top & bottom wiring, copper wire / busbar connection" },
+        { parameter: "Cable Capacity", requirement: "1–25mm² / 1–35mm² / 1–50mm²" },
+        { parameter: "Torque", requirement: "2.0–3.5 N·m, depends on model" },
+        { parameter: "Mechanical Life", requirement: "10,000–20,000 cycles" },
+        { parameter: "Electrical Life", requirement: "1,500–6,000 cycles" },
+        { parameter: "Protection Degree", requirement: "IP20 (typical)" },
+        { parameter: "Ambient Temperature", requirement: "-25°C to +70°C (typical)" },
       ],
     },
   },
