@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { InquiryModal } from "@/components/InquiryModal";
 import type { Product, ProductCategory } from "@/data/site";
@@ -26,7 +26,15 @@ type Props = {
   categorySlug: string;
 };
 
-export function CategoryProductGrid({
+export function CategoryProductGrid(props: Props) {
+  return (
+    <Suspense fallback={null}>
+      <CategoryProductGridInner {...props} />
+    </Suspense>
+  );
+}
+
+function CategoryProductGridInner({
   category,
   products,
   seriesOptions,

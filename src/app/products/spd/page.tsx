@@ -104,7 +104,12 @@ export default function McbCategoryPage() {
         </section>
       )}
 
-      <CategoryProductGrid category={category} />
+      <CategoryProductGrid
+        category={category}
+        products={items}
+        seriesOptions={menuGroup?.children ?? []}
+        categorySlug="spd"
+      />
 
       {content.faq && content.faq.length > 0 && (
         <section className="section product-faq-section">

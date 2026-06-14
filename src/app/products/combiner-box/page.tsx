@@ -85,7 +85,12 @@ export default function CombinerBoxCategoryPage() {
         )}
       </section>
 
-      <CategoryProductGrid category={category} />
+      <CategoryProductGrid
+        category={category}
+        products={items}
+        seriesOptions={[]}
+        categorySlug="combiner-box"
+      />
 
       {content.faq && content.faq.length > 0 && (
         <section className="section product-faq-section">

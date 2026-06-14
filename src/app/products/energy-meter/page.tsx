@@ -85,7 +85,12 @@ export default function EnergyMeterCategoryPage() {
         )}
       </section>
 
-      <CategoryProductGrid category={category} />
+      <CategoryProductGrid
+        category={category}
+        products={items}
+        seriesOptions={[]}
+        categorySlug="energy-meter"
+      />
 
       {content.faq && content.faq.length > 0 && (
         <section className="section product-faq-section">
