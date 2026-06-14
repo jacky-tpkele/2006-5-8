@@ -121,7 +121,7 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
           </p>
         </div>
 
-        <div className="product-grid">
+        <div className="product-grid product-grid-4">
           {items.map((product) => (
             <article className="product-card" key={product.slug}>
               <div className="product-card-image">
