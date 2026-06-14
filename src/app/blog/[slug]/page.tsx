@@ -4,59 +4,29 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { InquiryModal } from "@/components/InquiryModal";
-import { blogPosts as staticBlogPosts, findProduct, site } from "@/data/site";
+import { findProduct, site } from "@/data/site";
+import {
+  getAbsoluteUrl,
+  getAllBlogSlugsWithFallback,
+  getBlogCategoryHref,
+  getBlogCategoryLabel,
+  getPublishedBlogPostWithFallback,
+} from "@/lib/blog";
+import { renderMarkdownBlockHtml } from "@/lib/markdown";
 
 type RouteParams = { slug: string };
 
-// 允许构建时未预生成的 slug 在请求时按需 SSR（CRM 新发布的文章不会 404）
 export const dynamicParams = true;
 
-async function getBlogPost(slug: string): Promise<any> {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
-    const response = await fetch(`${baseUrl}/api/blog?slug=${slug}`, {
-      next: { revalidate: 30 }, // 30 秒缓存，发布后最多 30s 上线
-    });
-
-    if (response.ok) {
-      return await response.json();
-    }
-  } catch (error) {
-    console.warn("Error fetching dynamic blog post:", error);
-  }
-
-  // 回退到静态数据
-  return staticBlogPosts.find((p) => p.slug === slug);
-}
-
-async function getAllBlogSlugs() {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
-    const response = await fetch(`${baseUrl}/api/blog`, {
-      next: { revalidate: 30 },
-    });
-
-    if (response.ok) {
-      const posts = await response.json();
-      return posts.map((p: any) => ({ slug: p.slug }));
-    }
-  } catch (error) {
-    console.warn("Error fetching blog slugs:", error);
-  }
-
-  // 回退到静态数据
-  return staticBlogPosts.map((post) => ({ slug: post.slug }));
-}
-
 export async function generateStaticParams() {
-  const params = await getAllBlogSlugs();
-  return params;
+  return getAllBlogSlugsWithFallback();
 }
 
 export async function generateMetadata({ params }: { params: Promise<RouteParams> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getBlogPost(slug);
+  const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) return { title: "Article not found" };
+
   return {
     title: post.seoTitle ?? post.title,
     description: post.seoDescription,
@@ -66,55 +36,27 @@ export async function generateMetadata({ params }: { params: Promise<RouteParams
       title: post.seoTitle ?? post.title,
       description: post.seoDescription,
       url: `${site.url}/blog/${post.slug}`,
-      images: [{ url: `${site.url}${post.image}` }],
+      images: [{ url: getAbsoluteUrl(post.image, site.url) }],
       publishedTime: post.date,
     },
   };
 }
 
-const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
-
-function renderParagraph(text: string, key: number) {
-  const segments: Array<string | { label: string; href: string }> = [];
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-  while ((match = linkPattern.exec(text)) !== null) {
-    if (match.index > lastIndex) segments.push(text.slice(lastIndex, match.index));
-    segments.push({ label: match[1], href: match[2] });
-    lastIndex = match.index + match[0].length;
-  }
-  if (lastIndex < text.length) segments.push(text.slice(lastIndex));
-  linkPattern.lastIndex = 0;
-  return (
-    <p key={key}>
-      {segments.map((seg, i) =>
-        typeof seg === "string" ? (
-          <Fragment key={i}>{seg}</Fragment>
-        ) : (
-          <Link key={i} href={seg.href} className="text-link">
-            {seg.label}
-          </Link>
-        )
-      )}
-    </p>
-  );
-}
-
 export default async function BlogArticlePage({ params }: { params: Promise<RouteParams> }) {
   const { slug } = await params;
-  const post: any = await getBlogPost(slug);
+  const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) notFound();
 
-  const related = (post.relatedProducts ?? [])
-    .map((slug: string) => findProduct(slug))
-    .filter((p: any): p is NonNullable<ReturnType<typeof findProduct>> => Boolean(p));
+  const related = post.relatedProducts
+    .map((productSlug: string) => findProduct(productSlug))
+    .filter((product): product is NonNullable<ReturnType<typeof findProduct>> => Boolean(product));
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.seoDescription,
-    image: `${site.url}${post.image}`,
+    image: getAbsoluteUrl(post.image, site.url),
     datePublished: post.date,
     dateModified: post.date,
     author: { "@type": "Organization", name: site.name, url: site.url },
@@ -136,11 +78,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
     ],
   };
 
-  const faqSchema = post.faq
+  const faqSchema = post.faq.length
     ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: post.faq.map((item: any) => ({
+        mainEntity: post.faq.map((item) => ({
           "@type": "Question",
           name: item.question,
           acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -171,14 +113,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
             {post.articleType ? (
               <>
                 <span aria-hidden="true">/</span>
-                <Link href={`/blog/category/${post.articleType}`}>
-                  {({
-                    product: "Product Knowledge",
-                    buying: "Selection Guides",
-                    comparison: "Comparisons",
-                    application: "Applications",
-                    faq: "FAQs",
-                  } as Record<string, string>)[post.articleType] || post.articleType}
+                <Link href={getBlogCategoryHref(post.articleType)}>
+                  {getBlogCategoryLabel(post.articleType) || post.articleType}
                 </Link>
               </>
             ) : null}
@@ -190,36 +126,34 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
           <p className="blog-article-lede">{post.excerpt}</p>
         </header>
 
-        <Image
-          className="blog-article-hero"
-          src={post.image}
-          alt={post.title}
-          width={1200}
-          height={540}
-          priority
-        />
+        <Image className="blog-article-hero" src={post.image} alt={post.title} width={1200} height={540} priority />
 
         <div className="blog-article-body">
-          {post.body.map((section: any, idx: number) => (
-            <section key={idx}>
+          {post.body.map((section, index) => (
+            <section key={index}>
               <h2>{section.heading}</h2>
-              {section.paragraphs?.map((para: string, i: number) => renderParagraph(para, i))}
-              {section.bullets ? (
+              {section.paragraphs.map((paragraph, paragraphIndex) => (
+                <div
+                  key={paragraphIndex}
+                  dangerouslySetInnerHTML={{ __html: renderMarkdownBlockHtml(paragraph) }}
+                />
+              ))}
+              {section.bullets.length ? (
                 <ul>
-                  {section.bullets.map((b: string, i: number) => (
-                    <li key={i}>{b}</li>
+                  {section.bullets.map((bullet, bulletIndex) => (
+                    <li key={bulletIndex}>{bullet}</li>
                   ))}
                 </ul>
               ) : null}
             </section>
           ))}
 
-          {post.faq ? (
+          {post.faq.length ? (
             <section>
               <h2>Frequently Asked Questions</h2>
               <dl className="blog-article-faq">
-                {post.faq.map((item: any, i: number) => (
-                  <Fragment key={i}>
+                {post.faq.map((item, index) => (
+                  <Fragment key={index}>
                     <dt>{item.question}</dt>
                     <dd>{item.answer}</dd>
                   </Fragment>
@@ -228,12 +162,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
             </section>
           ) : null}
 
-          {post.internalLinks && post.internalLinks.length > 0 ? (
+          {post.internalLinks.length > 0 ? (
             <section>
               <h2>Related Articles</h2>
               <ul className="blog-article-links">
-                {post.internalLinks.map((link: any, i: number) => (
-                  <li key={i}>
+                {post.internalLinks.map((link, index) => (
+                  <li key={index}>
                     <Link href={link.url} className="text-link">
                       {link.title}
                     </Link>
@@ -244,12 +178,12 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
             </section>
           ) : null}
 
-          {post.externalLinks && post.externalLinks.length > 0 ? (
+          {post.externalLinks.length > 0 ? (
             <section>
               <h2>References & Resources</h2>
               <ul className="blog-article-links">
-                {post.externalLinks.map((link: any, i: number) => (
-                  <li key={i}>
+                {post.externalLinks.map((link, index) => (
+                  <li key={index}>
                     <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-link">
                       {link.title}
                     </a>
@@ -265,7 +199,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
           <aside className="blog-article-related">
             <h2>Related Products</h2>
             <div className="blog-article-related-grid">
-              {related.map((product: any) => (
+              {related.map((product) => (
                 <Link key={product.slug} href={`/products/${product.slug}`} className="blog-article-related-card">
                   <Image src={product.image} alt={product.name} width={200} height={200} />
                   <div>
@@ -280,12 +214,8 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
 
         <div className="blog-article-cta">
           <p className="eyebrow">Need help on this product family?</p>
-          <h2>Send your project list — we will reply within one business day.</h2>
-          <InquiryModal
-            triggerLabel="Request Quotation"
-            triggerClassName="btn primary"
-            intent={post.intent}
-          />
+          <h2>Send your project list - we will reply within one business day.</h2>
+          <InquiryModal triggerLabel="Request Quotation" triggerClassName="btn primary" intent={post.intent} />
         </div>
       </article>
     </main>

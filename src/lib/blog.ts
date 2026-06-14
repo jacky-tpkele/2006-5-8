@@ -36,6 +36,7 @@ export const BLOG_CATEGORY_DESCRIPTIONS: Record<string, string> = {
 
 export const BLOG_CATEGORY_ORDER = ["product-knowledge", "selection-guides", "comparisons", "application-scenarios", "faqs"];
 export const VALID_BLOG_CATEGORIES = Object.keys(BLOG_CATEGORY_LABELS);
+export type BlogCategorySlug = keyof typeof BLOG_CATEGORY_LABELS;
 
 export type BlogSection = {
   heading: string;
@@ -83,6 +84,43 @@ type SupabaseFetchOptions = RequestInit & {
 
 function getString(value: unknown, fallback = "") {
   return typeof value === "string" && value.trim() ? value : fallback;
+}
+
+export function normalizeBlogCategory(value: unknown): BlogCategorySlug | null {
+  const raw = getString(value).toLowerCase();
+  if (!raw) return null;
+
+  const normalized = (OLD_TO_NEW_CATEGORY_MAP[raw] ?? raw) as string;
+  return normalized in BLOG_CATEGORY_LABELS ? (normalized as BlogCategorySlug) : null;
+}
+
+export function getBlogCategoryLabel(value: unknown) {
+  const category = normalizeBlogCategory(value);
+  return category ? BLOG_CATEGORY_LABELS[category] : null;
+}
+
+export function getBlogCategoryHref(value: unknown) {
+  const category = normalizeBlogCategory(value);
+  return category ? `/blog/${category}` : "/blog";
+}
+
+export function countBlogPostsByCategory(posts: Array<Pick<BlogPost, "articleType">>) {
+  const counts: Record<string, number> = { all: posts.length };
+
+  for (const post of posts) {
+    const category = normalizeBlogCategory(post.articleType);
+    if (!category) continue;
+    counts[category] = (counts[category] || 0) + 1;
+  }
+
+  return counts;
+}
+
+export function filterBlogPostsByCategory<T extends Pick<BlogPost, "articleType">>(
+  posts: T[],
+  category: BlogCategorySlug
+) {
+  return posts.filter((post) => normalizeBlogCategory(post.articleType) === category);
 }
 
 function getNumber(value: unknown, fallback = 0) {
@@ -143,6 +181,7 @@ function normalizeFaq(value: unknown): BlogFaqItem[] {
 export function parseMarkdownToSections(markdown: string): BlogSection[] {
   const sections: BlogSection[] = [];
   let current: BlogSection | null = null;
+  let paragraphBuffer: string[] = [];
 
   function ensureSection() {
     if (!current) {
@@ -151,11 +190,23 @@ export function parseMarkdownToSections(markdown: string): BlogSection[] {
     return current;
   }
 
+  function flushParagraph() {
+    const block = paragraphBuffer.join("\n").trim();
+    if (block) {
+      ensureSection().paragraphs.push(block);
+    }
+    paragraphBuffer = [];
+  }
+
   for (const rawLine of markdown.split("\n")) {
     const line = rawLine.trim();
-    if (!line) continue;
+    if (!line) {
+      flushParagraph();
+      continue;
+    }
 
     if (line.startsWith("## ")) {
+      flushParagraph();
       if (current) sections.push(current);
       current = { heading: line.replace(/^##\s+/, "").trim(), paragraphs: [], bullets: [] };
       continue;
@@ -164,13 +215,16 @@ export function parseMarkdownToSections(markdown: string): BlogSection[] {
     if (line.startsWith("#")) continue;
 
     if (/^[-*]\s+/.test(line)) {
+      flushParagraph();
       ensureSection().bullets.push(line.replace(/^[-*]\s+/, "").trim());
       continue;
     }
 
-    ensureSection().paragraphs.push(line);
+    ensureSection();
+    paragraphBuffer.push(line);
   }
 
+  flushParagraph();
   if (current) sections.push(current);
   return sections;
 }
@@ -189,7 +243,7 @@ export function normalizeBlogPost(row: Record<string, unknown>): BlogPost {
     seoDescription,
     mainKeyword: getString(row.main_keyword) || undefined,
     subKeywords: getArray<string>(row.sub_keywords),
-    articleType: getString(row.article_type) || null,
+    articleType: normalizeBlogCategory(row.article_type),
     date: getDatePart(row.published_at, row.updated_at, row.created_at),
     image,
     coverImageAlt: getString(row.cover_image_alt, title),

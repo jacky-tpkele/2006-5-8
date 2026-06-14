@@ -3557,6 +3557,47 @@ textarea {
   color: var(--ink);
   margin: 0 0 14px;
 }
+.blog-article-body .markdown-image-block {
+  margin: 0 0 18px;
+}
+.blog-article-body .markdown-image-block img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.blog-article-body .markdown-table-wrap {
+  margin: 0 0 18px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+.blog-article-body .markdown-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+.blog-article-body .markdown-table th,
+.blog-article-body .markdown-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.blog-article-body .markdown-table th {
+  background: var(--wash);
+  font-weight: 700;
+  color: var(--ink);
+}
+.blog-article-body .markdown-table td {
+  color: var(--ink);
+}
+.blog-article-body .markdown-table tbody tr:last-child td {
+  border-bottom: none;
+}
 .blog-article-body ul {
   padding-left: 20px;
   margin: 0 0 14px;
@@ -3643,6 +3684,9 @@ textarea {
   margin: 8px 0 18px;
 }
 @media (max-width: 640px) {
+  .blog-article-body .markdown-table {
+    min-width: 520px;
+  }
   .blog-article-related-grid { grid-template-columns: 1fr; }
 }
 
