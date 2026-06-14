@@ -136,6 +136,20 @@ export const subCategories: SubCategory[] = [
         },
       ],
     },
+    mechTable: {
+      title: "Mechanical & Installation Parameters",
+      columns: ["Parameter", "Common Requirement"],
+      rows: [
+        { parameter: "Mounting", requirement: "35mm DIN rail" },
+        { parameter: "Terminal", requirement: "Top & bottom wiring, copper wire / busbar connection" },
+        { parameter: "Cable Capacity", requirement: "1–25mm² / 1–35mm²" },
+        { parameter: "Torque", requirement: "2.0–3.0 N·m, depends on model" },
+        { parameter: "Mechanical Life", requirement: "20,000 cycles" },
+        { parameter: "Electrical Life", requirement: "6,000–10,000 cycles" },
+        { parameter: "Protection Degree", requirement: "IP20 (typical)" },
+        { parameter: "Ambient Temperature", requirement: "-25°C to +55°C (reference temperature 30°C)" },
+      ],
+    },
   },
   {
     slug: "dc-mcb",
