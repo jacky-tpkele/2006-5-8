@@ -29,6 +29,17 @@ export type Product = ProductFamily & {
   technicalSpecs?: Array<{ label: string; value: string }>;
 };
 
+export type SpecTableRow = {
+  no: string;
+  category: string;
+  specs: string[];
+};
+
+export type SpecTable = {
+  title: string;
+  rows: SpecTableRow[];
+};
+
 export type SubCategory = {
   slug: string;
   label: string;
@@ -38,6 +49,7 @@ export type SubCategory = {
   seoTitle: string;
   seoDescription: string;
   seoKeywords: string[];
+  specTable?: SpecTable;
 };
 
 export const subCategories: SubCategory[] = [
@@ -64,6 +76,66 @@ export const subCategories: SubCategory[] = [
     seoDescription:
       "TPKELE DC MCB factory for solar PV, battery and DC distribution. 1P–4P, up to 1500V DC, 6A–63A, IEC 60947-2 design, CE & RoHS, OEM ready. Solar circuit breaker built for EPCs and panel builders.",
     seoKeywords: ["DC MCB", "solar circuit breaker", "PV DC breaker", "1000V DC MCB", "1500V DC MCB", "battery DC breaker", "DC miniature circuit breaker manufacturer", "photovoltaic DC breaker"],
+    specTable: {
+      title: "DC MCB Technical Parameters",
+      rows: [
+        {
+          no: "01",
+          category: "Core Electrical Ratings",
+          specs: [
+            "Rated Current: 1A–125A | Rated Voltage: DC 250V / 500V / 800V / 1000V / 1200V / 1500V",
+            "Poles: 1P / 2P / 3P / 4P | Breaking Capacity: 4.5kA / 6kA / 10kA / 15kA / 20kA",
+            "Rated Insulation Voltage (Ui): 500V / 1000V / 1500V | Rated Impulse Withstand Voltage (Uimp): 4kV / 6kV / 8kV",
+            "Frequency: DC",
+          ],
+        },
+        {
+          no: "02",
+          category: "Trip & Protection Characteristics",
+          specs: [
+            "Protection Types: Overload Protection and Short Circuit Protection",
+            "Trip Curves: B Curve (3–5×In), C Curve (5–10×In), D Curve (10–20×In)",
+            "Typical Use: C Curve for general DC distribution, PV and battery storage",
+          ],
+        },
+        {
+          no: "03",
+          category: "Voltage & Pole Configuration",
+          specs: [
+            "1P: DC 250V / 500V | 2P: DC 500V / 1000V",
+            "3P: DC 750V / 1000V / 1200V | 4P: DC 1000V / 1500V",
+            "Multi-pole designs improve safe DC arc interruption",
+          ],
+        },
+        {
+          no: "04",
+          category: "Mechanical & Installation Data",
+          specs: [
+            "Mounting: 35mm DIN Rail | Cable Capacity: 1–25mm² / 1–35mm² / 1–50mm²",
+            "Terminal Torque: typically 2.0–3.5 N·m | Mechanical Life: 10,000–20,000 cycles",
+            "Electrical Life: 1,500–6,000 cycles | Protection Degree: IP20",
+            "Ambient Temperature: -25°C to +70°C",
+          ],
+        },
+        {
+          no: "05",
+          category: "Materials & Safety Features",
+          specs: [
+            "Housing Material: Flame-retardant PA66, typically UL94 V-0 | Contact Material: Silver Alloy",
+            "Arc Extinguishing: Special DC arc-quenching system | Polarity: polarity-sensitive on some models",
+            "Status Indication: red/green window | Isolation Function: available on selected models",
+          ],
+        },
+        {
+          no: "06",
+          category: "Standards & Applications",
+          specs: [
+            "Standards: IEC 60947-2, IEC 60898-2, EN 60947-2, UL 489B",
+            "Applications: Solar PV strings, combiner boxes, battery energy storage systems, DC distribution, EV charging, control cabinets",
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "ac-spd",

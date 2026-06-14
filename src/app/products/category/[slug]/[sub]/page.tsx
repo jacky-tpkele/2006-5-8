@@ -146,6 +146,38 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
         </div>
       </section>
 
+      {subCat.specTable && (
+        <section className="section product-spec-section">
+          <h2 className="product-spec-title">{subCat.specTable.title}</h2>
+          <div className="product-spec-table-wrap">
+            <table className="product-spec-table spec-table-grouped">
+              <thead>
+                <tr>
+                  <th scope="col" className="spec-col-no">No.</th>
+                  <th scope="col" className="spec-col-cat">Parameter Category</th>
+                  <th scope="col" className="spec-col-key">Key Specifications</th>
+                </tr>
+              </thead>
+              <tbody>
+                {subCat.specTable.rows.map((row) => (
+                  <tr key={row.no}>
+                    <td className="spec-col-no">{row.no}</td>
+                    <td className="spec-col-cat">{row.category}</td>
+                    <td className="spec-col-key">
+                      {row.specs.map((line, i) => (
+                        <span className="spec-line" key={i}>
+                          {line}
+                        </span>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
       {otherSubs.length > 0 && (
         <section className="section related-categories">
           <span className="section-mark" aria-hidden="true" />

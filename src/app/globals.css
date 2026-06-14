@@ -2909,6 +2909,75 @@ textarea {
   color: var(--muted);
 }
 
+/* Grouped spec table (No. / Category / Key Specifications) */
+.spec-table-grouped {
+  table-layout: fixed;
+}
+
+.spec-table-grouped thead th {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-bottom: 0;
+}
+
+.spec-table-grouped th,
+.spec-table-grouped td {
+  width: auto;
+  vertical-align: top;
+}
+
+.spec-table-grouped .spec-col-no {
+  width: 56px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.spec-table-grouped thead .spec-col-no {
+  color: #fff;
+}
+
+.spec-table-grouped .spec-col-cat {
+  width: 26%;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.spec-table-grouped tbody .spec-col-cat {
+  color: var(--ink);
+}
+
+.spec-table-grouped .spec-col-key {
+  color: var(--muted);
+}
+
+.spec-table-grouped .spec-line {
+  display: block;
+  line-height: 1.55;
+}
+
+.spec-table-grouped .spec-line + .spec-line {
+  margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+  .spec-table-grouped thead th,
+  .spec-table-grouped th,
+  .spec-table-grouped td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .spec-table-grouped .spec-col-cat {
+    width: 32%;
+  }
+}
+
 /* Related products in More in section */
 .product-related-section {
   padding-top: 0;
