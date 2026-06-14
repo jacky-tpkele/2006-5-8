@@ -202,6 +202,30 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
         </section>
       )}
 
+      {subCat.materialTable && (
+        <section className="section product-spec-section">
+          <h2 className="product-spec-title">{subCat.materialTable.title}</h2>
+          <div className="product-spec-table-wrap">
+            <table className="product-spec-table spec-table-pair">
+              <thead>
+                <tr>
+                  <th scope="col" className="spec-col-param">{subCat.materialTable.columns[0]}</th>
+                  <th scope="col" className="spec-col-req">{subCat.materialTable.columns[1]}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {subCat.materialTable.rows.map((row) => (
+                  <tr key={row.parameter}>
+                    <td className="spec-col-param">{row.parameter}</td>
+                    <td className="spec-col-req">{row.requirement}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
       {otherSubs.length > 0 && (
         <section className="section related-categories">
           <span className="section-mark" aria-hidden="true" />

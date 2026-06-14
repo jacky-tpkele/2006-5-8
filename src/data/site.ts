@@ -62,6 +62,7 @@ export type SubCategory = {
   seoKeywords: string[];
   specTable?: SpecTable;
   mechTable?: SpecPairTable;
+  materialTable?: SpecPairTable;
 };
 
 export const subCategories: SubCategory[] = [
@@ -234,6 +235,18 @@ export const subCategories: SubCategory[] = [
         { parameter: "Electrical Life", requirement: "1,500–6,000 cycles" },
         { parameter: "Protection Degree", requirement: "IP20 (typical)" },
         { parameter: "Ambient Temperature", requirement: "-25°C to +70°C (typical)" },
+      ],
+    },
+    materialTable: {
+      title: "Materials & Safety Parameters",
+      columns: ["Parameter", "Common Requirement"],
+      rows: [
+        { parameter: "Housing Material", requirement: "Flame-retardant nylon / PA66, typically UL94 V-0" },
+        { parameter: "Contact Material", requirement: "Silver alloy contacts preferred" },
+        { parameter: "Arc Extinguishing System", requirement: "DC circuit breakers must have a dedicated arc-quenching structure" },
+        { parameter: "Polarity", requirement: "Some DC MCBs are polarized (+/−); wiring direction cannot be reversed" },
+        { parameter: "Indicator", requirement: "Red / green status indication window" },
+        { parameter: "Isolation Function", requirement: "Some models can be used as an isolation switch" },
       ],
     },
   },
