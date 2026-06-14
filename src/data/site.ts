@@ -151,6 +151,18 @@ export const subCategories: SubCategory[] = [
         { parameter: "Ambient Temperature", requirement: "-25°C to +55°C (reference temperature 30°C)" },
       ],
     },
+    materialTable: {
+      title: "Materials & Safety Parameters",
+      columns: ["Parameter", "Common Requirement"],
+      rows: [
+        { parameter: "Housing Material", requirement: "Flame-retardant nylon / PA66, typically UL94 V-0" },
+        { parameter: "Contact Material", requirement: "Silver alloy contacts preferred" },
+        { parameter: "Arc Extinguishing System", requirement: "Arc chamber with splitter plates; AC arcs self-extinguish at current zero crossing" },
+        { parameter: "Polarity", requirement: "Non-polarized, bidirectional; wiring direction not restricted" },
+        { parameter: "Indicator", requirement: "Red / green status indication window" },
+        { parameter: "Isolation Function", requirement: "Some models can be used as an isolation switch" },
+      ],
+    },
   },
   {
     slug: "dc-mcb",
