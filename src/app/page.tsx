@@ -91,7 +91,7 @@ export default function HomePage() {
       name: "ATS",
       image: "/assets/home-products-normalized/ats.webp",
       description:
-        "Automatic transfer switches that move critical loads between primary and backup power within milliseconds — 2/3/4P, 16–125A.",
+        "Dual-power automatic transfer switches that move critical loads between mains and backup — PC & CB class, 2/3/4P, 63A.",
       href: "/products/category/ats",
       count: countByParent("ATS"),
     },
