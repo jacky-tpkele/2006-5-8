@@ -767,6 +767,57 @@ export const products: Product[] = [
       "/assets/products/gallery/din-rail-energy-meter-3.webp",
     ],
   },
+  {
+    slug: "d52-2068-energy-meter",
+    name: "D52-2068 Smart Digital Meter",
+    shortName: "D52-2068",
+    category: "Energy Meter",
+    parentCategory: "Energy Meter",
+    series: "Energy Meter",
+    application: "6-in-1 AC energy monitoring",
+    image: "/assets/products/gallery/d52-2068-energy-meter-1.webp",
+    summary: "6-in-1 DIN rail smart digital meter for AC voltage, current, power, energy, frequency and power factor.",
+    description:
+      "The TPKELE D52-2068 is a 6-in-1 DIN rail smart digital energy meter that displays voltage, current, active power, energy, frequency and power factor on a single multi-color screen. Designed for home distribution boxes, control cabinets and equipment power monitoring, it offers clear real-time readout of AC circuits. Note: this is a measurement and monitoring meter only — it does not provide overload or short-circuit protection.",
+    specs: [
+      "6-in-1 display: W, kWh, V, Hz, A, PF",
+      "35mm DIN rail mounting",
+      "Multi-color digital display",
+      "RESET button for setting / energy reset",
+    ],
+    seoKeywords: [
+      "D52-2068",
+      "smart digital meter",
+      "6 in 1 energy meter",
+      "DIN rail power meter",
+      "AC voltage current power meter",
+      "kWh frequency power factor meter",
+      "energy meter manufacturer",
+    ],
+    gallery: [
+      "/assets/products/gallery/d52-2068-energy-meter-1.webp",
+      "/assets/products/gallery/d52-2068-energy-meter-2.webp",
+      "/assets/products/gallery/d52-2068-energy-meter-3.webp",
+      "/assets/products/gallery/d52-2068-energy-meter-4.webp",
+    ],
+    technicalSpecs: [
+      { label: "Model", value: "D52-2068" },
+      { label: "Product Name", value: "6-in-1 DIN Rail Smart Digital Energy Meter" },
+      { label: "Main Functions", value: "Voltage, Current, Active Power, Energy, Frequency, Power Factor" },
+      { label: "Displayed Values", value: "W, kWh, V, Hz, A, PF" },
+      { label: "Rated / Measuring Voltage", value: "AC 40–300V / AC 80–300V (typical range)" },
+      { label: "Current Measuring Range", value: "0–100A typical (built-in or external CT depending on version)" },
+      { label: "Active Power Range", value: "0–30,000W typical" },
+      { label: "Energy Range", value: "0–99,999kWh (cumulative active energy)" },
+      { label: "Frequency Range", value: "45–65Hz (50/60Hz AC systems)" },
+      { label: "Power Factor Range", value: "0.00–1.00 PF" },
+      { label: "Mounting Method", value: "35mm DIN Rail" },
+      { label: "Display Type", value: "Multi-color digital display" },
+      { label: "Reset Function", value: "RESET button (setting / energy reset by version)" },
+      { label: "Application", value: "Home distribution box, control cabinet, energy monitoring, equipment power monitoring" },
+      { label: "Important Note", value: "Meter only — not a circuit breaker; no overload or short-circuit protection" },
+    ],
+  },
 ];
 
 export const categories: Array<"All Products" | ProductCategory> = [
@@ -1564,7 +1615,7 @@ export function getProductGallery(product: Product): string[] {
   if (!product.gallery || product.gallery.length === 0) return fallback;
   const list = [...product.gallery];
   while (list.length < 3) list.push(product.image);
-  return list.slice(0, 3);
+  return list.slice(0, 6);
 }
 
 export function getRelatedProducts(product: Product, limit = 8): Product[] {
