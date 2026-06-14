@@ -999,6 +999,78 @@ export const products: Product[] = [
       { label: "Application", value: "Single-phase energy metering and power consumption monitoring, indoor panel use" },
     ],
   },
+  {
+    slug: "ddr-din-rail-meter",
+    name: "DDR Multifunction DIN Rail Meter Series",
+    shortName: "DDR Series",
+    category: "Energy Meter",
+    parentCategory: "Energy Meter",
+    series: "Energy Meter",
+    application: "DIN rail voltage / current / frequency monitoring",
+    image: "/assets/products/gallery/ddr-meter-1.webp",
+    summary: "Slim 18mm DIN rail digital meters for voltage, current and frequency monitoring — five display configurations from single-parameter to multi-parameter.",
+    description:
+      "The TPKELE DDR series is a family of slim 18mm DIN rail digital meters for monitoring voltage, current and frequency in low-voltage panels. Five display configurations are available — from a single-parameter voltage or current meter up to a combined voltage + current + frequency multi-parameter display and a 3-channel current meter. With AC 80–500V measurement range, 1% accuracy, IP20 protection and flame-retardant housing, the DDR series mounts on standard 35mm DIN rail to save panel space in distribution boards and control cabinets.",
+    specs: [
+      "Five display configurations (voltage / current / frequency, single to multi-parameter)",
+      "AC 80–500V measurement range, 1% accuracy",
+      "Slim 18mm DIN rail body, IP20 protection",
+      "Flame-retardant housing, ≥15,000 hours electrical life",
+    ],
+    seoKeywords: [
+      "DDR meter",
+      "DIN rail voltage meter",
+      "DIN rail current meter",
+      "DIN rail frequency meter",
+      "multifunction panel meter",
+      "digital voltage current meter",
+      "energy meter manufacturer",
+    ],
+    gallery: [
+      "/assets/products/gallery/ddr-meter-1.webp",
+      "/assets/products/gallery/ddr-meter-2.webp",
+      "/assets/products/gallery/ddr-meter-3.webp",
+      "/assets/products/gallery/ddr-meter-4.webp",
+      "/assets/products/gallery/ddr-meter-5.webp",
+      "/assets/products/gallery/ddr-meter-6.webp",
+      "/assets/products/gallery/ddr-meter-7.webp",
+    ],
+    specMatrices: [
+      {
+        title: "Product Types",
+        headers: ["Type No.", "Display Category", "Channels", "Notes"],
+        rows: [
+          ["Type 1", "1 CH Voltage + 1 CH Current + 1 CH Frequency Meter", "3 CH", "Multi-parameter display"],
+          ["Type 2", "3 CH Current Meter", "3 CH", "Three-channel current monitoring"],
+          ["Type 3", "1 CH Voltage + 1 CH Current Meter", "2 CH", "Dual-parameter display"],
+          ["Type 4", "1 CH Current Meter", "1 CH", "Single current display"],
+          ["Type 5", "1 CH Voltage Meter", "1 CH", "Single voltage display"],
+        ],
+        note: "Confirm the display configuration (Type 1–5) and required parameters before ordering.",
+      },
+      {
+        title: "Dimensions & Electrical Parameters",
+        headers: ["Item", "Specification"],
+        rows: [
+          ["Front Height", "81 mm"],
+          ["Front Width", "18 mm"],
+          ["Overall Depth", "68 mm"],
+          ["Body Width (Top)", "45 mm"],
+          ["Side / Overall Height", "66 mm"],
+          ["DIN Rail Slot Width", "35 mm"],
+          ["Terminal for Wiring", "L+N / 3L+3N"],
+          ["Measurement Voltage Range", "AC 80V–500V"],
+          ["Measuring Accuracy", "1%"],
+          ["Measuring Rate", ">200 ms / time"],
+          ["Protection Degree", "IP20"],
+          ["Electrical Life", "≥15,000 hours"],
+          ["Mounting", "DIN rail"],
+          ["Air Relative Humidity", "1–80% (no condensation)"],
+          ["Working Temperature", "-5℃ to +40℃ (daily average ≤35℃)"],
+        ],
+      },
+    ],
+  },
 ];
 
 export const categories: Array<"All Products" | ProductCategory> = [
@@ -1796,7 +1868,7 @@ export function getProductGallery(product: Product): string[] {
   if (!product.gallery || product.gallery.length === 0) return fallback;
   const list = [...product.gallery];
   while (list.length < 3) list.push(product.image);
-  return list.slice(0, 6);
+  return list.slice(0, 8);
 }
 
 export function getRelatedProducts(product: Product, limit = 8): Product[] {
