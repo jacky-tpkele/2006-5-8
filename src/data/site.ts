@@ -901,6 +901,54 @@ export const products: Product[] = [
       },
     ],
   },
+  {
+    slug: "qy2p-display-meter",
+    name: "QY2P Display Meter Series (QY2P-E / QY2P-UID / QY2P-UIDY)",
+    shortName: "QY2P Series",
+    category: "Energy Meter",
+    parentCategory: "Energy Meter",
+    series: "Energy Meter",
+    application: "DIN rail multifunction display metering",
+    image: "/assets/products/gallery/qy2p-display-meter-1.webp",
+    summary: "DIN rail LED / LCD display meters with 0.5% accuracy and color screen — available in LED (QY2P-E) and advanced LCD (QY2P-UID / QY2P-UIDY) versions.",
+    description:
+      "The TPKELE QY2P series is a family of DIN rail display meters with 0.5% measurement accuracy and a color screen. QY2P-E is the LED display version, showing current, voltage, power, power factor and energy. QY2P-UID and QY2P-UIDY are the advanced LCD display versions for current, voltage and energy monitoring. All models mount on standard 35mm DIN rail for distribution boards and control cabinets. Confirm the display type and required measurements when ordering.",
+    specs: [
+      "0.5% measurement accuracy with color screen",
+      "LED (QY2P-E) and LCD (QY2P-UID / QY2P-UIDY) display versions",
+      "Measures current, voltage, power, power factor and energy (by model)",
+      "35mm DIN rail mounting",
+    ],
+    seoKeywords: [
+      "QY2P",
+      "QY2P-E",
+      "QY2P-UID",
+      "QY2P-UIDY",
+      "DIN rail display meter",
+      "LED LCD multifunction meter",
+      "0.5% accuracy power meter",
+      "energy meter manufacturer",
+    ],
+    gallery: [
+      "/assets/products/gallery/qy2p-display-meter-1.webp",
+      "/assets/products/gallery/qy2p-display-meter-2.webp",
+      "/assets/products/gallery/qy2p-display-meter-3.webp",
+      "/assets/products/gallery/qy2p-display-meter-4.webp",
+      "/assets/products/gallery/qy2p-display-meter-5.webp",
+    ],
+    specMatrices: [
+      {
+        title: "Model Comparison",
+        headers: ["Model", "Display Type", "Features", "Measurements"],
+        rows: [
+          ["QY2P-E", "LED Display Meter", "LED display, 0.5% accuracy, color screen", "Current, Voltage, Power, Power Factor, Energy"],
+          ["QY2P-UID", "LCD Display Meter (Advanced)", "LCD display, 0.5% accuracy, color screen", "Current, Voltage, Energy"],
+          ["QY2P-UIDY", "LCD Display Meter (Advanced)", "LCD display, 0.5% accuracy, color screen", "Current, Voltage, Energy"],
+        ],
+        note: "Confirm display type (LED / LCD) and required measurements before ordering.",
+      },
+    ],
+  },
 ];
 
 export const categories: Array<"All Products" | ProductCategory> = [
