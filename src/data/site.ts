@@ -64,6 +64,66 @@ export const subCategories: SubCategory[] = [
     seoDescription:
       "TPKELE AC MCB factory: 1P/2P/3P/4P AC miniature circuit breakers, 6A–63A, 6/10kA, B/C/D curves, IEC 60898-1, CE & RoHS. OEM & project supply for distributors and panel builders.",
     seoKeywords: ["AC MCB", "AC miniature circuit breaker", "1P AC MCB", "2P AC MCB", "3P AC MCB", "4P AC MCB", "AC circuit breaker manufacturer", "IEC 60898 MCB", "C curve MCB"],
+    specTable: {
+      title: "AC MCB Technical Parameters",
+      rows: [
+        {
+          no: "01",
+          category: "Core Electrical Ratings",
+          specs: [
+            "Rated Current: 1A–125A | Rated Voltage: AC 230V (1P) / 400V (2P / 3P / 4P)",
+            "Poles: 1P / 1P+N / 2P / 3P / 3P+N / 4P | Breaking Capacity: 4.5kA / 6kA / 10kA",
+            "Rated Insulation Voltage (Ui): 500V | Rated Impulse Withstand Voltage (Uimp): 4kV / 6kV",
+            "Frequency: 50 / 60 Hz",
+          ],
+        },
+        {
+          no: "02",
+          category: "Trip & Protection Characteristics",
+          specs: [
+            "Protection Types: Overload Protection and Short Circuit Protection",
+            "Trip Curves: B Curve (3–5×In), C Curve (5–10×In), D Curve (10–20×In)",
+            "Typical Use: B Curve for resistive & lighting loads, C Curve for general distribution, D Curve for inductive & motor loads",
+          ],
+        },
+        {
+          no: "03",
+          category: "Voltage & Pole Configuration",
+          specs: [
+            "1P: AC 230V | 2P: AC 230V / 400V",
+            "3P: AC 400V | 4P: AC 400V",
+            "AC arcs self-extinguish at current zero crossing — no special DC arc chamber required",
+          ],
+        },
+        {
+          no: "04",
+          category: "Mechanical & Installation Data",
+          specs: [
+            "Mounting: 35mm DIN Rail | Cable Capacity: 1–25mm² / 1–35mm²",
+            "Terminal Torque: typically 2.0–3.0 N·m | Mechanical Life: 20,000 cycles",
+            "Electrical Life: 6,000–10,000 cycles | Protection Degree: IP20",
+            "Ambient Temperature: -25°C to +55°C (reference temperature 30°C)",
+          ],
+        },
+        {
+          no: "05",
+          category: "Materials & Safety Features",
+          specs: [
+            "Housing Material: Flame-retardant PA66, typically UL94 V-0 | Contact Material: Silver Alloy",
+            "Arc Extinguishing: Arc chamber with splitter plates | Polarity: non-polarized, bidirectional",
+            "Status Indication: red/green window | Isolation Function: positive contact indication",
+          ],
+        },
+        {
+          no: "06",
+          category: "Standards & Applications",
+          specs: [
+            "Standards: IEC 60898-1, EN 60898-1, IEC 60947-2 (industrial)",
+            "Applications: Residential & commercial distribution boards, lighting and socket circuits, AC motor protection, control panels, sub-distribution",
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "dc-mcb",
