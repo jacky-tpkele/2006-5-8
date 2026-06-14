@@ -284,6 +284,37 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             </section>
           )}
         </>
+      ) : product.specMatrices && product.specMatrices.length > 0 ? (
+        <>
+          {product.specMatrices.map((matrix) => (
+            <section className="section product-spec-section" key={matrix.title}>
+              <h2 className="product-spec-title">{matrix.title}</h2>
+              <div className="product-spec-table-wrap">
+                <table className="product-spec-table spec-table-matrix">
+                  <thead>
+                    <tr>
+                      {matrix.headers.map((head) => (
+                        <th scope="col" key={head}>{head}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {matrix.rows.map((row, ri) => (
+                      <tr key={ri}>
+                        {row.map((cell, ci) => (
+                          <td key={ci} className={ci === 0 ? "spec-matrix-rowhead" : "spec-matrix-cell"}>
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {matrix.note && <p className="spec-matrix-note">{matrix.note}</p>}
+            </section>
+          ))}
+        </>
       ) : technicalSpecs.length > 0 ? (
         <section className="section product-spec-section">
           <h2 className="product-spec-title">Technical Specifications</h2>

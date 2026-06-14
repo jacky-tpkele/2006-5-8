@@ -27,6 +27,14 @@ export type Product = ProductFamily & {
   seoKeywords: string[];
   gallery?: string[];
   technicalSpecs?: Array<{ label: string; value: string }>;
+  specMatrices?: SpecMatrix[];
+};
+
+export type SpecMatrix = {
+  title: string;
+  headers: string[];
+  rows: string[][];
+  note?: string;
 };
 
 export type SpecTableRow = {
@@ -816,6 +824,81 @@ export const products: Product[] = [
       { label: "Reset Function", value: "RESET button (setting / energy reset by version)" },
       { label: "Application", value: "Home distribution box, control cabinet, energy monitoring, equipment power monitoring" },
       { label: "Important Note", value: "Meter only — not a circuit breaker; no overload or short-circuit protection" },
+    ],
+  },
+  {
+    slug: "dds-series-energy-meter",
+    name: "DDS Series Digital Energy Meter (DDS662 / DDS667 / DDS668)",
+    shortName: "DDS Series",
+    category: "Energy Meter",
+    parentCategory: "Energy Meter",
+    series: "Energy Meter",
+    application: "Single-phase energy metering",
+    image: "/assets/products/gallery/dds-series-energy-meter-1.webp",
+    summary: "Single-phase 2-wire DIN rail digital energy meters in three feature tiers — DDS662, DDS667 and DDS668.",
+    description:
+      "The TPKELE DDS series is a family of single-phase 2-wire DIN rail digital energy meters available in three feature tiers. DDS662 covers core metering (LCD display, energy, voltage, power and current). DDS667 adds backlight, temporary power mode, manual switching, zero reset and frequency detection. DDS668 is the full-feature model, adding power factor display. All three mount on standard 35mm DIN rail and support universal AC 230V / 110V, 50/60Hz systems — select the model and voltage version that matches your project.",
+    specs: [
+      "Three feature tiers: DDS662 / DDS667 / DDS668",
+      "Single-phase 2-wire, AC 230V / 110V universal, 50/60Hz",
+      "35mm DIN rail mounting",
+      "LCD digital display with up to power-factor readout (DDS668)",
+    ],
+    seoKeywords: [
+      "DDS662",
+      "DDS667",
+      "DDS668",
+      "DDS series energy meter",
+      "single phase DIN rail energy meter",
+      "single phase 2 wire kWh meter",
+      "digital energy meter manufacturer",
+    ],
+    gallery: [
+      "/assets/products/gallery/dds-series-energy-meter-1.webp",
+      "/assets/products/gallery/dds-series-energy-meter-2.webp",
+      "/assets/products/gallery/dds-series-energy-meter-3.webp",
+      "/assets/products/gallery/dds-series-energy-meter-4.webp",
+    ],
+    specMatrices: [
+      {
+        title: "Feature Comparison",
+        headers: ["Function", "DDS662", "DDS667", "DDS668", "Notes"],
+        rows: [
+          ["LCD Display", "✓", "✓", "✓", "Digital display screen"],
+          ["Energy Metering", "✓", "✓", "✓", "kWh measurement"],
+          ["Voltage Measurement", "✓", "✓", "✓", "AC voltage monitoring"],
+          ["Power Measurement", "✓", "✓", "✓", "Active power display"],
+          ["Current Measurement", "✓", "✓", "✓", "Current display"],
+          ["Backlight Function", "—", "✓", "✓", "Backlight display available"],
+          ["Temporary Power Mode", "—", "✓", "✓", "Temporary power mode supported"],
+          ["Manual Switching", "—", "✓", "✓", "Manual display switching"],
+          ["Zero Reset", "—", "✓", "✓", "Energy reset function"],
+          ["Frequency Detection", "—", "✓", "✓", "Frequency display"],
+          ["Power Factor", "—", "—", "✓", "PF display function"],
+        ],
+      },
+      {
+        title: "Dimensions & Installation Data",
+        headers: ["Item", "Specification", "Description"],
+        rows: [
+          ["Product Front Width", "36 mm", "Front view width"],
+          ["Side Top Width", "45 mm", "Side profile top width"],
+          ["Product Height", "78 mm", "Front view height"],
+          ["Side Height", "66 mm", "Side profile height"],
+          ["DIN Rail Mounting", "35 mm", "Standard DIN rail mounting"],
+          ["Product Type", "Single Phase 2 Wire Digital Energy Meter", "DIN rail energy meter"],
+        ],
+      },
+      {
+        title: "Product Voltage Parameters",
+        headers: ["Model", "Rated Voltage", "Frequency", "Voltage Type", "Applicable System", "Remark"],
+        rows: [
+          ["DDS662", "AC 230V / 110V", "50Hz / 60Hz", "Voltage Universal", "Single Phase 2 Wire", "Universal voltage version"],
+          ["DDS667", "AC 230V or AC 110V", "50Hz / 60Hz", "Model-dependent", "Single Phase 2 Wire", "Select voltage version before order"],
+          ["DDS668", "AC 230V or AC 110V", "50Hz / 60Hz", "Model-dependent", "Single Phase 2 Wire", "Enhanced display functions"],
+        ],
+        note: "Ordering notes: 1) Confirm model (DDS662 / DDS667 / DDS668) before ordering. 2) Confirm rated voltage version: AC 230V, AC 110V, or universal voltage version. 3) Confirm whether backlight, zero reset, frequency detection and power factor display are required.",
+      },
     ],
   },
 ];
