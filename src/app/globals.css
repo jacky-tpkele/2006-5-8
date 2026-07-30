@@ -169,6 +169,68 @@ textarea {
   transform: translate(-50%, 0);
 }
 
+/* ── Manufacturing dropdown ─────────────────────────────── */
+.mfr-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 30;
+  width: 290px;
+  padding: 8px 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.mfr-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: transparent;
+}
+
+.nav-dropdown:hover .mfr-dropdown-menu,
+.nav-dropdown:focus-within .mfr-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.mfr-dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .mfr-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 18px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav .mfr-dropdown-menu a::after {
+  display: none;
+}
+
+.site-nav .mfr-dropdown-menu a:hover {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
 .site-nav .mega-col {
   display: flex;
   flex-direction: column;

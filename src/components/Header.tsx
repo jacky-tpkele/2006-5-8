@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
-import { navItems, productMegaMenu, products, site } from "@/data/site";
+import { manufacturerMenu, navItems, productMegaMenu, products, site } from "@/data/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -36,7 +36,12 @@ export function Header() {
         </button>
         <nav className={`site-nav ${menuOpen ? "open" : ""}`} aria-label="Primary navigation">
           {navItems.map((item) => {
-            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : item.href === "/mcb-manufacturer"
+                  ? pathname.endsWith("-manufacturer")
+                  : pathname.startsWith(item.href);
 
             if (item.href === "/products") {
               return (
@@ -67,6 +72,28 @@ export function Header() {
                         </Link>
                       </div>
                     ))}
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.href === "/mcb-manufacturer") {
+              return (
+                <div className="nav-dropdown" key={item.href}>
+                  <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
+                    {item.label}
+                  </Link>
+                  <div className="mfr-dropdown-menu">
+                    <ul>
+                      {manufacturerMenu.map((m) => (
+                        <li key={m.href}>
+                          <Link href={m.href} onClick={() => setMenuOpen(false)}>
+                            {m.label}
+                            <span className="mega-arrow">→</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               );

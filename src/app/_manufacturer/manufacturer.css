@@ -1,0 +1,455 @@
+/* ═══════════════════════════════════════════════════════════
+   MANUFACTURER PAGES  —  uses existing CSS variables
+   --green / --ink / --muted / --wash / --line / --panel
+═══════════════════════════════════════════════════════════ */
+
+/* ── HERO ────────────────────────────────────────────────── */
+.mfr-hero {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mfr-hero-bg {
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.45) saturate(0.85);
+  z-index: 0;
+}
+
+/* Gradient scrim — darkest behind the left text column, lighter to the right */
+.mfr-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(100deg, rgba(7, 16, 17, 0.9) 0%, rgba(7, 16, 17, 0.72) 42%, rgba(7, 16, 17, 0.42) 70%, rgba(7, 16, 17, 0.3) 100%),
+    linear-gradient(to bottom, rgba(7, 16, 17, 0.35) 0%, rgba(7, 16, 17, 0) 35%);
+  pointer-events: none;
+}
+
+.mfr-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 40px;
+  align-items: start;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 56px);
+}
+
+.mfr-hero-left h1 {
+  margin: 8px 0 16px;
+  color: #fff;
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 900;
+  line-height: 1.18;
+}
+
+.mfr-hero-sub {
+  margin: 0 0 22px;
+  color: rgba(255,255,255,0.78);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.mfr-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.mfr-tag {
+  padding: 4px 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.9);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.mfr-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Force ghost button to be white/visible on dark hero background */
+.mfr-hero .btn.ghost,
+.mfr-hero .btn.ghost.dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mfr-hero .btn.ghost:hover,
+.mfr-hero .btn.ghost.dark:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
+}
+
+/* checklist card */
+.mfr-checklist-card {
+  background: rgba(255,255,255,0.97);
+  border-radius: 10px;
+  padding: 24px 26px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+.mfr-checklist-title {
+  margin: 0 0 16px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.mfr-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mfr-checklist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.mfr-check-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.mfr-checklist li strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.mfr-checklist li p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── SECTION SHELLS ──────────────────────────────────────── */
+.mfr-section {
+  padding-top: clamp(40px, 5vw, 64px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+
+.mfr-section-wash {
+  background: var(--wash);
+}
+
+/* Override global flex layout for section headings inside manufacturer pages */
+.mfr-page .section-heading {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mfr-page .section-heading h2 {
+  margin: 6px 0 0;
+  font-size: clamp(20px, 2.6vw, 30px);
+  line-height: 1.22;
+}
+
+.mfr-intro {
+  max-width: 720px;
+  margin: 12px 0 32px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── 3-COLUMN CARD GRID ──────────────────────────────────── */
+.mfr-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mfr-card {
+  padding: 28px 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.mfr-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.mfr-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.mfr-card-step h3 {
+  color: var(--green);
+}
+
+/* ── COMPARE TABLE ───────────────────────────────────────── */
+.mfr-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.mfr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.mfr-table thead th {
+  padding: 14px 18px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.mfr-table thead th:first-child {
+  border-radius: 8px 0 0 0;
+}
+.mfr-table thead th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.mfr-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+.mfr-table tbody tr:nth-child(even) {
+  background: var(--wash);
+}
+
+.mfr-table tbody td {
+  padding: 13px 18px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.mfr-td-good {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.mfr-td-bad {
+  display: inline-block;
+  margin-right: 8px;
+  color: #c0392b;
+  font-weight: 900;
+}
+
+/* ── SERIES CARDS ────────────────────────────────────────── */
+.mfr-series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.mfr-series-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 18px 34px 18px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+}
+
+.mfr-series-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 18px rgba(11, 155, 63, 0.12);
+}
+
+.mfr-series-card strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.mfr-series-card span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.mfr-arrow {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  color: var(--green);
+  font-size: 16px;
+}
+
+/* scope note */
+.mfr-scope-note {
+  margin: 0;
+  padding: 16px 20px;
+  background: #fff8e1;
+  border-left: 3px solid #f59e0b;
+  border-radius: 0 6px 6px 0;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.mfr-note-label {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 1px 8px;
+  background: #f59e0b;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* ── LIST BLOCKS ─────────────────────────────────────────── */
+.mfr-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.mfr-list-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.mfr-list-block {
+  padding: 24px 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.mfr-list-block h3 {
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--green);
+}
+
+.mfr-list-block ul {
+  margin: 0;
+  padding: 0 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mfr-list-block li {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+.mfr-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mfr-faq-item {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.mfr-faq-item:last-child {
+  border-bottom: none;
+}
+
+.mfr-faq-item h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.mfr-faq-item p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .mfr-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .mfr-hero-right {
+    display: none;
+  }
+
+  .mfr-cards-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mfr-list-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .mfr-cards-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .mfr-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mfr-series-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

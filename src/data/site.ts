@@ -397,7 +397,17 @@ export const navItems = [
   { label: "About Us", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Blog", href: "/blog" },
+  { label: "Manufacturing", href: "/mcb-manufacturer" },
   { label: "Contact", href: "/contact" },
+];
+
+export const manufacturerMenu = [
+  { label: "MCB Manufacturer", href: "/mcb-manufacturer" },
+  { label: "SPD Manufacturer", href: "/spd-manufacturer" },
+  { label: "ATS Manufacturer", href: "/ats-manufacturer" },
+  { label: "Voltage Protector Manufacturer", href: "/voltage-protector-manufacturer" },
+  { label: "Energy Meter Manufacturer", href: "/energy-meter-manufacturer" },
+  { label: "Combiner Box Manufacturer", href: "/combiner-box-manufacturer" },
 ];
 
 export const productFamilies: ProductFamily[] = [
