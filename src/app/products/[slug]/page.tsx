@@ -73,6 +73,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     brand: { "@type": "Brand", name: site.name },
     manufacturer: { "@type": "Organization", name: site.name, url: site.url },
     category: subCat ? `${product.parentCategory} / ${subCat.label}` : product.parentCategory,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      businessFunction: "http://purl.org/goodrelations/v1#Sell",
+      eligibleCustomerType: "http://purl.org/goodrelations/v1#Business",
+      seller: { "@type": "Organization", name: site.name, url: site.url },
+      url: `${site.url}/products/${product.slug}`,
+    },
     ...(technicalSpecs.length > 0
       ? {
           additionalProperty: technicalSpecs.map((row) => ({

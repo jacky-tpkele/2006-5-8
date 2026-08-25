@@ -70,6 +70,16 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         { "@type": "ListItem", position: 3, name: category, item: `${site.url}/products/category/${slug}` },
       ],
     },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 20).map((p, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${site.url}/products/${p.slug}`,
+        name: p.name,
+      })),
+    },
   };
 
   return (

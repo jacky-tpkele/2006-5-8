@@ -68,6 +68,16 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
         { "@type": "ListItem", position: 4, name: subCat.label, item: `${site.url}/products/category/${slug}/${sub}` },
       ],
     },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: items.length,
+      itemListElement: items.slice(0, 20).map((p, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${site.url}/products/${p.slug}`,
+        name: p.name,
+      })),
+    },
   };
 
   const otherSubs = subCategories.filter((s) => s.parent === category && s.slug !== sub);
