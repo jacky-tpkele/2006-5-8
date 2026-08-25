@@ -32,12 +32,22 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: "TPKELE",
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+  },
   openGraph: {
     title: "TPKELE | Solar & Low Voltage Electrical Protection Manufacturer",
     description: site.description,
     url: site.url,
     siteName: site.name,
-    images: [{ url: "/assets/hero-products.webp", width: 900, height: 520, alt: "TPKELE solar and low voltage protection products" }],
+    images: [{ url: "/assets/factory-home.webp", width: 1672, height: 941, alt: "TPKELE manufacturing facility" }],
     type: "website",
     locale: "en_US",
   },
@@ -45,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TPKELE | Solar & Low Voltage Electrical Protection Manufacturer",
     description: site.description,
-    images: ["/assets/hero-products.webp"],
+    images: ["/assets/factory-home.webp"],
   },
 };
 
