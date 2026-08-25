@@ -1,0 +1,368 @@
+TPKELE 独立站 SEO 页面扩展阶段性方案
+========================================
+
+## 当前状态
+- 现有页面数：32 页
+- 网站地址：https://www.tpkele.com
+- 项目类型：Next.js B2B 工业品独立站
+- 主营：Solar DC & Low Voltage Protection（光伏直流 & 低压保护设备）
+
+## SEO 诊断
+❌ 页面数量偏少（B2B 工业品站建议 150-250 页）
+❌ 内容覆盖不足 - 产品线深度不够
+❌ 长尾关键词缺失 - 没有针对具体型号、应用场景的独立页面
+❌ 博客内容空白 - 系统建好但文章数量未知
+
+
+================================================================================
+第一阶段（1-2个月）目标：80 页
+================================================================================
+
+### 1. 完善单品详情页（+30 页）
+路由：/products/[category]/[model-slug]
+示例：
+  - /products/dc-mcb/tpkm7-63-dc-1000v
+  - /products/dc-spd/tpspd-dc-type2-1000v
+  - /products/combiner-box/8-string-ip65-plastic
+
+内容结构：
+  ✓ 产品型号 + 详细参数表
+  ✓ 技术规格（额定电压、电流、分断能力）
+  ✓ 认证证书展示（IEC、TUV、CE、CB）
+  ✓ 安装尺寸图 + CAD 图纸下载
+  ✓ 应用案例（配图）
+  ✓ PDF 数据表下载
+  ✓ 相关产品推荐（内链）
+
+### 2. 创建核心应用场景页（+5 页）
+路由：/solutions/[scenario-slug]
+页面列表：
+  - /solutions/residential-solar - 家用光伏系统保护方案
+  - /solutions/commercial-solar - 商用光伏配电系统方案
+  - /solutions/energy-storage - 储能系统保护方案
+  - /solutions/ev-charging-station - 充电桩配电保护方案
+  - /solutions/off-grid-power - 离网电力系统方案
+
+内容结构：
+  ✓ 场景描述 + 痛点分析
+  ✓ 推荐产品组合（DC MCB + DC SPD + Combiner Box）
+  ✓ 系统拓扑图
+  ✓ 安装指南 PDF 下载
+  ✓ 真实项目案例（配图、地点、容量）
+  ✓ CTA：获取定制方案报价
+
+### 3. 发布核心技术博客（+12 页）
+路由：/blog/[article-slug]
+文章主题（每月 6 篇 x 2 个月）：
+  ✓ How to Select DC MCB for 1500V Solar System
+  ✓ Type 1 vs Type 2 SPD: Which One for Your PV Project
+  ✓ Common Mistakes in Combiner Box Installation
+  ✓ Understanding IEC 60947-2 Standard for DC Circuit Breakers
+  ✓ Why AC MCB Cannot Be Used in DC Applications
+  ✓ ATS Sizing Guide for Critical Load Transfer
+  ✓ Voltage Protector vs SPD: What's the Difference
+  ✓ How to Test SPD Performance in the Field
+  ✓ Cable Sizing for 1000V DC Solar Systems
+  ✓ IP65 vs IP66: Combiner Box Enclosure Selection
+  ✓ Energy Meter Accuracy Class Explained (Class 1 vs Class B)
+  ✓ Top 5 Solar DC Protection FAQs from Installers
+
+文章结构：
+  ✓ 1500-2500 字技术深度内容
+  ✓ 配图、表格、对比图
+  ✓ 内链到相关产品页
+  ✓ 下载资源（PDF、检查清单）
+  ✓ Schema markup（Article 结构化数据）
+
+**第一阶段预计总页数：32 + 30 + 5 + 12 = 79 页**
+
+
+================================================================================
+第二阶段（3-4个月）目标：150 页
+================================================================================
+
+### 4. 持续博客内容输出（+16 页）
+频率：每月 8 篇 x 2 个月
+方向：
+  ✓ 深度技术教程
+  ✓ 安装指南视频转文字版
+  ✓ 认证标准解读（IEC、UL、AS/NZS）
+  ✓ 行业趋势分析（1500V 系统、储能市场）
+
+### 5. 对比/选型指南页（+10 页）
+路由：/guides/[guide-slug]
+页面列表：
+  - /guides/dc-mcb-vs-ac-mcb
+  - /guides/type1-vs-type2-spd
+  - /guides/plastic-vs-metal-combiner-box
+  - /guides/cb-class-vs-pc-class-ats
+  - /guides/single-phase-vs-three-phase-energy-meter
+  - /guides/how-to-choose-dc-mcb-current-rating
+  - /guides/combiner-box-string-configuration
+  - /guides/spd-protection-zones-l1-l2-l3
+  - /guides/voltage-protector-setting-guide
+  - /guides/din-rail-products-installation-guide
+
+内容结构：
+  ✓ 对比表格（参数、价格、适用场景）
+  ✓ 决策树/流程图
+  ✓ 真实案例对比
+  ✓ 推荐产品链接
+
+### 6. 区域市场页面（+6 页）
+路由：/markets/[region-slug]
+页面列表：
+  - /markets/australia - 澳洲市场（AS/NZS 标准）
+  - /markets/europe - 欧洲市场（CE、TUV 认证）
+  - /markets/middle-east - 中东市场（高温环境）
+  - /markets/southeast-asia - 东南亚市场
+  - /markets/africa - 非洲市场（离网系统）
+  - /markets/latin-america - 拉美市场
+
+内容结构：
+  ✓ 当地认证要求
+  ✓ 电压标准（230V / 400V）
+  ✓ 气候特殊要求（沙漠、海洋、高温）
+  ✓ 成功案例展示
+  ✓ 本地化服务说明
+  ✓ CTA：联系区域代表
+
+### 7. 在线工具页面（+4 页）
+路由：/tools/[tool-slug]
+页面列表：
+  - /tools/mcb-selector - 断路器选型工具
+  - /tools/cable-size-calculator - 电缆选型计算器
+  - /tools/spd-selector - SPD 选型工具
+  - /tools/combiner-box-configurator - 汇流箱配置器
+
+功能：
+  ✓ 交互式表单（输入电压、电流、长度）
+  ✓ 实时计算推荐型号
+  ✓ 生成 PDF 选型报告
+  ✓ 收集邮箱（Lead 生成）
+
+### 8. FAQ 独立页面（+30 页）
+路由：/faq/[question-slug]
+方向：
+  ✓ 为每个高频问题创建独立页面
+  ✓ 例如：/faq/can-ac-mcb-be-used-for-dc
+  ✓ 例如：/faq/how-to-test-spd-after-lightning
+  ✓ 每页 500-800 字详细解答
+  ✓ Schema markup（FAQPage）
+
+**第二阶段预计总页数：79 + 16 + 10 + 6 + 4 + 30 = 145 页**
+
+
+================================================================================
+第三阶段（5-6个月）目标：250+ 页
+================================================================================
+
+### 9. 项目案例研究（+20 页）
+路由：/case-studies/[project-slug]
+示例：
+  - /case-studies/kenya-50mw-solar-farm
+  - /case-studies/australia-residential-retrofit
+  - /case-studies/uae-desert-solar-plant
+
+内容结构：
+  ✓ 项目背景（地点、规模、挑战）
+  ✓ 解决方案（产品选型、配置）
+  ✓ 实施过程（安装、调试）
+  ✓ 结果数据（性能、ROI）
+  ✓ 客户评价
+  ✓ 产品清单 + 照片
+
+### 10. 资源中心内容（+35 页）
+路由：/resources/[type]/[resource-slug]
+分类：
+  - /resources/installation-guides/ - 安装指南库（10 页）
+  - /resources/certifications/ - 认证证书展示（5 页）
+  - /resources/technical-videos/ - 技术视频（10 页）
+  - /resources/cad-drawings/ - CAD 图纸下载（5 页）
+  - /resources/white-papers/ - 白皮书下载（5 页）
+
+### 11. 持续博客输出（+50 页）
+频率：每月 10 篇 x 5 个月
+方向：
+  ✓ 深度长文（3000+ 字）
+  ✓ 行业报告解读
+  ✓ 新产品发布
+  ✓ 展会报道
+  ✓ 客户访谈
+
+**第三阶段预计总页数：145 + 20 + 35 + 50 = 250 页**
+
+
+================================================================================
+路由设计原则（不破坏现有收录）
+================================================================================
+
+✅ 安全扩展策略：
+
+1. **新增路由层级，不修改现有**
+   现有：/products/ac-mcb
+   新增：/products/ac-mcb/tpkm7-63
+   → 父级路由不变，子级自动继承
+
+2. **动态路由已存在，直接填充内容**
+   现有：/products/[slug]/page.tsx（已有但可能未使用）
+   → 只需添加数据，不改路由结构
+
+3. **新路由独立创建，不影响老页面**
+   新增：/solutions/[scenario]
+   新增：/guides/[guide]
+   新增：/markets/[region]
+   新增：/tools/[tool]
+   → 完全新路径，零冲突
+
+4. **博客路由已有动态支持**
+   现有：/blog/[slug]/page.tsx
+   → 直接发布内容，自动生成路由
+
+5. **内链优化，提升老页面权重**
+   → 所有新页面内链回核心产品页
+   → 老页面自动获得更多内部链接
+
+6. **sitemap.xml 自动更新**
+   → Next.js 动态生成 sitemap
+   → 新页面自动添加到索引
+
+
+❌ 需要避免的操作：
+
+✗ 不要修改现有路由路径
+✗ 不要删除已收录的页面
+✗ 不要改变 URL slug 格式
+✗ 不要移动现有 page.tsx 位置
+✗ 不要修改已有页面的 canonical URL
+
+
+================================================================================
+SEO 最佳实践清单
+================================================================================
+
+### 技术层面
+☑ 每个新页面设置独立 metadata（title、description）
+☑ 添加 Schema.org 结构化数据（Product、Article、FAQPage）
+☑ 图片优化（WebP 格式 + alt 文本 + 尺寸声明）
+☑ 内链策略（每页至少 3-5 个相关内链）
+☑ 面包屑导航（所有子页面）
+☑ sitemap.xml 自动生成
+☑ robots.txt 配置正确
+
+### 内容层面
+☑ 关键词研究（使用 Google Keyword Planner / Ahrefs）
+☑ 长尾关键词覆盖（型号、规格、应用场景）
+☑ 内容深度（产品页 800+ 字，博客 1500+ 字）
+☑ 多媒体内容（图片、表格、视频）
+☑ 下载资源（PDF、CAD、白皮书）
+☑ 更新频率（每周 2-3 篇新内容）
+
+### 转化优化
+☑ 每页明确 CTA（询盘、下载、选型工具）
+☑ 表单简化（3-5 个字段）
+☑ 社会证明（客户评价、项目数量、认证展示）
+☑ 信任标识（认证 logo、支付安全、隐私声明）
+
+
+================================================================================
+执行时间表
+================================================================================
+
+Month 1-2: 第一阶段（79 页）
+  Week 1-2: 单品详情页框架搭建（15 页）
+  Week 3-4: 单品详情页内容完善（15 页）
+  Week 5-6: 应用场景页（5 页）+ 博客（6 篇）
+  Week 7-8: 博客（6 篇）+ 内链优化
+
+Month 3-4: 第二阶段（145 页）
+  Week 9-10: 对比指南页（10 页）
+  Week 11-12: 区域市场页（6 页）+ 在线工具（2 页）
+  Week 13-14: 在线工具（2 页）+ FAQ 页（15 页）
+  Week 15-16: FAQ 页（15 页）+ 博客（8 篇）+ 博客（8 篇）
+
+Month 5-6: 第三阶段（250 页）
+  Week 17-20: 案例研究（20 页）
+  Week 21-24: 资源中心（35 页）+ 持续博客（20 篇）
+  持续输出：每月 10 篇博客（Week 25+）
+
+
+================================================================================
+关键指标跟踪
+================================================================================
+
+### 流量指标
+- Organic Traffic（自然搜索流量）
+- Keyword Rankings（关键词排名）
+- Click-Through Rate（点击率）
+- Bounce Rate（跳出率）
+
+### 收录指标
+- Indexed Pages（收录页面数）
+- Crawl Errors（爬取错误）
+- Sitemap Coverage（sitemap 覆盖率）
+
+### 转化指标
+- Inquiry Form Submissions（询盘表单提交）
+- PDF Downloads（PDF 下载量）
+- Tool Usage（工具使用次数）
+- Average Session Duration（平均会话时长）
+
+### 工具推荐
+- Google Search Console（收录监控）
+- Google Analytics 4（流量分析）
+- Ahrefs / SEMrush（关键词排名）
+- Screaming Frog（技术 SEO 审计）
+
+
+================================================================================
+预期成果
+================================================================================
+
+6 个月后：
+✓ 页面数量：32 → 250+（增长 681%）
+✓ 关键词覆盖：基础词 → 长尾词全覆盖
+✓ 自然流量：预计增长 300-500%
+✓ 询盘数量：预计增长 200-400%
+✓ Google 收录：全站收录率 >90%
+✓ 域名权威度（DA）：预计提升 10-15 分
+
+
+================================================================================
+风险提示
+================================================================================
+
+⚠ 质量 > 数量
+   → 不要为了页面数而堆砌低质量内容
+   → 每页至少 500 字原创内容
+
+⚠ 避免内容重复
+   → 同类产品页面要差异化描述
+   → 不要直接复制粘贴参数表
+
+⚠ 避免关键词堆砌
+   → 自然融入关键词（密度 1-2%）
+   → 语句通顺优先
+
+⚠ 避免孤立页面
+   → 每个新页面至少 3 个内链
+   → 确保从首页 3 次点击内可达
+
+⚠ 避免技术错误
+   → 每次发布前检查 404 错误
+   → 测试移动端响应式
+   → 验证 Schema markup
+
+
+================================================================================
+联系支持
+================================================================================
+
+如需技术支持或内容策略咨询：
+- 项目路径：D:/TPKELE/5月5日网站
+- GitHub：jacky-tpkele/2006-5-8
+- 部署平台：Vercel
+
+---
+文档创建时间：2026-08-15
+下次审查：2026-09-15（第一阶段中期）

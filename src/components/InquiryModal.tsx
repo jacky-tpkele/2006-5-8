@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { LeadForm } from "@/components/LeadForm";
 
 type InquiryModalProps = {
@@ -23,6 +24,11 @@ export function InquiryModal({
   title = "Send Inquiry",
 }: InquiryModalProps) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -48,30 +54,33 @@ export function InquiryModal({
       >
         {triggerContent ?? triggerLabel}
       </button>
-      {open ? (
-        <div
-          className="inquiry-modal-backdrop"
-          role="presentation"
-          onMouseDown={(event) => event.target === event.currentTarget && setOpen(false)}
-        >
-          <div className="inquiry-modal" role="dialog" aria-modal="true" aria-label={title}>
-            <div className="inquiry-modal-header">
-              <h2>{title}</h2>
-              <button
-                type="button"
-                className="inquiry-modal-close"
-                aria-label="Close"
-                onClick={() => setOpen(false)}
-              >
-                ×
-              </button>
-            </div>
-            <div className="inquiry-modal-body">
-              <LeadForm initialProduct={product} initialIntent={intent} />
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {open && mounted
+        ? createPortal(
+            <div
+              className="inquiry-modal-backdrop"
+              role="presentation"
+              onMouseDown={(event) => event.target === event.currentTarget && setOpen(false)}
+            >
+              <div className="inquiry-modal" role="dialog" aria-modal="true" aria-label={title}>
+                <div className="inquiry-modal-header">
+                  <h2>{title}</h2>
+                  <button
+                    type="button"
+                    className="inquiry-modal-close"
+                    aria-label="Close"
+                    onClick={() => setOpen(false)}
+                  >
+                    ×
+                  </button>
+                </div>
+                <div className="inquiry-modal-body">
+                  <LeadForm initialProduct={product} initialIntent={intent} />
+                </div>
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
     </>
   );
 }
