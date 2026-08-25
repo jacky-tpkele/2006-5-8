@@ -69,7 +69,7 @@ export async function BlogCategoryPage({ category, crumb, title }: BlogCategoryP
             {filtered.map((post: BlogPost) => (
               <article className="blog-card" key={post.slug}>
                 <Link href={`/blog/${post.slug}`} aria-label={post.title}>
-                  <Image src={post.image} alt={post.title} width={470} height={210} />
+                  <Image src={post.image} alt={post.title} width={470} height={210} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 470px" />
                 </Link>
                 <div>
                   <time dateTime={post.date}>

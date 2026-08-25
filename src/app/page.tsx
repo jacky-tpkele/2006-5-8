@@ -234,7 +234,7 @@ export default function HomePage() {
               <Link href={item.href} className="track-card" key={`solar-${item.slug}`} aria-label={item.name}>
                 <span className="track-card-flag solar">Solar DC</span>
                 <div className="track-card-media">
-                  <Image src={item.image} alt={item.name} width={320} height={220} />
+                  <Image src={item.image} alt={item.name} width={320} height={220} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px" />
                 </div>
                 <div className="track-card-body">
                   <h4>{item.name}</h4>
@@ -249,7 +249,7 @@ export default function HomePage() {
               <Link href={item.href} className="track-card" key={`lv-${item.slug}`} aria-label={item.name}>
                 <span className="track-card-flag lv">Low Voltage</span>
                 <div className="track-card-media">
-                  <Image src={item.image} alt={item.name} width={320} height={220} />
+                  <Image src={item.image} alt={item.name} width={320} height={220} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px" />
                 </div>
                 <div className="track-card-body">
                   <h4>{item.name}</h4>

@@ -23,6 +23,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
             width={620}
             height={620}
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 620px"
             className="product-gallery-main-image"
           />
         </div>
@@ -39,7 +40,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
               onFocus={() => setActiveIndex(index)}
               onClick={() => setActiveIndex(index)}
             >
-              <Image src={src} alt="" width={120} height={120} />
+              <Image src={src} alt="" width={120} height={120} sizes="120px" />
             </button>
           ))}
         </div>

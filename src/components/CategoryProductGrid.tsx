@@ -75,7 +75,7 @@ function CategoryProductGridInner({
           {subs.map((s) => (
             <Link key={s.slug} className="sub-card" href={`/products/category/${categorySlug}/${s.slug}`}>
               <div className="sub-card-image">
-                {s.image && <Image src={s.image} alt={s.label} width={320} height={320} />}
+                {s.image && <Image src={s.image} alt={s.label} width={320} height={320} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px" />}
               </div>
               <div className="sub-card-body">
                 <h3>{s.label}</h3>
