@@ -34,7 +34,10 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/blog/preview/", "/api/"],
       })),
     ],
-    sitemap: `${site.url}/sitemap.xml`,
+    sitemap: [
+      `${site.url}/sitemap.xml`,
+      `${site.url}/sitemap-ai.xml`,
+    ],
     host: site.url,
   };
 }
