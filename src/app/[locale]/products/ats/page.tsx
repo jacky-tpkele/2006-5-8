@@ -4,28 +4,40 @@ import Link from "next/link";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
-  categoryContent,
-  products,
   site,
 } from "@/data/site";
+import { getCategoryContent, getProducts, getSubCategories } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
-export const metadata: Metadata = {
-  title: categoryContent.ATS.seoTitle,
-  description: categoryContent.ATS.seoDescription,
-  keywords: categoryContent.ATS.seoKeywords,
-  alternates: { canonical: "/products/ats" },
-  openGraph: {
-    title: categoryContent.ATS.seoTitle,
-    description: categoryContent.ATS.seoDescription,
-    url: "/products/ats",
-    type: "website",
-  },
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-export default function AtsCategoryPage() {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const content = getCategoryContent("ATS", locale);
+  const canonical = localizedPath("/products/ats", locale);
+
+  return {
+    title: content.seoTitle,
+    description: content.seoDescription,
+    keywords: content.seoKeywords,
+    alternates: {
+      canonical,
+      languages: alternateLanguages("/products/ats"),
+    },
+    openGraph: {
+      title: content.seoTitle,
+      description: content.seoDescription,
+      url: canonical,
+      type: "website",
+    },
+  };
+}
+
+export default async function AtsCategoryPage({ params }: PageProps) {
+  const { locale } = await params;
   const category = "ATS";
-  const content = categoryContent[category];
-  const items = products.filter((p) => p.parentCategory === category);
+  const content = getCategoryContent(category, locale);
+  const items = getProducts(locale).filter((p) => p.parentCategory === category);
   const heroImage = items[0]?.image;
 
   const jsonLd = {

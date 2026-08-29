@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { LeadForm } from "@/components/LeadForm";
 import { PageTitle } from "@/components/PageTitle";
 import { site } from "@/data/site";
 
-export const metadata: Metadata = {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
   title: "Contact",
   description: "Contact TPKELE for low voltage product catalog, pricing, OEM/ODM support and project quotation.",
-};
+    alternates: {
+      canonical: localizedPath("/contact", locale),
+      languages: alternateLanguages("/contact"),
+    },
+  };
+}
 
 type ContactPageProps = {
   searchParams: Promise<{ product?: string; intent?: string }>;

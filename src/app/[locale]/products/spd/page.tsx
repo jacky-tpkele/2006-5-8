@@ -4,32 +4,43 @@ import Link from "next/link";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
-  categoryContent,
   productMenu,
-  products,
   site,
-  subCategories,
 } from "@/data/site";
+import { getCategoryContent, getProducts, getSubCategories } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
-export const metadata: Metadata = {
-  title: categoryContent.MCB.seoTitle,
-  description: categoryContent.MCB.seoDescription,
-  keywords: categoryContent.MCB.seoKeywords,
-  alternates: { canonical: "/products/mcb" },
-  openGraph: {
-    title: categoryContent.MCB.seoTitle,
-    description: categoryContent.MCB.seoDescription,
-    url: "/products/mcb",
-    type: "website",
-  },
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-export default function McbCategoryPage() {
-  const category = "MCB";
-  const content = categoryContent[category];
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const content = getCategoryContent("SPD", locale);
+  const canonical = localizedPath("/products/spd", locale);
+
+  return {
+    title: content.seoTitle,
+    description: content.seoDescription,
+    keywords: content.seoKeywords,
+    alternates: {
+      canonical,
+      languages: alternateLanguages("/products/spd"),
+    },
+    openGraph: {
+      title: content.seoTitle,
+      description: content.seoDescription,
+      url: canonical,
+      type: "website",
+    },
+  };
+}
+
+export default async function SpdCategoryPage({ params }: PageProps) {
+  const { locale } = await params;
+  const category = "SPD";
+  const content = getCategoryContent(category, locale);
   const menuGroup = productMenu.find((g) => g.label === category);
-  const items = products.filter((p) => p.parentCategory === category);
-  const subs = subCategories.filter((s) => s.parent === category);
+  const items = getProducts(locale).filter((p) => p.parentCategory === category);
+  const subs = getSubCategories(locale).filter((s) => s.parent === category);
   const heroImage = items[0]?.image;
 
   const jsonLd = {
@@ -37,13 +48,13 @@ export default function McbCategoryPage() {
     "@type": "CollectionPage",
     name: content.seoTitle,
     description: content.seoDescription,
-    url: `${site.url}/products/mcb`,
+    url: `${site.url}/products/spd`,
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: site.url },
         { "@type": "ListItem", position: 2, name: "Products", item: `${site.url}/products` },
-        { "@type": "ListItem", position: 3, name: category, item: `${site.url}/products/mcb` },
+        { "@type": "ListItem", position: 3, name: category, item: `${site.url}/products/spd` },
       ],
     },
   };

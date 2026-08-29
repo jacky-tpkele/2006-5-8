@@ -5,31 +5,43 @@ import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
-  categoryContent,
   certifications,
   getProductTechnicalSpecs,
   oemCapabilities,
-  products,
   site,
 } from "@/data/site";
+import { getCategoryContent, getProducts, getSubCategories } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
-export const metadata: Metadata = {
-  title: categoryContent["Voltage Protector"].seoTitle,
-  description: categoryContent["Voltage Protector"].seoDescription,
-  keywords: categoryContent["Voltage Protector"].seoKeywords,
-  alternates: { canonical: "/products/voltage-protector" },
-  openGraph: {
-    title: categoryContent["Voltage Protector"].seoTitle,
-    description: categoryContent["Voltage Protector"].seoDescription,
-    url: "/products/voltage-protector",
-    type: "website",
-  },
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-export default function VoltageProtectorCategoryPage() {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const content = getCategoryContent("Voltage Protector", locale);
+  const canonical = localizedPath("/products/voltage-protector", locale);
+
+  return {
+    title: content.seoTitle,
+    description: content.seoDescription,
+    keywords: content.seoKeywords,
+    alternates: {
+      canonical,
+      languages: alternateLanguages("/products/voltage-protector"),
+    },
+    openGraph: {
+      title: content.seoTitle,
+      description: content.seoDescription,
+      url: canonical,
+      type: "website",
+    },
+  };
+}
+
+export default async function VoltageProtectorCategoryPage({ params }: PageProps) {
+  const { locale } = await params;
   const category = "Voltage Protector";
-  const content = categoryContent[category];
-  const items = products.filter((p) => p.parentCategory === category);
+  const content = getCategoryContent(category, locale);
+  const items = getProducts(locale).filter((p) => p.parentCategory === category);
   const leadProduct = items[0];
   const heroImage = leadProduct?.image;
   const technicalSpecs = leadProduct ? getProductTechnicalSpecs(leadProduct) : [];

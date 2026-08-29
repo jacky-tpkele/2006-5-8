@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
 import Link from "next/link";
 import { CertIcon } from "@/components/CertIcon";
@@ -6,11 +7,17 @@ import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
 import { certifications, products } from "@/data/site";
 
-export const metadata: Metadata = {
+type PageProps = { params: Promise<{ locale: string }> };
+
+const PAGE_DESCRIPTION =
+  "TPKELE solar DC protection: DC MCB, DC SPD and PV combiner boxes for photovoltaic strings and battery storage. Up to 1500V DC, IEC-certified, OEM-ready.";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
   title: "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box",
-  description:
-    "TPKELE solar DC protection: DC MCB, DC SPD and PV combiner boxes for photovoltaic strings and battery storage. Up to 1500V DC, IEC-certified, OEM-ready.",
-  alternates: { canonical: "/solar-dc-protection" },
+  description: PAGE_DESCRIPTION,
   keywords: [
     "solar DC protection",
     "DC MCB",
@@ -21,7 +28,12 @@ export const metadata: Metadata = {
     "solar circuit breaker manufacturer",
     "photovoltaic protection",
   ],
-};
+    alternates: {
+      canonical: localizedPath("/solar-dc-protection", locale),
+      languages: alternateLanguages("/solar-dc-protection"),
+    },
+  };
+}
 
 const countBySub = (slug: string) => products.filter((p) => p.subCategorySlug === slug).length;
 const countByParent = (cat: string) => products.filter((p) => p.parentCategory === cat).length;
@@ -106,7 +118,7 @@ export default function SolarDcProtectionPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box",
-    description: metadata.description,
+    description: PAGE_DESCRIPTION,
     url: "https://www.tpkele.com/solar-dc-protection",
     hasPart: coreProducts.map((p) => ({
       "@type": "Product",

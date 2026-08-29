@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InquiryModal } from "@/components/InquiryModal";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
 import { BeyondSection } from "@/app/[locale]/products/ac-mcb/BeyondSection";
 import { HeroSection } from "./HeroSection";
@@ -8,28 +9,40 @@ import { FeaturesGrid } from "./FeaturesGrid";
 import { SpecsSection } from "./SpecsSection";
 import { TripCurves } from "./TripCurves";
 
-export const metadata: Metadata = {
-  title: "DC Circuit Breaker Supplier — DC MCB 250V–1500V | TPKELE",
-  description:
-    "TPKELE supplies DC miniature circuit breakers (DC MCB) for solar PV, battery storage, EV charging and DC distribution. 1P to 4P, 6A–125A, up to 1500VDC, magnetic arc extinction, IEC 60947-2 certified, OEM-ready.",
-  alternates: { canonical: "/products/dc-mcb" },
-  keywords: [
-    "DC miniature circuit breaker supplier",
-    "DC MCB manufacturer",
-    "1500VDC MCB",
-    "PV DC breaker",
-    "battery storage DC breaker",
-    "EV charging DC breaker",
-    "IEC 60947-2 DC MCB",
-  ],
-};
+const PAGE_TITLE = "DC Circuit Breaker Supplier — DC MCB 250V–1500V | TPKELE";
+const PAGE_DESCRIPTION =
+  "TPKELE supplies DC miniature circuit breakers (DC MCB) for solar PV, battery storage, EV charging and DC distribution. 1P to 4P, 6A–125A, up to 1500VDC, magnetic arc extinction, IEC 60947-2 certified, OEM-ready.";
+
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    alternates: {
+      canonical: localizedPath("/products/dc-mcb", locale),
+      languages: alternateLanguages("/products/dc-mcb"),
+    },
+    keywords: [
+      "DC miniature circuit breaker supplier",
+      "DC MCB manufacturer",
+      "1500VDC MCB",
+      "PV DC breaker",
+      "battery storage DC breaker",
+      "EV charging DC breaker",
+      "IEC 60947-2 DC MCB",
+    ],
+  };
+}
 
 export default function DcCircuitBreakersPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "DC Miniature Circuit Breaker",
-    description: metadata.description,
+    description: PAGE_DESCRIPTION,
     url: "https://www.tpkele.com/products/dc-mcb",
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Electrical Protection Devices",

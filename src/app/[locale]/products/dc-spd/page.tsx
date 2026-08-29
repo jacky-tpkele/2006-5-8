@@ -1,31 +1,46 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
-  products,
   site,
-  subCategories,
-  subCategoryBySlug,
 } from "@/data/site";
+import { getProducts, getSubCategories, getSubCategory } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
-const subCat = subCategoryBySlug["dc-spd"];
 
-export const metadata: Metadata = {
-  title: subCat.seoTitle,
-  description: subCat.seoDescription,
-  keywords: subCat.seoKeywords,
-  alternates: { canonical: "/products/dc-spd" },
-  openGraph: {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const subCat = getSubCategory("dc-spd", locale);
+  if (!subCat) return {};
+
+  const canonical = localizedPath("/products/dc-spd", locale);
+
+  return {
     title: subCat.seoTitle,
     description: subCat.seoDescription,
-    url: "/products/dc-spd",
-    type: "website",
-  },
-};
+    keywords: subCat.seoKeywords,
+    alternates: {
+      canonical,
+      languages: alternateLanguages("/products/dc-spd"),
+    },
+    openGraph: {
+      title: subCat.seoTitle,
+      description: subCat.seoDescription,
+      url: canonical,
+      type: "website",
+    },
+  };
+}
 
-export default function DcSpdPage() {
-  const items = products.filter((p) => p.subCategorySlug === "dc-spd");
+export default async function DcSpdPage({ params }: PageProps) {
+  const { locale } = await params;
+  const subCat = getSubCategory("dc-spd", locale);
+  if (!subCat) notFound();
+  const items = getProducts(locale).filter((p) => p.subCategorySlug === "dc-spd");
   const cover = items[0]?.image;
   const category = "SPD";
 
@@ -46,7 +61,7 @@ export default function DcSpdPage() {
     },
   };
 
-  const otherSubs = subCategories.filter((s) => s.parent === category && s.slug !== "dc-spd");
+  const otherSubs = getSubCategories(locale).filter((s) => s.parent === category && s.slug !== "dc-spd");
 
   return (
     <main>

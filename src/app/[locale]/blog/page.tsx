@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
 import Link from "next/link";
 import { PageTitle } from "@/components/PageTitle";
@@ -11,12 +12,21 @@ import {
   type BlogPost,
 } from "@/lib/blog";
 
-export const metadata: Metadata = {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
   title: "Blog — Solar DC & Low Voltage Protection Knowledge",
   description:
     "Practical guides on choosing MCBs, SPDs, ATS, PV combiner boxes and energy meters for solar & low voltage projects. Selection tips and application notes.",
-  alternates: { canonical: "/blog" },
-};
+    alternates: {
+      canonical: localizedPath("/blog", locale),
+      languages: alternateLanguages("/blog"),
+    },
+  };
+}
 
 export default async function BlogPage() {
   const blogPosts = await getPublishedBlogPostsWithFallback();

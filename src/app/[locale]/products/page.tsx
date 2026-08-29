@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
 import Link from "next/link";
 import { PageTitle } from "@/components/PageTitle";
 import { categoryContent, categorySlugMap, productMenu, products } from "@/data/site";
 
-export const metadata: Metadata = {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
   title: "Products — Solar DC, MCB, SPD, ATS, Combiner Box, Meter",
   description:
     "TPKELE product range: DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS, voltage protector & DIN-rail meter. CE/IEC/RoHS certified, OEM ready.",
-  alternates: { canonical: "/products" },
-};
+    alternates: {
+      canonical: localizedPath("/products", locale),
+      languages: alternateLanguages("/products"),
+    },
+  };
+}
 
 export default function ProductsPage() {
   return (

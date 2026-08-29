@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { ManufacturerPage } from "../_manufacturer/ManufacturerPage";
 import { mcbManufacturer as data } from "../_manufacturer/data-mcb";
 import { buildManufacturerJsonLd } from "../_manufacturer/schema";
 
-export const metadata: Metadata = {
-  title: data.seoTitle,
-  description: data.seoDescription,
-  alternates: { canonical: `/${data.slug}` },
-  keywords: data.seoKeywords,
-  openGraph: {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const route = `/${data.slug}`;
+
+  return {
     title: data.seoTitle,
     description: data.seoDescription,
-    url: `https://www.tpkele.com/${data.slug}`,
-    type: "website",
-  },
-};
+    keywords: data.seoKeywords,
+    alternates: {
+      canonical: localizedPath(route, locale),
+      languages: alternateLanguages(route),
+    },
+    openGraph: {
+      title: data.seoTitle,
+      description: data.seoDescription,
+      url: `https://www.tpkele.com${localizedPath(route, locale)}`,
+      type: "website",
+    },
+  };
+}
 
 export default function McbManufacturerRoute() {
   const jsonLd = buildManufacturerJsonLd(data);

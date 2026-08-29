@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import styles from "./privacy.module.css";
 
-export const metadata: Metadata = {
+type PageProps = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
   title: "Privacy Policy",
   description: "Learn how TPKELE collects, uses, and protects your personal information.",
-};
+    alternates: {
+      canonical: localizedPath("/privacy-policy", locale),
+      languages: alternateLanguages("/privacy-policy"),
+    },
+  };
+}
 
 export default function PrivacyPolicy() {
   return (
