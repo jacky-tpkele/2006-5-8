@@ -17,20 +17,72 @@ const NAV_LABEL_KEYS: Record<string, string> = {
   "/contact": "contact",
 };
 
+// mega menu 条目 href → messages.megaMenu.items 的 key。
+// 注意：只映射显示文案，href 一律用 site.ts 的原值，保证 URL 与内链结构不变。
+const MEGA_ITEM_KEYS: Record<string, string> = {
+  "/products/category/mcb/dc-mcb": "dc-mcb",
+  "/products/category/spd/dc-spd": "dc-spd",
+  "/products/category/combiner-box": "pv-combiner-box",
+  "/products/category/mcb/ac-mcb": "ac-mcb",
+  "/products/category/spd/ac-spd": "ac-spd",
+  "/products/category/ats": "ats",
+  "/products/category/energy-meter": "energy-meter",
+  "/products/category/voltage-protector": "voltage-protector",
+};
+
+// manufacturer 菜单 href → messages.manufacturerMenu 的 key
+const MFR_MENU_KEYS: Record<string, string> = {
+  "/mcb-manufacturer": "mcb",
+  "/spd-manufacturer": "spd",
+  "/ats-manufacturer": "ats",
+  "/voltage-protector-manufacturer": "voltage-protector",
+  "/energy-meter-manufacturer": "energy-meter",
+  "/combiner-box-manufacturer": "combiner-box",
+};
+
 export function Header() {
   const pathname = usePathname();
   const t = useTranslations("nav");
   const tHeader = useTranslations("header");
+  const tMega = useTranslations("megaMenu");
+  const tMfr = useTranslations("manufacturerMenu");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
 
-  // 有对应翻译时用翻译，否则回落到 site.ts 里的英文 label
-  const navLabel = (href: string, fallback: string) => {
-    const key = NAV_LABEL_KEYS[href];
+  // 统一的取文案逻辑：有翻译用翻译，没有则回落到 site.ts 的英文原值，
+  // 避免漏 key 时界面出现空白。
+  const labelFrom = (
+    translate: (key: string) => string,
+    keyMap: Record<string, string>,
+    href: string,
+    fallback: string
+  ) => {
+    const key = keyMap[href];
     if (!key) return fallback;
-    const translated = t(key as never);
-    return translated || fallback;
+    try {
+      return translate(key) || fallback;
+    } catch {
+      return fallback;
+    }
+  };
+
+  const navLabel = (href: string, fallback: string) =>
+    labelFrom((k) => t(k as never), NAV_LABEL_KEYS, href, fallback);
+
+  const megaItemLabel = (href: string, fallback: string) =>
+    labelFrom((k) => tMega(`items.${k}` as never), MEGA_ITEM_KEYS, href, fallback);
+
+  const mfrLabel = (href: string, fallback: string) =>
+    labelFrom((k) => tMfr(k as never), MFR_MENU_KEYS, href, fallback);
+
+  // mega menu 分栏标题/副标题/CTA：col.key 就是 messages 里的分组名
+  const megaCol = (key: string, field: string, fallback: string) => {
+    try {
+      return tMega(`${key}.${field}` as never) || fallback;
+    } catch {
+      return fallback;
+    }
   };
 
   const matches = useMemo(() => {
@@ -75,22 +127,24 @@ export function Header() {
                     {productMegaMenu.map((col) => (
                       <div className={`mega-col mega-col-${col.key}`} key={col.key}>
                         <div className="mega-col-head">
-                          <span className="mega-col-title">{col.title}</span>
-                          {col.recommended ? <span className="mega-col-flag">Recommended</span> : null}
+                          <span className="mega-col-title">{megaCol(col.key, "title", col.title)}</span>
+                          {col.recommended ? (
+                            <span className="mega-col-flag">{tMega("recommended")}</span>
+                          ) : null}
                         </div>
-                        <span className="mega-col-sub">{col.subtitle}</span>
+                        <span className="mega-col-sub">{megaCol(col.key, "subtitle", col.subtitle)}</span>
                         <ul className="mega-col-list">
                           {col.items.map((item) => (
                             <li key={item.href}>
                               <Link href={item.href} onClick={() => setMenuOpen(false)}>
-                                <span>{item.label}</span>
+                                <span>{megaItemLabel(item.href, item.label)}</span>
                                 <span className="mega-arrow">→</span>
                               </Link>
                             </li>
                           ))}
                         </ul>
                         <Link className="mega-col-cta" href={col.cta.href} onClick={() => setMenuOpen(false)}>
-                          {col.cta.label}
+                          {megaCol(col.key, "cta", col.cta.label)}
                         </Link>
                       </div>
                     ))}
@@ -110,7 +164,7 @@ export function Header() {
                       {manufacturerMenu.map((m) => (
                         <li key={m.href}>
                           <Link href={m.href} onClick={() => setMenuOpen(false)}>
-                            {m.label}
+                            {mfrLabel(m.href, m.label)}
                             <span className="mega-arrow">→</span>
                           </Link>
                         </li>
@@ -142,14 +196,14 @@ export function Header() {
       {searchOpen ? (
         <div className="search-panel" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setSearchOpen(false)}>
           <div className="search-box">
-            <button className="icon-button search-close" type="button" aria-label="Close search" onClick={() => setSearchOpen(false)}>
+            <button className="icon-button search-close" type="button" aria-label={tHeader("close")} onClick={() => setSearchOpen(false)}>
               ×
             </button>
-            <label htmlFor="site-search">Search products</label>
+            <label htmlFor="site-search">{tHeader("search")}</label>
             <input
               id="site-search"
               type="search"
-              placeholder="Try AC MCB, DC SPD, Plastic Box..."
+              placeholder={tHeader("searchPlaceholder")}
               autoComplete="off"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
@@ -163,7 +217,7 @@ export function Header() {
                     <br />
                     {product.application}
                   </span>
-                  <span className="text-link">View</span>
+                  <span className="text-link">{tHeader("view")}</span>
                 </Link>
               ))}
             </div>

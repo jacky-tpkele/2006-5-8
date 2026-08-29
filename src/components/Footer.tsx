@@ -1,27 +1,31 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { BackToTop } from "@/components/BackToTop";
 import { ChatWidget } from "@/components/ChatWidget";
 import { blogPosts, categorySlugMap, site, subCategoryBySlug } from "@/data/site";
 
-const solutionLinks = [
-  { label: "Solar DC Protection", href: "/solar-dc-protection" },
-  { label: "Low Voltage Protection", href: "/products" },
-  { label: "OEM / ODM Services", href: "/about" },
-  { label: "View All Products", href: "/products" },
+// 产品链接：href 由 site.ts 的映射生成，label 的 key 固定。
+// 每个 href 对应一个唯一的翻译 key，href 本身不做任何改动。
+const productLinkEntries: Array<{ key: string; href: string }> = [
+  { key: "dc-mcb", href: `/products/category/${categorySlugMap.MCB}/${subCategoryBySlug["dc-mcb"]?.slug ?? "dc-mcb"}` },
+  { key: "dc-spd", href: `/products/category/${categorySlugMap.SPD}/${subCategoryBySlug["dc-spd"]?.slug ?? "dc-spd"}` },
+  { key: "combiner", href: `/products/category/${categorySlugMap["Combiner Box"]}` },
+  { key: "ac-mcb", href: `/products/category/${categorySlugMap.MCB}/${subCategoryBySlug["ac-mcb"]?.slug ?? "ac-mcb"}` },
+  { key: "ac-spd", href: `/products/category/${categorySlugMap.SPD}/${subCategoryBySlug["ac-spd"]?.slug ?? "ac-spd"}` },
+  { key: "ats", href: `/products/category/${categorySlugMap.ATS}` },
+  { key: "voltage", href: `/products/category/${categorySlugMap["Voltage Protector"]}` },
+  { key: "meter", href: `/products/category/${categorySlugMap["Energy Meter"]}` },
 ];
 
-const productLinks = [
-  { label: "DC MCB — Solar Circuit Breaker", href: `/products/category/${categorySlugMap.MCB}/${subCategoryBySlug["dc-mcb"]?.slug ?? "dc-mcb"}` },
-  { label: "DC SPD — Solar Surge Protector", href: `/products/category/${categorySlugMap.SPD}/${subCategoryBySlug["dc-spd"]?.slug ?? "dc-spd"}` },
-  { label: "PV Combiner Box", href: `/products/category/${categorySlugMap["Combiner Box"]}` },
-  { label: "AC MCB — Miniature Circuit Breaker", href: `/products/category/${categorySlugMap.MCB}/${subCategoryBySlug["ac-mcb"]?.slug ?? "ac-mcb"}` },
-  { label: "AC SPD — Surge Protective Device", href: `/products/category/${categorySlugMap.SPD}/${subCategoryBySlug["ac-spd"]?.slug ?? "ac-spd"}` },
-  { label: "ATS — Automatic Transfer Switch", href: `/products/category/${categorySlugMap.ATS}` },
-  { label: "Voltage Protector", href: `/products/category/${categorySlugMap["Voltage Protector"]}` },
-  { label: "DIN Rail Energy Meter", href: `/products/category/${categorySlugMap["Energy Meter"]}` },
+const solutionLinkEntries: Array<{ key: string; href: string }> = [
+  { key: "solar", href: "/solar-dc-protection" },
+  { key: "lv", href: "/products" },
+  { key: "oem", href: "/about" },
+  { key: "all", href: "/products" },
 ];
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations("footer");
   const recentPosts = blogPosts.slice(0, 4);
 
   return (
@@ -32,65 +36,62 @@ export function Footer() {
             <Link className="brand footer-brand" href="/">
               {site.name}
             </Link>
-            <p>
-              {site.tagline}. CE / IEC / RoHS certified — exporting to 100+ countries across Europe, the Middle East,
-              Southeast Asia and South America.
-            </p>
+            <p>{t("tagline")}</p>
             <p className="footer-contact-line">
-              <strong>Address</strong>
+              <strong>{t("address")}</strong>
               <span>{site.address}</span>
             </p>
             <p className="footer-contact-line">
-              <strong>Phone</strong>
+              <strong>{t("phone")}</strong>
               <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
             </p>
             <p className="footer-contact-line">
-              <strong>Email</strong>
+              <strong>{t("email")}</strong>
               <a href={`mailto:${site.email}`}>{site.email}</a>
             </p>
             <p className="footer-contact-line">
-              <strong>WhatsApp</strong>
+              <strong>{t("whatsapp")}</strong>
               <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">
-                Chat on WhatsApp
+                {t("chatWhatsapp")}
               </a>
             </p>
           </div>
 
           <div>
-            <h2>Solutions</h2>
-            {solutionLinks.map((item) => (
-              <Link key={item.href + item.label} href={item.href}>
-                {item.label}
+            <h2>{t("solutions")}</h2>
+            {solutionLinkEntries.map((item) => (
+              <Link key={item.href + item.key} href={item.href}>
+                {t(`solutionLinks.${item.key}`)}
               </Link>
             ))}
-            <h2 style={{ marginTop: 22 }}>Quick Links</h2>
-            <Link href="/about">About TPKELE</Link>
-            <Link href="/contact">Contact Sales</Link>
-            <Link href="/about#certifications">Quality Certifications</Link>
+            <h2 style={{ marginTop: 22 }}>{t("quickLinks")}</h2>
+            <Link href="/about">{t("quickLinkLabels.about")}</Link>
+            <Link href="/contact">{t("quickLinkLabels.contact")}</Link>
+            <Link href="/about#certifications">{t("quickLinkLabels.certs")}</Link>
           </div>
 
           <div>
-            <h2>Products</h2>
-            {productLinks.map((item) => (
-              <Link key={item.href + item.label} href={item.href} title={item.label}>
-                {item.label}
+            <h2>{t("products")}</h2>
+            {productLinkEntries.map((item) => (
+              <Link key={item.href + item.key} href={item.href} title={t(`productLinks.${item.key}`)}>
+                {t(`productLinks.${item.key}`)}
               </Link>
             ))}
           </div>
 
           <div>
-            <h2>From the Blog</h2>
+            <h2>{t("blog")}</h2>
             {recentPosts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} title={post.title}>
                 {post.title}
               </Link>
             ))}
             <Link href="/blog" style={{ marginTop: 10, color: "var(--green)" }}>
-              View all articles →
+              {t("viewAllArticles")}
             </Link>
           </div>
         </div>
-        <p className="copyright">© 2026 TPKELE. All Rights Reserved.</p>
+        <p className="copyright">{t("copyright")}</p>
       </footer>
       <BackToTop />
       <ChatWidget />

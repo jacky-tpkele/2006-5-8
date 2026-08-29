@@ -15,13 +15,160 @@
     "menu": "Menu",
     "close": "Close"
   },
+  "megaMenu": {
+    "recommended": "Recommended",
+    "solar": {
+      "title": "Solar Projects",
+      "subtitle": "For EPCs & Installers",
+      "cta": "DC MCB Landing →"
+    },
+    "lv": {
+      "title": "Distribution & Backup",
+      "subtitle": "For Panel Builders",
+      "cta": "AC MCB Landing →"
+    },
+    "metering": {
+      "title": "Metering & Monitoring",
+      "subtitle": "For Sub-metering & Tenant Billing",
+      "cta": "Browse All →"
+    },
+    "items": {
+      "dc-mcb": "DC MCB",
+      "dc-spd": "DC SPD",
+      "pv-combiner-box": "PV Combiner Box",
+      "ac-mcb": "AC MCB",
+      "ac-spd": "AC SPD",
+      "ats": "ATS",
+      "energy-meter": "Energy Meter",
+      "voltage-protector": "Voltage Protector"
+    }
+  },
+  "manufacturerMenu": {
+    "mcb": "MCB Manufacturer",
+    "spd": "SPD Manufacturer",
+    "ats": "ATS Manufacturer",
+    "voltage-protector": "Voltage Protector Manufacturer",
+    "energy-meter": "Energy Meter Manufacturer",
+    "combiner-box": "Combiner Box Manufacturer"
+  },
   "footer": {
+    "tagline": "CE / IEC / RoHS certified — exporting to 100+ countries across Europe, the Middle East, Southeast Asia and South America.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "chatWhatsapp": "Chat on WhatsApp",
     "solutions": "Solutions",
+    "solutionLinks": {
+      "solar": "Solar DC Protection",
+      "lv": "Low Voltage Protection",
+      "oem": "OEM / ODM Services",
+      "all": "View All Products"
+    },
+    "quickLinks": "Quick Links",
+    "quickLinkLabels": {
+      "about": "About TPKELE",
+      "contact": "Contact Sales",
+      "certs": "Quality Certifications"
+    },
     "products": "Products",
-    "company": "Company",
+    "productLinks": {
+      "dc-mcb": "DC MCB — Solar Circuit Breaker",
+      "dc-spd": "DC SPD — Solar Surge Protector",
+      "combiner": "PV Combiner Box",
+      "ac-mcb": "AC MCB — Miniature Circuit Breaker",
+      "ac-spd": "AC SPD — Surge Protective Device",
+      "ats": "ATS — Automatic Transfer Switch",
+      "voltage": "Voltage Protector",
+      "meter": "DIN Rail Energy Meter"
+    },
     "blog": "From the Blog",
-    "viewAll": "View all articles →",
+    "viewAllArticles": "View all articles →",
     "copyright": "© 2026 TPKELE. All Rights Reserved."
+  },
+  "home": {
+    "hero": {
+      "title": "Your Solar DC & Low Voltage Supply Partner",
+      "solarButton": "SOLAR DC PROTECTION",
+      "lvButton": "LOW VOLTAGE PROTECTION",
+      "exploreButton": "Explore Solar DC Range",
+      "catalogButton": "Request Catalog & Quote",
+      "stat1Value": "10+",
+      "stat1Label": "Years Manufacturing",
+      "stat2Value": "100+",
+      "stat2Label": "Countries Served",
+      "stat3Value": "1500V",
+      "stat3Label": "Solar DC Range",
+      "stat4Value": "72h",
+      "stat4Label": "Quotation SLA"
+    },
+    "procurement": {
+      "eyebrow": "How We Work",
+      "titleGreen": "Smooth B2B",
+      "titleWhite": "Procurement Flow",
+      "lede": "We keep communication clear from first inquiry to final delivery, helping you shorten sourcing cycles and reduce project risk.",
+      "step1Title": "Share Requirements",
+      "step1Text": "Send your drawings, target market, and certification requirements.",
+      "step2Title": "Sample & Validation",
+      "step2Text": "We arrange samples and technical confirmation before mass order.",
+      "step3Title": "Mass Production",
+      "step3Text": "Stable lead time with strict quality checks throughout production.",
+      "step4Title": "Delivery & Support",
+      "step4Text": "Global shipping support and responsive after-sales communication.",
+      "ctaButton": "Submit Your Requirements"
+    },
+    "products": {
+      "eyebrow": "Our Product Lines",
+      "titleGreen": "Protection Solutions",
+      "titleInk": "Across Every Layer",
+      "lede": "From solar DC strings to AC distribution — one supplier, certified product families, single point of communication.",
+      "solarFlag": "Solar DC",
+      "lvFlag": "Low Voltage",
+      "viewProduct": "View {count} product →",
+      "viewProducts": "View {count} products →",
+      "viewAll": "View all products →"
+    },
+    "company": {
+      "title": "Your Solar DC & Low Voltage Supply Partner",
+      "intro1": "Based in Wenzhou — China's electrical manufacturing capital — TPKELE engineers and manufactures certified protection devices for solar PV and low voltage distribution projects worldwide.",
+      "intro2": "Our facility covers the full production cycle from mold tooling and injection to assembly, testing, and packaging. Every batch undergoes 100% electrical verification before shipment.",
+      "highlight1": "In-house production with full QC traceability",
+      "highlight2": "OEM/ODM capability — custom logo, label, and packaging",
+      "highlight3": "IEC, TUV, CE and CB certified product lines",
+      "highlight4": "Export experience to 100+ countries"
+    },
+    "beyond": {
+      "title": "More Than Just a Manufacturer",
+      "subtitle": "At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us."
+    },
+    "market": {
+      "eyebrow": "Global Reach",
+      "title": "Exporting to 100+ countries across six regions"
+    },
+    "oem": {
+      "eyebrow": "OEM / ODM Manufacturing",
+      "title": "Your brand, our factory.",
+      "description": "From custom logo printing to dedicated catalogs and project-spec documentation — we partner with distributors, importers and brand owners to deliver a complete private-label protection program.",
+      "getProposal": "Get OEM Proposal",
+      "aboutFactory": "About the factory"
+    },
+    "stats": {
+      "s1Value": "10+",
+      "s1Label": "Years Experience",
+      "s2Value": "100+",
+      "s2Label": "Countries Served",
+      "s3Value": "2000+",
+      "s3Label": "Projects Completed",
+      "s4Value": "100%",
+      "s4Label": "Quality Inspection",
+      "s5Value": "OEM/ODM",
+      "s5Label": "Flexible Service"
+    },
+    "finalCta": {
+      "eyebrow": "Fast Quotation · 72-hour Response",
+      "title": "Send your product list — receive technical matching, datasheet pack and pricing.",
+      "button": "Submit Inquiry"
+    }
   },
   "common": {
     "requestQuote": "Request a Quote",

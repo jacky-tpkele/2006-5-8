@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
 import { BeyondSection } from "@/app/[locale]/products/ac-mcb/BeyondSection";
@@ -9,15 +11,27 @@ import {
   products,
   site,
 } from "@/data/site";
+import { localizedPath, alternateLanguages } from "@/lib/locale-path";
 
-export const metadata = {
-  title: "Solar DC & Low Voltage Protection Manufacturer | TPKELE",
-  description:
-    "TPKELE manufactures IEC-certified DC MCB, DC SPD, PV combiner boxes, AC MCB, SPD, ATS and energy meters for solar installations in 100+ countries.",
-  alternates: { canonical: "/" },
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-export default function HomePage() {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: "Solar DC & Low Voltage Protection Manufacturer | TPKELE",
+    description:
+      "TPKELE manufactures IEC-certified DC MCB, DC SPD, PV combiner boxes, AC MCB, SPD, ATS and energy meters for solar installations in 100+ countries.",
+    alternates: {
+      canonical: localizedPath("/", locale),
+      languages: alternateLanguages("/"),
+    },
+  };
+}
+
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations("home");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -171,10 +185,7 @@ export default function HomePage() {
         <div className="hero-banner-inner">
           <div className="hero-banner-top">
             <div className="hero-banner-content">
-              <h1 className="hero-banner-title">
-                <span className="green">SOLAR DC &amp; LOW VOLTAGE</span>
-                <span className="dark">PROTECTION SOLUTIONS</span>
-              </h1>
+              <h1 className="hero-banner-title">{t("hero.title")}</h1>
               <span className="hero-banner-rule" aria-hidden="true" />
 
               <div className="hero-banner-tracks">
@@ -185,7 +196,7 @@ export default function HomePage() {
                       <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1" />
                     </svg>
                   </span>
-                  <strong>SOLAR DC PROTECTION</strong>
+                  <strong>{t("hero.solarButton")}</strong>
                 </Link>
                 <Link className="hero-banner-track" href="/products">
                   <span className="hero-banner-track-icon" aria-hidden="true">
@@ -194,22 +205,22 @@ export default function HomePage() {
                       <path d="M9 12l2 2 4-4" />
                     </svg>
                   </span>
-                  <strong>LOW VOLTAGE PROTECTION</strong>
+                  <strong>{t("hero.lvButton")}</strong>
                 </Link>
               </div>
 
               <div className="hero-banner-cta">
                 <Link className="btn primary" href="/solar-dc-protection">
-                  Explore Solar DC Range
+                  {t("hero.exploreButton")}
                 </Link>
-                <InquiryModal triggerLabel="Request Catalog & Quote" triggerClassName="btn ghost dark" intent="catalog" />
+                <InquiryModal triggerLabel={t("hero.catalogButton")} triggerClassName="btn ghost dark" intent="catalog" />
               </div>
 
               <div className="hero-banner-stats">
-                <div><strong>10+</strong><span>Years Manufacturing</span></div>
-                <div><strong>100+</strong><span>Countries Served</span></div>
-                <div><strong>1500V</strong><span>Solar DC Range</span></div>
-                <div><strong>72h</strong><span>Quotation SLA</span></div>
+                <div><strong>{t("hero.stat1Value")}</strong><span>{t("hero.stat1Label")}</span></div>
+                <div><strong>{t("hero.stat2Value")}</strong><span>{t("hero.stat2Label")}</span></div>
+                <div><strong>{t("hero.stat3Value")}</strong><span>{t("hero.stat3Label")}</span></div>
+                <div><strong>{t("hero.stat4Value")}</strong><span>{t("hero.stat4Label")}</span></div>
               </div>
             </div>
           </div>
@@ -220,39 +231,39 @@ export default function HomePage() {
       <section className="procurement-flow" aria-label="B2B Procurement Flow">
         <div className="procurement-flow-inner">
           <div className="procurement-flow-head">
-            <p className="eyebrow procurement-eyebrow">How We Work</p>
+            <p className="eyebrow procurement-eyebrow">{t("procurement.eyebrow")}</p>
             <h2 className="procurement-title">
-              <span className="green">Smooth B2B</span>
-              <span className="white"> Procurement Flow</span>
+              <span className="green">{t("procurement.titleGreen")}</span>
+              <span className="white"> {t("procurement.titleWhite")}</span>
             </h2>
-            <p className="procurement-lede">We keep communication clear from first inquiry to final delivery, helping you shorten sourcing cycles and reduce project risk.</p>
+            <p className="procurement-lede">{t("procurement.lede")}</p>
           </div>
 
           <ol className="procurement-steps">
             <li className="procurement-step">
               <span className="procurement-step-num" aria-hidden="true">1</span>
-              <h3>Share Requirements</h3>
-              <p>Send your drawings, target market, and certification requirements.</p>
+              <h3>{t("procurement.step1Title")}</h3>
+              <p>{t("procurement.step1Text")}</p>
             </li>
             <li className="procurement-step">
               <span className="procurement-step-num" aria-hidden="true">2</span>
-              <h3>Sample &amp; Validation</h3>
-              <p>We arrange samples and technical confirmation before mass order.</p>
+              <h3>{t("procurement.step2Title")}</h3>
+              <p>{t("procurement.step2Text")}</p>
             </li>
             <li className="procurement-step">
               <span className="procurement-step-num" aria-hidden="true">3</span>
-              <h3>Mass Production</h3>
-              <p>Stable lead time with strict quality checks throughout production.</p>
+              <h3>{t("procurement.step3Title")}</h3>
+              <p>{t("procurement.step3Text")}</p>
             </li>
             <li className="procurement-step">
               <span className="procurement-step-num" aria-hidden="true">4</span>
-              <h3>Delivery &amp; Support</h3>
-              <p>Global shipping support and responsive after-sales communication.</p>
+              <h3>{t("procurement.step4Title")}</h3>
+              <p>{t("procurement.step4Text")}</p>
             </li>
           </ol>
 
           <div className="procurement-cta">
-            <InquiryModal triggerLabel="Submit Your Requirements" triggerClassName="btn primary procurement-cta-btn" intent="quote" />
+            <InquiryModal triggerLabel={t("procurement.ctaButton")} triggerClassName="btn primary procurement-cta-btn" intent="quote" />
           </div>
         </div>
       </section>
@@ -260,18 +271,18 @@ export default function HomePage() {
       <section className="product-tracks" aria-label="Product Lines">
         <div className="product-tracks-inner">
           <div className="product-tracks-head">
-            <p className="eyebrow product-tracks-eyebrow">Our Product Lines</p>
+            <p className="eyebrow product-tracks-eyebrow">{t("products.eyebrow")}</p>
             <h2 className="product-tracks-title">
-              <span className="green">Protection Solutions</span>
-              <span className="ink"> Across Every Layer</span>
+              <span className="green">{t("products.titleGreen")}</span>
+              <span className="ink"> {t("products.titleInk")}</span>
             </h2>
-            <p className="product-tracks-lede">From solar DC strings to AC distribution — one supplier, certified product families, single point of communication.</p>
+            <p className="product-tracks-lede">{t("products.lede")}</p>
           </div>
 
           <div className="track-grid track-grid-unified">
             {solarDcTrack.map((item) => (
               <Link href={item.href} className="track-card" key={`solar-${item.slug}`} aria-label={item.name}>
-                <span className="track-card-flag solar">Solar DC</span>
+                <span className="track-card-flag solar">{t("products.solarFlag")}</span>
                 <div className="track-card-media">
                   <Image src={item.image} alt={item.name} width={320} height={220} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px" />
                 </div>
@@ -279,14 +290,14 @@ export default function HomePage() {
                   <h4>{item.name}</h4>
                   <p>{item.description}</p>
                   <span className="track-card-link">
-                    View {item.count} {item.count === 1 ? "product" : "products"} →
+                    {item.count === 1 ? t("products.viewProduct", { count: item.count }) : t("products.viewProducts", { count: item.count })}
                   </span>
                 </div>
               </Link>
             ))}
             {lvTrack.map((item) => (
               <Link href={item.href} className="track-card" key={`lv-${item.slug}`} aria-label={item.name}>
-                <span className="track-card-flag lv">Low Voltage</span>
+                <span className="track-card-flag lv">{t("products.lvFlag")}</span>
                 <div className="track-card-media">
                   <Image src={item.image} alt={item.name} width={320} height={220} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px" />
                 </div>
@@ -294,7 +305,7 @@ export default function HomePage() {
                   <h4>{item.name}</h4>
                   <p>{item.description}</p>
                   <span className="track-card-link">
-                    View {item.count} {item.count === 1 ? "product" : "products"} →
+                    {item.count === 1 ? t("products.viewProduct", { count: item.count }) : t("products.viewProducts", { count: item.count })}
                   </span>
                 </div>
               </Link>
@@ -308,28 +319,28 @@ export default function HomePage() {
       </section>
 
       <CompanySection
-        title="Your Solar DC & Low Voltage Supply Partner"
+        title={t("company.title")}
         intros={[
-          "Based in Wenzhou — China's electrical manufacturing capital — TPKELE engineers and manufactures certified protection devices for solar PV and low voltage distribution projects worldwide.",
-          "Our facility covers the full production cycle from mold tooling and injection to assembly, testing, and packaging. Every batch undergoes 100% electrical verification before shipment.",
+          t("company.intro1"),
+          t("company.intro2"),
         ]}
         highlights={[
-          "In-house production with full QC traceability",
-          "OEM/ODM capability — custom logo, label, and packaging",
-          "IEC, TUV, CE and CB certified product lines",
-          "Export experience to 100+ countries",
+          t("company.highlight1"),
+          t("company.highlight2"),
+          t("company.highlight3"),
+          t("company.highlight4"),
         ]}
         ctaProduct="Solar DC & LV Protection"
       />
       <BeyondSection
-        title="More Than Just a Manufacturer"
-        subtitle="At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us."
+        title={t("beyond.title")}
+        subtitle={t("beyond.subtitle")}
       />
 
       <section className="section market-band muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Global Reach</p>
-          <h2>Exporting to 100+ countries across six regions</h2>
+          <p className="eyebrow">{t("market.eyebrow")}</p>
+          <h2>{t("market.title")}</h2>
         </div>
         <div className="market-grid">
           {exportMarkets.map((m) => (
@@ -344,15 +355,14 @@ export default function HomePage() {
       <section className="section">
         <div className="oem-band">
           <div>
-            <p className="eyebrow">OEM / ODM Manufacturing</p>
-            <h2>Your brand, our factory.</h2>
+            <p className="eyebrow">{t("oem.eyebrow")}</p>
+            <h2>{t("oem.title")}</h2>
             <p style={{ color: "var(--muted)", marginTop: 12 }}>
-              From custom logo printing to dedicated catalogs and project-spec documentation — we partner with distributors,
-              importers and brand owners to deliver a complete private-label protection program.
+              {t("oem.description")}
             </p>
             <div className="button-row" style={{ marginTop: 18 }}>
-              <InquiryModal triggerLabel="Get OEM Proposal" triggerClassName="btn primary" intent="factory" />
-              <Link className="btn ghost dark" href="/about">About the factory</Link>
+              <InquiryModal triggerLabel={t("oem.getProposal")} triggerClassName="btn primary" intent="factory" />
+              <Link className="btn ghost dark" href="/about">{t("oem.aboutFactory")}</Link>
             </div>
           </div>
           <ul>
@@ -364,19 +374,19 @@ export default function HomePage() {
       </section>
 
       <section className="stats-band">
-        <div><strong>10+</strong><span>Years Experience</span></div>
-        <div><strong>100+</strong><span>Countries Served</span></div>
-        <div><strong>2000+</strong><span>Projects Completed</span></div>
-        <div><strong>100%</strong><span>Quality Inspection</span></div>
-        <div><strong>OEM/ODM</strong><span>Flexible Service</span></div>
+        <div><strong>{t("stats.s1Value")}</strong><span>{t("stats.s1Label")}</span></div>
+        <div><strong>{t("stats.s2Value")}</strong><span>{t("stats.s2Label")}</span></div>
+        <div><strong>{t("stats.s3Value")}</strong><span>{t("stats.s3Label")}</span></div>
+        <div><strong>{t("stats.s4Value")}</strong><span>{t("stats.s4Label")}</span></div>
+        <div><strong>{t("stats.s5Value")}</strong><span>{t("stats.s5Label")}</span></div>
       </section>
 
       <section className="section cta-section">
         <div>
-          <p className="eyebrow">Fast Quotation · 72-hour Response</p>
-          <h2>Send your product list — receive technical matching, datasheet pack and pricing.</h2>
+          <p className="eyebrow">{t("finalCta.eyebrow")}</p>
+          <h2>{t("finalCta.title")}</h2>
         </div>
-        <InquiryModal triggerLabel="Submit Inquiry" triggerClassName="btn primary" intent="quote" />
+        <InquiryModal triggerLabel={t("finalCta.button")} triggerClassName="btn primary" intent="quote" />
       </section>
     </main>
   );
