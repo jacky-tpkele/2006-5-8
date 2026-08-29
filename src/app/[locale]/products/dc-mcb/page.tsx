@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { InquiryModal } from "@/components/InquiryModal";
-import { CompanySection } from "@/app/products/ac-mcb/CompanySection";
-import { BeyondSection } from "@/app/products/ac-mcb/BeyondSection";
+import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
+import { BeyondSection } from "@/app/[locale]/products/ac-mcb/BeyondSection";
 import { HeroSection } from "./HeroSection";
 import { OptionsGrid } from "./OptionsGrid";
 import { FeaturesGrid } from "./FeaturesGrid";

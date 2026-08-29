@@ -1,15 +1,37 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { manufacturerMenu, navItems, productMegaMenu, products, site } from "@/data/site";
+
+// 导航项 href → messages 里的 key，用于把菜单文案国际化
+const NAV_LABEL_KEYS: Record<string, string> = {
+  "/": "home",
+  "/products": "products",
+  "/solar-dc-protection": "solutions",
+  "/mcb-manufacturer": "manufacturing",
+  "/about": "about",
+  "/blog": "blog",
+  "/contact": "contact",
+};
 
 export function Header() {
   const pathname = usePathname();
+  const t = useTranslations("nav");
+  const tHeader = useTranslations("header");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+
+  // 有对应翻译时用翻译，否则回落到 site.ts 里的英文 label
+  const navLabel = (href: string, fallback: string) => {
+    const key = NAV_LABEL_KEYS[href];
+    if (!key) return fallback;
+    const translated = t(key as never);
+    return translated || fallback;
+  };
 
   const matches = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -47,7 +69,7 @@ export function Header() {
               return (
                 <div className="nav-dropdown" key={item.href}>
                   <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
-                    {item.label}
+                    {navLabel(item.href, item.label)}
                   </Link>
                   <div className="products-mega-menu">
                     {productMegaMenu.map((col) => (
@@ -81,7 +103,7 @@ export function Header() {
               return (
                 <div className="nav-dropdown" key={item.href}>
                   <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
-                    {item.label}
+                    {navLabel(item.href, item.label)}
                   </Link>
                   <div className="mfr-dropdown-menu">
                     <ul>
@@ -101,12 +123,13 @@ export function Header() {
 
             return (
               <Link key={item.href} className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
-                {item.label}
+                {navLabel(item.href, item.label)}
               </Link>
             );
           })}
         </nav>
         <div className="header-actions">
+          <LanguageSwitcher />
           <button className="icon-button" type="button" aria-label="Search products" onClick={() => setSearchOpen(true)}>
             <span aria-hidden="true">⌕</span>
           </button>

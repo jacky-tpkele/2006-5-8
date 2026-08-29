@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "solutions": "Solutions",
+    "manufacturing": "Manufacturing",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "header": {
+    "search": "Search",
+    "searchPlaceholder": "Try AC MCB, DC SPD, Plastic Box...",
+    "view": "View",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "footer": {
+    "solutions": "Solutions",
+    "products": "Products",
+    "company": "Company",
+    "blog": "From the Blog",
+    "viewAll": "View all articles →",
+    "copyright": "© 2026 TPKELE. All Rights Reserved."
+  },
+  "common": {
+    "requestQuote": "Request a Quote",
+    "contactSales": "Contact Sales",
+    "viewDetails": "View Details",
+    "learnMore": "Learn More",
+    "downloadDatasheet": "Download Datasheet",
+    "specifications": "Specifications",
+    "applications": "Applications",
+    "gallery": "Gallery",
+    "relatedProducts": "Related Products",
+    "backToTop": "Back to Top"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "phone": "Phone",
+    "message": "Message",
+    "product": "Product Interest",
+    "quantity": "Estimated Quantity",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "success": "Thank you! We'll get back to you within 24 hours.",
+    "error": "Something went wrong. Please try again."
+  },
+  "productCard": {
+    "view": "View"
+  },
+  "categoryPage": {
+    "specifications": "Technical Specifications",
+    "applications": "Applications",
+    "whyChoose": "Why Choose TPKELE",
+    "process": "How to Work with Us",
+    "faq": "Frequently Asked Questions"
+  },
+  "manufacturerPage": {
+    "requestQuote": "Request a Quote",
+    "sendSpecs": "Send Your Specifications",
+    "checklist": "What serious buyers usually check first",
+    "whyChoose": "Why OEM buyers choose TPKELE over alternatives",
+    "process": "How the OEM production process works",
+    "commercial": "Commercial points to align before sample or quotation",
+    "faq": "Questions buyers ask before committing to an OEM order"
+  }
+}

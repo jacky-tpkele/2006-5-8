@@ -357,6 +357,40 @@ textarea {
   gap: 12px;
 }
 
+/* 语言切换器 */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.lang-option {
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-option:hover {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.lang-option.active {
+  background: var(--green);
+  color: #fff;
+}
+
+.lang-option.active:hover {
+  background: var(--green);
+  color: #fff;
+}
+
 .icon-button,
 .nav-toggle {
   display: inline-grid;
