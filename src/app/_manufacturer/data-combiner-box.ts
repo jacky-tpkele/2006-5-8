@@ -155,7 +155,7 @@ export const combinerBoxManufacturer: ManufacturerData = {
     { q: "What documentation ships with the combiner box?", a: "Wiring diagram for the shipped string count and voltage, IP65 test reference, component certificates for fuses, DC breaker and SPD, insulation resistance test record, and CE declaration. The batch code is affixed inside the enclosure." },
   ],
 
-  seoTitle: "Combiner Box Manufacturer in China — OEM Solar PV Combiner Supplier",
-  seoDescription: "TPKELE is a combiner box manufacturer in China supplying IP65 PV combiner boxes for solar projects. 1000V and 1500V DC, 2–16 strings, string monitoring available, OEM supply.",
+  seoTitle: "PV Combiner Box Manufacturer China — OEM Solar Supplier",
+  seoDescription: "TPKELE supplies IP65 PV combiner boxes for solar projects. 1000V/1500V DC, 2–16 strings, string monitoring available. OEM & project supply.",
   seoKeywords: ["combiner box manufacturer", "PV combiner box manufacturer", "solar combiner box manufacturer China", "OEM combiner box supplier", "1500V combiner box", "IP65 combiner box", "string combiner box factory"],
 };

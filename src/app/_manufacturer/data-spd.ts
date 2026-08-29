@@ -175,7 +175,7 @@ export const spdManufacturer: ManufacturerData = {
     { q: "What is the typical lead time?", a: "Sample and mass production lead times are quoted separately. Repeat orders are faster because the technical scope, artwork revision and inspection rule are already on file." },
   ],
 
-  seoTitle: "SPD Manufacturer in China — OEM Surge Protective Device Supplier",
-  seoDescription: "TPKELE is an SPD manufacturer in China supplying AC and DC surge protective devices for OEM and export buyers. Type 1/2, up to 1500V DC, IEC 61643 certified.",
+  seoTitle: "SPD Manufacturer China — OEM Surge Protective Device",
+  seoDescription: "TPKELE supplies AC & DC surge protective devices for OEM buyers. Type 1/2, up to 1500V DC, IEC 61643 certified. Pluggable modules, remote signaling.",
   seoKeywords: ["SPD manufacturer", "surge protective device manufacturer", "OEM SPD supplier", "SPD factory China", "AC SPD manufacturer", "DC SPD manufacturer", "solar SPD supplier", "IEC 61643 SPD"],
 };

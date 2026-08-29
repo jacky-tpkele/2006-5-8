@@ -155,7 +155,7 @@ export const atsManufacturer: ManufacturerData = {
     { q: "What is the typical lead time?", a: "Sample and mass production lead times are quoted separately. The exact figure depends on pole count and class mix; repeat orders are faster because the technical scope is already on file." },
   ],
 
-  seoTitle: "ATS Manufacturer in China — OEM Automatic Transfer Switch Supplier",
-  seoDescription: "TPKELE is an ATS manufacturer in China supplying PC-class and CB-class automatic transfer switches for OEM and export buyers. 2P–4P, up to 63A, IEC 60947-6-1 certified.",
+  seoTitle: "ATS Manufacturer China — OEM Transfer Switch Supplier",
+  seoDescription: "TPKELE supplies PC & CB-class automatic transfer switches for OEM buyers. 2P–4P, up to 63A, IEC 60947-6-1 certified. Fast transfer, reliable changeover.",
   seoKeywords: ["ATS manufacturer", "automatic transfer switch manufacturer", "OEM ATS supplier", "transfer switch factory China", "PC class ATS", "CB class ATS", "dual power transfer switch"],
 };

@@ -5,9 +5,9 @@ import { PageTitle } from "@/components/PageTitle";
 import { categoryContent, categorySlugMap, productMenu, products } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Products — Solar DC Protection, MCB, SPD, ATS, PV Combiner Box, Energy Meter",
+  title: "Products — Solar DC, MCB, SPD, ATS, Combiner Box, Meter",
   description:
-    "TPKELE product range: DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS, voltage protector and DIN-rail energy meter. CE / IEC / RoHS, OEM ready, built for solar EPCs and panel builders.",
+    "TPKELE product range: DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS, voltage protector & DIN-rail meter. CE/IEC/RoHS certified, OEM ready.",
   alternates: { canonical: "/products" },
 };
 

@@ -7,9 +7,9 @@ import { PageTitle } from "@/components/PageTitle";
 import { certifications, products } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box | TPKELE",
+  title: "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box",
   description:
-    "TPKELE solar DC protection: DC MCB, DC SPD and PV combiner boxes for photovoltaic strings, combiner stations and battery energy storage. Up to 1500V DC, IEC-certified, OEM-ready for solar EPCs and panel builders.",
+    "TPKELE solar DC protection: DC MCB, DC SPD and PV combiner boxes for photovoltaic strings and battery storage. Up to 1500V DC, IEC-certified, OEM-ready.",
   alternates: { canonical: "/solar-dc-protection" },
   keywords: [
     "solar DC protection",

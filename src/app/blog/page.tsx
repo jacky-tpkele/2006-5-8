@@ -12,9 +12,9 @@ import {
 } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog - Solar DC & Low Voltage Protection Knowledge Base | TPKELE",
+  title: "Blog — Solar DC & Low Voltage Protection Knowledge",
   description:
-    "Practical guides on choosing MCBs, SPDs, ATS, PV combiner boxes and energy meters for solar and low voltage projects. Selection rules, application tips and project recaps.",
+    "Practical guides on choosing MCBs, SPDs, ATS, PV combiner boxes and energy meters for solar & low voltage projects. Selection tips and application notes.",
   alternates: { canonical: "/blog" },
 };
 

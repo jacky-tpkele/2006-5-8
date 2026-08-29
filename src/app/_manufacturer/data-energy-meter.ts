@@ -155,7 +155,7 @@ export const energyMeterManufacturer: ManufacturerData = {
     { q: "What is the typical lead time?", a: "Sample and mass production are quoted separately. The firmware configuration and calibration specification need to be confirmed at the sample stage; once on file, repeat orders are faster." },
   ],
 
-  seoTitle: "Energy Meter Manufacturer in China — OEM DIN Rail kWh Meter Supplier",
-  seoDescription: "TPKELE is an energy meter manufacturer in China supplying DIN rail kWh meters with Modbus RTU and pulse output for OEM and export buyers. Single and three phase, Class 1, MID available.",
+  seoTitle: "Energy Meter Manufacturer China — OEM DIN Rail Supplier",
+  seoDescription: "TPKELE supplies DIN rail kWh meters with Modbus RTU & pulse output for OEM buyers. Single/three phase, Class 1, MID available. IEC 62053 certified.",
   seoKeywords: ["energy meter manufacturer", "DIN rail energy meter manufacturer", "kWh meter manufacturer China", "OEM energy meter supplier", "Modbus energy meter", "MID energy meter", "three phase meter manufacturer"],
 };

@@ -2429,9 +2429,9 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { q: "Do you support OEM branding for MCBs?", a: "Yes — logo printing, custom housing color, dedicated packaging and private-label catalogs are supported for distributor and brand-owner programs." },
       { q: "Do your MCBs carry CE certification?", a: "Yes, all TPKELE MCBs are CE & RoHS compliant and tested per IEC 60898-1. Test reports are available for project tenders and customs documentation." },
     ],
-    seoTitle: "MCB Manufacturer | AC & DC Miniature Circuit Breakers — TPKELE",
+    seoTitle: "MCB Manufacturer | AC & DC Miniature Circuit Breakers",
     seoDescription:
-      "TPKELE: MCB manufacturer of AC MCB and DC MCB miniature circuit breakers, 1P–4P, 6A–63A, B/C/D curves, IEC 60898-1, CE & RoHS. OEM and project supply for distributors, panel builders and solar EPCs.",
+      "TPKELE manufactures AC MCB and DC MCB, 1P–4P, 6A–63A, B/C/D curves, IEC 60898-1, CE & RoHS. OEM and project supply for distributors and solar EPCs.",
     seoKeywords: ["MCB manufacturer", "miniature circuit breaker", "AC MCB", "DC MCB", "DZ47", "solar circuit breaker", "PV DC breaker", "low voltage breaker", "IEC 60898 MCB"],
   },
   SPD: {
@@ -2455,9 +2455,9 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { q: "Are TPKELE SPDs CE certified?", a: "Yes — all SPDs comply with CE, RoHS and IEC 61643-11 (AC) / IEC 61643-31 (DC PV). Test reports are available for project files and tenders." },
       { q: "Do you offer SPDs with remote signaling output?", a: "Yes, selected models include a remote signaling contact (NO/NC) so you can monitor SPD health from a central control system or BMS." },
     ],
-    seoTitle: "SPD Manufacturer | AC SPD & DC PV Surge Protector — TPKELE",
+    seoTitle: "SPD Manufacturer | AC SPD & DC PV Surge Protector",
     seoDescription:
-      "TPKELE: SPD manufacturer of AC surge protectors (Type 1 / 2 / 1+2) and DC PV surge protectors (600V / 1000V / 1500V). IEC 61643-11 / 31, CE & RoHS, pluggable modules. OEM-ready solar surge protection.",
+      "TPKELE manufactures AC SPD (Type 1/2/1+2) and DC PV SPD (600V/1000V/1500V). IEC 61643-11/31, CE & RoHS, pluggable modules. OEM-ready solar surge protection.",
     seoKeywords: ["SPD manufacturer", "surge protective device", "AC SPD", "DC SPD", "PV SPD", "solar surge protector", "Type 1 SPD", "Type 2 SPD", "1500V DC SPD", "lightning surge protection"],
   },
   ATS: {

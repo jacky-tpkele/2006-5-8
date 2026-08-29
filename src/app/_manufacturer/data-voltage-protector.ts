@@ -155,7 +155,7 @@ export const voltageProtectorManufacturer: ManufacturerData = {
     { q: "What is the typical lead time?", a: "Sample and mass production are quoted separately. Repeat orders are faster because the calibration specification, default settings and artwork revision are already on file." },
   ],
 
-  seoTitle: "Voltage Protector Manufacturer in China — OEM Over / Under Voltage Relay",
-  seoDescription: "TPKELE is a voltage protector manufacturer in China supplying over and under voltage protection relays for OEM and export buyers. 1P–4P, adjustable thresholds, CE certified.",
+  seoTitle: "Voltage Protector Manufacturer China — OEM Over/Under Relay",
+  seoDescription: "TPKELE supplies over/under voltage protection relays for OEM buyers. 1P–4P, adjustable thresholds, auto-recovery delay. CE certified.",
   seoKeywords: ["voltage protector manufacturer", "over voltage protector manufacturer", "under voltage relay supplier", "OEM voltage protection device", "voltage protector factory China", "adjustable voltage relay"],
 };

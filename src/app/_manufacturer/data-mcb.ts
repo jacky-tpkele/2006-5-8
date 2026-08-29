@@ -335,9 +335,9 @@ export const mcbManufacturer: ManufacturerData = {
     },
   ],
 
-  seoTitle: "MCB Manufacturer in China — OEM Miniature Circuit Breaker Supplier",
+  seoTitle: "MCB Manufacturer China — OEM Circuit Breaker Supplier",
   seoDescription:
-    "TPKELE is an MCB manufacturer in China supplying AC and DC miniature circuit breakers for OEM and export buyers. 1P–4P, 6A–63A, B/C/D curves, IEC 60898-1 certified.",
+    "TPKELE supplies AC & DC miniature circuit breakers for OEM buyers. 1P–4P, 6A–63A, B/C/D curves, IEC 60898-1 certified. Solar & distribution applications.",
   seoKeywords: [
     "MCB manufacturer",
     "miniature circuit breaker manufacturer",
