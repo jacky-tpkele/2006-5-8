@@ -160,7 +160,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       </nav>
 
       <section className="section product-detail-hero">
-        <ProductGallery images={gallery} alt={product.name} />
+        <ProductGallery
+          images={gallery}
+          alt={product.name}
+          productName={product.name}
+          category={product.parentCategory}
+        />
         <div className="product-detail-info">
           <p className="eyebrow">{product.category}{subCat ? ` / ${subCat.label}` : ""}</p>
           <h1>{product.name}</h1>

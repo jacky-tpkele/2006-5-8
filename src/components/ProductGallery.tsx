@@ -6,11 +6,37 @@ import { useState } from "react";
 type ProductGalleryProps = {
   images: string[];
   alt: string;
+  productName?: string;
+  category?: string;
 };
 
-export function ProductGallery({ images, alt }: ProductGalleryProps) {
+const galleryAltDescriptors = [
+  "front view with DIN rail mounting",
+  "internal mechanism and contact assembly",
+  "installation in electrical panel",
+  "side view showing terminals",
+  "top view of arc chamber",
+  "dimension diagram",
+  "wiring connection detail",
+  "complete unit with accessories",
+];
+
+export function ProductGallery({ images, alt, productName, category }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = images[activeIndex] ?? images[0];
+
+  // Generate descriptive alt for each gallery image
+  function getImageAlt(index: number): string {
+    if (!productName && !category) return alt;
+
+    const baseName = productName || alt;
+    const descriptor = galleryAltDescriptors[index] || `view ${index + 1}`;
+    const categoryPrefix = category ? `${category} ` : "";
+
+    return `${categoryPrefix}${baseName} - ${descriptor}`;
+  }
+
+  const mainImageAlt = getImageAlt(activeIndex);
 
   return (
     <div className="product-gallery">
@@ -19,7 +45,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
           <Image
             key={active}
             src={active}
-            alt={alt}
+            alt={mainImageAlt}
             width={620}
             height={620}
             priority
@@ -34,13 +60,19 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
               type="button"
               role="tab"
               aria-selected={activeIndex === index}
-              aria-label={`Show image ${index + 1}`}
+              aria-label={`Show image ${index + 1}: ${galleryAltDescriptors[index] || `view ${index + 1}`}`}
               className={`product-gallery-thumb ${activeIndex === index ? "is-active" : ""}`}
               onMouseEnter={() => setActiveIndex(index)}
               onFocus={() => setActiveIndex(index)}
               onClick={() => setActiveIndex(index)}
             >
-              <Image src={src} alt="" width={120} height={120} sizes="120px" />
+              <Image
+                src={src}
+                alt=""
+                width={120}
+                height={120}
+                sizes="120px"
+              />
             </button>
           ))}
         </div>

@@ -88,7 +88,11 @@ din-rail-energy-meter.webp
 
 ## D. 首页大 Hero 图（选做，1 张）
 
-**位置**：`public/assets/hero-products.webp`（直接覆盖）
+**位置**：`public/assets/factory-home.webp`（直接覆盖）
+
+**当前尺寸**：1672 × 941（16:9），换图时请保持同比例，否则要同步改 `src/app/layout.tsx` 里的 `width` / `height`。
+
+> ⚠️ 这张图同时是全站的 OG / Twitter 分享图（在 `src/app/layout.tsx` 引用），换图会影响社交平台分享预览。旧文档写的 `hero-products.webp` 已废弃，别再用这个名字。
 
 ---
 
