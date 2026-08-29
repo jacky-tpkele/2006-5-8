@@ -6,16 +6,15 @@ import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
   categoryBySlug,
-  categoryContent,
   categorySlugMap,
   productMenu,
-  products,
   site,
-  subCategories,
 } from "@/data/site";
+import { getCategoryContent, getProducts, getSubCategories } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
 type CategoryPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
   searchParams: Promise<{ series?: string }>;
 };
 
@@ -24,35 +23,39 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const category = categoryBySlug[slug];
   if (!category) return {};
-  const content = categoryContent[category];
+  const content = getCategoryContent(category, locale);
+  const canonical = localizedPath(`/products/category/${slug}`, locale);
 
   return {
     title: content.seoTitle,
     description: content.seoDescription,
     keywords: content.seoKeywords,
-    alternates: { canonical: `/products/category/${slug}` },
+    alternates: {
+      canonical,
+      languages: alternateLanguages(`/products/category/${slug}`),
+    },
     openGraph: {
       title: content.seoTitle,
       description: content.seoDescription,
-      url: `/products/category/${slug}`,
+      url: canonical,
       type: "website",
     },
   };
 }
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const { series } = await searchParams;
   const category = categoryBySlug[slug];
   if (!category) notFound();
 
-  const content = categoryContent[category];
+  const content = getCategoryContent(category, locale);
   const menuGroup = productMenu.find((g) => g.label === category);
-  const items = products.filter((p) => p.parentCategory === category);
-  const subs = subCategories.filter((s) => s.parent === category);
+  const items = getProducts(locale).filter((p) => p.parentCategory === category);
+  const subs = getSubCategories(locale).filter((s) => s.parent === category);
   const hasSubs = subs.length > 0;
   const heroImage = items[0]?.image;
 
@@ -146,8 +149,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         subs={subs.map((s) => ({
           slug: s.slug,
           label: s.label,
-          count: products.filter((p) => p.subCategorySlug === s.slug).length,
-          image: products.find((p) => p.subCategorySlug === s.slug)?.image ?? heroImage ?? "",
+          count: items.filter((p) => p.subCategorySlug === s.slug).length,
+          image: items.find((p) => p.subCategorySlug === s.slug)?.image ?? heroImage ?? "",
         }))}
         categorySlug={slug}
       />

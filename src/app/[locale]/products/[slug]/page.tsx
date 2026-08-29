@@ -6,8 +6,6 @@ import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import { ProductGallery } from "@/components/ProductGallery";
 import {
-  findProduct,
-  categoryContent,
   categorySlugMap,
   certifications,
   getProductGallery,
@@ -17,11 +15,12 @@ import {
   oemCapabilities,
   products,
   site,
-  subCategoryBySlug,
 } from "@/data/site";
+import { getCategoryContent, getProduct, getSubCategory } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
 type ProductPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -29,38 +28,43 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const product = findProduct(slug);
+  const { slug, locale } = await params;
+  const product = getProduct(slug, locale);
   if (!product) return {};
+
+  const canonical = localizedPath(`/products/${product.slug}`, locale);
 
   return {
     title: `${product.name} Manufacturer`,
     description: product.description,
     keywords: product.seoKeywords,
-    alternates: { canonical: `/products/${product.slug}` },
+    alternates: {
+      canonical,
+      languages: alternateLanguages(`/products/${product.slug}`),
+    },
     openGraph: {
       title: `${product.name} Manufacturer | TPKELE`,
       description: product.description,
-      url: `/products/${product.slug}`,
+      url: canonical,
       images: [{ url: product.image, width: 600, height: 600, alt: product.name }],
     },
   };
 }
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
-  const { slug } = await params;
-  const product = findProduct(slug);
+  const { slug, locale } = await params;
+  const product = getProduct(slug, locale);
   if (!product) notFound();
 
   const categorySlug = categorySlugMap[product.parentCategory];
-  const subCat = product.subCategorySlug ? subCategoryBySlug[product.subCategorySlug] : undefined;
+  const subCat = product.subCategorySlug ? getSubCategory(product.subCategorySlug, locale) : undefined;
 
   const gallery = getProductGallery(product);
   const keyFeatures = getProductKeyFeatures(product, 5);
   const technicalSpecs = getProductTechnicalSpecs(product);
   const related = getRelatedProducts(product, 8);
   const relatedScopeLabel = subCat ? subCat.label : product.parentCategory;
-  const catContent = categoryContent[product.parentCategory];
+  const catContent = getCategoryContent(product.parentCategory, locale);
 
   const jsonLd = {
     "@context": "https://schema.org",

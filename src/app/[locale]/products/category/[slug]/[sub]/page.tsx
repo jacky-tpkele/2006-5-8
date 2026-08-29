@@ -5,16 +5,15 @@ import { notFound } from "next/navigation";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
   categoryBySlug,
-  categoryContent,
   categorySlugMap,
-  products,
   site,
   subCategories,
-  subCategoryBySlug,
 } from "@/data/site";
+import { getProducts, getSubCategory } from "@/lib/i18n";
+import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
 type SubPageProps = {
-  params: Promise<{ slug: string; sub: string }>;
+  params: Promise<{ slug: string; sub: string; locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -25,32 +24,37 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: SubPageProps): Promise<Metadata> {
-  const { slug, sub } = await params;
-  const subCat = subCategoryBySlug[sub];
+  const { slug, sub, locale } = await params;
+  const subCat = getSubCategory(sub, locale);
   const category = categoryBySlug[slug];
   if (!subCat || !category || subCat.parent !== category) return {};
+
+  const canonical = localizedPath(`/products/category/${slug}/${sub}`, locale);
 
   return {
     title: subCat.seoTitle,
     description: subCat.seoDescription,
     keywords: subCat.seoKeywords,
-    alternates: { canonical: `/products/category/${slug}/${sub}` },
+    alternates: {
+      canonical,
+      languages: alternateLanguages(`/products/category/${slug}/${sub}`),
+    },
     openGraph: {
       title: subCat.seoTitle,
       description: subCat.seoDescription,
-      url: `/products/category/${slug}/${sub}`,
+      url: canonical,
       type: "website",
     },
   };
 }
 
 export default async function SubCategoryPage({ params }: SubPageProps) {
-  const { slug, sub } = await params;
-  const subCat = subCategoryBySlug[sub];
+  const { slug, sub, locale } = await params;
+  const subCat = getSubCategory(sub, locale);
   const category = categoryBySlug[slug];
   if (!subCat || !category || subCat.parent !== category) notFound();
 
-  const items = products.filter((p) => p.subCategorySlug === sub);
+  const items = getProducts(locale).filter((p) => p.subCategorySlug === sub);
   const cover = items[0]?.image;
 
   const jsonLd = {
