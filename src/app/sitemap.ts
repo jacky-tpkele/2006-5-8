@@ -2,11 +2,25 @@ import type { MetadataRoute } from "next";
 import { blogPosts, categorySlugMap, products, site, subCategories } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/products", "/solar-dc-protection", "/blog", "/contact"].map((path) => ({
+  const staticRoutes = [
+    "",
+    "/about",
+    "/products",
+    "/solar-dc-protection",
+    "/blog",
+    "/contact",
+    "/mcb-manufacturer",
+    "/spd-manufacturer",
+    "/ats-manufacturer",
+    "/combiner-box-manufacturer",
+    "/energy-meter-manufacturer",
+    "/voltage-protector-manufacturer",
+    "/privacy-policy",
+  ].map((path) => ({
     url: `${site.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.8,
+    priority: path === "" ? 1 : path.endsWith("-manufacturer") ? 0.85 : 0.8,
   }));
 
   const categoryRoutes = Object.values(categorySlugMap).map((slug) => ({
