@@ -127,11 +127,11 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
               intent="quote"
             />
             <InquiryModal
-              triggerLabel="Download Catalog"
+              triggerLabel={t("downloadCatalog")}
               triggerClassName="btn ghost dark"
               product={category}
               intent="catalog"
-              title="Request Catalog"
+              title={t("requestCatalog")}
             />
           </div>
         </div>

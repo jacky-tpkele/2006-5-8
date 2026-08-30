@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function McbCategoryPage({ params }: PageProps) {
   const { locale } = await params;
+  const t = await getTranslations("common");
   const category = "MCB";
   const content = getCategoryContent(category, locale);
   const menuGroup = productMenu.find((g) => g.label === category);
@@ -89,8 +91,8 @@ export default async function McbCategoryPage({ params }: PageProps) {
             </div>
           )}
           <div className="button-row">
-            <InquiryModal triggerLabel="Request Quotation" triggerClassName="btn primary" product={category} intent="quote" />
-            <InquiryModal triggerLabel="Ask Technical Question" triggerClassName="btn ghost dark" product={category} intent="technical" title="Ask Technical Question" />
+            <InquiryModal triggerLabel={t("requestQuotation")} triggerClassName="btn primary" product={category} intent="quote" />
+            <InquiryModal triggerLabel={t("askTechnical")} triggerClassName="btn ghost dark" product={category} intent="technical" title={t("askTechnical")} />
           </div>
         </div>
         {heroImage && (

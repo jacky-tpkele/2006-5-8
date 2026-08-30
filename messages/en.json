@@ -196,7 +196,15 @@
     "applications": "Applications",
     "gallery": "Gallery",
     "relatedProducts": "Related Products",
-    "backToTop": "Back to Top"
+    "backToTop": "Back to Top",
+    "downloadCatalog": "Download Catalog",
+    "requestCatalog": "Request Catalog",
+    "inquireNow": "Inquire Now",
+    "askTechnical": "Ask Technical Question",
+    "requestQuotation": "Request Quotation",
+    "productsAvailable": "{count} products available",
+    "productAvailable": "{count} product available",
+    "getOemProposal": "Get OEM Proposal"
   },
   "form": {
     "name": "Name",

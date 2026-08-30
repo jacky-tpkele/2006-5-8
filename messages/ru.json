@@ -196,7 +196,15 @@
     "applications": "Применение",
     "gallery": "Галерея",
     "relatedProducts": "Сопутствующая продукция",
-    "backToTop": "Наверх"
+    "backToTop": "Наверх",
+    "downloadCatalog": "Скачать каталог",
+    "requestCatalog": "Запросить каталог",
+    "inquireNow": "Отправить запрос",
+    "askTechnical": "Задать технический вопрос",
+    "requestQuotation": "Запросить расчёт",
+    "productsAvailable": "Доступно {count} продуктов",
+    "productAvailable": "Доступен {count} продукт",
+    "getOemProposal": "Запросить предложение OEM"
   },
   "form": {
     "name": "Имя",

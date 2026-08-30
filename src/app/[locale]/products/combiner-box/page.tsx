@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CombinerBoxCategoryPage({ params }: PageProps) {
   const { locale } = await params;
+  const t = await getTranslations("common");
   const category = "Combiner Box";
   const content = getCategoryContent(category, locale);
   const items = getProducts(locale).filter((p) => p.parentCategory === category);
@@ -86,8 +88,8 @@ export default async function CombinerBoxCategoryPage({ params }: PageProps) {
             </div>
           )}
           <div className="button-row">
-            <InquiryModal triggerLabel="Request Quotation" triggerClassName="btn primary" product={category} intent="quote" />
-            <InquiryModal triggerLabel="Ask Technical Question" triggerClassName="btn ghost dark" product={category} intent="technical" title="Ask Technical Question" />
+            <InquiryModal triggerLabel={t("requestQuotation")} triggerClassName="btn primary" product={category} intent="quote" />
+            <InquiryModal triggerLabel={t("askTechnical")} triggerClassName="btn ghost dark" product={category} intent="technical" title={t("askTechnical")} />
           </div>
         </div>
         {heroImage && (

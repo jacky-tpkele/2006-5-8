@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function VoltageProtectorCategoryPage({ params }: PageProps) {
   const { locale } = await params;
+  const t = await getTranslations("common");
   const category = "Voltage Protector";
   const content = getCategoryContent(category, locale);
   const items = getProducts(locale).filter((p) => p.parentCategory === category);
@@ -107,8 +109,8 @@ export default async function VoltageProtectorCategoryPage({ params }: PageProps
             </div>
           )}
           <div className="button-row">
-            <InquiryModal triggerLabel="Request Quotation" triggerClassName="btn primary" product={category} intent="quote" />
-            <InquiryModal triggerLabel="Ask Technical Question" triggerClassName="btn ghost dark" product={category} intent="technical" title="Ask Technical Question" />
+            <InquiryModal triggerLabel={t("requestQuotation")} triggerClassName="btn primary" product={category} intent="quote" />
+            <InquiryModal triggerLabel={t("askTechnical")} triggerClassName="btn ghost dark" product={category} intent="technical" title={t("askTechnical")} />
           </div>
         </div>
         {heroImage && (
@@ -183,7 +185,7 @@ export default async function VoltageProtectorCategoryPage({ params }: PageProps
             </p>
             <div className="button-row" style={{ marginTop: 16 }}>
               <InquiryModal
-                triggerLabel="Get OEM Proposal"
+                triggerLabel={t("getOemProposal")}
                 triggerClassName="btn primary"
                 product={category}
                 intent="factory"

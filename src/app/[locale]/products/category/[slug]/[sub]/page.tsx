@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
   categoryBySlug,
@@ -50,6 +51,7 @@ export async function generateMetadata({ params }: SubPageProps): Promise<Metada
 
 export default async function SubCategoryPage({ params }: SubPageProps) {
   const { slug, sub, locale } = await params;
+  const t = await getTranslations("common");
   const subCat = getSubCategory(sub, locale);
   const category = categoryBySlug[slug];
   if (!subCat || !category || subCat.parent !== category) notFound();
@@ -107,13 +109,13 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
           <p className="detail-copy">{subCat.intro}</p>
           <div className="button-row">
             <InquiryModal
-              triggerLabel="Request Quote"
+              triggerLabel={t("requestQuote")}
               triggerClassName="btn primary"
               product={subCat.label}
               intent="quote"
             />
             <Link className="btn ghost dark" href={`/products/category/${slug}`}>
-              Back to {category}
+              ← {category}
             </Link>
           </div>
         </div>
@@ -131,7 +133,7 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
             <h2 className="category-grid-title">{subCat.label} Products</h2>
           </div>
           <p className="muted">
-            {items.length} {items.length > 1 ? "products" : "product"}
+            {items.length === 1 ? t("productAvailable", { count: items.length }) : t("productsAvailable", { count: items.length })}
           </p>
         </div>
 
@@ -145,10 +147,10 @@ export default async function SubCategoryPage({ params }: SubPageProps) {
                 <h3>{product.name}</h3>
                 <div className="product-card-actions">
                   <Link className="small-btn outline" href={`/products/${product.slug}`}>
-                    View Details
+                    {t("viewDetails")}
                   </Link>
                   <InquiryModal
-                    triggerLabel="Inquire Now"
+                    triggerLabel={t("inquireNow")}
                     triggerClassName="small-btn primary"
                     product={product.name}
                     intent="quote"
