@@ -1,17 +1,20 @@
 import { Link } from "@/i18n/navigation";
 import { site } from "@/data/site";
+import { localizedPath } from "@/lib/locale-path";
 
 export type Crumb = { label: string; href?: string };
 
 type PageTitleProps = {
   title: string;
   crumb: string;
+  homeLabel?: string;
+  locale?: string;
   parents?: Crumb[];
 };
 
-export function PageTitle({ title, crumb, parents = [] }: PageTitleProps) {
+export function PageTitle({ title, crumb, homeLabel = "Home", locale, parents = [] }: PageTitleProps) {
   const trail: Array<{ label: string; href?: string }> = [
-    { label: "Home", href: "/" },
+    { label: homeLabel, href: "/" },
     ...parents,
     { label: crumb },
   ];
@@ -23,7 +26,9 @@ export function PageTitle({ title, crumb, parents = [] }: PageTitleProps) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      ...(item.href ? { item: `${site.url}${item.href === "/" ? "" : item.href}` } : {}),
+      ...(item.href
+        ? { item: `${site.url}${localizedPath(item.href, locale ?? "en")}` }
+        : {}),
     })),
   };
 

@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
 import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
-import { certifications, exportMarkets, oemCapabilities } from "@/data/site";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about" });
 
   return {
-  title: "About TPKELE | Solar & Low Voltage Protection Manufacturer",
-  description: "TPKELE manufactures DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS and energy meters. ISO 9001 certified, CE/IEC/RoHS compliant, exporting to 100+ countries.",
+    title: t("title"),
+    description: t("description"),
     alternates: {
       canonical: localizedPath("/about", locale),
       languages: alternateLanguages("/about"),
@@ -21,54 +22,52 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+const certificationCodes = ["CE", "RoHS", "IEC", "ISO", "TUV", "CB"] as const;
+const marketKeys = ["europe", "middleEast", "southeastAsia", "southAmerica", "africa", "oceania"] as const;
+
 const factoryImages = [
-  { src: "/assets/about/factory-1.webp", alt: "Factory assembly line" },
-  { src: "/assets/about/factory-2.webp", alt: "Electrical product production workshop" },
-  { src: "/assets/about/factory-3.webp", alt: "Quality inspection area" },
-];
+  { src: "/assets/about/factory-1.webp", altKey: "factoryImageAlt1" },
+  { src: "/assets/about/factory-2.webp", altKey: "factoryImageAlt2" },
+  { src: "/assets/about/factory-3.webp", altKey: "factoryImageAlt3" },
+] as const;
 
 const exhibitionImages = [
-  { src: "/assets/about/exhibition-1.webp", alt: "TPKELE exhibition booth" },
-  { src: "/assets/about/exhibition-2.webp", alt: "Product discussion at exhibition" },
-  { src: "/assets/about/exhibition-3.webp", alt: "TPKELE team at industry exhibition" },
-];
+  { src: "/assets/about/exhibition-1.webp", altKey: "exhibitionImageAlt1" },
+  { src: "/assets/about/exhibition-2.webp", altKey: "exhibitionImageAlt2" },
+  { src: "/assets/about/exhibition-3.webp", altKey: "exhibitionImageAlt3" },
+] as const;
 
-const values = [
-  { icon: "✓", title: "Experienced Team", text: "Fast technical matching for product lists, drawings and tenders." },
-  { icon: "⚙", title: "Advanced Equipment", text: "Standardized production and inspection for repeatable output." },
-  { icon: "◎", title: "Quality Control", text: "Routine checks for appearance, function, marking and packaging." },
-  { icon: "↗", title: "Global Export", text: "Export packaging and documentation support for overseas buyers." },
-  { icon: "◇", title: "OEM/ODM Service", text: "Logo, label, packaging and specification customization." },
-];
+const valueIcons = ["✓", "⚙", "◎", "↗", "◇"];
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about" });
+
   return (
     <main>
-      <PageTitle title="About Us" crumb="About Us" />
+      <PageTitle title={t("pageTitle")} crumb={t("pageTitle")} homeLabel={t("breadcrumbHome")} locale={locale} />
 
       <section className="section split">
         <div>
-          <p className="eyebrow">Who We Are</p>
-          <h2>Solar & low voltage protection manufacturing for project buyers worldwide.</h2>
-          <p>
-            TPKELE is an ISO 9001 manufacturer dedicated to solar DC protection and low voltage electrical components. Our product program covers DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS, voltage protectors and DIN-rail energy meters — engineered to IEC standards and CE / RoHS compliant. We support solar EPCs, electrical distributors, OEM buyers, panel builders, industrial contractors and importers with technical product matching, certificate documentation, custom OEM programs and reliable container-load delivery.
-          </p>
-          <InquiryModal triggerLabel="Request Factory Profile" triggerClassName="btn primary" intent="factory" />
+          <p className="eyebrow">{t("whoWeAre")}</p>
+          <h2>{t("heroHeading")}</h2>
+          <p>{t("intro")}</p>
+          <InquiryModal triggerLabel={t("requestFactoryProfile")} triggerClassName="btn primary" intent="factory" />
         </div>
-        <Image className="feature-image" src="/assets/about/building.webp" alt="TPKELE headquarters and factory building" width={620} height={378} />
+        <Image className="feature-image" src="/assets/about/building.webp" alt={t("buildingAlt")} width={620} height={378} />
       </section>
 
       <section className="trust-band" id="certifications">
         <div className="trust-band-head">
-          <p className="eyebrow">Certifications & Standards</p>
-          <h2>Independently verified for international tenders</h2>
+          <p className="eyebrow">{t("certificationsEyebrow")}</p>
+          <h2>{t("certificationsHeading")}</h2>
         </div>
         <div className="cert-row">
-          {certifications.map((cert) => (
-            <div className="cert-chip" key={cert.code}>
-              <CertIcon code={cert.code} className="cert-chip-icon" />
-              <strong>{cert.label}</strong>
-              <span>{cert.description}</span>
+          {certificationCodes.map((code) => (
+            <div className="cert-chip" key={code}>
+              <CertIcon code={code} className="cert-chip-icon" />
+              <strong>{t(`certifications.${code}.label`)}</strong>
+              <span>{t(`certifications.${code}.description`)}</span>
             </div>
           ))}
         </div>
@@ -76,38 +75,38 @@ export default function AboutPage() {
 
       <section className="section compact">
         <div className="section-heading centered">
-          <p className="eyebrow">Our Factory</p>
-          <h2>Controlled production from assembly to inspection</h2>
+          <p className="eyebrow">{t("factoryEyebrow")}</p>
+          <h2>{t("factoryHeading")}</h2>
         </div>
         <div className="media-grid">
           {factoryImages.map((image) => (
-            <Image src={image.src} alt={image.alt} width={390} height={200} key={image.src} />
+            <Image src={image.src} alt={t(image.altKey)} width={390} height={200} key={image.src} />
           ))}
         </div>
       </section>
 
       <section className="section compact">
         <div className="section-heading centered">
-          <p className="eyebrow">Our Exhibition</p>
-          <h2>Meeting partners through global industry events</h2>
+          <p className="eyebrow">{t("exhibitionEyebrow")}</p>
+          <h2>{t("exhibitionHeading")}</h2>
         </div>
         <div className="media-grid">
           {exhibitionImages.map((image) => (
-            <Image src={image.src} alt={image.alt} width={390} height={200} key={image.src} />
+            <Image src={image.src} alt={t(image.altKey)} width={390} height={200} key={image.src} />
           ))}
         </div>
       </section>
 
       <section className="section market-band muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Global Reach</p>
-          <h2>Exporting to 100+ countries across six regions</h2>
+          <p className="eyebrow">{t("globalEyebrow")}</p>
+          <h2>{t("globalHeading")}</h2>
         </div>
         <div className="market-grid">
-          {exportMarkets.map((m) => (
-            <div className="market-card" key={m.region}>
-              <strong>{m.region}</strong>
-              <span>{m.countries}</span>
+          {marketKeys.map((key) => (
+            <div className="market-card" key={key}>
+              <strong>{t(`markets.${key}.region`)}</strong>
+              <span>{t(`markets.${key}.countries`)}</span>
             </div>
           ))}
         </div>
@@ -116,18 +115,16 @@ export default function AboutPage() {
       <section className="section">
         <div className="oem-band">
           <div>
-            <p className="eyebrow">OEM / ODM Manufacturing</p>
-            <h2>Your brand, our factory.</h2>
-            <p>
-              We partner with distributors, importers and brand owners to deliver complete private-label protection programs — from logo and packaging through to custom catalogs and project documentation.
-            </p>
+            <p className="eyebrow">{t("oemEyebrow")}</p>
+            <h2>{t("oemHeading")}</h2>
+            <p>{t("oemDescription")}</p>
             <div className="button-row">
-              <InquiryModal triggerLabel="Get OEM Proposal" triggerClassName="btn primary" intent="factory" />
+              <InquiryModal triggerLabel={t("getOemProposal")} triggerClassName="btn primary" intent="factory" />
             </div>
           </div>
           <ul>
-            {oemCapabilities.map((cap) => (
-              <li key={cap}>{cap}</li>
+            {Array.from({ length: 6 }, (_, index) => (
+              <li key={index}>{t(`oemCapability${index + 1}`)}</li>
             ))}
           </ul>
         </div>
@@ -135,15 +132,15 @@ export default function AboutPage() {
 
       <section className="section muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Why Choose Us</p>
-          <h2>Support that makes procurement easier</h2>
+          <p className="eyebrow">{t("whyEyebrow")}</p>
+          <h2>{t("whyHeading")}</h2>
         </div>
         <div className="value-grid">
-          {values.map((value) => (
-            <article key={value.title}>
-              <span className="line-icon">{value.icon}</span>
-              <h3>{value.title}</h3>
-              <p>{value.text}</p>
+          {valueIcons.map((icon, index) => (
+            <article key={index}>
+              <span className="line-icon">{icon}</span>
+              <h3>{t(`value${index + 1}Title`)}</h3>
+              <p>{t(`value${index + 1}Text`)}</p>
             </article>
           ))}
         </div>
