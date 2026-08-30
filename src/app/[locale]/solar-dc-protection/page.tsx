@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import { PageTitle } from "@/components/PageTitle";
 import { certifications, products } from "@/data/site";
+import { getTranslations } from "next-intl/server";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -35,85 +36,60 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const countBySub = (slug: string) => products.filter((p) => p.subCategorySlug === slug).length;
-const countByParent = (cat: string) => products.filter((p) => p.parentCategory === cat).length;
+export default async function SolarDcProtectionPage() {
+  const t = await getTranslations("solarDc");
 
-const coreProducts = [
-  {
-    name: "DC MCB",
-    image: "/assets/home-products-normalized/mcb.webp",
-    description:
-      "Solar DC miniature circuit breakers with arc-quenching contacts for PV strings, DC bus and battery storage. 1P–4P, 6–63A, up to 1500V DC, IEC 60947-2 design.",
-    href: "/products/category/mcb/dc-mcb",
-    count: countBySub("dc-mcb"),
-    bullets: ["1000V / 1500V DC system options", "1P–4P pole configurations", "DC arc breaking design", "IEC 60947-2 / CE / RoHS"],
-  },
-  {
-    name: "DC SPD",
-    image: "/assets/home-products-normalized/spd.webp",
-    description:
-      "PV DC surge protective devices for combiner boxes and inverter DC inputs. 600V / 1000V / 1500V Uoc, Type 1+2 / Type 2, pluggable cartridges with visual status windows.",
-    href: "/products/category/spd/dc-spd",
-    count: countBySub("dc-spd"),
-    bullets: ["Uoc 600V / 1000V / 1500V DC", "Type 1+2 / Type 2 protection", "Pluggable cartridge design", "IEC 61643-31 / CE / RoHS"],
-  },
-  {
-    name: "PV Combiner Box",
-    image: "/assets/home-products-normalized/combiner-box.webp",
-    description:
-      "IP65 PV combiner boxes pre-assembled with DC fuses, DC SPDs and DC MCBs. Plastic and metal series, 2 / 4 / 6 / 8 / 12 / 16 string inputs, 1000V / 1500V DC ratings.",
-    href: "/products/category/combiner-box",
-    count: countByParent("Combiner Box"),
-    bullets: ["IP65 outdoor enclosure", "2–16 string inputs", "Pre-assembled DC fuse / SPD / MCB", "Custom single-line diagrams"],
-  },
-];
+  const countBySub = (slug: string) => products.filter((p) => p.subCategorySlug === slug).length;
+  const countByParent = (cat: string) => products.filter((p) => p.parentCategory === cat).length;
 
-const useCases = [
-  {
-    title: "Utility-Scale Solar Farms",
-    text: "1500V DC architecture with combiner boxes feeding inverter shelters — DC MCBs and DC SPDs sized for high-current strings.",
-  },
-  {
-    title: "Commercial & Industrial Rooftop",
-    text: "1000V / 1500V combiner boxes, DC string protection and Type 2 DC SPDs for rooftop PV across factories, warehouses and retail.",
-  },
-  {
-    title: "Residential PV Systems",
-    text: "Compact plastic combiner boxes with integrated DC fuse, DC SPD and DC MCB — clean BOS for installer-friendly residential PV.",
-  },
-  {
-    title: "Battery Energy Storage (BESS)",
-    text: "DC MCBs for battery DC bus protection and DC SPDs at BMS / PCS DC inputs for hybrid solar-storage and standalone BESS sites.",
-  },
-];
+  const coreProducts = [
+    {
+      name: t("dcMcbName"),
+      image: "/assets/home-products-normalized/mcb.webp",
+      description: t("dcMcbDesc"),
+      href: "/products/category/mcb/dc-mcb",
+      count: countBySub("dc-mcb"),
+      bullets: [t("dcMcbB1"), t("dcMcbB2"), t("dcMcbB3"), t("dcMcbB4")],
+    },
+    {
+      name: t("dcSpdName"),
+      image: "/assets/home-products-normalized/spd.webp",
+      description: t("dcSpdDesc"),
+      href: "/products/category/spd/dc-spd",
+      count: countBySub("dc-spd"),
+      bullets: [t("dcSpdB1"), t("dcSpdB2"), t("dcSpdB3"), t("dcSpdB4")],
+    },
+    {
+      name: t("combinerName"),
+      image: "/assets/home-products-normalized/combiner-box.webp",
+      description: t("combinerDesc"),
+      href: "/products/category/combiner-box",
+      count: countByParent("Combiner Box"),
+      bullets: [t("combinerB1"), t("combinerB2"), t("combinerB3"), t("combinerB4")],
+    },
+  ];
 
-const reasons = [
-  { title: "Solar-First Engineering", text: "Every DC product designed and tested specifically for photovoltaic system voltages, arc behavior and outdoor service life." },
-  { title: "Up to 1500V DC", text: "Full 1500V DC range across MCB, SPD and combiner boxes — the modern utility-scale standard for lower BOS cost." },
-  { title: "IEC-Certified for Tenders", text: "IEC 60947-2 / IEC 61643-31 / IEC 61439, plus CE and RoHS — ready for EU, MENA, SEA and LATAM project tenders." },
-  { title: "EPC & OEM Ready", text: "Custom single-line diagrams, project labelling, OEM logos and private-label catalogs — built for EPCs, distributors and brand owners." },
-];
+  const useCases = [
+    { title: t("useCase1Title"), text: t("useCase1Text") },
+    { title: t("useCase2Title"), text: t("useCase2Text") },
+    { title: t("useCase3Title"), text: t("useCase3Text") },
+    { title: t("useCase4Title"), text: t("useCase4Text") },
+  ];
 
-const faq = [
-  {
-    q: "Why do solar PV systems need DC-rated protection instead of AC MCBs?",
-    a: "DC has no zero-crossing, so arcs persist longer at break. AC MCBs cannot safely interrupt PV string DC currents. Use DC MCBs and DC SPDs sized to the system Uoc (1000V or 1500V) for safe protection of strings, combiner boxes and battery DC bus.",
-  },
-  {
-    q: "1000V vs 1500V DC — which should I specify?",
-    a: "1500V DC is now the standard for utility-scale and most commercial PV due to lower BOS cost. 1000V DC remains common in residential and small commercial systems. We supply both ratings across DC MCB, DC SPD and combiner box ranges.",
-  },
-  {
-    q: "Do your combiner boxes ship pre-assembled?",
-    a: "Yes — standard IP65 combiner boxes ship pre-assembled with DC fuses, DC SPDs and DC MCBs per your single-line diagram. We provide CAD drawings and BOM packs for tender submission.",
-  },
-  {
-    q: "Can I order a complete solar DC protection bundle for a project?",
-    a: "Yes. Send us your project current, voltage and string layout — we will quote a matched bundle of DC MCBs, DC SPDs and combiner boxes with technical datasheets and certificates as one package.",
-  },
-];
+  const reasons = [
+    { title: t("reason1Title"), text: t("reason1Text") },
+    { title: t("reason2Title"), text: t("reason2Text") },
+    { title: t("reason3Title"), text: t("reason3Text") },
+    { title: t("reason4Title"), text: t("reason4Text") },
+  ];
 
-export default function SolarDcProtectionPage() {
+  const faq = [
+    { q: t("faq1Q"), a: t("faq1A") },
+    { q: t("faq2Q"), a: t("faq2A") },
+    { q: t("faq3Q"), a: t("faq3A") },
+    { q: t("faq4Q"), a: t("faq4A") },
+  ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -145,17 +121,14 @@ export default function SolarDcProtectionPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <PageTitle title="Solar DC Protection — Built for Photovoltaic Systems" crumb="Solar DC Protection" />
+      <PageTitle title={t("pageTitle")} crumb={t("crumb")} />
 
       <section className="section compact">
         <div className="track-heading">
-          <span className="track-tag">Core Track · Solar DC Protection</span>
-          <h2 className="logo-color-title">DC MCB · DC SPD · PV Combiner Box</h2>
-          <p>
-            Purpose-built for photovoltaic strings, combiner stations, inverter DC inputs and battery energy storage. Up to
-            1500V DC, IEC-certified, and engineered to be specified by solar EPCs, distributors and OEM buyers worldwide.
-          </p>
-          <p className="hero-slogan" style={{ marginTop: 12 }}>Protect Every Watt — From Solar to Socket.</p>
+          <span className="track-tag">{t("trackTag")}</span>
+          <h2 className="logo-color-title">{t("heading")}</h2>
+          <p>{t("intro")}</p>
+          <p className="hero-slogan" style={{ marginTop: 12 }}>{t("slogan")}</p>
         </div>
 
         <div className="family-grid family-grid-3">
@@ -165,7 +138,7 @@ export default function SolarDcProtectionPage() {
                 <Image src={p.image} alt={`TPKELE ${p.name}`} width={320} height={220} />
               </Link>
               <div className="family-card-body">
-                <span className="family-card-flag solar">For Solar EPC</span>
+                <span className="family-card-flag solar">{t("cardFlag")}</span>
                 <h3>{p.name}</h3>
                 <p>{p.description}</p>
                 <ul style={{ margin: "4px 0 6px", paddingLeft: 18, color: "var(--muted)", fontSize: 13, lineHeight: 1.6 }}>
@@ -174,7 +147,7 @@ export default function SolarDcProtectionPage() {
                   ))}
                 </ul>
                 <Link className="text-link" href={p.href}>
-                  View {p.count} {p.count === 1 ? "product" : "products"} →
+                  {p.count === 1 ? t("viewSingular", { count: p.count }) : t("viewPlural", { count: p.count })}
                 </Link>
               </div>
             </article>
@@ -184,8 +157,8 @@ export default function SolarDcProtectionPage() {
 
       <section className="section muted">
         <div className="section-heading centered">
-          <p className="eyebrow">Solar Applications</p>
-          <h2>Where TPKELE Solar DC Protection is specified</h2>
+          <p className="eyebrow">{t("useCasesEyebrow")}</p>
+          <h2>{t("useCasesHeading")}</h2>
         </div>
         <div className="application-grid">
           {useCases.map((u) => (
@@ -199,8 +172,8 @@ export default function SolarDcProtectionPage() {
 
       <section className="section">
         <div className="section-heading centered">
-          <p className="eyebrow">Why TPKELE</p>
-          <h2>Solar DC protection engineered for tenders and long-term service</h2>
+          <p className="eyebrow">{t("reasonsEyebrow")}</p>
+          <h2>{t("reasonsHeading")}</h2>
         </div>
         <div className="segment-grid">
           {reasons.map((r) => (
@@ -215,10 +188,10 @@ export default function SolarDcProtectionPage() {
       <section className="trust-band" aria-label="Certifications and standards">
         <div className="trust-band-head">
           <div>
-            <p className="eyebrow" style={{ marginBottom: 6 }}>Certified for Global Solar Tenders</p>
-            <h2>CE / IEC / RoHS — Standards Solar EPCs Trust</h2>
+            <p className="eyebrow" style={{ marginBottom: 6 }}>{t("certsEyebrow")}</p>
+            <h2>{t("certsHeading")}</h2>
           </div>
-          <Link className="text-link" href="/about">View certifications →</Link>
+          <Link className="text-link" href="/about">{t("certsLink")}</Link>
         </div>
         <div className="cert-row">
           {certifications.map((cert) => (
@@ -233,8 +206,8 @@ export default function SolarDcProtectionPage() {
 
       <section className="section">
         <div className="section-heading centered">
-          <p className="eyebrow">Frequently Asked</p>
-          <h2>Solar DC protection — common questions</h2>
+          <p className="eyebrow">{t("faqEyebrow")}</p>
+          <h2>{t("faqHeading")}</h2>
         </div>
         <div className="faq-list">
           {faq.map((f) => (
@@ -248,10 +221,10 @@ export default function SolarDcProtectionPage() {
 
       <section className="section cta-section">
         <div>
-          <p className="eyebrow">Solar DC Bundle · 72-hour Quotation</p>
-          <h2>Send your PV project — get a matched DC MCB / DC SPD / Combiner Box bundle.</h2>
+          <p className="eyebrow">{t("ctaEyebrow")}</p>
+          <h2>{t("ctaHeading")}</h2>
         </div>
-        <InquiryModal triggerLabel="Request Solar DC Quote" triggerClassName="btn primary" intent="quote" />
+        <InquiryModal triggerLabel={t("ctaButton")} triggerClassName="btn primary" intent="quote" />
       </section>
     </main>
   );

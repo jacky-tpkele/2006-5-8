@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 import { LeadForm } from "@/components/LeadForm";
 
 type InquiryModalProps = {
@@ -21,8 +22,9 @@ export function InquiryModal({
   triggerContent,
   product,
   intent,
-  title = "Send Inquiry",
+  title,
 }: InquiryModalProps) {
+  const t = useTranslations("form");
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -61,13 +63,13 @@ export function InquiryModal({
               role="presentation"
               onMouseDown={(event) => event.target === event.currentTarget && setOpen(false)}
             >
-              <div className="inquiry-modal" role="dialog" aria-modal="true" aria-label={title}>
+              <div className="inquiry-modal" role="dialog" aria-modal="true" aria-label={title || t("modalTitle")}>
                 <div className="inquiry-modal-header">
-                  <h2>{title}</h2>
+                  <h2>{title || t("modalTitle")}</h2>
                   <button
                     type="button"
                     className="inquiry-modal-close"
-                    aria-label="Close"
+                    aria-label={t("close")}
                     onClick={() => setOpen(false)}
                   >
                     ×

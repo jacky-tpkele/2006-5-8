@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
 import {
   BLOG_CATEGORY_LABELS,

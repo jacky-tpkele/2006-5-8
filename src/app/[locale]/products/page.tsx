@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
-import { categoryContent, categorySlugMap, productMenu, products } from "@/data/site";
+import { categorySlugMap, productMenu, products } from "@/data/site";
+import { getCategoryContent } from "@/lib/i18n";
+import { getTranslations } from "next-intl/server";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -21,18 +23,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function ProductsPage() {
+export default async function ProductsPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations("productsPage");
+
   return (
     <main>
-      <PageTitle title="Products" crumb="Products" />
+      <PageTitle title={t("title")} crumb={t("title")} />
 
       <section className="section category-index">
         <div className="section-heading centered">
-          <p className="eyebrow">Solar DC Protection · Circuit Protection · Surge Protection · Power Distribution</p>
-          <h2>Six product families for low voltage and solar projects</h2>
+          <p className="eyebrow">{t("eyebrow")}</p>
+          <h2>{t("heading")}</h2>
           <p style={{ color: "var(--muted)", marginTop: 12, maxWidth: 720, marginInline: "auto" }}>
-            Specified by solar EPCs, electrical distributors, OEM buyers and panel builders worldwide. All products carry CE,
-            IEC and RoHS certification with OEM logo, color and packaging customization available.
+            {t("description")}
           </p>
         </div>
 
@@ -41,7 +45,8 @@ export default function ProductsPage() {
             const slug = categorySlugMap[group.label];
             const items = products.filter((p) => p.parentCategory === group.label);
             const cover = items[0]?.image;
-            const intro = categoryContent[group.label]?.intro?.split(".")[0] + ".";
+            const categoryData = getCategoryContent(group.label, locale);
+            const intro = categoryData.intro?.split(".")[0] + ".";
             return (
               <Link key={group.label} className="category-index-card" href={`/products/category/${slug}`}>
                 <div className="category-index-image">
@@ -51,7 +56,7 @@ export default function ProductsPage() {
                   <h3>{group.label}</h3>
                   <p>{intro}</p>
                   <span className="category-index-cta">
-                    View {items.length} {items.length > 1 ? "products" : "product"} →
+                    {items.length === 1 ? t("viewProductsSingular", { count: items.length }) : t("viewProductsPlural", { count: items.length })}
                   </span>
                 </div>
               </Link>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
@@ -48,6 +49,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
   const { slug, locale } = await params;
+  const t = await getTranslations("common");
   const { series } = await searchParams;
   const category = categoryBySlug[slug];
   if (!category) notFound();
@@ -119,7 +121,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           )}
           <div className="button-row" style={{ marginTop: 22 }}>
             <InquiryModal
-              triggerLabel="Request Quote & Datasheet"
+              triggerLabel={t("requestQuote")}
               triggerClassName="btn primary"
               product={category}
               intent="quote"

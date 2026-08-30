@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
 import {
   BLOG_CATEGORY_DESCRIPTIONS,

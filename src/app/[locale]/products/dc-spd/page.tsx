@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { InquiryModal } from "@/components/InquiryModal";
+import { getTranslations } from "next-intl/server";
 import {
   site,
 } from "@/data/site";
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function DcSpdPage({ params }: PageProps) {
   const { locale } = await params;
+  const t = await getTranslations("common");
   const subCat = getSubCategory("dc-spd", locale);
   if (!subCat) notFound();
   const items = getProducts(locale).filter((p) => p.subCategorySlug === "dc-spd");
@@ -84,13 +86,13 @@ export default async function DcSpdPage({ params }: PageProps) {
           <p className="detail-copy">{subCat.intro}</p>
           <div className="button-row">
             <InquiryModal
-              triggerLabel="Request Quote"
+              triggerLabel={t("requestQuote")}
               triggerClassName="btn primary"
               product={subCat.label}
               intent="quote"
             />
             <Link className="btn ghost dark" href="/products/spd">
-              Back to {category}
+              ← {category}
             </Link>
           </div>
         </div>

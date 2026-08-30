@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
@@ -93,28 +93,25 @@ export default async function HomePage({ params }: PageProps) {
   const solarDcTrack = [
     {
       slug: "dc-mcb",
-      name: "DC MCB",
+      name: t("products.dcMcbName"),
       image: "/assets/home-products-normalized/mcb.webp",
-      description:
-        "Solar DC miniature circuit breakers with arc-quenching design for PV strings, DC bus and battery storage — up to 1500V DC.",
+      description: t("products.dcMcbDesc"),
       href: "/products/category/mcb/dc-mcb",
       count: countBySub("dc-mcb"),
     },
     {
       slug: "dc-spd",
-      name: "DC SPD",
+      name: t("products.dcSpdName"),
       image: "/assets/home-products-normalized/spd.webp",
-      description:
-        "PV DC surge protectors for combiner boxes and inverter DC inputs — Type 1+2 / Type 2, 600V / 1000V / 1500V Uoc options.",
+      description: t("products.dcSpdDesc"),
       href: "/products/category/spd/dc-spd",
       count: countBySub("dc-spd"),
     },
     {
       slug: "combiner-box",
-      name: "PV Combiner Box",
+      name: t("products.combinerBoxName"),
       image: "/assets/home-products-normalized/combiner-box.webp",
-      description:
-        "IP65 PV combiner boxes pre-assembled with DC fuses, DC SPDs and DC breakers — 2 to 16 string inputs, plastic or metal.",
+      description: t("products.combinerBoxDesc"),
       href: "/products/category/combiner-box",
       count: countByParent("Combiner Box"),
     },
@@ -123,46 +120,41 @@ export default async function HomePage({ params }: PageProps) {
   const lvTrack = [
     {
       slug: "ac-mcb",
-      name: "AC MCB",
+      name: t("products.acMcbName"),
       image: "/assets/home-products-normalized/mcb.webp",
-      description:
-        "AC miniature circuit breakers, 1P–4P, 6–63A, B/C/D curves to IEC 60898-1 for residential, commercial and industrial AC distribution.",
+      description: t("products.acMcbDesc"),
       href: "/products/category/mcb/ac-mcb",
       count: countBySub("ac-mcb"),
     },
     {
       slug: "ac-spd",
-      name: "AC SPD",
+      name: t("products.acSpdName"),
       image: "/assets/home-products-normalized/spd.webp",
-      description:
-        "AC surge protective devices — Type 1, Type 2 and Type 1+2 for distribution panels, telecom cabinets and inverter AC outputs.",
+      description: t("products.acSpdDesc"),
       href: "/products/category/spd/ac-spd",
       count: countBySub("ac-spd"),
     },
     {
       slug: "ats",
-      name: "ATS",
+      name: t("products.atsName"),
       image: "/assets/home-products-normalized/ats.webp",
-      description:
-        "Dual-power automatic transfer switches that move critical loads between mains and backup — PC & CB class, 2/3/4P, 63A.",
+      description: t("products.atsDesc"),
       href: "/products/category/ats",
       count: countByParent("ATS"),
     },
     {
       slug: "voltage-protector",
-      name: "Voltage Protector",
+      name: t("products.voltageProtectorName"),
       image: "/assets/home-products-normalized/over-voltage-protector.webp",
-      description:
-        "Voltage protectors monitor incoming mains and disconnect downstream loads when the line moves outside safe limits.",
+      description: t("products.voltageProtectorDesc"),
       href: "/products/category/voltage-protector",
       count: countByParent("Voltage Protector"),
     },
     {
       slug: "energy-meter",
-      name: "Energy Meter",
+      name: t("products.energyMeterName"),
       image: "/assets/home-products-normalized/din-rail-energy-meter.webp",
-      description:
-        "DIN rail energy meters measure active energy, current and voltage for distribution boards, sub-metering and tenant billing.",
+      description: t("products.energyMeterDesc"),
       href: "/products/category/energy-meter",
       count: countByParent("Energy Meter"),
     },
@@ -313,7 +305,7 @@ export default async function HomePage({ params }: PageProps) {
           </div>
 
           <div className="product-tracks-footer">
-            <Link className="btn ghost dark" href="/products">View all products →</Link>
+            <Link className="btn ghost dark" href="/products">{t("products.viewAll")}</Link>
           </div>
         </div>
       </section>
