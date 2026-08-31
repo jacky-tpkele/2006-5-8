@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 type ChatMessage = {
   id: string;
@@ -24,6 +25,7 @@ function getOrCreateVisitorId(): string {
 }
 
 export function ChatWidget() {
+  const t = useTranslations("chat");
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -100,11 +102,11 @@ export function ChatWidget() {
         setStarted(true);
         setError("");
       } catch (err) {
-        if (!silent) setError("无法连接客服系统，请稍后再试。");
+        if (!silent) setError(t("errorConnect"));
         throw err;
       }
     },
-    []
+    [t]
   );
 
   const pollNewMessages = useCallback(async () => {
@@ -131,7 +133,7 @@ export function ChatWidget() {
   const handleStart = (e: FormEvent) => {
     e.preventDefault();
     if (!name.trim() && !email.trim()) {
-      setError("Please tell us your name or email so we can get back to you.");
+      setError(t("errorIdentity"));
       return;
     }
     startSession(name.trim(), email.trim()).catch(() => {});
@@ -163,7 +165,7 @@ export function ChatWidget() {
       lastSeenAt.current = data.message.created_at;
     } catch (_) {
       setMessages((prev) => prev.filter((m) => m.id !== optimistic.id));
-      setError("发送失败，请稍后再试。");
+      setError(t("errorSend"));
       setInput(text);
     } finally {
       setSending(false);
@@ -176,27 +178,27 @@ export function ChatWidget() {
         <button
           type="button"
           className="chat-fab"
-          aria-label="Open live chat"
+          aria-label={t("openAria")}
           onClick={() => setOpen(true)}
         >
           <span aria-hidden="true">💬</span>
-          <span className="chat-fab-label">Chat with us</span>
+          <span className="chat-fab-label">{t("fabLabel")}</span>
         </button>
       )}
 
       {open && (
-        <div className="chat-panel" role="dialog" aria-label="Live chat">
+        <div className="chat-panel" role="dialog" aria-label={t("dialogAria")}>
           <div className="chat-panel-head">
             <div>
-              <div className="chat-panel-title">TPKELE Sales Team</div>
+              <div className="chat-panel-title">{t("teamName")}</div>
               <div className="chat-panel-sub">
-                <span className="chat-online-dot" /> Usually replies within minutes
+                <span className="chat-online-dot" /> {t("replyTime")}
               </div>
             </div>
             <button
               type="button"
               className="chat-panel-close"
-              aria-label="Close"
+              aria-label={t("closeAria")}
               onClick={() => setOpen(false)}
             >
               ×
@@ -205,32 +207,30 @@ export function ChatWidget() {
 
           {!started ? (
             <form className="chat-pre-form" onSubmit={handleStart}>
-              <p className="chat-pre-lede">
-                Hi, leave your name or email so we can reply if you close this tab.
-              </p>
+              <p className="chat-pre-lede">{t("preLede")}</p>
               <label>
-                <span>Your Name</span>
+                <span>{t("nameLabel")}</span>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="John Smith"
+                  placeholder={t("namePlaceholder")}
                   autoComplete="name"
                 />
               </label>
               <label>
-                <span>Your Email</span>
+                <span>{t("emailLabel")}</span>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
+                  placeholder={t("emailPlaceholder")}
                   autoComplete="email"
                 />
               </label>
               {error && <div className="chat-error">{error}</div>}
               <button type="submit" className="chat-start-btn">
-                Start chat
+                {t("startButton")}
               </button>
             </form>
           ) : (
@@ -239,7 +239,7 @@ export function ChatWidget() {
                 {messages.length === 0 && (
                   <div className="chat-msg agent">
                     <div className="chat-msg-body">
-                      Hi {name || "there"}! How can we help you with your project?
+                      {t("greeting", { name: name || t("fallbackName") })}
                     </div>
                   </div>
                 )}
@@ -259,7 +259,7 @@ export function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   rows={1}
-                  placeholder="Type your message…"
+                  placeholder={t("inputPlaceholder")}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !e.shiftKey) {
                       e.preventDefault();
@@ -268,7 +268,7 @@ export function ChatWidget() {
                   }}
                   disabled={sending}
                 />
-                <button type="submit" disabled={sending || !input.trim()} aria-label="Send">
+                <button type="submit" disabled={sending || !input.trim()} aria-label={t("sendAria")}>
                   ➤
                 </button>
               </form>

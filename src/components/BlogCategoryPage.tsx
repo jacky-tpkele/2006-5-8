@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
+import { getTranslations } from "next-intl/server";
 import {
-  BLOG_CATEGORY_DESCRIPTIONS,
-  BLOG_CATEGORY_LABELS,
   BLOG_CATEGORY_ORDER,
   countBlogPostsByCategory,
   filterBlogPostsByCategory,
   getPublishedBlogPostsWithFallback,
+  getBlogCategoryLabel,
+  getBlogCategoryDescription,
   type BlogCategorySlug,
   type BlogPost,
 } from "@/lib/blog";
@@ -16,24 +17,26 @@ type BlogCategoryPageProps = {
   category: BlogCategorySlug;
   crumb: string;
   title: string;
+  locale: string;
 };
 
-export async function BlogCategoryPage({ category, crumb, title }: BlogCategoryPageProps) {
+export async function BlogCategoryPage({ category, crumb, title, locale }: BlogCategoryPageProps) {
   const allPosts = await getPublishedBlogPostsWithFallback();
   const filtered = filterBlogPostsByCategory(allPosts, category);
   const counts = countBlogPostsByCategory(allPosts);
+  const t = await getTranslations({ locale, namespace: "blog" });
 
   return (
     <main>
       <PageTitle title={title} crumb={crumb} />
       <section className="section">
         <p style={{ color: "var(--muted)", marginBottom: 18, maxWidth: 760 }}>
-          {BLOG_CATEGORY_DESCRIPTIONS[category]}
+          {getBlogCategoryDescription(category, (k) => t(k))}
         </p>
 
         <nav aria-label="Blog categories" className="category-strip" style={{ marginBottom: 24 }}>
           <Link href="/blog" className="category-chip">
-            All <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts.all || 0})</span>
+            {t("allFilter")} <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts.all || 0})</span>
           </Link>
           {BLOG_CATEGORY_ORDER.map((slug) => (
             <Link
@@ -41,7 +44,7 @@ export async function BlogCategoryPage({ category, crumb, title }: BlogCategoryP
               href={`/blog/${slug}`}
               className={slug === category ? "category-chip active" : "category-chip"}
             >
-              {BLOG_CATEGORY_LABELS[slug]}
+              {getBlogCategoryLabel(slug, (k) => t(k))}
               {counts[slug] ? <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts[slug]})</span> : null}
             </Link>
           ))}
@@ -73,7 +76,7 @@ export async function BlogCategoryPage({ category, crumb, title }: BlogCategoryP
                 </Link>
                 <div>
                   <time dateTime={post.date}>
-                    {new Intl.DateTimeFormat("en", {
+                    {new Intl.DateTimeFormat(locale, {
                       month: "long",
                       day: "numeric",
                       year: "numeric",
@@ -92,14 +95,14 @@ export async function BlogCategoryPage({ category, crumb, title }: BlogCategoryP
                       verticalAlign: "middle",
                     }}
                   >
-                    {BLOG_CATEGORY_LABELS[category]}
+                    {getBlogCategoryLabel(post.articleType, (k) => t(k))}
                   </span>
                   <h2>
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
                   <p>{post.excerpt}</p>
                   <Link className="text-link" href={`/blog/${post.slug}`}>
-                    Read article →
+                    {t("readArticle")}
                   </Link>
                 </div>
               </article>

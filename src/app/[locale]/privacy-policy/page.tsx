@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import styles from "./privacy.module.css";
 
@@ -6,10 +7,11 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "privacy" });
 
   return {
-  title: "Privacy Policy",
-  description: "Learn how TPKELE collects, uses, and protects your personal information.",
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     alternates: {
       canonical: localizedPath("/privacy-policy", locale),
       languages: alternateLanguages("/privacy-policy"),
@@ -17,128 +19,116 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function PrivacyPolicy() {
+export default async function PrivacyPolicy({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "privacy" });
+
   return (
     <main className={styles.page}>
       <div className={styles.container}>
-        <h1>Privacy Policy</h1>
-        <p className={styles.updated}>Last updated: June 4, 2026</p>
+        <h1>{t("pageTitle")}</h1>
+        <p className={styles.updated}>{t("lastUpdated", { date: "June 4, 2026" })}</p>
 
         <section>
-          <h2>Introduction</h2>
-          <p>
-            TPKELE ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. 
-            This privacy policy explains how we collect, use, and safeguard your information when you visit our website.
-          </p>
+          <h2>{t("intro.title")}</h2>
+          <p>{t("intro.content")}</p>
         </section>
 
         <section>
-          <h2>Information We Collect</h2>
-          <h3>Automatically Collected Information</h3>
-          <p>When you visit our website, we may automatically collect:</p>
+          <h2>{t("infoCollect.title")}</h2>
+          <h3>{t("infoCollect.autoTitle")}</h3>
+          <p>{t("infoCollect.autoIntro")}</p>
           <ul>
-            <li>Usage data (pages visited, time spent, referring URLs)</li>
-            <li>Device information (browser type, operating system, IP address)</li>
-            <li>Analytics data through Google Analytics</li>
+            <li>{t("infoCollect.autoItem1")}</li>
+            <li>{t("infoCollect.autoItem2")}</li>
+            <li>{t("infoCollect.autoItem3")}</li>
           </ul>
 
-          <h3>Information You Provide</h3>
-          <p>When you contact us or submit an inquiry, we collect:</p>
+          <h3>{t("infoCollect.provideTitle")}</h3>
+          <p>{t("infoCollect.provideIntro")}</p>
           <ul>
-            <li>Name and company information</li>
-            <li>Email address and phone number</li>
-            <li>Product inquiry details</li>
-            <li>Any other information you choose to provide</li>
+            <li>{t("infoCollect.provideItem1")}</li>
+            <li>{t("infoCollect.provideItem2")}</li>
+            <li>{t("infoCollect.provideItem3")}</li>
+            <li>{t("infoCollect.provideItem4")}</li>
           </ul>
         </section>
 
         <section>
-          <h2>How We Use Cookies</h2>
-          <p>We use cookies and similar tracking technologies to:</p>
+          <h2>{t("cookies.title")}</h2>
+          <p>{t("cookies.intro")}</p>
           <ul>
-            <li><strong>Essential Cookies:</strong> Enable core website functionality</li>
-            <li><strong>Analytics Cookies:</strong> Understand how visitors use our website (Google Analytics)</li>
-            <li><strong>Preference Cookies:</strong> Remember your cookie consent choices</li>
+            <li><strong>{t("cookies.essential")}</strong> {t("cookies.essentialDesc")}</li>
+            <li><strong>{t("cookies.analytics")}</strong> {t("cookies.analyticsDesc")}</li>
+            <li><strong>{t("cookies.preference")}</strong> {t("cookies.preferenceDesc")}</li>
           </ul>
-          <p>You can control cookie settings through the banner on our website or your browser settings.</p>
+          <p>{t("cookies.control")}</p>
         </section>
 
         <section>
-          <h2>How We Use Your Information</h2>
-          <p>We use collected information to:</p>
+          <h2>{t("howWeUse.title")}</h2>
+          <p>{t("howWeUse.intro")}</p>
           <ul>
-            <li>Respond to your inquiries and provide customer support</li>
-            <li>Improve our website and user experience</li>
-            <li>Analyze website traffic and usage patterns</li>
-            <li>Send product information and marketing communications (with your consent)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Data Sharing and Disclosure</h2>
-          <p>We do not sell your personal data. We may share information with:</p>
-          <ul>
-            <li><strong>Service Providers:</strong> Google Analytics for website analytics</li>
-            <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+            <li>{t("howWeUse.item1")}</li>
+            <li>{t("howWeUse.item2")}</li>
+            <li>{t("howWeUse.item3")}</li>
+            <li>{t("howWeUse.item4")}</li>
           </ul>
         </section>
 
         <section>
-          <h2>Your Rights</h2>
-          <p>Depending on your location, you may have the right to:</p>
+          <h2>{t("dataSharing.title")}</h2>
+          <p>{t("dataSharing.intro")}</p>
           <ul>
-            <li>Access the personal data we hold about you</li>
-            <li>Request correction or deletion of your data</li>
-            <li>Opt-out of marketing communications</li>
-            <li>Withdraw consent for cookie usage</li>
-            <li>Lodge a complaint with a data protection authority</li>
+            <li><strong>{t("dataSharing.serviceProviders")}</strong> {t("dataSharing.serviceProvidersDesc")}</li>
+            <li><strong>{t("dataSharing.legal")}</strong> {t("dataSharing.legalDesc")}</li>
           </ul>
         </section>
 
         <section>
-          <h2>Data Security</h2>
-          <p>
-            We implement appropriate technical and organizational measures to protect your personal data. 
-            However, no method of transmission over the Internet is 100% secure.
-          </p>
-        </section>
-
-        <section>
-          <h2>International Data Transfers</h2>
-          <p>
-            Your data may be transferred to and processed in countries other than your own. 
-            We ensure appropriate safeguards are in place to protect your data.
-          </p>
-        </section>
-
-        <section>
-          <h2>Children's Privacy</h2>
-          <p>
-            Our website is not intended for children under 16. We do not knowingly collect personal data from children.
-          </p>
-        </section>
-
-        <section>
-          <h2>Changes to This Policy</h2>
-          <p>
-            We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page 
-            and updating the "Last updated" date.
-          </p>
-        </section>
-
-        <section>
-          <h2>Contact Us</h2>
-          <p>If you have any questions about this privacy policy or our data practices, please contact us:</p>
+          <h2>{t("yourRights.title")}</h2>
+          <p>{t("yourRights.intro")}</p>
           <ul>
-            <li><strong>Email:</strong> info@tpkele.com</li>
-            <li><strong>Website:</strong> www.tpkele.com</li>
+            <li>{t("yourRights.item1")}</li>
+            <li>{t("yourRights.item2")}</li>
+            <li>{t("yourRights.item3")}</li>
+            <li>{t("yourRights.item4")}</li>
+            <li>{t("yourRights.item5")}</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>{t("dataSecurity.title")}</h2>
+          <p>{t("dataSecurity.content")}</p>
+        </section>
+
+        <section>
+          <h2>{t("international.title")}</h2>
+          <p>{t("international.content")}</p>
+        </section>
+
+        <section>
+          <h2>{t("children.title")}</h2>
+          <p>{t("children.content")}</p>
+        </section>
+
+        <section>
+          <h2>{t("changes.title")}</h2>
+          <p>{t("changes.content")}</p>
+        </section>
+
+        <section>
+          <h2>{t("contact.title")}</h2>
+          <p>{t("contact.intro")}</p>
+          <ul>
+            <li><strong>{t("contact.email")}</strong> info@tpkele.com</li>
+            <li><strong>{t("contact.website")}</strong> www.tpkele.com</li>
           </ul>
         </section>
 
         <div className={styles.compliance}>
           <p>
-            <strong>Compliance:</strong> This privacy policy is designed to comply with GDPR (EU), CCPA (California), 
-            and other applicable data protection regulations.
+            <strong>{t("compliance.label")}</strong> {t("compliance.content")}
           </p>
         </div>
       </div>

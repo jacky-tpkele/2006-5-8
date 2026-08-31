@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -16,11 +17,11 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
 
   return {
-  title: "Blog — Solar DC & Low Voltage Protection Knowledge",
-  description:
-    "Practical guides on choosing MCBs, SPDs, ATS, PV combiner boxes and energy meters for solar & low voltage projects. Selection tips and application notes.",
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     alternates: {
       canonical: localizedPath("/blog", locale),
       languages: alternateLanguages("/blog"),
@@ -28,17 +29,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function BlogPage() {
+export default async function BlogPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
   const blogPosts = await getPublishedBlogPostsWithFallback();
   const counts = countBlogPostsByCategory(blogPosts);
 
   return (
     <main>
-      <PageTitle title="Blog" crumb="Blog" />
+      <PageTitle title={t("pageTitle")} crumb={t("pageTitle")} />
       <section className="section">
         <nav aria-label="Blog categories" className="category-strip" style={{ marginBottom: 24 }}>
           <Link href="/blog" className="category-chip active">
-            All <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts.all || 0})</span>
+            {t("allFilter")} <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts.all || 0})</span>
           </Link>
           {BLOG_CATEGORY_ORDER.map((slug) => (
             <Link key={slug} href={`/blog/${slug}`} className="category-chip">
@@ -58,7 +61,7 @@ export default async function BlogPage() {
               </Link>
               <div>
                 <time dateTime={post.date}>
-                  {new Intl.DateTimeFormat("en", {
+                  {new Intl.DateTimeFormat(locale, {
                     month: "long",
                     day: "numeric",
                     year: "numeric",
@@ -78,7 +81,7 @@ export default async function BlogPage() {
                       verticalAlign: "middle",
                     }}
                   >
-                    {getBlogCategoryLabel(post.articleType) || post.articleType}
+                    {getBlogCategoryLabel(post.articleType, (k) => t(k)) || post.articleType}
                   </span>
                 ) : null}
                 <h2>
@@ -86,7 +89,7 @@ export default async function BlogPage() {
                 </h2>
                 <p>{post.excerpt}</p>
                 <Link className="text-link" href={`/blog/${post.slug}`}>
-                  Read article →
+                  {t("readArticle")}
                 </Link>
               </div>
             </article>

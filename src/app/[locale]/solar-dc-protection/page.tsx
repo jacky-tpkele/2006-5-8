@@ -10,25 +10,14 @@ import { getTranslations } from "next-intl/server";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-const PAGE_DESCRIPTION =
-  "TPKELE solar DC protection: DC MCB, DC SPD and PV combiner boxes for photovoltaic strings and battery storage. Up to 1500V DC, IEC-certified, OEM-ready.";
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "solarDc" });
 
   return {
-  title: "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box",
-  description: PAGE_DESCRIPTION,
-  keywords: [
-    "solar DC protection",
-    "DC MCB",
-    "DC SPD",
-    "PV combiner box",
-    "1500V DC breaker",
-    "PV surge protector",
-    "solar circuit breaker manufacturer",
-    "photovoltaic protection",
-  ],
+    title: t("seoTitle"),
+    description: t("seoDescription"),
+    keywords: t("seoKeywords").split(", "),
     alternates: {
       canonical: localizedPath("/solar-dc-protection", locale),
       languages: alternateLanguages("/solar-dc-protection"),
@@ -93,8 +82,8 @@ export default async function SolarDcProtectionPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box",
-    description: PAGE_DESCRIPTION,
+    name: t("seoTitle"),
+    description: t("seoDescription"),
     url: "https://www.tpkele.com/solar-dc-protection",
     hasPart: coreProducts.map((p) => ({
       "@type": "Product",

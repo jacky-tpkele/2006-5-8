@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { InquiryModal } from "@/components/InquiryModal";
 import type { Product, ProductCategory } from "@/data/site";
 
@@ -43,6 +44,8 @@ function CategoryProductGridInner({
   subs = [],
   categorySlug,
 }: Props) {
+  const t = useTranslations("categoryGrid");
+  const tc = useTranslations("common");
   const searchParams = useSearchParams();
   const [series, setSeries] = useState(initialSeries);
 
@@ -64,10 +67,10 @@ function CategoryProductGridInner({
         <div className="category-grid-head">
           <div>
             <span className="section-mark" aria-hidden="true" />
-            <h2 className="category-grid-title">{category} Series</h2>
+            <h2 className="category-grid-title">{t("seriesHeading", { category })}</h2>
           </div>
           <p className="muted">
-            {subs.length} {subs.length > 1 ? "series" : "series"}
+            {t("seriesCount", { count: subs.length })}
           </p>
         </div>
 
@@ -79,8 +82,8 @@ function CategoryProductGridInner({
               </div>
               <div className="sub-card-body">
                 <h3>{s.label}</h3>
-                <p>{s.count} {s.count > 1 ? "products" : "product"}</p>
-                <span className="sub-card-cta">Explore series →</span>
+                <p>{t("productCount", { count: s.count })}</p>
+                <span className="sub-card-cta">{t("exploreSeries")}</span>
               </div>
             </Link>
           ))}
@@ -99,18 +102,18 @@ function CategoryProductGridInner({
           <h2 className="category-grid-title">{category} Products</h2>
         </div>
         <p className="muted">
-          {products.length} {products.length > 1 ? "products available" : "product available"}
+          {t("productsAvailable", { count: products.length })}
         </p>
       </div>
 
       {showSeriesBar && (
-        <div className="series-strip" aria-label="Sub-series">
+        <div className="series-strip" aria-label={t("subSeriesAria")}>
           <button
             type="button"
             className={`series-chip ${series === "" ? "active" : ""}`}
             onClick={() => setSeries("")}
           >
-            All {category}
+            {t("allFilter", { category })}
           </button>
           {seriesOptions.map((opt) => {
             const value = decodeURIComponent(opt.href.split("series=")[1] || "");
@@ -138,10 +141,10 @@ function CategoryProductGridInner({
               <h3>{product.name}</h3>
               <div className="product-card-actions">
                 <Link className="small-btn outline" href={`/products/${product.slug}`}>
-                  View Details
+                  {tc("viewDetails")}
                 </Link>
                 <InquiryModal
-                  triggerLabel="Inquire Now"
+                  triggerLabel={tc("inquireNow")}
                   triggerClassName="small-btn primary"
                   product={product.name}
                   intent="quote"

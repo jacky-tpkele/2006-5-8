@@ -3,8 +3,10 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
+import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import { findProduct, site } from "@/data/site";
+import { localizedPath, alternateLanguages } from "@/lib/locale-path";
 import {
   getAbsoluteUrl,
   getAllBlogSlugsWithFallback,
@@ -14,7 +16,7 @@ import {
 } from "@/lib/blog";
 import { renderMarkdownBlockHtml } from "@/lib/markdown";
 
-type RouteParams = { slug: string };
+type RouteParams = { slug: string; locale: string };
 
 export const dynamicParams = true;
 
@@ -23,19 +25,24 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Promise<RouteParams> }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) return { title: "Article not found" };
+
+  const route = `/blog/${post.slug}`;
 
   return {
     title: post.seoTitle ?? post.title,
     description: post.seoDescription,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: {
+      canonical: localizedPath(route, locale),
+      languages: alternateLanguages(route),
+    },
     openGraph: {
       type: "article",
       title: post.seoTitle ?? post.title,
       description: post.seoDescription,
-      url: `${site.url}/blog/${post.slug}`,
+      url: `${site.url}${localizedPath(route, locale)}`,
       images: [{ url: getAbsoluteUrl(post.image, site.url) }],
       publishedTime: post.date,
     },
@@ -43,7 +50,8 @@ export async function generateMetadata({ params }: { params: Promise<RouteParams
 }
 
 export default async function BlogArticlePage({ params }: { params: Promise<RouteParams> }) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
   const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) notFound();
 
@@ -107,14 +115,14 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
       <article className="section blog-article">
         <header className="blog-article-head">
           <nav className="blog-article-crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
+            <Link href="/">{t("breadcrumbHome")}</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog">{t("breadcrumbBlog")}</Link>
             {post.articleType ? (
               <>
                 <span aria-hidden="true">/</span>
                 <Link href={getBlogCategoryHref(post.articleType)}>
-                  {getBlogCategoryLabel(post.articleType) || post.articleType}
+                  {getBlogCategoryLabel(post.articleType, t) || post.articleType}
                 </Link>
               </>
             ) : null}

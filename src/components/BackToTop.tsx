@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function BackToTop() {
+  const t = useTranslations("common");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export function BackToTop() {
     <button
       type="button"
       className="float-contact"
-      aria-label="Back to top"
+      aria-label={t("backToTopAria")}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       <span aria-hidden="true">↑</span>

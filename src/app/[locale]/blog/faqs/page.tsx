@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { BlogCategoryPage } from "@/components/BlogCategoryPage";
-import { BLOG_CATEGORY_DESCRIPTIONS, BLOG_CATEGORY_LABELS } from "@/lib/blog";
+import { getBlogCategoryLabel, getBlogCategoryDescription } from "@/lib/blog";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  const label = getBlogCategoryLabel("faqs", (k) => t(k));
+  const description = getBlogCategoryDescription("faqs", (k) => t(k));
 
   return {
-  title: `${BLOG_CATEGORY_LABELS.faqs} - TPKELE Blog`,
-  description: BLOG_CATEGORY_DESCRIPTIONS.faqs,
+    title: `${label} - TPKELE Blog`,
+    description,
     alternates: {
       canonical: localizedPath("/blog/faqs", locale),
       languages: alternateLanguages("/blog/faqs"),
@@ -18,6 +22,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function FaqsPage() {
-  return <BlogCategoryPage category="faqs" title="FAQs" crumb="Blog · FAQs" />;
+export default async function FaqsPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  const label = getBlogCategoryLabel("faqs", (k) => t(k));
+
+  return <BlogCategoryPage category="faqs" title={label} crumb={`Blog · ${label}`} locale={locale} />;
 }

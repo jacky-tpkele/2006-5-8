@@ -87,6 +87,8 @@
     "copyright": "© 2026 TPKELE. All Rights Reserved."
   },
   "home": {
+    "seoTitle": "Solar DC & Low Voltage Protection Manufacturer | TPKELE",
+    "seoDescription": "TPKELE manufactures IEC-certified DC MCB, DC SPD, PV combiner boxes, AC MCB, SPD, ATS and energy meters for solar installations in 100+ countries.",
     "hero": {
       "title": "Your Solar DC & Low Voltage Supply Partner",
       "solarButton": "SOLAR DC PROTECTION",
@@ -204,7 +206,9 @@
     "requestQuotation": "Request Quotation",
     "productsAvailable": "{count} products available",
     "productAvailable": "{count} product available",
-    "getOemProposal": "Get OEM Proposal"
+    "getOemProposal": "Get OEM Proposal",
+    "backToTopAria": "Back to top",
+    "languageAria": "Language"
   },
   "form": {
     "name": "Name",
@@ -241,9 +245,28 @@
     "applications": "Applications",
     "whyChoose": "Why Choose TPKELE",
     "process": "How to Work with Us",
-    "faq": "Frequently Asked Questions"
+    "faq": "Frequently Asked Questions",
+    "acMcb": {
+      "seoTitle": "AC Miniature Circuit Breaker Supplier — MCB 1P–4P | TPKELE",
+      "seoDescription": "TPKELE AC MCB: 1-pole to 4-pole, 6A–125A, B/C/D curve, 230V–400V AC. CE/IEC 60947-2 certified. MOQ 100 pcs, OEM welcome.",
+      "beyondTitle": "More Than Just a Circuit Breaker Manufacturer",
+      "ctaEyebrow": "MCB Supply · 72-Hour Quotation",
+      "ctaTitle": "Send your project specifications — get pricing for AC MCB in any configuration.",
+      "requestQuote": "Request a Quote"
+    },
+    "dcMcb": {
+      "seoTitle": "DC Circuit Breaker Supplier — DC MCB 250V–1500V | TPKELE",
+      "seoDescription": "TPKELE DC MCB for solar PV: 250V, 550V, 1000V, 1500V DC. 1A–125A, 1P–4P. IEC 60947-2 certified. Factory-direct, OEM available.",
+      "beyondTitle": "More Than Just a DC MCB Manufacturer",
+      "ctaEyebrow": "DC MCB Supply · 72-Hour Quotation",
+      "ctaTitle": "Send your project specifications — get pricing for DC MCB in any configuration.",
+      "requestQuote": "Request a Quote"
+    }
   },
   "solarDc": {
+    "seoTitle": "Solar DC Protection — DC MCB, DC SPD & PV Combiner Box",
+    "seoDescription": "TPKELE solar DC protection: DC MCB, DC SPD and PV combiner boxes for photovoltaic strings and battery storage. Up to 1500V DC, IEC-certified, OEM-ready.",
+    "seoKeywords": "solar DC protection, DC MCB, DC SPD, PV combiner box, 1500V DC breaker, PV surge protector, solar circuit breaker manufacturer, photovoltaic protection",
     "pageTitle": "Solar DC Protection — Built for Photovoltaic Systems",
     "crumb": "Solar DC Protection",
     "trackTag": "Core Track · Solar DC Protection",
@@ -309,6 +332,8 @@
     "ctaButton": "Request Solar DC Quote"
   },
   "productsPage": {
+    "seoTitle": "Products — Solar DC, MCB, SPD, ATS, Combiner Box, Meter",
+    "seoDescription": "TPKELE product range: DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS, voltage protector & DIN-rail meter. CE/IEC/RoHS certified, OEM ready.",
     "title": "Products",
     "eyebrow": "Solar DC Protection · Circuit Protection · Surge Protection · Power Distribution",
     "heading": "Six product families for low voltage and solar projects",
@@ -338,12 +363,30 @@
     "certificationsEyebrow": "Certifications & Standards",
     "certificationsHeading": "Independently verified for international tenders",
     "certifications": {
-      "CE": { "label": "CE Marking", "description": "EU low voltage & EMC directives" },
-      "RoHS": { "label": "RoHS Compliant", "description": "Restricted hazardous substances" },
-      "IEC": { "label": "IEC Standards", "description": "60898 / 60947 / 61643 / 62052" },
-      "ISO": { "label": "ISO 9001", "description": "Quality management system" },
-      "TUV": { "label": "TÜV Tested", "description": "Independent lab verification" },
-      "CB": { "label": "CB Scheme", "description": "Globally recognized test report" }
+      "CE": {
+        "label": "CE Marking",
+        "description": "EU low voltage & EMC directives"
+      },
+      "RoHS": {
+        "label": "RoHS Compliant",
+        "description": "Restricted hazardous substances"
+      },
+      "IEC": {
+        "label": "IEC Standards",
+        "description": "60898 / 60947 / 61643 / 62052"
+      },
+      "ISO": {
+        "label": "ISO 9001",
+        "description": "Quality management system"
+      },
+      "TUV": {
+        "label": "TÜV Tested",
+        "description": "Independent lab verification"
+      },
+      "CB": {
+        "label": "CB Scheme",
+        "description": "Globally recognized test report"
+      }
     },
     "factoryEyebrow": "Our Factory",
     "factoryHeading": "Controlled production from assembly to inspection",
@@ -358,12 +401,30 @@
     "globalEyebrow": "Global Reach",
     "globalHeading": "Exporting to 100+ countries across six regions",
     "markets": {
-      "europe": { "region": "Europe", "countries": "Germany, Spain, Italy, Netherlands, Poland, UK" },
-      "middleEast": { "region": "Middle East", "countries": "UAE, Saudi Arabia, Jordan, Egypt, Turkey" },
-      "southeastAsia": { "region": "Southeast Asia", "countries": "Vietnam, Philippines, Thailand, Indonesia, Malaysia" },
-      "southAmerica": { "region": "South America", "countries": "Brazil, Chile, Colombia, Peru, Mexico" },
-      "africa": { "region": "Africa", "countries": "South Africa, Nigeria, Kenya, Morocco" },
-      "oceania": { "region": "Oceania", "countries": "Australia, New Zealand" }
+      "europe": {
+        "region": "Europe",
+        "countries": "Germany, Spain, Italy, Netherlands, Poland, UK"
+      },
+      "middleEast": {
+        "region": "Middle East",
+        "countries": "UAE, Saudi Arabia, Jordan, Egypt, Turkey"
+      },
+      "southeastAsia": {
+        "region": "Southeast Asia",
+        "countries": "Vietnam, Philippines, Thailand, Indonesia, Malaysia"
+      },
+      "southAmerica": {
+        "region": "South America",
+        "countries": "Brazil, Chile, Colombia, Peru, Mexico"
+      },
+      "africa": {
+        "region": "Africa",
+        "countries": "South Africa, Nigeria, Kenya, Morocco"
+      },
+      "oceania": {
+        "region": "Oceania",
+        "countries": "Australia, New Zealand"
+      }
     },
     "oemEyebrow": "OEM / ODM Manufacturing",
     "oemHeading": "Your brand, our factory.",
@@ -387,5 +448,224 @@
     "value4Text": "Export packaging and documentation support for overseas buyers.",
     "value5Title": "OEM/ODM Service",
     "value5Text": "Logo, label, packaging and specification customization."
+  },
+  "chat": {
+    "openAria": "Open live chat",
+    "fabLabel": "Chat with us",
+    "dialogAria": "Live chat",
+    "teamName": "TPKELE Sales Team",
+    "replyTime": "Usually replies within minutes",
+    "closeAria": "Close",
+    "preLede": "Hi, leave your name or email so we can reply if you close this tab.",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "John Smith",
+    "emailLabel": "Your Email",
+    "emailPlaceholder": "you@company.com",
+    "startButton": "Start chat",
+    "greeting": "Hi {name}! How can we help you with your project?",
+    "fallbackName": "there",
+    "inputPlaceholder": "Type your message…",
+    "sendAria": "Send",
+    "errorIdentity": "Please tell us your name or email so we can get back to you.",
+    "errorConnect": "Unable to reach our chat service. Please try again in a moment.",
+    "errorSend": "Message failed to send. Please try again."
+  },
+  "cookies": {
+    "title": "We value your privacy",
+    "message": "We use cookies to enhance your browsing experience and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+    "privacyLink": "Privacy Policy",
+    "reject": "Reject",
+    "accept": "Accept All"
+  },
+  "categoryGrid": {
+    "seriesHeading": "{category} Series",
+    "productsHeading": "{category} Products",
+    "seriesCount": "{count, plural, one {# series} other {# series}}",
+    "productCount": "{count, plural, one {# product} other {# products}}",
+    "productsAvailable": "{count, plural, one {# product available} other {# products available}}",
+    "exploreSeries": "Explore series →",
+    "allFilter": "All {category}",
+    "subSeriesAria": "Sub-series"
+  },
+  "contact": {
+    "seoTitle": "Contact",
+    "seoDescription": "Contact TPKELE for low voltage product catalog, pricing, OEM/ODM support and project quotation.",
+    "pageTitle": "Contact",
+    "crumb": "Contact",
+    "eyebrow": "Get In Touch",
+    "heading": "Send your product list or project requirement.",
+    "lede": "Our sales team can help with product selection, catalog files, sample requests, OEM branding and quotation.",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "mapAria": "TPKELE location map",
+    "mapTitle": "TPKELE Manufacturing Center",
+    "mapLocation": "Wenzhou, Zhejiang, China"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.\nBut don't worry — we have plenty of other pages to explore.",
+    "backHome": "Back to Home",
+    "browseProducts": "Browse Products",
+    "quickLinks": "Quick Links",
+    "dcMcbTitle": "DC MCB",
+    "dcMcbDesc": "Solar Circuit Breakers",
+    "dcSpdTitle": "DC SPD",
+    "dcSpdDesc": "PV Surge Protectors",
+    "combinerTitle": "Combiner Box",
+    "combinerDesc": "PV String Protection",
+    "aboutTitle": "About Us",
+    "aboutDesc": "Factory & Certifications",
+    "contactLede": "Need help finding something specific?",
+    "contactUs": "Contact Us"
+  },
+  "privacy": {
+    "seoTitle": "Privacy Policy",
+    "seoDescription": "Learn how TPKELE collects, uses, and protects your personal information.",
+    "pageTitle": "Privacy Policy",
+    "lastUpdated": "Last updated: {date}",
+    "intro": {
+      "title": "Introduction",
+      "content": "TPKELE (\"we\", \"our\", or \"us\") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website."
+    },
+    "infoCollect": {
+      "title": "Information We Collect",
+      "autoTitle": "Automatically Collected Information",
+      "autoIntro": "When you visit our website, we may automatically collect:",
+      "autoItem1": "Usage data (pages visited, time spent, referring URLs)",
+      "autoItem2": "Device information (browser type, operating system, IP address)",
+      "autoItem3": "Analytics data through Google Analytics",
+      "provideTitle": "Information You Provide",
+      "provideIntro": "When you contact us or submit an inquiry, we collect:",
+      "provideItem1": "Name and company information",
+      "provideItem2": "Email address and phone number",
+      "provideItem3": "Product inquiry details",
+      "provideItem4": "Any other information you choose to provide"
+    },
+    "cookies": {
+      "title": "How We Use Cookies",
+      "intro": "We use cookies and similar tracking technologies to:",
+      "essential": "Essential Cookies:",
+      "essentialDesc": "Enable core website functionality",
+      "analytics": "Analytics Cookies:",
+      "analyticsDesc": "Understand how visitors use our website (Google Analytics)",
+      "preference": "Preference Cookies:",
+      "preferenceDesc": "Remember your cookie consent choices",
+      "control": "You can control cookie settings through the banner on our website or your browser settings."
+    },
+    "howWeUse": {
+      "title": "How We Use Your Information",
+      "intro": "We use collected information to:",
+      "item1": "Respond to your inquiries and provide customer support",
+      "item2": "Improve our website and user experience",
+      "item3": "Analyze website traffic and usage patterns",
+      "item4": "Send product information and marketing communications (with your consent)"
+    },
+    "dataSharing": {
+      "title": "Data Sharing and Disclosure",
+      "intro": "We do not sell your personal data. We may share information with:",
+      "serviceProviders": "Service Providers:",
+      "serviceProvidersDesc": "Google Analytics for website analytics",
+      "legal": "Legal Requirements:",
+      "legalDesc": "When required by law or to protect our rights"
+    },
+    "yourRights": {
+      "title": "Your Rights",
+      "intro": "Depending on your location, you may have the right to:",
+      "item1": "Access the personal data we hold about you",
+      "item2": "Request correction or deletion of your data",
+      "item3": "Opt-out of marketing communications",
+      "item4": "Withdraw consent for cookie usage",
+      "item5": "Lodge a complaint with a data protection authority"
+    },
+    "dataSecurity": {
+      "title": "Data Security",
+      "content": "We implement appropriate technical and organizational measures to protect your personal data. However, no method of transmission over the Internet is 100% secure."
+    },
+    "international": {
+      "title": "International Data Transfers",
+      "content": "Your data may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your data."
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "content": "Our website is not intended for children under 16. We do not knowingly collect personal data from children."
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the \"Last updated\" date."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "intro": "If you have any questions about this privacy policy or our data practices, please contact us:",
+      "email": "Email:",
+      "website": "Website:"
+    },
+    "compliance": {
+      "label": "Compliance:",
+      "content": "This privacy policy is designed to comply with GDPR (EU), CCPA (California), and other applicable data protection regulations."
+    }
+  },
+  "blog": {
+    "seoTitle": "Blog — Solar DC & Low Voltage Protection Knowledge",
+    "seoDescription": "Practical guides on choosing MCBs, SPDs, ATS, PV combiner boxes and energy meters for solar & low voltage projects. Selection tips and application notes.",
+    "pageTitle": "Blog",
+    "allFilter": "All",
+    "readArticle": "Read article →",
+    "categories": {
+      "product-knowledge": {
+        "label": "Product Knowledge",
+        "description": "In-depth product knowledge and technical fundamentals for MCBs, SPDs, ATS, combiner boxes and more."
+      },
+      "selection-guides": {
+        "label": "Selection Guides",
+        "description": "Practical buying and selection guides - choose the right protection device for your project parameters."
+      },
+      "comparisons": {
+        "label": "Comparisons",
+        "description": "Side-by-side comparisons (MCB vs MCCB, AC vs DC SPD, etc.) to make informed sourcing decisions."
+      },
+      "application-scenarios": {
+        "label": "Applications",
+        "description": "Real-world application notes for solar, low-voltage distribution, and industrial installations."
+      },
+      "faqs": {
+        "label": "FAQs",
+        "description": "Quick answers to frequently asked questions about specifications, certifications, and installation."
+      }
+    },
+    "breadcrumbHome": "Home",
+    "breadcrumbBlog": "Blog"
+  },
+  "manufacturer": {
+    "manufacturing": "Manufacturing",
+    "whyItMatters": "Why It Matters",
+    "vsTrader": "Manufacturer vs Trader",
+    "productScope": "Product Scope",
+    "buyerRequirements": "Buyer Requirements",
+    "oemWorkflow": "OEM Workflow",
+    "factoryQuality": "Factory & Quality",
+    "documentation": "Documentation",
+    "standards": "Standards & Approvals",
+    "commercial": "Commercial Alignment",
+    "faq": "FAQ",
+    "note": "Note",
+    "requestQuote": "Request a Quote",
+    "sendSpecs": "Send Your Specifications",
+    "ctaEyebrow": "{category} Supply · 72-Hour Quotation",
+    "ctaTitle": "Send your project specifications — get pricing for {product} in any configuration."
+  },
+  "beyond": {
+    "eyebrow": "Beyond Manufacturing",
+    "title": "More Than Just a Circuit Breaker Manufacturer",
+    "subtitle": "At TPKELE, we go beyond manufacturing by offering a suite of value-added services tailored to meet your project needs. Every customer receives personalized attention, expert guidance, and seamless support throughout their journey with us.",
+    "consultTitle": "Service Consultation",
+    "consultText": "Whether your requirements are straightforward or complex, our team provides expert advice and technical consultation. For more intricate projects, we offer in-depth engineering support to ensure optimal product selection, guaranteeing safety and efficiency in your electrical systems.",
+    "recommendTitle": "Product Recommendations",
+    "recommendText": "Unsure which circuit breaker suits your system? Our specialists provide free, customized recommendations based on your specific operational and environmental requirements, ensuring you get the perfect fit for your electrical protection needs.",
+    "logisticsTitle": "Logistics Support",
+    "logisticsText": "If you lack a reliable freight forwarder, we can arrange transportation from our factory to your project site at no extra cost. Our logistics team ensures timely and secure delivery to keep your project on schedule, minimizing downtime and delays.",
+    "installTitle": "Installation Support",
+    "installText": "Need help with installation? Our technical team is available to answer your questions or provide hands-on support. For larger projects, we can even dispatch an engineer to your site for on-the-ground assistance, ensuring seamless integration within your electrical network."
   }
 }

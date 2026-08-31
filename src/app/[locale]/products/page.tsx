@@ -11,11 +11,11 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "productsPage" });
 
   return {
-  title: "Products — Solar DC, MCB, SPD, ATS, Combiner Box, Meter",
-  description:
-    "TPKELE product range: DC MCB, AC MCB, DC SPD, AC SPD, PV combiner box, ATS, voltage protector & DIN-rail meter. CE/IEC/RoHS certified, OEM ready.",
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     alternates: {
       canonical: localizedPath("/products", locale),
       languages: alternateLanguages("/products"),

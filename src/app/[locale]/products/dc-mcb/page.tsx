@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
@@ -9,18 +10,15 @@ import { FeaturesGrid } from "./FeaturesGrid";
 import { SpecsSection } from "./SpecsSection";
 import { TripCurves } from "./TripCurves";
 
-const PAGE_TITLE = "DC Circuit Breaker Supplier — DC MCB 250V–1500V | TPKELE";
-const PAGE_DESCRIPTION =
-  "TPKELE supplies DC miniature circuit breakers (DC MCB) for solar PV, battery storage, EV charging and DC distribution. 1P to 4P, 6A–125A, up to 1500VDC, magnetic arc extinction, IEC 60947-2 certified, OEM-ready.";
-
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "categoryPage" });
 
   return {
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
+    title: t("dcMcb.seoTitle"),
+    description: t("dcMcb.seoDescription"),
     alternates: {
       canonical: localizedPath("/products/dc-mcb", locale),
       languages: alternateLanguages("/products/dc-mcb"),
@@ -37,12 +35,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function DcCircuitBreakersPage() {
+export default async function DcCircuitBreakersPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "categoryPage" });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "DC Miniature Circuit Breaker",
-    description: PAGE_DESCRIPTION,
+    description: t("dcMcb.seoDescription"),
     url: "https://www.tpkele.com/products/dc-mcb",
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Electrical Protection Devices",
@@ -74,13 +75,13 @@ export default function DcCircuitBreakersPage() {
         highlights={companyHighlights}
         ctaProduct="DC MCB"
       />
-      <BeyondSection />
+      <BeyondSection locale={locale} />
       <section className="section cta-section">
         <div>
-          <p className="eyebrow">DC MCB Supply · 72-Hour Quotation</p>
-          <h2>Send your project specifications — get pricing for DC MCB in any voltage class.</h2>
+          <p className="eyebrow">{t("dcMcb.ctaEyebrow")}</p>
+          <h2>{t("dcMcb.ctaTitle")}</h2>
         </div>
-        <InquiryModal triggerLabel="Request a Quote" triggerClassName="btn primary" intent="quote" product="DC MCB" />
+        <InquiryModal triggerLabel={t("dcMcb.requestQuote")} triggerClassName="btn primary" intent="quote" product="DC MCB" />
       </section>
     </main>
   );

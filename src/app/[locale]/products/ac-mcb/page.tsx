@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { HeroSection } from "./HeroSection";
@@ -9,18 +10,15 @@ import { CompanySection } from "./CompanySection";
 import { TripCurves } from "./TripCurves";
 import { BeyondSection } from "./BeyondSection";
 
-const PAGE_TITLE = "AC Miniature Circuit Breaker Supplier — MCB 1P–4P | TPKELE";
-const PAGE_DESCRIPTION =
-  "TPKELE supplies AC miniature circuit breakers (MCB) for residential, commercial, and industrial distribution. 1P to 4P, 6A–63A, B/C/D trip curves, 6kA/10kA breaking capacity. IEC 60898-1 certified, OEM-ready.";
-
 type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "categoryPage" });
 
   return {
-    title: PAGE_TITLE,
-    description: PAGE_DESCRIPTION,
+    title: t("acMcb.seoTitle"),
+    description: t("acMcb.seoDescription"),
     alternates: {
       canonical: localizedPath("/products/ac-mcb", locale),
       languages: alternateLanguages("/products/ac-mcb"),
@@ -36,12 +34,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function CircuitBreakersPage() {
+export default async function CircuitBreakersPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "categoryPage" });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "AC Miniature Circuit Breaker",
-    description: PAGE_DESCRIPTION,
+    description: t("acMcb.seoDescription"),
     url: "https://www.tpkele.com/products/ac-mcb",
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Electrical Protection Devices",
@@ -56,13 +57,13 @@ export default function CircuitBreakersPage() {
       <SpecsSection />
       <TripCurves />
       <CompanySection />
-      <BeyondSection />
+      <BeyondSection locale={locale} title={t("acMcb.beyondTitle")} />
       <section className="section cta-section">
         <div>
-          <p className="eyebrow">MCB Supply · 72-Hour Quotation</p>
-          <h2>Send your project specifications — get pricing for AC MCB in any configuration.</h2>
+          <p className="eyebrow">{t("acMcb.ctaEyebrow")}</p>
+          <h2>{t("acMcb.ctaTitle")}</h2>
         </div>
-        <InquiryModal triggerLabel="Request a Quote" triggerClassName="btn primary" intent="quote" product="AC MCB" />
+        <InquiryModal triggerLabel={t("requestQuote")} triggerClassName="btn primary" intent="quote" product="AC MCB" />
       </section>
     </main>
   );

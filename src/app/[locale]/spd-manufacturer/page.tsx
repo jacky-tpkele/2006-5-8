@@ -27,12 +27,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function SpdManufacturerRoute() {
+export default async function SpdManufacturerRoute({ params }: PageProps) {
+  const { locale } = await params;
   const jsonLd = buildManufacturerJsonLd(data);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ManufacturerPage data={data} />
+      <ManufacturerPage data={data} locale={locale} />
     </>
   );
 }

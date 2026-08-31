@@ -3,7 +3,7 @@ import { blogPosts as staticBlogPosts, type BlogPost as StaticBlogPost } from "@
 export const BLOG_REVALIDATE_SECONDS = 30;
 export const DEFAULT_BLOG_IMAGE = "/assets/blog/default.webp";
 
-// 新的 slug 到标签的映射
+// 新的 slug 到标签的映射（英文回退，UI 请用 getBlogCategoryLabels）
 export const BLOG_CATEGORY_LABELS: Record<string, string> = {
   "product-knowledge": "Product Knowledge",
   "selection-guides": "Selection Guides",
@@ -32,7 +32,7 @@ export const BLOG_CATEGORY_DESCRIPTIONS: Record<string, string> = {
     "Real-world application notes for solar, low-voltage distribution, and industrial installations.",
   "faqs":
     "Quick answers to frequently asked questions about specifications, certifications, and installation.",
-};
+}; // 英文回退，UI 请用 getBlogCategoryDescription
 
 export const BLOG_CATEGORY_ORDER = ["product-knowledge", "selection-guides", "comparisons", "application-scenarios", "faqs"];
 export const VALID_BLOG_CATEGORIES = Object.keys(BLOG_CATEGORY_LABELS);
@@ -86,6 +86,23 @@ function getString(value: unknown, fallback = "") {
   return typeof value === "string" && value.trim() ? value : fallback;
 }
 
+export type BlogCategoryTranslator = (key: string) => string;
+
+function translateCategoryField(
+  slug: string,
+  field: "label" | "description",
+  t?: BlogCategoryTranslator,
+) {
+  if (!t) return "";
+  const key = `categories.${slug}.${field}`;
+  try {
+    const value = t(key);
+    return value && value !== key ? value : "";
+  } catch {
+    return "";
+  }
+}
+
 export function normalizeBlogCategory(value: unknown): BlogCategorySlug | null {
   const raw = getString(value).toLowerCase();
   if (!raw) return null;
@@ -94,9 +111,10 @@ export function normalizeBlogCategory(value: unknown): BlogCategorySlug | null {
   return normalized in BLOG_CATEGORY_LABELS ? (normalized as BlogCategorySlug) : null;
 }
 
-export function getBlogCategoryLabel(value: unknown) {
+export function getBlogCategoryLabel(value: unknown, t?: BlogCategoryTranslator): string {
   const category = normalizeBlogCategory(value);
-  return category ? BLOG_CATEGORY_LABELS[category] : null;
+  if (!category) return "";
+  return translateCategoryField(category, "label", t) || BLOG_CATEGORY_LABELS[category] || category;
 }
 
 export function getBlogCategoryHref(value: unknown) {
@@ -382,4 +400,8 @@ export function isRemoteImageUrl(url: string) {
 export function getAbsoluteUrl(url: string, siteUrl: string) {
   if (isRemoteImageUrl(url)) return url;
   return `${siteUrl}${url.startsWith("/") ? url : `/${url}`}`;
+}
+
+export function getBlogCategoryDescription(slug: string, t?: BlogCategoryTranslator) {
+  return translateCategoryField(slug, "description", t) || BLOG_CATEGORY_DESCRIPTIONS[slug] || "";
 }

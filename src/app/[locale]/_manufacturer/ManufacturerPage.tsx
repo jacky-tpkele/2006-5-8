@@ -1,10 +1,13 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import type { ManufacturerData } from "./types";
 import "./manufacturer.css";
 
-export function ManufacturerPage({ data }: { data: ManufacturerData }) {
+export async function ManufacturerPage({ data, locale }: { data: ManufacturerData; locale: string }) {
+  const t = await getTranslations({ locale, namespace: "manufacturer" });
+
   return (
     <main className="mfr-page">
 
@@ -21,23 +24,23 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
         />
         <div className="mfr-hero-inner">
           <div className="mfr-hero-left">
-            <p className="eyebrow">TPKELE · {data.category} Manufacturing</p>
+            <p className="eyebrow">TPKELE · {data.category} {t("manufacturing")}</p>
             <h1>{data.heroTitle}</h1>
             <p className="mfr-hero-sub">{data.heroSubtitle}</p>
             <div className="mfr-hero-tags">
-              {data.heroTags.map((t) => (
-                <span className="mfr-tag" key={t}>{t}</span>
+              {data.heroTags.map((tag) => (
+                <span className="mfr-tag" key={tag}>{tag}</span>
               ))}
             </div>
             <div className="mfr-hero-cta">
               <InquiryModal
-                triggerLabel="Request a Quote"
+                triggerLabel={t("requestQuote")}
                 triggerClassName="btn primary"
                 intent="quote"
                 product={data.productLabel}
               />
               <InquiryModal
-                triggerLabel="Send Your Specifications"
+                triggerLabel={t("sendSpecs")}
                 triggerClassName="btn ghost dark"
                 intent="specs"
                 product={data.productLabel}
@@ -66,7 +69,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       {/* ── 2. WHY DEDICATED MANUFACTURER ───────────────────────── */}
       <section className="section mfr-section">
         <div className="section-heading">
-          <p className="eyebrow">Why It Matters</p>
+          <p className="eyebrow">{t("whyItMatters")}</p>
           <h2>{data.whyTitle}</h2>
           <p className="mfr-intro">{data.whyIntro}</p>
         </div>
@@ -84,7 +87,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       <section className="mfr-section-wash">
         <div className="section mfr-section">
           <div className="section-heading">
-            <p className="eyebrow">Manufacturer vs Trader</p>
+            <p className="eyebrow">{t("vsTrader")}</p>
             <h2>{data.compare.title}</h2>
           </div>
           <div className="mfr-table-wrap">
@@ -111,7 +114,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       {/* ── 4. PRODUCT SCOPE BY SERIES ───────────────────────────── */}
       <section className="section mfr-section">
         <div className="section-heading">
-          <p className="eyebrow">Product Scope</p>
+          <p className="eyebrow">{t("productScope")}</p>
           <h2>{data.scopeTitle}</h2>
           <p className="mfr-intro">{data.scopeIntro}</p>
         </div>
@@ -126,7 +129,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
         </div>
         {data.scopeNote && (
           <p className="mfr-scope-note">
-            <span className="mfr-note-label">Note</span>
+            <span className="mfr-note-label">{t("note")}</span>
             {data.scopeNote}
           </p>
         )}
@@ -136,7 +139,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       <section className="mfr-section-wash">
         <div className="section mfr-section">
           <div className="section-heading">
-            <p className="eyebrow">Buyer Requirements</p>
+            <p className="eyebrow">{t("buyerRequirements")}</p>
             <h2>{data.buyerTitle}</h2>
             <p className="mfr-intro">{data.buyerIntro}</p>
           </div>
@@ -158,7 +161,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       {/* ── 6. OEM WORKFLOW ──────────────────────────────────────── */}
       <section className="section mfr-section">
         <div className="section-heading">
-          <p className="eyebrow">OEM Workflow</p>
+          <p className="eyebrow">{t("oemWorkflow")}</p>
           <h2>{data.oemTitle}</h2>
           <p className="mfr-intro">{data.oemIntro}</p>
         </div>
@@ -176,7 +179,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       <section className="mfr-section-wash">
         <div className="section mfr-section">
           <div className="section-heading">
-            <p className="eyebrow">Factory &amp; Quality</p>
+            <p className="eyebrow">{t("factoryQuality")}</p>
             <h2>{data.factoryTitle}</h2>
             <p className="mfr-intro">{data.factoryIntro}</p>
           </div>
@@ -198,7 +201,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       {/* ── 8. DOCUMENTATION TABLE ───────────────────────────────── */}
       <section className="section mfr-section">
         <div className="section-heading">
-          <p className="eyebrow">Documentation</p>
+          <p className="eyebrow">{t("documentation")}</p>
           <h2>{data.docsTitle}</h2>
           <p className="mfr-intro">{data.docsIntro}</p>
         </div>
@@ -226,7 +229,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       <section className="mfr-section-wash">
         <div className="section mfr-section">
           <div className="section-heading">
-            <p className="eyebrow">Standards &amp; Approvals</p>
+            <p className="eyebrow">{t("standards")}</p>
             <h2>{data.standardsTitle}</h2>
             <p className="mfr-intro">{data.standardsIntro}</p>
           </div>
@@ -254,7 +257,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       {/* ── 10. COMMERCIAL POINTS TABLE ──────────────────────────── */}
       <section className="section mfr-section">
         <div className="section-heading">
-          <p className="eyebrow">Commercial Alignment</p>
+          <p className="eyebrow">{t("commercial")}</p>
           <h2>{data.commercialTitle}</h2>
           <p className="mfr-intro">{data.commercialIntro}</p>
         </div>
@@ -282,7 +285,7 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       <section className="mfr-section-wash">
         <div className="section mfr-section">
           <div className="section-heading">
-            <p className="eyebrow">FAQ</p>
+            <p className="eyebrow">{t("faq")}</p>
             <h2>{data.faqTitle}</h2>
           </div>
           <div className="mfr-faq">
@@ -299,11 +302,11 @@ export function ManufacturerPage({ data }: { data: ManufacturerData }) {
       {/* ── 12. CTA ──────────────────────────────────────────────── */}
       <section className="section cta-section">
         <div>
-          <p className="eyebrow">{data.category} Supply · 72-Hour Quotation</p>
-          <h2>Send your project specifications — get pricing for {data.productLabel} in any configuration.</h2>
+          <p className="eyebrow">{t("ctaEyebrow", { category: data.category })}</p>
+          <h2>{t("ctaTitle", { product: data.productLabel })}</h2>
         </div>
         <InquiryModal
-          triggerLabel="Request a Quote"
+          triggerLabel={t("requestQuote")}
           triggerClassName="btn primary"
           intent="quote"
           product={data.productLabel}

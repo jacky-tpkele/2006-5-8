@@ -17,11 +17,11 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
 
   return {
-    title: "Solar DC & Low Voltage Protection Manufacturer | TPKELE",
-    description:
-      "TPKELE manufactures IEC-certified DC MCB, DC SPD, PV combiner boxes, AC MCB, SPD, ATS and energy meters for solar installations in 100+ countries.",
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     alternates: {
       canonical: localizedPath("/", locale),
       languages: alternateLanguages("/"),
@@ -325,6 +325,7 @@ export default async function HomePage({ params }: PageProps) {
         ctaProduct="Solar DC & LV Protection"
       />
       <BeyondSection
+        locale={locale}
         title={t("beyond.title")}
         subtitle={t("beyond.subtitle")}
       />

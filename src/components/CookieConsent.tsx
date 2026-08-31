@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import styles from "./CookieConsent.module.css";
 
 export function CookieConsent() {
+  const t = useTranslations("cookies");
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
@@ -45,22 +47,21 @@ export function CookieConsent() {
             </svg>
           </div>
           <div className={styles.text}>
-            <strong>We value your privacy</strong>
+            <strong>{t("title")}</strong>
             <p>
-              We use cookies to enhance your browsing experience and analyze our traffic. 
-              By clicking "Accept All", you consent to our use of cookies.{" "}
+              {t("message")}{" "}
               <Link href="/privacy-policy" className={styles.link}>
-                Privacy Policy
+                {t("privacyLink")}
               </Link>
             </p>
           </div>
         </div>
         <div className={styles.actions}>
           <button onClick={handleReject} className={styles.btnReject}>
-            Reject
+            {t("reject")}
           </button>
           <button onClick={handleAccept} className={styles.btnAccept}>
-            Accept All
+            {t("accept")}
           </button>
         </div>
       </div>

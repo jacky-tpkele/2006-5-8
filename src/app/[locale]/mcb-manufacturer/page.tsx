@@ -27,7 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function McbManufacturerRoute() {
+export default async function McbManufacturerRoute({ params }: PageProps) {
+  const { locale } = await params;
   const jsonLd = buildManufacturerJsonLd(data);
 
   return (
@@ -36,7 +37,7 @@ export default function McbManufacturerRoute() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ManufacturerPage data={data} />
+      <ManufacturerPage data={data} locale={locale} />
     </>
   );
 }

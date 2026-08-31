@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { LeadForm } from "@/components/LeadForm";
 import { PageTitle } from "@/components/PageTitle";
@@ -8,10 +9,11 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contact" });
 
   return {
-  title: "Contact",
-  description: "Contact TPKELE for low voltage product catalog, pricing, OEM/ODM support and project quotation.",
+    title: t("seoTitle"),
+    description: t("seoDescription"),
     alternates: {
       canonical: localizedPath("/contact", locale),
       languages: alternateLanguages("/contact"),
@@ -20,46 +22,49 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 type ContactPageProps = {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ product?: string; intent?: string }>;
 };
 
-export default async function ContactPage({ searchParams }: ContactPageProps) {
+export default async function ContactPage({ params, searchParams }: ContactPageProps) {
+  const { locale } = await params;
   const { product, intent } = await searchParams;
+  const t = await getTranslations({ locale, namespace: "contact" });
 
   return (
     <main>
-      <PageTitle title="Contact" crumb="Contact" />
+      <PageTitle title={t("pageTitle")} crumb={t("crumb")} />
       <section className="section contact-layout">
         <div className="contact-info">
-          <p className="eyebrow">Get In Touch</p>
-          <h2>Send your product list or project requirement.</h2>
-          <p>Our sales team can help with product selection, catalog files, sample requests, OEM branding and quotation.</p>
+          <p className="eyebrow">{t("eyebrow")}</p>
+          <h2>{t("heading")}</h2>
+          <p>{t("lede")}</p>
           <div className="contact-list">
             <div>
               <span className="line-icon">⌖</span>
               <p>
-                <strong>Address</strong>
+                <strong>{t("address")}</strong>
                 {site.address}
               </p>
             </div>
             <div>
               <span className="line-icon">☎</span>
               <p>
-                <strong>Phone</strong>
+                <strong>{t("phone")}</strong>
                 {site.phone}
               </p>
             </div>
             <div>
               <span className="line-icon">@</span>
               <p>
-                <strong>Email</strong>
+                <strong>{t("email")}</strong>
                 {site.email}
               </p>
             </div>
             <div>
               <span className="line-icon">☏</span>
               <p>
-                <strong>WhatsApp</strong>
+                <strong>{t("whatsapp")}</strong>
                 <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">
                   {site.phone}
                 </a>
@@ -70,11 +75,11 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         <LeadForm initialProduct={product} initialIntent={intent} />
       </section>
 
-      <section className="map-band" aria-label="TPKELE location map">
+      <section className="map-band" aria-label={t("mapAria")}>
         <div className="map-card">
           <span className="line-icon">⌖</span>
-          <strong>TPKELE Manufacturing Center</strong>
-          <p>Wenzhou, Zhejiang, China</p>
+          <strong>{t("mapTitle")}</strong>
+          <p>{t("mapLocation")}</p>
         </div>
       </section>
     </main>
