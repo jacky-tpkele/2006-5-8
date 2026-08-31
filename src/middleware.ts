@@ -47,8 +47,10 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // 匹配所有路径，但排除 Next.js 内部路径和静态资源
-    "/((?!_next|_vercel|.*\\..*).*)",
+    // 匹配所有路径，但排除 Next.js 内部路径、静态资源、以及 /api 路由
+    // （重要：/api/* 必须排除，否则 next-intl 会把它当成页面路由加上 /en 前缀，
+    //  导致 POST /api/leads 被重写成 /en/api/leads 而 404，表单提交失败）
+    "/((?!_next|_vercel|api|.*\\..*).*)",
     // 包含首页和多语言首页
     "/",
     "/(en|ru)/:path*",
