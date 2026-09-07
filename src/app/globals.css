@@ -231,6 +231,86 @@ textarea {
   color: var(--green-dark);
 }
 
+/* ── Resources dropdown ─────────────────────────────── */
+.resources-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 30;
+  width: 340px;
+  padding: 12px 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(15, 27, 36, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.resources-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: transparent;
+}
+
+.nav-dropdown:hover .resources-dropdown-menu,
+.nav-dropdown:focus-within .resources-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.resources-dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .resources-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 22px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+  transition: all 0.18s ease;
+  border-left: 3px solid transparent;
+  margin: 0 8px;
+  border-radius: 8px;
+}
+
+.site-nav .resources-dropdown-menu a::after {
+  display: none;
+}
+
+.site-nav .resources-dropdown-menu a:hover {
+  background: var(--green-soft);
+  color: var(--green-dark);
+  border-left-color: var(--green);
+  padding-left: 26px;
+}
+
+.site-nav .resources-dropdown-menu .mega-arrow {
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 700;
+  opacity: 0.6;
+  transition: all 0.18s ease;
+}
+
+.site-nav .resources-dropdown-menu a:hover .mega-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
 .site-nav .mega-col {
   display: flex;
   flex-direction: column;

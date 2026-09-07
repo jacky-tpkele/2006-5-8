@@ -195,7 +195,7 @@ export function Header() {
                   <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
                     {navLabel(item.href, item.label)}
                   </Link>
-                  <div className="mfr-dropdown-menu">
+                  <div className="resources-dropdown-menu">
                     <ul>
                       {resourcesMenu.map((r) => (
                         <li key={r.href}>
