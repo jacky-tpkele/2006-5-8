@@ -46,40 +46,6 @@ export default async function TechnicalGuidesPage({ params }: PageProps) {
             </div>
           </Link>
         ))}
-
-        {/* Placeholder for future guides */}
-        <div className="guide-card coming-soon">
-          <div className="guide-card-header">
-            <h2>AC MCB Selection Guide</h2>
-            <div className="guide-card-meta">
-              <span className="guide-badge">AC MCB</span>
-              <span className="guide-badge">Coming Soon</span>
-            </div>
-          </div>
-          <p className="guide-card-description">Complete guide for AC miniature circuit breaker selection in distribution and building applications.</p>
-        </div>
-
-        <div className="guide-card coming-soon">
-          <div className="guide-card-header">
-            <h2>SPD Selection Guide</h2>
-            <div className="guide-card-meta">
-              <span className="guide-badge">SPD</span>
-              <span className="guide-badge">Coming Soon</span>
-            </div>
-          </div>
-          <p className="guide-card-description">Surge protection device selection for AC/DC systems and lightning protection.</p>
-        </div>
-
-        <div className="guide-card coming-soon">
-          <div className="guide-card-header">
-            <h2>Energy Meter Guide</h2>
-            <div className="guide-card-meta">
-              <span className="guide-badge">Energy Meter</span>
-              <span className="guide-badge">Coming Soon</span>
-            </div>
-          </div>
-          <p className="guide-card-description">Smart metering and sub-metering installation guide for commercial and industrial applications.</p>
-        </div>
       </section>
 
       <section className="guides-cta">

@@ -31,47 +31,33 @@ export default async function ResourcesPage({ params }: PageProps) {
       <section className="resources-categories">
         <div className="categories-container">
           {/* Technical Guides */}
-          <div className="resource-card">
+          <div className="resource-card featured">
             <div className="card-header">
               <h2>Technical Guides</h2>
-              <span className="card-badge">DOCUMENTATION</span>
+              <span className="card-badge">SELECTION GUIDES</span>
             </div>
             <p className="card-description">
-              Installation guides, wiring diagrams, technical specifications and safety compliance notes.
+              Expert selection guides for electrical protection devices. Step-by-step technical documentation for engineers, installers, and distributors.
             </p>
-            <ul className="card-links">
-              <li>
-                <Link href="/blog">
-                  Product Installation Guides
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Wiring Diagrams & Schematics
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Technical Specifications
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Safety & Compliance Notes
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
+            <div className="featured-cta">
+              <Link href="/resources/technical-guides" className="launch-button">
+                Browse Technical Guides
+                <span className="arrow">→</span>
+              </Link>
+            </div>
+            <ul className="feature-list">
+              <li>✓ 10+ comprehensive selection guides</li>
+              <li>✓ DC MCB, SPD, ATS, Energy Meters</li>
+              <li>✓ Step-by-step workflows</li>
+              <li>✓ Connected to Market Access Advisor</li>
             </ul>
           </div>
 
           {/* Market Access Advisor */}
-          <div className="resource-card featured">
+          <div className="resource-card">
             <div className="card-header">
               <h2>Market Access Advisor</h2>
-              <span className="card-badge recommended">RECOMMENDED</span>
+              <span className="card-badge">COMPLIANCE TOOL</span>
             </div>
             <p className="card-description">
               Interactive compliance tool for technical standards, market-access requirements and certification needs.

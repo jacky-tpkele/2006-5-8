@@ -1,120 +1,129 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import type { Guide } from "@/data/guides";
+import OnThisPage from "@/components/technical-guide/OnThisPage";
+import QuickSupportCard from "@/components/technical-guide/QuickSupportCard";
+import RelatedSidebar from "@/components/technical-guide/RelatedSidebar";
+import ResourceList from "@/components/technical-guide/ResourceList";
 import "./guide.css";
+import "./tpkele-guide.css";
 
 type GuideTemplateProps = {
   guide: Guide;
 };
 
 export default function GuideTemplate({ guide }: GuideTemplateProps) {
-  const [activeSection, setActiveSection] = useState<string>(guide.sections[0]?.id || "");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      let current = guide.sections[0]?.id || "";
-
-      // Find the section currently in viewport
-      for (const section of guide.sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Section is in viewport if its top is above 200px from top
-          if (rect.top < 200 && rect.top > -rect.height) {
-            current = section.id;
-          }
-        }
-      }
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [guide.sections]);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const top = element.offsetTop - 100;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  };
-
   const marketAccessUrl = guide.marketAccessAdvisor?.enabled
     ? `/resources/market-access-advisor?product=${guide.marketAccessAdvisor.product}&application=${guide.marketAccessAdvisor.application}${
         guide.marketAccessAdvisor.market ? `&market=${guide.marketAccessAdvisor.market}` : ""
       }${guide.marketAccessAdvisor.buyer ? `&buyer=${guide.marketAccessAdvisor.buyer}` : ""}`
     : null;
 
+  // Mock data for hero image and related products - will be enhanced with real data
+  const heroImage = `/images/guides/${guide.slug}/hero.png`;
+  const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.png`;
+
+  // Mock related products - these should be populated from guide data
+  const relatedProducts = [
+    { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string protection" },
+    { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection" },
+    { name: "DC Isolator", href: "/products/dc-isolator", desc: "Safe isolation" },
+  ];
+
+  const resources = [
+    { title: "Technical Datasheet", href: "#", type: "PDF" },
+    { title: "Selection Guide", href: "#", type: "PDF" },
+  ];
+
   return (
-    <div className="guide-layout">
-      {/* Floating Navigation */}
-      <aside className="guide-nav">
-        <div className="guide-nav-sticky">
-          <h3 className="guide-nav-title">ON THIS PAGE</h3>
-          <nav className="guide-nav-list">
-            {guide.sections.map((section) => (
-              <button
-                key={section.id}
-                className={`guide-nav-item ${activeSection === section.id ? "active" : ""}`}
-                onClick={() => scrollToSection(section.id)}
-                type="button"
-              >
-                {section.title}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </aside>
+    <main className="tpk-guide">
+      <div className="tpk-guide__container">
+        <aside className="tpk-guide__left">
+          <OnThisPage items={guide.sections.map((s) => ({ id: s.id, title: s.title }))} />
+          <QuickSupportCard />
+        </aside>
 
-      {/* Main Content */}
-      <article className="guide-content">
-        <header className="guide-header">
-          <h1>{guide.title}</h1>
-          {guide.description && <p className="guide-description">{guide.description}</p>}
-          <div className="guide-meta">
-            <span className="guide-badge">{guide.product}</span>
-            <span className="guide-badge">{guide.application}</span>
+        <article className="tpk-guide__article">
+          <div className="tpk-guide__breadcrumbs">
+            <Link href="/">Home</Link>
+            <span>›</span>
+            <Link href="/resources/technical-guides">Technical Guides</Link>
+            <span>›</span>
+            <span>{guide.title}</span>
           </div>
-        </header>
 
-        {guide.sections.map((section) => (
-          <section key={section.id} id={section.id} className="guide-section">
-            <h2>{section.title}</h2>
-            <div className="guide-section-content" dangerouslySetInnerHTML={{ __html: section.content }} />
-          </section>
-        ))}
-
-        {/* Market Access Advisor CTA */}
-        {marketAccessUrl && (
-          <div className="guide-cta">
-            <div className="guide-cta-content">
-              <h3>Check Export Requirements</h3>
-              <p>
-                Review technical standards, market-access regulations, and certification requirements for your target country.
-              </p>
+          <section className="tpk-guide__hero">
+            <div className="tpk-guide__heroContent">
+              <div className="tpk-guide__eyebrow">
+                {guide.product} | {guide.application}
+              </div>
+              <h1>{guide.title}</h1>
+              <p className="tpk-guide__intro">{guide.description}</p>
+              <div className="tpk-guide__meta">
+                <div className="tpk-guide__avatar" />
+                <div>
+                  <strong>Reviewed by TPKELE Technical Team</strong>
+                  <div>Updated: 2026-09-07 | 12 min read</div>
+                </div>
+              </div>
             </div>
-            <Link href={marketAccessUrl} className="guide-cta-button">
-              Launch Market Access Advisor →
-            </Link>
-          </div>
-        )}
+            <div className="tpk-guide__heroImageWrap">
+              <Image
+                src={heroImage}
+                alt={guide.title}
+                width={800}
+                height={600}
+                className="tpk-guide__heroImage"
+                priority
+              />
+            </div>
+          </section>
 
-        {/* Footer Navigation */}
-        <footer className="guide-footer">
-          <Link href="/resources" className="guide-footer-link">
-            ← Back to Resources
-          </Link>
-          <Link href="/contact" className="guide-footer-link">
-            Contact Technical Team →
-          </Link>
-        </footer>
-      </article>
-    </div>
+          {guide.sections.map((section, index) => (
+            <section id={section.id} key={section.id} className="tpk-guide__section">
+              <h2>{index + 1}. {section.title}</h2>
+              <div dangerouslySetInnerHTML={{ __html: section.content }} />
+            </section>
+          ))}
+
+          {marketAccessUrl && (
+            <section className="tpk-guide__advisorBlock">
+              <div>
+                <h2>Need market-specific export guidance?</h2>
+                <p>Use the TPKELE Market Access Advisor to review likely standards, document expectations and buyer-facing market information for the selected product and application.</p>
+              </div>
+              <Link href={marketAccessUrl} className="tpk-guide__button">
+                Open Market Access Advisor
+              </Link>
+            </section>
+          )}
+        </article>
+
+        <aside className="tpk-guide__right">
+          <RelatedSidebar items={relatedProducts} />
+          <div className="tpk-guide__sidebarCard">
+            <h3>Export Requirements?</h3>
+            <p>Check standards, certification and required documents for your target market.</p>
+            {marketAccessUrl && (
+              <Link href={marketAccessUrl} className="tpk-guide__button tpk-guide__button--full">
+                Open Market Access Advisor
+              </Link>
+            )}
+          </div>
+          <ResourceList items={resources} />
+          <div className="tpk-guide__sidebarCard">
+            <Image
+              src={quickFlowImage}
+              alt="Quick selection flow"
+              width={400}
+              height={500}
+              className="tpk-guide__sidebarImage"
+            />
+          </div>
+        </aside>
+      </div>
+    </main>
   );
 }
