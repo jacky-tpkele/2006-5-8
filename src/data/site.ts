@@ -403,7 +403,7 @@ export const navItems = [
 ];
 
 export const resourcesMenu = [
-  { label: "Technical Guides", href: "/resources#technical-guides" },
+  { label: "Technical Guides", href: "/resources/technical-guides" },
   { label: "Market Access Advisor", href: "/resources/market-access-advisor" },
   { label: "Standards Database", href: "/resources#standards-database" },
   { label: "Application Solutions", href: "/resources#application-solutions" },
