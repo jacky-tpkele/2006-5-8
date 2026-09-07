@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/resources",
     "/resources/market-access-advisor",
+    "/resources/buyer-trade-support",
     "/contact",
     "/mcb-manufacturer",
     "/spd-manufacturer",

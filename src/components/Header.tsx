@@ -45,6 +45,7 @@ const MFR_MENU_KEYS: Record<string, string> = {
 const RESOURCES_MENU_KEYS: Record<string, string> = {
   "/resources/technical-guides": "technical-guides",
   "/resources/market-access-advisor": "market-access-advisor",
+  "/resources/buyer-trade-support": "buyer-trade-support",
   "/resources#standards-database": "standards-database",
   "/resources#application-solutions": "application-solutions",
   "/resources#faq": "faq",
