@@ -4,13 +4,14 @@ import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { manufacturerMenu, navItems, productMegaMenu, products, site } from "@/data/site";
+import { manufacturerMenu, resourcesMenu, navItems, productMegaMenu, products, site } from "@/data/site";
 
 // 导航项 href → messages 里的 key，用于把菜单文案国际化
 const NAV_LABEL_KEYS: Record<string, string> = {
   "/": "home",
   "/products": "products",
   "/solar-dc-protection": "solutions",
+  "/resources": "resources",
   "/mcb-manufacturer": "manufacturing",
   "/about": "about",
   "/blog": "blog",
@@ -40,11 +41,21 @@ const MFR_MENU_KEYS: Record<string, string> = {
   "/combiner-box-manufacturer": "combiner-box",
 };
 
+// resources 菜单 href → messages.resourcesMenu 的 key
+const RESOURCES_MENU_KEYS: Record<string, string> = {
+  "/resources#technical-guides": "technical-guides",
+  "/resources/market-access-advisor": "market-access-advisor",
+  "/resources#standards-database": "standards-database",
+  "/resources#application-solutions": "application-solutions",
+  "/resources#faq": "faq",
+};
+
 export function Header() {
   const pathname = usePathname();
   const t = useTranslations("nav");
   const tHeader = useTranslations("header");
   const tMega = useTranslations("megaMenu");
+  const tResources = useTranslations("resourcesMenu");
   const tMfr = useTranslations("manufacturerMenu");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -75,6 +86,9 @@ export function Header() {
 
   const mfrLabel = (href: string, fallback: string) =>
     labelFrom((k) => tMfr(k as never), MFR_MENU_KEYS, href, fallback);
+
+  const resourcesLabel = (href: string, fallback: string) =>
+    labelFrom((k) => t(`resources.${k}` as never), RESOURCES_MENU_KEYS, href, fallback);
 
   // mega menu 分栏标题/副标题/CTA：col.key 就是 messages 里的分组名
   const megaCol = (key: string, field: string, fallback: string) => {
@@ -165,6 +179,28 @@ export function Header() {
                         <li key={m.href}>
                           <Link href={m.href} onClick={() => setMenuOpen(false)}>
                             {mfrLabel(m.href, m.label)}
+                            <span className="mega-arrow">→</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.href === "/resources") {
+              return (
+                <div className="nav-dropdown" key={item.href}>
+                  <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
+                    {navLabel(item.href, item.label)}
+                  </Link>
+                  <div className="mfr-dropdown-menu">
+                    <ul>
+                      {resourcesMenu.map((r) => (
+                        <li key={r.href}>
+                          <Link href={r.href} onClick={() => setMenuOpen(false)}>
+                            {resourcesLabel(r.href, r.label)}
                             <span className="mega-arrow">→</span>
                           </Link>
                         </li>

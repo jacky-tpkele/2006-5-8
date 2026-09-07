@@ -1,0 +1,221 @@
+import { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+import Link from "next/link";
+import "./resources.css";
+
+export const metadata: Metadata = {
+  title: "Resources | TPKELE",
+  description:
+    "Technical guides, market access advisor, standards database, application solutions and FAQ knowledge base for electrical products.",
+};
+
+type PageProps = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function ResourcesPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return (
+    <main className="resources-page">
+      <section className="resources-hero">
+        <div className="hero-container">
+          <h1>Resources & Tools</h1>
+          <p>
+            Technical guidance, compliance intelligence and engineering support for global electrical product decisions.
+          </p>
+        </div>
+      </section>
+
+      <section className="resources-categories">
+        <div className="categories-container">
+          {/* Technical Guides */}
+          <div className="resource-card">
+            <div className="card-header">
+              <h2>Technical Guides</h2>
+              <span className="card-badge">DOCUMENTATION</span>
+            </div>
+            <p className="card-description">
+              Installation guides, wiring diagrams, technical specifications and safety compliance notes.
+            </p>
+            <ul className="card-links">
+              <li>
+                <Link href="/blog">
+                  Product Installation Guides
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Wiring Diagrams & Schematics
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Technical Specifications
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Safety & Compliance Notes
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Market Access Advisor */}
+          <div className="resource-card featured">
+            <div className="card-header">
+              <h2>Market Access Advisor</h2>
+              <span className="card-badge recommended">RECOMMENDED</span>
+            </div>
+            <p className="card-description">
+              Interactive compliance tool for technical standards, market-access requirements and certification needs.
+            </p>
+            <div className="featured-cta">
+              <Link href="/resources/market-access-advisor" className="launch-button">
+                Launch Market Access Advisor
+                <span className="arrow">→</span>
+              </Link>
+            </div>
+            <ul className="feature-list">
+              <li>✓ Product-specific compliance rules</li>
+              <li>✓ 195+ countries & markets</li>
+              <li>✓ Technical standard mapping</li>
+              <li>✓ Evidence-based guidance</li>
+            </ul>
+          </div>
+
+          {/* Standards Database */}
+          <div className="resource-card">
+            <div className="card-header">
+              <h2>Standards Database</h2>
+              <span className="card-badge">REFERENCE</span>
+            </div>
+            <p className="card-description">
+              International standards library (IEC, UL, EN) for low-voltage electrical products.
+            </p>
+            <ul className="card-links">
+              <li>
+                <Link href="/blog">
+                  IEC Standards Reference
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  UL Standards Overview
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  EN/CE Marking Requirements
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Regional Compliance Overview
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Application Solutions */}
+          <div className="resource-card">
+            <div className="card-header">
+              <h2>Application Solutions</h2>
+              <span className="card-badge">CASE STUDIES</span>
+            </div>
+            <p className="card-description">
+              Real-world application examples, system design guidance and project case studies.
+            </p>
+            <ul className="card-links">
+              <li>
+                <Link href="/solar-dc-protection">
+                  Solar PV System Protection
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Residential Distribution Boards
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Commercial & Industrial Projects
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Energy Storage Integration
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* FAQ Knowledge Base */}
+          <div className="resource-card">
+            <div className="card-header">
+              <h2>FAQ Knowledge Base</h2>
+              <span className="card-badge">SUPPORT</span>
+            </div>
+            <p className="card-description">
+              Frequently asked questions about products, customization, certification and supply.
+            </p>
+            <ul className="card-links">
+              <li>
+                <Link href="/blog">
+                  Product Selection FAQ
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Customization & OEM FAQ
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Certification & Testing FAQ
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  Ordering & Delivery FAQ
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-cta">
+        <div className="cta-container">
+          <div className="cta-content">
+            <h2>Need Expert Guidance?</h2>
+            <p>
+              Our technical team provides personalized recommendations for your project requirements.
+            </p>
+          </div>
+          <Link href="/contact" className="cta-btn">
+            Contact Technical Team
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}

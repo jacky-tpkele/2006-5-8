@@ -3,10 +3,18 @@
     "home": "Home",
     "products": "Products",
     "solutions": "Solutions",
+    "resources": "Resources",
     "manufacturing": "Manufacturing",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact"
+  },
+  "resourcesMenu": {
+    "technical-guides": "Technical Guides",
+    "market-access-advisor": "Market Access Advisor",
+    "standards-database": "Standards Database",
+    "application-solutions": "Application Solutions",
+    "faq": "FAQ Knowledge Base"
   },
   "header": {
     "search": "Search",

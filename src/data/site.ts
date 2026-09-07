@@ -397,8 +397,17 @@ export const navItems = [
   { label: "About Us", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Blog", href: "/blog" },
+  { label: "Resources", href: "/resources" },
   { label: "Manufacturing", href: "/mcb-manufacturer" },
   { label: "Contact", href: "/contact" },
+];
+
+export const resourcesMenu = [
+  { label: "Technical Guides", href: "/resources#technical-guides" },
+  { label: "Market Access Advisor", href: "/resources/market-access-advisor" },
+  { label: "Standards Database", href: "/resources#standards-database" },
+  { label: "Application Solutions", href: "/resources#application-solutions" },
+  { label: "FAQ Knowledge Base", href: "/resources#faq" },
 ];
 
 export const manufacturerMenu = [

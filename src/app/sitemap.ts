@@ -44,6 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products",
     "/solar-dc-protection",
     "/blog",
+    "/resources",
+    "/resources/market-access-advisor",
     "/contact",
     "/mcb-manufacturer",
     "/spd-manufacturer",
