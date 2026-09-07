@@ -25,11 +25,12 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
   const heroImage = `/images/guides/${guide.slug}/hero.png`;
   const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.png`;
 
-  // Mock related products - these should be populated from guide data
+  // Related products based on guide context
   const relatedProducts = [
-    { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string protection" },
-    { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection" },
-    { name: "DC Isolator", href: "/products/dc-isolator", desc: "Safe isolation" },
+    { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection" },
+    { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits" },
+    { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection" },
+    { name: "ATS", href: "/products/ats", desc: "Automatic source transfer for backup power" },
   ];
 
   const resources = [

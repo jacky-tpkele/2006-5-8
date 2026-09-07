@@ -89,7 +89,7 @@ export function Header() {
     labelFrom((k) => tMfr(k as never), MFR_MENU_KEYS, href, fallback);
 
   const resourcesLabel = (href: string, fallback: string) =>
-    labelFrom((k) => t(`resources.${k}` as never), RESOURCES_MENU_KEYS, href, fallback);
+    labelFrom((k) => tResources(k as never), RESOURCES_MENU_KEYS, href, fallback);
 
   // mega menu 分栏标题/副标题/CTA：col.key 就是 messages 里的分组名
   const megaCol = (key: string, field: string, fallback: string) => {
