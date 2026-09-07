@@ -1,0 +1,8 @@
+export const standardsFaqs=[
+{q:"Does product relevance mean every TPKELE model is certified to that standard?",a:"No. Product relevance is a technical navigation aid. Model-specific conformity requires the applicable certificate, test report and scope check."},
+{q:"Why are installation and application standards included with product standards?",a:"Because buyers and engineers often need to understand both the device standard and the system-level rules that affect selection, coordination, installation and commissioning. The database labels each reference type so these are not confused."},
+{q:"Why do some records say Scope Check Required?",a:"Because product name alone is not enough. Voltage, intended users, installation environment, assembly design and product construction can change which standard applies."},
+{q:"Why not publish the full IEC or UL text?",a:"Standards are copyrighted publications. This database provides TPKELE-written summaries and official-source links rather than reproducing full standard text."},
+{q:"Where do I check Saudi Arabia, EU, Brazil or another market's certification requirements?",a:"Use the TPKELE Market Access Advisor. The Standards Database focuses on technical standards and engineering context, not country-level conformity assessment."}
+];
+export default function StandardsFaq(){return <section className="contentSection faqSection"><div className="container"><div className="eyebrow">FAQ</div><h2 className="sectionTitle">How to Use This Database</h2>{standardsFaqs.map((x)=><details key={x.q}><summary>{x.q}</summary><p>{x.a}</p></details>)}</div></section>}

@@ -83,18 +83,35 @@ export default async function ResourcesPage({ params }: PageProps) {
               <span className="card-badge">REFERENCE</span>
             </div>
             <p className="card-description">
-              International standards library (IEC, UL, EN) for low-voltage electrical products.
+              Search 32 international electrical standards by product, application and reference type. IEC & UL official sources.
+            </p>
+            <div className="featured-cta">
+              <Link href="/resources/standards-database" className="launch-button">
+                Browse Standards Database
+                <span className="arrow">→</span>
+              </Link>
+            </div>
+            <ul className="feature-list">
+              <li>✓ 32 official-source standards</li>
+              <li>✓ IEC & UL references</li>
+              <li>✓ Product relevance mapping</li>
+              <li>✓ Connected to Market Access Advisor</li>
+            </ul>
+          </div>
+
+          {/* Buyer Trade Support - Keep existing */}
+          <div className="resource-card">
+            <div className="card-header">
+              <h2>Buyer Trade Support</h2>
+              <span className="card-badge">DOCUMENTATION</span>
+            </div>
+            <p className="card-description">
+              Certificates, technical files, OEM support and trade documentation assistance.
             </p>
             <ul className="card-links">
               <li>
-                <Link href="/blog">
-                  IEC Standards Reference
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  UL Standards Overview
+                <Link href="/resources/buyer-trade-support">
+                  Access Trade Support
                   <span className="arrow">→</span>
                 </Link>
               </li>
