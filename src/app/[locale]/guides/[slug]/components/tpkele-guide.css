@@ -18,6 +18,21 @@
 .tpk-guide__section p{font-size:17px;line-height:1.72;color:#394f43;margin:0 0 16px}
 .tpk-guide__callout{background:#eef8f1;border:1px solid #d2ebda;border-radius:12px;padding:18px 20px;margin-top:16px}
 .tpk-guide__callout strong{color:#107742;display:block;margin-bottom:8px;font-size:20px}.tpk-guide__callout p{margin:0}
+
+/* Alias classes for guide content */
+.callout { background:#eef8f1;border:1px solid #d2ebda;border-radius:12px;padding:18px 20px;margin:16px 0; font-size: 16px; color: #2d4a3c; }
+.guide-table { width:100%;border-collapse:collapse;font-size:15px; margin: 16px 0; }
+.guide-table th,.guide-table td{border:1px solid #dce6df;padding:12px 10px;vertical-align:top}
+.guide-table th{background:#eef6f0;color:#17412e;text-align:left}
+.guide-figure { margin:24px 0; }
+.guide-figure img { width:100%;height:auto;border-radius:14px;border:1px solid #dce6df; display: block; }
+.guide-figure figcaption { font-size:13px;color:#76887c;margin-top:10px; }
+.faq-section { margin: 16px 0; }
+.faq-item { padding:16px 0;border-top:1px solid #e3ede6; }
+.faq-item:first-child{border-top:none;padding-top:0}
+.faq-item h4 { margin: 0 0 8px; color: #0d2d58; font-size: 17px; }
+.faq-item p { margin: 0; font-size: 16px; line-height: 1.6; color: #394f43; }
+
 .tpk-guide__tableWrap{overflow-x:auto;margin-top:10px}.tpk-guide__table{width:100%;border-collapse:collapse;font-size:15px}
 .tpk-guide__table th,.tpk-guide__table td{border:1px solid #dce6df;padding:12px 10px;vertical-align:top}.tpk-guide__table th{background:#eef6f0;color:#17412e;text-align:left}
 .tpk-guide__figure{margin:18px 0 0}.tpk-guide__inlineImage,.tpk-guide__sidebarImage{width:100%;height:auto;border-radius:14px;border:1px solid #dce6df}
