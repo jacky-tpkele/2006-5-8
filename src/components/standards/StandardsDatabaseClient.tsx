@@ -104,7 +104,7 @@ export default function StandardsDatabaseClient() {
                 <div><b>RELEVANT TPKELE PRODUCTS</b><div className="tagWrap">{s.products.map((p)=><span className="productTag" key={p}>{p}</span>)}</div></div>
                 <div><b>REFERENCE TYPE</b><p>{s.referenceType}</p><b className="appLabel">TYPICAL APPLICATION</b><p>{s.applications.join(" · ")}</p></div>
               </div>
-              <div className="standardFooter"><small>Official-source record checked: {s.lastReviewed} · Relevance: {s.relevance}</small><Link className="detailLink" href={`/resources/standards-database/${s.slug}`}>View Standard Details →</Link></div>
+              <div className="standardFooter"><small>Official-source record checked: {s.lastReviewed} · Relevance: {s.relevance}</small><Link className="detailLink" href={`/electric-standards-database/${s.slug}`}>View Standard Details →</Link></div>
             </article>)}
           </div>
           {!filtered.length && <div className="emptyState">No standards match this combination. Try removing a filter or searching by standard number.</div>}

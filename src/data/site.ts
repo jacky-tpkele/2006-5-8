@@ -406,7 +406,7 @@ export const resourcesMenu = [
   { label: "Technical Guides", href: "/resources/technical-guides" },
   { label: "Market Access Advisor", href: "/resources/market-access-advisor" },
   { label: "Buyer Trade Support", href: "/resources/buyer-trade-support" },
-  { label: "Standards Database", href: "/resources#standards-database" },
+  { label: "Standards Database", href: "/electric-standards-database" },
   { label: "Application Solutions", href: "/resources#application-solutions" },
   { label: "FAQ Knowledge Base", href: "/resources#faq" },
 ];

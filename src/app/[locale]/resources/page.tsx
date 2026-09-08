@@ -86,7 +86,7 @@ export default async function ResourcesPage({ params }: PageProps) {
               Search 32 international electrical standards by product, application and reference type. IEC & UL official sources.
             </p>
             <div className="featured-cta">
-              <Link href="/resources/standards-database" className="launch-button">
+              <Link href="/electric-standards-database" className="launch-button">
                 Browse Standards Database
                 <span className="arrow">→</span>
               </Link>

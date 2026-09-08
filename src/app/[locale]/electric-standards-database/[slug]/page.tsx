@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${s.code} Standard Guide | TPKELE`,
     description: `${s.summary} Review scope, reference type, product relevance and official source.`,
-    alternates: { canonical: `/resources/standards-database/${s.slug}` },
+    alternates: { canonical: `/electric-standards-database/${s.slug}` },
   };
 }
 
@@ -31,18 +31,17 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.tpkele.com/" },
-      { "@type": "ListItem", position: 2, name: "Resources", item: "https://www.tpkele.com/resources" },
       {
         "@type": "ListItem",
-        position: 3,
+        position: 2,
         name: "Standards Database",
-        item: "https://www.tpkele.com/resources/standards-database",
+        item: "https://www.tpkele.com/electric-standards-database",
       },
       {
         "@type": "ListItem",
-        position: 4,
+        position: 3,
         name: s.code,
-        item: `https://www.tpkele.com/resources/standards-database/${s.slug}`,
+        item: `https://www.tpkele.com/electric-standards-database/${s.slug}`,
       },
     ],
   };
@@ -53,14 +52,14 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
 
       <div className="breadcrumb">
         <div className="container">
-          <Link href="/">Home</Link> / <Link href="/resources">Resources</Link> /{" "}
-          <Link href="/resources/standards-database">Standards Database</Link> / <b>{s.code}</b>
+          <Link href="/">Home</Link> /{" "}
+          <Link href="/electric-standards-database">Standards Database</Link> / <b>{s.code}</b>
         </div>
       </div>
 
       <main className="standardDetail">
         <div className="container">
-          <Link className="backLink" href="/resources/standards-database">
+          <Link className="backLink" href="/electric-standards-database">
             ← Back to Standards Database
           </Link>
 
@@ -148,7 +147,7 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
               <h2>Related Standards</h2>
               <div className="relatedGrid">
                 {rel.map((r) => (
-                  <Link className="relatedCard" href={`/resources/standards-database/${r.slug}`} key={r.slug}>
+                  <Link className="relatedCard" href={`/electric-standards-database/${r.slug}`} key={r.slug}>
                     <strong>{r.code}</strong>
                     <span>
                       {r.referenceType} · {r.title}
