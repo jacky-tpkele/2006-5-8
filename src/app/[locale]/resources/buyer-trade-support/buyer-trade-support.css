@@ -472,14 +472,25 @@
 
 .bts-check-row label,
 .bts-single-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 11px;
   color: #4b5962;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .bts-check-row input,
 .bts-single-check input {
-  margin-right: 7px;
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  margin: 0;
+  accent-color: #16965a;
+  border: 1.5px solid #16965a;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .bts-micro-note {
