@@ -1,0 +1,23 @@
+{
+  "slug": "dc-mcb-selection-guide",
+  "title": "DC MCB Selection Guide for Solar PV Systems",
+  "product": "dc-mcb",
+  "application": "solar-pv",
+  "sections": [
+    "Selection Overview",
+    "Required Technical Inputs",
+    "Key Selection Parameters",
+    "Voltage Selection",
+    "Current Rating Selection",
+    "Breaking Capacity",
+    "Solar PV Application Example",
+    "Standards Reference",
+    "Export Requirements",
+    "FAQ"
+  ],
+  "marketAccessAdvisor": {
+    "enabled": true,
+    "product": "dc-mcb",
+    "application": "solar-pv"
+  }
+}

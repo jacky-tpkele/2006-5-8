@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>International Buyer Trade Support | TPKELE</title>
+<meta name="description" content="Build your TPKELE order requirements while reviewing packaging customization, export documents, Incoterms, payment, shipping and production lead time.">
+<style>
+:root{
+  --brand:#16965a;
+  --brand-dark:#0f7445;
+  --brand-soft:#eef8f2;
+  --brand-pale:#f7fbf8;
+  --ink:#172127;
+  --text:#5d6b75;
+  --muted:#93a0a8;
+  --line:#e1e8e4;
+  --softline:#edf1ef;
+  --bg:#f7f9f8;
+  --white:#fff;
+  --shadow:0 14px 40px rgba(20,45,31,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.container{max-width:1260px;margin:0 auto;padding:0 24px}
+
+/* Header */
+.site-header{
+  height:72px;
+  border-bottom:1px solid var(--line);
+  background:#fff;
+  display:flex;
+  align-items:center;
+  position:relative;
+  z-index:30;
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:28px;width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900;letter-spacing:-.04em}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;background:var(--brand);
+  display:grid;place-items:center;color:#fff;font-size:12px;font-weight:900
+}
+.header-nav{display:flex;align-items:center;gap:28px;color:#34414a;font-size:14px;font-weight:700}
+.header-nav a:hover{color:var(--brand)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.header-quote{
+  padding:10px 15px;border-radius:8px;background:var(--brand);color:#fff;font-size:13px;font-weight:800
+}
+
+/* Breadcrumb + hero */
+.breadcrumb{padding:17px 0;color:#7f8c94;font-size:12px;border-bottom:1px solid var(--softline)}
+.breadcrumb a{color:#5e6b74}
+.breadcrumb b{color:#2a353c;font-weight:700}
+.hero{
+  padding:65px 0 48px;
+  background:
+    radial-gradient(circle at 88% 25%, rgba(22,150,90,.09), transparent 25%),
+    linear-gradient(135deg,#f7fbf8 0%,#fff 58%);
+  border-bottom:1px solid var(--line)
+}
+.eyebrow{
+  color:var(--brand);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px
+}
+h1{font-size:48px;line-height:1.12;letter-spacing:-.035em;margin:0 0 16px;max-width:930px}
+.hero-copy{max-width:900px;color:var(--text);font-size:18px;margin:0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{
+  border:1px solid transparent;border-radius:9px;padding:13px 20px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-size:14px;font-weight:850;transition:.18s ease
+}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-dark);transform:translateY(-1px)}
+.btn-secondary{background:#fff;border-color:var(--line);color:#253038}
+.btn-secondary:hover{border-color:#bfcfc6}
+.hero-trust{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:31px
+}
+.trust-item{
+  background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:12px;padding:15px 16px
+}
+.trust-item strong{display:block;font-size:13px;color:#243038;margin-bottom:4px}
+.trust-item span{display:block;color:var(--text);font-size:12px;line-height:1.45}
+
+/* mobile nav */
+.mobile-nav{display:none}
+
+/* page layout */
+.page-layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 252px;gap:38px;
+  align-items:start;padding-top:40px;padding-bottom:74px
+}
+.main section{
+  scroll-margin-top:30px;padding:0 0 56px;margin:0 0 56px;border-bottom:1px solid var(--line)
+}
+.main section:last-child{border-bottom:0;margin-bottom:0}
+.section-kicker{
+  color:var(--brand);font-weight:900;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px
+}
+h2{font-size:34px;line-height:1.2;letter-spacing:-.025em;margin:0 0 12px}
+.section-lead{max-width:870px;color:var(--text);font-size:16px;margin:0 0 24px}
+.section-heading-row{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:24px}
+.section-heading-row .section-lead{margin-bottom:0}
+
+/* overview */
+.guide-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.guide-card{
+  border:1px solid var(--line);background:#fff;border-radius:14px;padding:21px;position:relative;overflow:hidden
+}
+.guide-card:before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--brand)
+}
+.guide-num{font-size:11px;color:var(--brand);font-weight:900;margin-bottom:8px}
+.guide-card h3{font-size:20px;margin:0 0 7px}
+.guide-card p{font-size:14px;color:var(--text);margin:0}
+
+/* selectable cards */
+.grid-2,.grid-3{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.select-card{
+  border:1px solid var(--line);background:#fff;border-radius:15px;padding:19px;
+  transition:.18s ease;position:relative
+}
+.select-card:hover{border-color:#bcd5c5;box-shadow:0 7px 22px rgba(20,45,31,.05)}
+.select-card.selected{
+  border-color:var(--brand);background:#fbfefc;box-shadow:0 0 0 2px rgba(22,150,90,.08)
+}
+.card-head{display:flex;gap:13px;align-items:flex-start}
+.icon-box{
+  width:38px;height:38px;border-radius:10px;background:var(--brand-soft);
+  color:var(--brand);display:grid;place-items:center;flex:0 0 auto
+}
+.icon-box svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}
+.card-title{flex:1}
+.card-title h3{font-size:19px;line-height:1.3;margin:1px 0 5px}
+.card-title p{font-size:13px;color:var(--text);margin:0}
+.select-btn{
+  border:1px solid #ccd9d1;background:#fff;color:#4a5861;border-radius:999px;
+  padding:7px 10px;font-size:11px;font-weight:900;white-space:nowrap
+}
+.select-card.selected .select-btn{background:var(--brand);border-color:var(--brand);color:#fff}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+.tag{font-size:11px;color:#53616a;background:var(--bg);border-radius:999px;padding:5px 8px}
+details{border-top:1px dashed var(--line);padding-top:10px;margin-top:13px}
+summary{cursor:pointer;color:var(--brand-dark);font-size:12px;font-weight:900}
+.detail-list{margin:8px 0 0;padding-left:18px;color:#46545d;font-size:13px}
+.detail-list li{margin:5px 0}
+.tip{
+  background:var(--brand-soft);border:1px solid #d8ebdf;color:#315742;
+  border-radius:11px;padding:13px 15px;font-size:13px;margin-top:18px
+}
+
+/* document stage band */
+.stage-band{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-bottom:19px
+}
+.stage-item{background:#fff;padding:14px}
+.stage-item strong{display:block;font-size:12px;color:#28343b;margin-bottom:3px}
+.stage-item span{font-size:11px;color:var(--text)}
+
+/* trade comparison */
+.comparison-toggle{margin-top:18px}
+.comparison-toggle details{
+  border:1px solid var(--line);border-radius:12px;margin:0;padding:0;overflow:hidden
+}
+.comparison-toggle summary{
+  padding:13px 15px;background:var(--bg);color:#2c383f;font-size:13px
+}
+.table-wrap{overflow:auto}
+.compare{width:100%;border-collapse:collapse;min-width:720px;font-size:12px}
+.compare th,.compare td{border-top:1px solid var(--line);padding:11px;text-align:left;vertical-align:top}
+.compare th{background:#fff;color:#54616a}
+.compare td:first-child{font-weight:900;color:#243039}
+
+/* lead time */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.flow-step{
+  border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:15px;
+  position:relative
+}
+.flow-step:not(:last-child):after{
+  content:"→";position:absolute;right:-11px;top:35%;z-index:2;color:#a6b2aa;font-weight:900
+}
+.flow-step b{display:block;color:var(--brand);font-size:10px;letter-spacing:.05em;margin-bottom:6px}
+.flow-step strong{display:block;font-size:13px;margin-bottom:5px}
+.flow-step span{display:block;font-size:11px;color:var(--text)}
+.info-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.info-box{border:1px solid var(--line);border-radius:13px;padding:18px;background:#fff}
+.info-box h3{font-size:17px;margin:0 0 8px}
+
+/* what happens next */
+.after-submit{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:17px
+}
+.after-card{
+  border:1px solid var(--line);background:var(--brand-pale);border-radius:12px;padding:15px
+}
+.after-card strong{display:block;font-size:12px;color:#26323a;margin-bottom:5px}
+.after-card span{font-size:11px;color:var(--text)}
+
+/* sticky right nav */
+.side{position:sticky;top:20px}
+.navbox{
+  border:1px solid var(--line);background:#fff;border-radius:15px;padding:18px 15px;box-shadow:0 7px 26px rgba(24,50,35,.035)
+}
+.navbox h3{font-size:12px;letter-spacing:.08em;margin:0 0 12px}
+.page-nav{list-style:none;margin:0;padding:0}
+.page-nav li{border-left:2px solid transparent}
+.page-nav a{
+  display:flex;gap:9px;padding:8px 5px 8px 8px;color:#5a6871;font-size:12px;line-height:1.4
+}
+.page-nav .num{width:23px;flex:0 0 23px;color:#a2adb4;font-size:10px;font-weight:900}
+.page-nav li.active{border-left-color:var(--brand)}
+.page-nav li.active a{color:var(--brand);font-weight:900}
+.request-widget{
+  margin-top:13px;border:1px solid var(--line);border-radius:15px;background:#fbfcfb;padding:15px
+}
+.request-widget h4{font-size:13px;margin:0 0 4px}
+.request-widget p{font-size:11px;color:var(--text);margin:0}
+.widget-line{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:11px}
+.widget-line b{color:var(--brand);font-size:17px}
+.request-widget .btn{width:100%;padding:10px;margin-top:9px;font-size:12px}
+
+/* form */
+.form-shell{
+  border:1px solid var(--line);border-radius:17px;background:#fff;overflow:hidden;box-shadow:var(--shadow)
+}
+.form-top{
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  background:var(--brand-pale);border-bottom:1px solid var(--line);padding:17px 21px
+}
+.form-top strong{font-size:14px}
+.form-top span{font-size:11px;color:var(--text)}
+.form-body{padding:22px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 16px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:12px;font-weight:850;color:#334047}
+.field input,.field textarea{
+  width:100%;padding:11px 12px;border:1px solid #ccd7d1;border-radius:8px;outline:0;background:#fff
+}
+.field textarea{min-height:95px;resize:vertical}
+.full{grid-column:1/-1}
+.review{
+  margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:15px
+}
+.review-title{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:11px}
+.review-title h3{font-size:15px;margin:0}
+.review-title a{font-size:11px;color:var(--brand);font-weight:800}
+.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.review-item{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px}
+.review-item b{display:block;color:#8b969d;font-size:9px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.review-item span{font-size:12px;color:#354249}
+.submit-row{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:17px}
+.submit-note{font-size:10px;color:#859198;max-width:580px}
+.success{
+  display:none;margin-top:12px;background:var(--brand-soft);border:1px solid #d5eadc;
+  color:#28513a;border-radius:10px;padding:12px 14px;font-size:12px
+}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin:0 0 9px}
+.faq summary{font-size:14px;color:#28343b}
+.faq p{font-size:13px;color:var(--text);margin:8px 0 0}
+
+footer{border-top:1px solid var(--line);padding:30px 0 36px;color:#7f8b93;font-size:12px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:1060px){
+  .page-layout{grid-template-columns:1fr}
+  .side{display:none}
+  .mobile-nav{
+    display:block;position:sticky;top:0;z-index:25;background:#fff;border-bottom:1px solid var(--line);padding:9px 0
+  }
+  .mobile-nav select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+}
+@media(max-width:850px){
+  .header-nav{display:none}
+  .container{padding:0 18px}
+  h1{font-size:35px}
+  h2{font-size:28px}
+  .hero-trust,.guide-flow,.grid-2,.grid-3,.stage-band,.flow,.info-columns,.after-submit,.form-grid,.review-grid{grid-template-columns:1fr}
+  .flow-step:not(:last-child):after{display:none}
+  .section-heading-row{align-items:flex-start;flex-direction:column}
+  .hero{padding:52px 0 41px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">TPK</span>
+      <span>TPKELE</span>
+    </a>
+    <nav class="header-nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Products</a>
+      <a href="#">Blog</a>
+      <a href="#">Manufacturing</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-quote" href="#request">Submit Inquiry</a>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb">
+  <div class="container"><a href="#">Home</a> &nbsp;/&nbsp; <a href="#">Resources</a> &nbsp;/&nbsp; <b>Buyer Trade Support</b></div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Buyer Resource Center</div>
+    <h1>Plan Your Order Before You Send the Inquiry</h1>
+    <p class="hero-copy">
+      Review the options that matter to international buyers, select what applies to your order,
+      and send TPKELE one structured requirement covering customization, packaging, export documents,
+      trade terms, payment, shipping and delivery planning.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#customization">Build My Requirement</a>
+      <a class="btn btn-secondary" href="#request">Review My Request</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-item"><strong>OEM / ODM</strong><span>Logo, label, packaging and supporting file customization.</span></div>
+      <div class="trust-item"><strong>Export Support</strong><span>Commercial, origin, transport and technical documents as applicable.</span></div>
+      <div class="trust-item"><strong>Global Logistics</strong><span>Express, air freight, LCL and FCL shipment planning.</span></div>
+      <div class="trust-item"><strong>Fast Quotation</strong><span>Structured requirements help shorten the back-and-forth before quotation.</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="mobile-nav">
+  <div class="container">
+    <select onchange="location.hash=this.value">
+      <option value="#overview">Page Navigation</option>
+      <option value="#overview">01 How This Buyer Guide Works</option>
+      <option value="#customization">02 Customization & Packaging</option>
+      <option value="#documents">03 Export Documents</option>
+      <option value="#trade">04 Trade Terms</option>
+      <option value="#payment">05 Payment Preferences</option>
+      <option value="#shipping">06 Shipping Methods</option>
+      <option value="#leadtime">07 Production & Lead Time</option>
+      <option value="#request">08 Review & Send Request</option>
+      <option value="#faq">09 Buyer FAQ</option>
+    </select>
+  </div>
+</div>
+
+<div class="container page-layout">
+<main class="main">
+
+<section id="overview">
+  <div class="section-kicker">01 / Buyer Guide</div>
+  <h2>Build the Request While You Read</h2>
+  <p class="section-lead">
+    You do not need to complete a long trade questionnaire at the end. Read each section, select the items relevant to your order,
+    and the page will carry those choices into your final request automatically.
+  </p>
+  <div class="guide-flow">
+    <div class="guide-card">
+      <div class="guide-num">STEP 01</div>
+      <h3>Review</h3>
+      <p>Understand what each packaging option, document, Incoterm and shipping method means in practical buying terms.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-num">STEP 02</div>
+      <h3>Select</h3>
+      <p>Click “Select” on the options that apply. Multi-select is available where buyers may need more than one item.</p>
+    </div>
+    <div class="guide-card">
+      <div class="guide-num">STEP 03</div>
+      <h3>Send</h3>
+      <p>Add company, product, quantity and contact details once. TPKELE receives the complete requirement together.</p>
+    </div>
+  </div>
+</section>
+
+<section id="customization">
+  <div class="section-kicker">02 / OEM & Packaging</div>
+  <div class="section-heading-row">
+    <div>
+      <h2>Customization & Packaging</h2>
+      <p class="section-lead">
+        Select one or several items. Final feasibility, artwork, MOQ and exact dimensions are confirmed against the actual product before production.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid-2" data-multi-group="customization">
+    <div class="select-card" data-value="Custom paper box packaging">
+      <div class="card-head">
+        <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 11v10"/></svg></span>
+        <div class="card-title"><h3>Custom Paper Box</h3><p>For branded retail presentation or private-label unit packaging.</p></div>
+        <button class="select-btn" type="button">Select</button>
+      </div>
+      <div class="tags"><span class="tag">Logo</span><span class="tag">Model info</span><span class="tag">Barcode / QR</span><span class="tag">Color printing</span></div>
+      <details><summary>See what can be customized</summary>
+        <ul class="detail-list">
+          <li>Buyer logo, brand colors and unit-box artwork</li>
+          <li>Model, voltage/current, product wording and language</li>
+          <li>Barcode / QR code area and distributor information</li>
+          <li>Final box dimensions after product and internal packing are confirmed</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="select-card" data-value="Custom plastic packaging">
+      <div class="card-head">
+        <span class="icon-box"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+        <div class="card-title"><h3>Custom Plastic Packaging</h3><p>For display, visibility, storage or additional physical protection.</p></div>
+        <button class="select-btn" type="button">Select</button>
+      </div>
+      <div class="tags"><span class="tag">Plastic box</span><span class="tag">Blister-style</span><span class="tag">Protective pack</span></div>
+      <details><summary>See what the buyer should provide</summary>
+        <ul class="detail-list">
+          <li>Preferred style, sample or reference picture if available</li>
+          <li>Whether retail display or protection is the main objective</li>
+          <li>Label or branding requirements on the plastic pack</li>
+          <li>Any hanging, shelf or display requirement</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="select-card" data-value="Logo, label and product marking customization">
+      <div class="card-head">
+        <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 6h10l6 6-8 8-8-8V6z"/><circle cx="8" cy="10" r="1.2"/></svg></span>
+        <div class="card-title"><h3>Logo, Label & Marking</h3><p>For customer brand identity directly on the product or label.</p></div>
+        <button class="select-btn" type="button">Select</button>
+      </div>
+      <div class="tags"><span class="tag">Housing logo</span><span class="tag">Label</span><span class="tag">Custom model code</span></div>
+      <details><summary>Typical items to confirm</summary>
+        <ul class="detail-list">
+          <li>Logo vector artwork and desired position</li>
+          <li>Product model, electrical rating and compliance text</li>
+          <li>Customer-specific model code if required</li>
+          <li>Label language and destination-market wording</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="select-card" data-value="Packing size, carton and pallet information">
+      <div class="card-head">
+        <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 7h18M5 7v10h14V7M8 17v3M16 17v3M3 20h18"/></svg></span>
+        <div class="card-title"><h3>Carton & Packing Data</h3><p>For freight calculation, warehouse planning and container loading.</p></div>
+        <button class="select-btn" type="button">Select</button>
+      </div>
+      <div class="tags"><span class="tag">Unit box</span><span class="tag">Master carton</span><span class="tag">G.W. / N.W.</span><span class="tag">Pallet</span></div>
+      <details><summary>Data buyers may request</summary>
+        <ul class="detail-list">
+          <li>Unit packaging and master-carton dimensions</li>
+          <li>Pieces per carton, gross weight and net weight</li>
+          <li>Carton marking and pallet information where applicable</li>
+          <li>Data for preliminary LCL / FCL volume planning</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="select-card" data-value="Customized datasheet, manual or catalog">
+      <div class="card-head">
+        <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v4h4M9 11h6M9 15h6"/></svg></span>
+        <div class="card-title"><h3>Manual, Datasheet & Catalog</h3><p>For distributors building a branded product package around the hardware.</p></div>
+        <button class="select-btn" type="button">Select</button>
+      </div>
+      <div class="tags"><span class="tag">Datasheet</span><span class="tag">Manual</span><span class="tag">Catalog</span></div>
+      <details><summary>Typical customization scope</summary>
+        <ul class="detail-list">
+          <li>Customer logo and company information</li>
+          <li>Product-series naming and market language</li>
+          <li>Project-specific product sheets where supported</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="select-card" data-value="Sample approval before mass production">
+      <div class="card-head">
+        <span class="icon-box"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 9l2 2 5-5M8 15h8"/></svg></span>
+        <div class="card-title"><h3>Sample Approval</h3><p>Useful for new private-label programs before larger production.</p></div>
+        <button class="select-btn" type="button">Select</button>
+      </div>
+      <div class="tags"><span class="tag">OEM sample</span><span class="tag">Artwork check</span><span class="tag">Pre-production confirmation</span></div>
+      <details><summary>How it helps</summary>
+        <ul class="detail-list">
+          <li>Verify product marking and packaging before mass order</li>
+          <li>Confirm presentation and technical details with your local team</li>
+          <li>Supported sample timing is confirmed according to product and customization scope</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+  <div class="tip">No finished artwork yet? You can still select the customization item now and explain the intended style in the final notes.</div>
+</section>
+
+<section id="documents">
+  <div class="section-kicker">03 / Documentation</div>
+  <h2>Export & Order Documents</h2>
+  <p class="section-lead">
+    Select the files you expect to need. Some are prepared before order confirmation, some at shipment, and some depend on the destination market or shipping method.
+  </p>
+
+  <div class="stage-band">
+    <div class="stage-item"><strong>Before Order</strong><span>PI, datasheet, technical or certification review</span></div>
+    <div class="stage-item"><strong>Before Shipment</strong><span>CI, packing list and shipment document preparation</span></div>
+    <div class="stage-item"><strong>Import / Clearance</strong><span>Origin or transport documents where applicable</span></div>
+  </div>
+
+  <div class="grid-3" data-multi-group="documents">
+    <div class="select-card" data-value="PI - Proforma Invoice">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h4"/></svg></span><div class="card-title"><h3>PI</h3><p>Proforma Invoice for quotation and commercial confirmation.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>When buyers normally use it</summary><ul class="detail-list"><li>Internal purchase approval</li><li>Order and payment preparation</li><li>Commercial terms confirmation</li></ul></details>
+    </div>
+
+    <div class="select-card" data-value="CI - Commercial Invoice">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></span><div class="card-title"><h3>CI</h3><p>Commercial Invoice for the formal shipment document set.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>Typical information</summary><ul class="detail-list"><li>Seller and buyer information</li><li>Product description and value</li><li>Invoice amount and agreed trade term</li></ul></details>
+    </div>
+
+    <div class="select-card" data-value="Packing List">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h8"/></svg></span><div class="card-title"><h3>Packing List</h3><p>Packing data for logistics, customs and receiving.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>Typical information</summary><ul class="detail-list"><li>Carton count and packing quantity</li><li>Gross / net weight</li><li>Volume and packing arrangement</li></ul></details>
+    </div>
+
+    <div class="select-card" data-value="Certificate of Origin">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span><div class="card-title"><h3>Certificate of Origin</h3><p>Origin-related support when required for the destination market.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>Important scope note</summary><ul class="detail-list"><li>Exact certificate type depends on destination and applicable origin rules</li><li>Preferential origin treatment requires separate eligibility confirmation</li></ul></details>
+    </div>
+
+    <div class="select-card" data-value="B/L, AWB or transport document">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 15h13V7H3zM16 10h3l2 3v2h-5zM7 18a2 2 0 1 0 0 .1M18 18a2 2 0 1 0 0 .1"/></svg></span><div class="card-title"><h3>B/L / AWB</h3><p>Transport document according to shipment mode.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>Depends on shipping method</summary><ul class="detail-list"><li>B/L for sea freight</li><li>AWB for air freight</li><li>Courier shipment records for express</li></ul></details>
+    </div>
+
+    <div class="select-card" data-value="Datasheet, test report or certification file">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5zM15 3v5h5M8 12h8M8 16h6"/></svg></span><div class="card-title"><h3>Technical / Certification Files</h3><p>Supporting files for product, project or market review where available.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>Common buyer uses</summary><ul class="detail-list"><li>Technical approval</li><li>Project submission</li><li>Distributor sales preparation</li><li>Model-specific compliance review</li></ul></details>
+    </div>
+  </div>
+</section>
+
+<section id="trade">
+  <div class="section-kicker">04 / Incoterms</div>
+  <h2>Compare & Select a Trade Term</h2>
+  <p class="section-lead">
+    Choose one preferred term. If you are unsure, select “Not Sure” and provide your destination — this is usually better than guessing.
+  </p>
+
+  <div class="grid-2" data-single-group="trade">
+    <div class="select-card" data-value="Not Sure - Please recommend">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 0 1 4.6 1c0 1.8-2.4 2-2.4 4M12 18h.01"/></svg></span><div class="card-title"><h3>Not Sure</h3><p>Let TPKELE review your shipment context and suggest a practical term.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="EXW">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4zM7 20h10M12 16v4"/></svg></span><div class="card-title"><h3>EXW</h3><p>Buyer controls pickup and most onward logistics arrangements.</p></div><button class="select-btn">Select</button></div>
+      <details><summary>Usually suitable for</summary><ul class="detail-list"><li>Experienced importers with their own forwarder</li><li>Buyers wanting strong logistics control</li></ul></details>
+    </div>
+    <div class="select-card" data-value="FCA">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 15h13V7H3zM16 10h3l2 3v2h-5z"/></svg></span><div class="card-title"><h3>FCA</h3><p>Seller hands goods to the buyer’s carrier at the agreed named place.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="FOB">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 14h18l-3 5H6zM7 14V8h8v6M10 8V5h4v3"/></svg></span><div class="card-title"><h3>FOB</h3><p>Common sea-freight term with seller-side export and loading responsibility.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="CFR">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 14h18l-3 5H6zM7 14V8h8v6M10 8V5h4v3"/></svg></span><div class="card-title"><h3>CFR</h3><p>Seller arranges ocean freight to the named destination port.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="CIF">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 14h18l-3 5H6zM7 14V8h8v6M12 3l3 2-3 2-3-2z"/></svg></span><div class="card-title"><h3>CIF</h3><p>Seller arranges ocean freight and the insurance required by the agreed term.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="DAP">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4zM9 20v-6h6v6"/></svg></span><div class="card-title"><h3>DAP</h3><p>Delivery to the named destination; buyer handles import clearance and duties.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="DDP - Subject to feasibility">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4zM8 16h8M12 12v8"/></svg></span><div class="card-title"><h3>DDP</h3><p>More complete destination delivery; availability depends on route and import feasibility.</p></div><button class="select-btn">Select</button></div>
+    </div>
+  </div>
+
+  <div class="comparison-toggle">
+    <details>
+      <summary>Open practical trade-term comparison</summary>
+      <div class="table-wrap">
+        <table class="compare">
+          <tr><th>Term</th><th>Seller Scope (Simplified)</th><th>Buyer Scope (Simplified)</th><th>Typical Buyer</th></tr>
+          <tr><td>EXW</td><td>Goods made available</td><td>Pickup, main logistics and import</td><td>Experienced importer</td></tr>
+          <tr><td>FCA</td><td>Export clearance + carrier handover</td><td>Main freight onward + import</td><td>Buyer with own forwarder</td></tr>
+          <tr><td>FOB</td><td>Export + load on board</td><td>Ocean freight onward + import</td><td>Sea-freight importer</td></tr>
+          <tr><td>CFR</td><td>Export + ocean freight</td><td>Import + destination handling</td><td>Port-based buyer</td></tr>
+          <tr><td>CIF</td><td>Export + ocean freight + term-required insurance</td><td>Import + destination handling</td><td>Port-based buyer</td></tr>
+          <tr><td>DAP</td><td>Delivery to named destination</td><td>Import clearance and duties</td><td>Buyer wanting destination delivery</td></tr>
+          <tr><td>DDP</td><td>Broad seller-side delivery/import responsibility where feasible</td><td>Receive goods</td><td>Selected routes / projects</td></tr>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="payment">
+  <div class="section-kicker">05 / Payment</div>
+  <h2>Payment Preference</h2>
+  <p class="section-lead">Select a preference for discussion. The final payment schedule and conditions are confirmed in the PI.</p>
+  <div class="grid-3" data-single-group="payment">
+    <div class="select-card" data-value="T/T Bank Transfer">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 9h18M5 9v8M9 9v8M15 9v8M19 9v8M3 19h18M12 3l9 4H3z"/></svg></span><div class="card-title"><h3>T/T Bank Transfer</h3><p>Common bank-transfer method for international commercial orders.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="L/C - Subject to order review">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></span><div class="card-title"><h3>L/C</h3><p>Can be discussed for qualifying order value and banking conditions.</p></div><button class="select-btn">Select</button></div>
+    </div>
+    <div class="select-card" data-value="Other payment arrangement - Please discuss">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span><div class="card-title"><h3>Other / Discuss</h3><p>Use this if you need to propose a different arrangement for review.</p></div><button class="select-btn">Select</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="shipping">
+  <div class="section-kicker">06 / Logistics</div>
+  <h2>Shipping Method</h2>
+  <p class="section-lead">Select one preferred method, or leave it unselected if you want TPKELE to recommend based on order size, urgency and destination.</p>
+  <div class="grid-2" data-single-group="shipping">
+    <div class="select-card" data-value="Express Courier">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 15h13V7H3zM16 10h3l2 3v2h-5zM7 18a2 2 0 1 0 0 .1M18 18a2 2 0 1 0 0 .1"/></svg></span><div class="card-title"><h3>Express Courier</h3><p>Best for samples, urgent replacements and small-volume orders.</p></div><button class="select-btn">Select</button></div>
+      <div class="tags"><span class="tag">Fast</span><span class="tag">Small shipment</span><span class="tag">Easy tracking</span></div>
+    </div>
+    <div class="select-card" data-value="Air Freight">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M2 16l20-7-7 11-3-6-10 2zM12 14l3-9"/></svg></span><div class="card-title"><h3>Air Freight</h3><p>For time-sensitive commercial orders larger than a typical courier shipment.</p></div><button class="select-btn">Select</button></div>
+      <div class="tags"><span class="tag">Urgent</span><span class="tag">Medium volume</span></div>
+    </div>
+    <div class="select-card" data-value="Sea Freight LCL">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 14h18l-3 5H6zM7 14V8h8v6M10 8V5h4v3"/></svg></span><div class="card-title"><h3>Sea Freight — LCL</h3><p>For commercial orders that do not fill an entire container.</p></div><button class="select-btn">Select</button></div>
+      <div class="tags"><span class="tag">Shared container</span><span class="tag">Commercial order</span></div>
+    </div>
+    <div class="select-card" data-value="Sea Freight FCL">
+      <div class="card-head"><span class="icon-box"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10"/><path d="M7 7v10M12 7v10M17 7v10M4 20h16"/></svg></span><div class="card-title"><h3>Sea Freight — FCL</h3><p>For larger distributor, project or container-load orders.</p></div><button class="select-btn">Select</button></div>
+      <div class="tags"><span class="tag">High volume</span><span class="tag">Container planning</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="leadtime">
+  <div class="section-kicker">07 / Delivery Planning</div>
+  <h2>Production & Lead Time</h2>
+  <p class="section-lead">
+    A realistic delivery estimate is confirmed after TPKELE reviews the exact product, quantity and customization scope.
+    Packaging approval, special marking, inspection, documents and shipping can all influence the final schedule.
+  </p>
+
+  <div class="flow">
+    <div class="flow-step"><b>01</b><strong>Requirement Review</strong><span>Product, quantity, destination and market needs.</span></div>
+    <div class="flow-step"><b>02</b><strong>Artwork / Sample</strong><span>Logo, labels, packaging and sample confirmation if needed.</span></div>
+    <div class="flow-step"><b>03</b><strong>PI & Order</strong><span>Commercial basis, terms and production scope confirmed.</span></div>
+    <div class="flow-step"><b>04</b><strong>Production & QC</strong><span>Manufacturing, inspection and packing preparation.</span></div>
+    <div class="flow-step"><b>05</b><strong>Documents & Dispatch</strong><span>Shipment documentation and logistics handover.</span></div>
+  </div>
+
+  <div class="info-columns">
+    <div class="info-box">
+      <h3>What may add preparation time?</h3>
+      <ul class="detail-list">
+        <li>New paper-box artwork or private-label design approval</li>
+        <li>Special plastic packaging or new label structure</li>
+        <li>Large quantities or consolidated product lists</li>
+        <li>Additional document or inspection requirements</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>How can buyers speed up confirmation?</h3>
+      <ul class="detail-list">
+        <li>Provide exact product/model and expected quantity</li>
+        <li>Select packaging and documents on this page</li>
+        <li>Provide destination port/city and target delivery date</li>
+        <li>Send artwork or reference packaging when available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="request">
+  <div class="section-kicker">08 / Inquiry</div>
+  <h2>Review & Send Your Trade Support Request</h2>
+  <p class="section-lead">
+    Your selections above are already included. Complete only the basic buyer and product information below,
+    review the summary, and send one structured request to TPKELE.
+  </p>
+
+  <div class="form-shell">
+    <div class="form-top">
+      <strong>Buyer & Product Information</strong>
+      <span>* Required fields</span>
+    </div>
+    <div class="form-body">
+      <div class="form-grid">
+        <div class="field"><label>Company Name *</label><input id="company" placeholder="Your company name"></div>
+        <div class="field"><label>Country / Market *</label><input id="country" placeholder="Example: Saudi Arabia"></div>
+        <div class="field"><label>Contact Name *</label><input id="contactName" placeholder="Your name"></div>
+        <div class="field"><label>Email / WhatsApp *</label><input id="contact" placeholder="Email or WhatsApp"></div>
+        <div class="field"><label>Product / Model *</label><input id="product" placeholder="Example: DC MCB / SPD / ATS"></div>
+        <div class="field"><label>Estimated Quantity *</label><input id="qty" placeholder="Example: 500 pcs / 1×20GP"></div>
+        <div class="field"><label>Destination Port / City</label><input id="destination" placeholder="Example: Jebel Ali / Riyadh"></div>
+        <div class="field"><label>Target Delivery Date</label><input id="targetDate" placeholder="If you have a required deadline"></div>
+        <div class="field full"><label>Additional Notes</label><textarea id="notes" placeholder="Artwork status, certification needs, local labeling, carton marks or any other buyer requirement."></textarea></div>
+      </div>
+
+      <div class="review">
+        <div class="review-title">
+          <h3>Your Selected Trade Requirements</h3>
+          <a href="#customization">Edit selections ↑</a>
+        </div>
+        <div class="review-grid">
+          <div class="review-item"><b>Customization & Packaging</b><span id="reviewCustomization">None selected</span></div>
+          <div class="review-item"><b>Documents</b><span id="reviewDocuments">None selected</span></div>
+          <div class="review-item"><b>Trade Term</b><span id="reviewTrade">Not selected</span></div>
+          <div class="review-item"><b>Payment</b><span id="reviewPayment">Not selected</span></div>
+          <div class="review-item"><b>Shipping</b><span id="reviewShipping">Not selected</span></div>
+          <div class="review-item"><b>Destination</b><span id="reviewDestination">Not entered</span></div>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <div class="submit-note">
+          Final website implementation: submit securely to TPKELE sales email and optionally the CRM. Spam protection and server-side validation should be enabled.
+        </div>
+        <button class="btn btn-primary" id="submitBtn" type="button">Send Trade Support Request</button>
+      </div>
+      <div class="success" id="successBox">Thank you. Your structured trade-support request is ready for TPKELE sales review.</div>
+    </div>
+  </div>
+
+  <div class="after-submit">
+    <div class="after-card"><strong>1. Requirement Review</strong><span>We review product, quantity, destination and your selected trade needs.</span></div>
+    <div class="after-card"><strong>2. Commercial Reply</strong><span>We confirm quotation basis, suitable trade terms and required information.</span></div>
+    <div class="after-card"><strong>3. Customization Check</strong><span>OEM, packaging, labels and relevant document feasibility are confirmed.</span></div>
+    <div class="after-card"><strong>4. Order Plan</strong><span>You receive the next steps for PI, lead time, shipment and document preparation.</span></div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="section-kicker">09 / FAQ</div>
+  <h2>Buyer FAQ</h2>
+  <p class="section-lead">Common order-planning questions are collapsed by default to keep the page easy to scan.</p>
+  <details><summary>Can I request custom packaging before I have final artwork?</summary><p>Yes. Select the packaging type first and describe your intended style. Final artwork and feasibility can be confirmed before mass production.</p></details>
+  <details><summary>Can I request packing dimensions before placing the order?</summary><p>Yes. This is useful for freight estimates, warehouse planning and container analysis. Final values should match the confirmed product and packaging combination.</p></details>
+  <details><summary>Should I select EXW, FCA or FOB if I already have a forwarder?</summary><p>You can compare the trade-term cards above. If you are still unsure, select “Not Sure” and provide your destination and logistics arrangement for review.</p></details>
+  <details><summary>Can I select PI, CI, Packing List and Certificate of Origin together?</summary><p>Yes. Select all documents you expect to need. TPKELE can then clarify which are relevant at each order and shipment stage.</p></details>
+  <details><summary>Can I request L/C?</summary><p>You can select L/C as a preference. Availability and detailed banking conditions depend on the specific order and will need commercial review.</p></details>
+</section>
+
+</main>
+
+<aside class="side">
+  <div class="navbox">
+    <h3>PAGE NAVIGATION</h3>
+    <ul class="page-nav" id="pageNav">
+      <li class="active"><a href="#overview"><span class="num">01</span><span>How This Buyer Guide Works</span></a></li>
+      <li><a href="#customization"><span class="num">02</span><span>Customization & Packaging</span></a></li>
+      <li><a href="#documents"><span class="num">03</span><span>Export Documents</span></a></li>
+      <li><a href="#trade"><span class="num">04</span><span>Trade Terms</span></a></li>
+      <li><a href="#payment"><span class="num">05</span><span>Payment Preferences</span></a></li>
+      <li><a href="#shipping"><span class="num">06</span><span>Shipping Methods</span></a></li>
+      <li><a href="#leadtime"><span class="num">07</span><span>Production & Lead Time</span></a></li>
+      <li><a href="#request"><span class="num">08</span><span>Review & Send Request</span></a></li>
+      <li><a href="#faq"><span class="num">09</span><span>Buyer FAQ</span></a></li>
+    </ul>
+  </div>
+
+  <div class="request-widget">
+    <h4>Your Request</h4>
+    <p>Your selections are saved while you read this page.</p>
+    <div class="widget-line"><span>Selected items</span><b id="selectionCount">0</b></div>
+    <a class="btn btn-primary" href="#request">Review Request</a>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="container footer-row">
+    <span>© 2026 TPKELE. Buyer Trade Support Center.</span>
+    <span>International electrical procurement support.</span>
+  </div>
+</footer>
+
+<script>
+const state = {
+  customization: [],
+  documents: [],
+  trade: "",
+  payment: "",
+  shipping: ""
+};
+
+function toggleMulti(card, group){
+  const value = card.dataset.value;
+  const arr = state[group];
+  const idx = arr.indexOf(value);
+  if(idx >= 0){
+    arr.splice(idx,1);
+    card.classList.remove('selected');
+  }else{
+    arr.push(value);
+    card.classList.add('selected');
+  }
+  const btn = card.querySelector('.select-btn');
+  btn.textContent = card.classList.contains('selected') ? 'Selected' : 'Select';
+  syncReview();
+}
+
+function chooseSingle(card, group){
+  const wrapper = card.closest('[data-single-group]');
+  wrapper.querySelectorAll('.select-card').forEach(c=>{
+    c.classList.remove('selected');
+    c.querySelector('.select-btn').textContent = 'Select';
+  });
+  card.classList.add('selected');
+  card.querySelector('.select-btn').textContent = 'Selected';
+  state[group] = card.dataset.value;
+  syncReview();
+}
+
+document.querySelectorAll('[data-multi-group]').forEach(groupEl=>{
+  const group = groupEl.dataset.multiGroup;
+  groupEl.querySelectorAll('.select-card').forEach(card=>{
+    card.querySelector('.select-btn').addEventListener('click',()=>toggleMulti(card,group));
+  });
+});
+
+document.querySelectorAll('[data-single-group]').forEach(groupEl=>{
+  const group = groupEl.dataset.singleGroup;
+  groupEl.querySelectorAll('.select-card').forEach(card=>{
+    card.querySelector('.select-btn').addEventListener('click',()=>chooseSingle(card,group));
+  });
+});
+
+function syncReview(){
+  document.getElementById('reviewCustomization').textContent = state.customization.length ? state.customization.join(', ') : 'None selected';
+  document.getElementById('reviewDocuments').textContent = state.documents.length ? state.documents.join(', ') : 'None selected';
+  document.getElementById('reviewTrade').textContent = state.trade || 'Not selected';
+  document.getElementById('reviewPayment').textContent = state.payment || 'Not selected';
+  document.getElementById('reviewShipping').textContent = state.shipping || 'Not selected';
+  const destination = document.getElementById('destination')?.value.trim() || '';
+  document.getElementById('reviewDestination').textContent = destination || 'Not entered';
+  const count = state.customization.length + state.documents.length + (state.trade?1:0) + (state.payment?1:0) + (state.shipping?1:0);
+  document.getElementById('selectionCount').textContent = count;
+}
+
+document.getElementById('destination').addEventListener('input',syncReview);
+
+const navItems = Array.from(document.querySelectorAll('#pageNav li'));
+const navSections = navItems.map(li => document.querySelector(li.querySelector('a').getAttribute('href')));
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      navItems.forEach(li=>li.classList.remove('active'));
+      const found = navItems.find(li=>li.querySelector('a').getAttribute('href') === '#'+entry.target.id);
+      if(found) found.classList.add('active');
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px',threshold:0});
+navSections.forEach(section=>section && observer.observe(section));
+
+document.getElementById('submitBtn').addEventListener('click',()=>{
+  const required = ['company','country','contactName','contact','product','qty'];
+  const missing = required.filter(id => !document.getElementById(id).value.trim());
+  if(missing.length){
+    alert('Please complete the required company, contact, product and quantity fields.');
+    return;
+  }
+
+  /*
+  FINAL NEXT.JS / VERCEL IMPLEMENTATION:
+  POST to /api/trade-support with:
+  {
+    company,
+    country,
+    contactName,
+    contact,
+    product,
+    qty,
+    destination,
+    targetDate,
+    notes,
+    customization: state.customization,
+    documents: state.documents,
+    tradeTerm: state.trade,
+    paymentPreference: state.payment,
+    shippingMethod: state.shipping
+  }
+
+  Server route requirements:
+  - send formatted email to jacky@tpkele.com
+  - subject example: "New Trade Support Request - [Country] - [Product]"
+  - return success / failure
+  - later optionally write same structured fields to CRM
+  - use server-side validation, anti-spam, honeypot / Turnstile or equivalent, rate limiting
+  */
+
+  document.getElementById('successBox').style.display='block';
+});
+
+syncReview();
+</script>
+</body>
+</html>

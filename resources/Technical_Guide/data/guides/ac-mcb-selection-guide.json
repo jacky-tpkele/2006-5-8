@@ -1,0 +1,202 @@
+{
+  "slug": "ac-mcb-selection-guide",
+  "title": "AC MCB Selection Guide for Building and Industrial Circuits",
+  "seoTitle": "AC MCB Selection Guide for Building and Industrial Circuits | TPKELE Technical Guide",
+  "metaDescription": "Review current rating, breaking capacity and trip curves when selecting an AC miniature circuit breaker.",
+  "description": "Review current rating, breaking capacity and trip curves when selecting an AC miniature circuit breaker.",
+  "categoryTrail": [
+    "Technical Guide",
+    "Circuit Protection",
+    "AC MCB"
+  ],
+  "reviewedBy": "TPKELE Technical Team",
+  "updatedAt": "2026-09-07",
+  "readTime": "12 min read",
+  "heroImage": "/images/guides/ac-mcb-selection-guide/hero.png",
+  "advisor": {
+    "product": "ac-mcb",
+    "application": "Commercial"
+  },
+  "relatedProducts": [
+    {
+      "name": "DC MCB",
+      "href": "/products/dc-mcb",
+      "desc": "PV string and combiner box overcurrent protection"
+    },
+    {
+      "name": "DC SPD",
+      "href": "/products/dc-spd",
+      "desc": "Surge protection for PV DC circuits"
+    },
+    {
+      "name": "PV Fuse",
+      "href": "/products/pv-fuse",
+      "desc": "String-level protection for photovoltaic systems"
+    },
+    {
+      "name": "DC Isolator",
+      "href": "/products/dc-isolator",
+      "desc": "Safe maintenance isolation for DC systems"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Selection Checklist",
+      "href": "#",
+      "type": "PDF"
+    },
+    {
+      "title": "Technical Datasheet",
+      "href": "#",
+      "type": "PDF"
+    },
+    {
+      "title": "Application Guide",
+      "href": "#",
+      "type": "PDF"
+    }
+  ],
+  "sections": [
+    {
+      "id": "selection-overview",
+      "title": "Selection Overview",
+      "content": [
+        "Selecting the right AC MCB is critical for safety, reliability and commercial success. In real projects, a product decision should reflect the electrical system, the installation conditions and the buyer's documentation expectations, not just a basic catalogue line. This guide is written to help procurement teams, engineers and distributors move from a general product name to a usable specification path.",
+        "The correct AC MCB selection process starts by understanding the actual application context. For TPKELE customers, this usually means matching product performance to solar PV, building electrical distribution or power-switching conditions, and then connecting the technical decision to quotation, export and project-delivery needs."
+      ],
+      "callout": "Do not select a AC MCB only by one headline parameter. Review system voltage, current, switching duty, coordination and application context together."
+    },
+    {
+      "id": "what-is-it",
+      "title": "What is a AC MCB?",
+      "content": [
+        "A AC MCB is a low-voltage electrical product used to perform a defined protective, switching, control or monitoring function inside the system. Its real value is not the device alone, but how accurately it matches the circuit, the environment and the maintenance expectations of the user.",
+        "In project supply, buyers often compare similar-looking products across different brands. A better approach is to understand the operating duty, key ratings and the failure modes that the device must handle. That makes quotation more accurate and reduces risk during installation and commissioning."
+      ],
+      "image": "/images/guides/ac-mcb-selection-guide/figure.png",
+      "imageCaption": "Figure 1. Functional selection view for AC MCB"
+    },
+    {
+      "id": "key-selection-parameters",
+      "title": "Key Selection Parameters",
+      "content": [
+        "Before comparing suppliers, buyers should list the parameters that truly determine whether the AC MCB fits the project. Good product selection normally combines electrical ratings, application logic, physical arrangement and commercial documentation needs. That approach is more reliable than selecting by a model number alone.",
+        "For TPKELE's target users such as distributors, EPC engineers and procurement managers, the most efficient workflow is to confirm the project conditions first, then compare a short list of technically suitable products, and finally review destination-market and quotation details."
+      ],
+      "table": {
+        "headers": [
+          "Parameter",
+          "Meaning",
+          "Typical Options",
+          "Why It Matters"
+        ],
+        "rows": [
+          [
+            "Rated Voltage",
+            "Maximum operating voltage",
+            "Application-specific",
+            "Must exceed the real system voltage"
+          ],
+          [
+            "Rated Current",
+            "Continuous operating current",
+            "Standard current steps",
+            "Must match the circuit load"
+          ],
+          [
+            "Breaking / Withstand Duty",
+            "Fault or switching performance",
+            "Model-specific",
+            "Ensures safe operation"
+          ],
+          [
+            "Poles / Configuration",
+            "Mechanical and electrical arrangement",
+            "1P / 2P / 3P / 4P",
+            "Depends on system wiring"
+          ],
+          [
+            "Standards Basis",
+            "Technical evaluation foundation",
+            "IEC / project-specific",
+            "Supports engineering review"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "application-match",
+      "title": "Application Matching",
+      "content": [
+        "The same AC MCB family can be used in different projects, but the best specification often changes with the application. Residential systems usually focus on compactness, ease of installation and stable everyday use. Commercial and industrial projects may require higher ratings, more coordination and deeper documentation for internal review or export submission.",
+        "That is why TPKELE's content strategy connects every guide to a product-focused Market Access Advisor. The guide helps the user understand how to select the product technically, while the advisor helps convert that technical decision into a market-facing action plan."
+      ]
+    },
+    {
+      "id": "selection-workflow",
+      "title": "Recommended Selection Workflow",
+      "content": [
+        "A practical selection workflow for AC MCB starts with the electrical system and not the catalogue. Confirm the system voltage, current or load duty, application type, pole or functional arrangement, installation conditions and coordination requirements. Only after that should model comparison begin.",
+        "Next, shortlist products that fit the technical envelope, check supporting documents such as datasheets or test reports, and then align the final choice with the buyer type. For example, a distributor may care more about standardized models and market breadth, while a project buyer may prioritize exact ratings, lead time and documentation completeness."
+      ],
+      "image": "/images/guides/ac-mcb-selection-guide/quick-flow.png",
+      "imageCaption": "Figure 2. Quick selection workflow for AC MCB"
+    },
+    {
+      "id": "standards-and-compliance",
+      "title": "Standards and Compliance Perspective",
+      "content": [
+        "Technical standards and market-access expectations should be understood as related but separate topics. A technical standard helps define how a product is evaluated, tested or described. However, mentioning a standard does not automatically mean that every destination market imposes the same mandatory certification route for every product scope.",
+        "For this reason, TPKELE's website architecture benefits from connecting guides to the Market Access Advisor. Users can read the selection article first, then open an advisor link with the product and application pre-filled. That makes the buying journey smoother and reduces the risk of mixing engineering standards with destination-market certification assumptions."
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common Mistakes to Avoid",
+      "content": [
+        "The most frequent mistake is selecting a AC MCB by habit rather than by project conditions. Buyers may copy an old specification without checking if the new system voltage, environment, current level or use case has changed. Another mistake is assuming that all visually similar products from the market have the same internal performance or supporting evidence.",
+        "Commercially, another error is waiting too long to review documents, labels or market-facing requirements. When this review happens late, quotation and shipment timelines become harder to control. A stronger process combines technical selection and document preparation from the beginning."
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "FAQ",
+      "faq": [
+        {
+          "q": "What is the first parameter to confirm?",
+          "a": "Start from the maximum system voltage and the actual circuit architecture before checking current and accessory details."
+        },
+        {
+          "q": "Can I select only by current rating?",
+          "a": "No. Current alone is not enough. Voltage, fault level, poles and application environment also matter."
+        },
+        {
+          "q": "Why does breaking capacity matter?",
+          "a": "Because the device must safely interrupt the fault level that can appear at the installation point."
+        },
+        {
+          "q": "How does the guide connect to export work?",
+          "a": "After product selection, use the Market Access Advisor to review likely standards, document expectations and market-specific questions."
+        }
+      ]
+    },
+    {
+      "id": "related-products",
+      "title": "Related Products and Next Steps",
+      "content": [
+        "A complete buying decision usually includes more than a single AC MCB. Users often compare related products that work in the same project package so that protection, switching and monitoring decisions remain coordinated.",
+        "On the TPKELE website, every guide should therefore link to related product pages, downloadable resources and the Market Access Advisor. This structure helps turn informational traffic into qualified inquiry traffic."
+      ],
+      "image": "/images/guides/ac-mcb-selection-guide/related-grid.png",
+      "imageCaption": "Figure 3. Related TPKELE product paths for AC MCB"
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "content": [
+        "A reliable AC MCB decision combines product knowledge, application matching and documentation readiness. If you define the use case clearly and review the key parameters in a structured order, selection becomes faster and more accurate.",
+        "After completing the technical review, open the TPKELE Market Access Advisor to continue with the next step: checking likely market requirements, evidence expectations and buyer-facing compliance context for the target product and application."
+      ]
+    }
+  ]
+}

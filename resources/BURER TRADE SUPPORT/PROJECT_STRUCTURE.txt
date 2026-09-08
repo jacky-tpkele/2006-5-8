@@ -1,0 +1,26 @@
+TPKELE_Buyer_Trade_Support_V9_NextJS_Vercel/
+├── app/
+│   ├── api/trade-support/route.ts        # Vercel/Next.js server API: email + optional CRM
+│   ├── resources/buyer-trade-support/
+│   │   └── page.tsx                      # SEO route and structured data
+│   ├── globals.css                       # V9 standalone styling
+│   ├── layout.tsx
+│   ├── page.tsx                          # standalone root redirect only
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   └── BuyerTradeSupport.tsx             # complete V9 buyer UI and interactions
+├── lib/
+│   └── trade-support.ts                  # requirement types/default state
+├── public/
+│   └── .gitkeep
+├── .env.example
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── next.config.mjs
+├── vercel.json
+├── README.md
+├── AI_MERGE_PROMPT.md
+├── DEPLOYMENT_CHECKLIST.md
+└── PROJECT_STRUCTURE.txt

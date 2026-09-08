@@ -1,0 +1,30 @@
+TPKELE_Standards_Database_V2_NextJS_Vercel/
+├─ app/
+│  ├─ resources/
+│  │  └─ standards-database/
+│  │     ├─ page.tsx
+│  │     └─ [slug]/page.tsx
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  ├─ page.tsx
+│  ├─ robots.ts
+│  └─ sitemap.ts
+├─ components/
+│  └─ standards/
+│     ├─ StandardsDatabaseClient.tsx
+│     ├─ StandardsCrosswalk.tsx
+│     ├─ RelatedResources.tsx
+│     └─ StandardsFaq.tsx
+├─ data/standards.ts
+├─ lib/standards.ts
+├─ public/
+├─ package.json
+├─ tsconfig.json
+├─ next-env.d.ts
+├─ next.config.mjs
+├─ vercel.json
+├─ README.md
+├─ AI_MERGE_PROMPT.md
+├─ CHANGELOG_V2.md
+├─ DEPLOYMENT_CHECKLIST.md
+└─ PROJECT_STRUCTURE.txt

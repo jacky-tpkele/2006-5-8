@@ -131,7 +131,7 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
               <div className="sideCard">
                 <h3>Need country-specific compliance?</h3>
                 <p>Continue to the Market Access Advisor for destination-specific certification and evidence.</p>
-                <Link href="/resources/market-access-advisor">Check Market Access →</Link>
+                <Link href="/electrical-international-standards-inquiry-center">Check Market Access →</Link>
               </div>
 
               <div className="sideCard">

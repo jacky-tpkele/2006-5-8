@@ -51,7 +51,7 @@ export default async function TechnicalGuidesPage({ params }: PageProps) {
       <section className="guides-cta">
         <h2>Need Export Compliance Guidance?</h2>
         <p>Check market-specific technical standards and certification requirements with our Market Access Advisor.</p>
-        <Link href="/resources/market-access-advisor" className="guides-cta-button">
+        <Link href="/electrical-international-standards-inquiry-center" className="guides-cta-button">
           Launch Market Access Advisor →
         </Link>
       </section>

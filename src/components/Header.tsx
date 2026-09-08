@@ -44,7 +44,7 @@ const MFR_MENU_KEYS: Record<string, string> = {
 // resources 菜单 href → messages.resourcesMenu 的 key
 const RESOURCES_MENU_KEYS: Record<string, string> = {
   "/resources/technical-guides": "technical-guides",
-  "/resources/market-access-advisor": "market-access-advisor",
+  "/electrical-international-standards-inquiry-center": "market-access-advisor",
   "/resources/buyer-trade-support": "buyer-trade-support",
   "/electric-standards-database": "standards-database",
   "/resources#application-solutions": "application-solutions",

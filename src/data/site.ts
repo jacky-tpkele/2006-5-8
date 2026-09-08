@@ -404,7 +404,7 @@ export const navItems = [
 
 export const resourcesMenu = [
   { label: "Technical Guides", href: "/resources/technical-guides" },
-  { label: "Market Access Advisor", href: "/resources/market-access-advisor" },
+  { label: "Market Access Advisor", href: "/electrical-international-standards-inquiry-center" },
   { label: "Buyer Trade Support", href: "/resources/buyer-trade-support" },
   { label: "Standards Database", href: "/electric-standards-database" },
   { label: "Application Solutions", href: "/resources#application-solutions" },

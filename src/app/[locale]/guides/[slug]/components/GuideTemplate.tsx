@@ -16,7 +16,7 @@ type GuideTemplateProps = {
 
 export default function GuideTemplate({ guide }: GuideTemplateProps) {
   const marketAccessUrl = guide.marketAccessAdvisor?.enabled
-    ? `/resources/market-access-advisor?product=${guide.marketAccessAdvisor.product}&application=${guide.marketAccessAdvisor.application}${
+    ? `/electrical-international-standards-inquiry-center?product=${guide.marketAccessAdvisor.product}&application=${guide.marketAccessAdvisor.application}${
         guide.marketAccessAdvisor.market ? `&market=${guide.marketAccessAdvisor.market}` : ""
       }${guide.marketAccessAdvisor.buyer ? `&buyer=${guide.marketAccessAdvisor.buyer}` : ""}`
     : null;

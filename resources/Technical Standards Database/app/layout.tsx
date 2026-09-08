@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import "./globals.css";
+export const metadata:Metadata={metadataBase:new URL("https://www.tpkele.com"),title:{default:"TPKELE",template:"%s | TPKELE"},description:"TPKELE electrical protection products and technical resources."};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><header className="siteHeader"><div className="container headerInner"><Link className="brand" href="/"><span className="brandMark">TPK</span><span>TPKELE</span></Link><nav className="mainNav"><Link href="/">Home</Link><Link href="/about">About</Link><Link href="/products">Products</Link><Link href="/blog">Blog</Link><Link href="/resources">Resources</Link><Link href="/manufacturing">Manufacturing</Link><Link href="/contact">Contact</Link></nav><Link className="headerCta" href="/contact">Ask an Engineer</Link></div></header>{children}<footer className="siteFooter"><div className="container footerRow"><span>© 2026 TPKELE</span><span>Electrical standards reference for global buyers.</span></div></footer></body></html>}

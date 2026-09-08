@@ -1,0 +1,51 @@
+{
+  "main_nav": [
+    {
+      "label": "Products",
+      "note": "keep current site structure"
+    },
+    {
+      "label": "Solutions",
+      "note": "keep current site structure"
+    },
+    {
+      "label": "Technical Guide",
+      "route": "/technical-guide"
+    },
+    {
+      "label": "Market Access",
+      "route": "/market-access"
+    },
+    {
+      "label": "Support",
+      "note": "keep current site structure"
+    },
+    {
+      "label": "About",
+      "note": "keep current site structure"
+    },
+    {
+      "label": "Contact Us",
+      "route": "/contact"
+    }
+  ],
+  "guide_routes": [
+    "/guides/dc-mcb-selection-guide",
+    "/guides/dc-spd-selection-guide",
+    "/guides/ats-selection-guide",
+    "/guides/ac-mcb-selection-guide",
+    "/guides/voltage-protector-selection-guide",
+    "/guides/din-rail-energy-meter-guide",
+    "/guides/pv-combiner-box-guide",
+    "/guides/dc-isolator-selection-guide",
+    "/guides/rccb-rcbo-selection-guide",
+    "/guides/solar-pv-protection-system-guide"
+  ],
+  "advisor_route_pattern": "/market-access-advisor?product=<product>&application=<application>",
+  "notes": [
+    "All guides should link to the Market Access Advisor.",
+    "The Technical Guide hub should list all ten articles.",
+    "The left rail navigation should be automatic and scroll-aware.",
+    "All images are local and included in the package."
+  ]
+}

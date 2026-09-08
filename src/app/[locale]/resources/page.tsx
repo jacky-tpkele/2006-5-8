@@ -63,7 +63,7 @@ export default async function ResourcesPage({ params }: PageProps) {
               Interactive compliance tool for technical standards, market-access requirements and certification needs.
             </p>
             <div className="featured-cta">
-              <Link href="/resources/market-access-advisor" className="launch-button">
+              <Link href="/electrical-international-standards-inquiry-center" className="launch-button">
                 Launch Market Access Advisor
                 <span className="arrow">→</span>
               </Link>
