@@ -44,11 +44,11 @@ const MFR_MENU_KEYS: Record<string, string> = {
 // resources 菜单 href → messages.resourcesMenu 的 key
 const RESOURCES_MENU_KEYS: Record<string, string> = {
   "/resources/technical-guides": "technical-guides",
-  "/electrical-international-standards-inquiry-center": "market-access-advisor",
-  "/resources/buyer-trade-support": "buyer-trade-support",
-  "/electric-standards-database": "standards-database",
-  "/resources#application-solutions": "application-solutions",
-  "/resources#faq": "faq",
+  "/resources/market-access-advisor": "market-access-advisor",
+  "/resources/buyer-support": "buyer-support",
+  "/resources/standards-database": "standards-database",
+  "/resources/application-solutions": "application-solutions",
+  "/resources/faq": "faq",
 };
 
 export function Header() {
@@ -196,17 +196,35 @@ export function Header() {
                   <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
                     {navLabel(item.href, item.label)}
                   </Link>
-                  <div className="resources-dropdown-menu">
-                    <ul>
-                      {resourcesMenu.map((r) => (
-                        <li key={r.href}>
-                          <Link href={r.href} onClick={() => setMenuOpen(false)}>
-                            {resourcesLabel(r.href, r.label)}
-                            <span className="mega-arrow">→</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="resources-mega-menu">
+                    {resourcesMenu.map((group) => (
+                      <div className={`mega-col mega-col-${group.label.toLowerCase()}`} key={group.label}>
+                        <div className="mega-col-head">
+                          <span className="mega-col-icon">
+                            {group.label === "Engineering" ? "🔧" : group.label === "Compliance" ? "✓" : "📦"}
+                          </span>
+                          <span className="mega-col-title">{group.label}</span>
+                        </div>
+                        <span className="mega-col-sub">
+                          {group.label === "Engineering" ? "Select & Design" :
+                           group.label === "Compliance" ? "Standards & Markets" :
+                           "Procurement & Help"}
+                        </span>
+                        <ul className="mega-col-list">
+                          {group.children.map((child) => (
+                            <li key={child.href}>
+                              <Link href={child.href} onClick={() => setMenuOpen(false)}>
+                                <div>
+                                  <span className="mega-item-label">{resourcesLabel(child.href, child.label)}</span>
+                                  <span className="mega-item-desc">{child.desc}</span>
+                                </div>
+                                <span className="mega-arrow">→</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 </div>
               );
@@ -261,6 +279,26 @@ export function Header() {
           </div>
         </div>
       ) : null}
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="mobile-bottom-nav" aria-label="Mobile quick navigation">
+        <Link href="/" className={pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>
+          <span className="nav-icon">🏠</span>
+          <span>Home</span>
+        </Link>
+        <Link href="/products" className={pathname.startsWith("/products") ? "active" : ""} onClick={() => setMenuOpen(false)}>
+          <span className="nav-icon">📦</span>
+          <span>Products</span>
+        </Link>
+        <Link href="/resources" className={pathname.startsWith("/resources") ? "active" : ""} onClick={() => setMenuOpen(false)}>
+          <span className="nav-icon">📘</span>
+          <span>Resources</span>
+        </Link>
+        <Link href="/contact" className={pathname === "/contact" ? "active" : ""} onClick={() => setMenuOpen(false)}>
+          <span className="nav-icon">💬</span>
+          <span>Chat Us</span>
+        </Link>
+      </nav>
     </>
   );
 }

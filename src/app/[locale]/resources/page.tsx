@@ -4,9 +4,44 @@ import Link from "next/link";
 import "./resources.css";
 
 export const metadata: Metadata = {
-  title: "Resources | TPKELE",
+  title: "Resources & Tools | TPKELE - Technical Guides, Compliance Tools & Support",
   description:
-    "Technical guides, market access advisor, standards database, application solutions and FAQ knowledge base for electrical products.",
+    "Technical guidance, compliance intelligence and engineering support for global electrical product decisions. Access technical guides, market access advisor, standards database, and more.",
+  keywords: [
+    "technical guides",
+    "market access advisor",
+    "standards database",
+    "application solutions",
+    "FAQ",
+    "electrical protection resources",
+    "compliance tools",
+    "engineering support",
+  ],
+  openGraph: {
+    title: "Resources & Tools - Technical Guidance for Electrical Protection | TPKELE",
+    description:
+      "Comprehensive resources for electrical protection: technical guides, compliance tools, standards database, and application solutions.",
+    url: "https://www.tpkele.com/resources",
+    siteName: "TPKELE",
+    type: "website",
+    images: [
+      {
+        url: "https://www.tpkele.com/images/resources/resources-og.png",
+        width: 1200,
+        height: 630,
+        alt: "TPKELE Resources & Tools",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resources & Tools - Technical Guidance for Electrical Protection",
+    description: "Access technical guides, compliance tools, standards database, and engineering support.",
+    images: ["https://www.tpkele.com/images/resources/resources-og.png"],
+  },
+  alternates: {
+    canonical: "https://www.tpkele.com/resources",
+  },
 };
 
 type PageProps = {
@@ -63,7 +98,7 @@ export default async function ResourcesPage({ params }: PageProps) {
               Interactive compliance tool for technical standards, market-access requirements and certification needs.
             </p>
             <div className="featured-cta">
-              <Link href="/electrical-international-standards-inquiry-center" className="launch-button">
+              <Link href="/resources/market-access-advisor" className="launch-button">
                 Launch Market Access Advisor
                 <span className="arrow">→</span>
               </Link>
@@ -86,7 +121,7 @@ export default async function ResourcesPage({ params }: PageProps) {
               Search 32 international electrical standards by product, application and reference type. IEC & UL official sources.
             </p>
             <div className="featured-cta">
-              <Link href="/electric-standards-database" className="launch-button">
+              <Link href="/resources/standards-database" className="launch-button">
                 Browse Standards Database
                 <span className="arrow">→</span>
               </Link>
@@ -110,7 +145,7 @@ export default async function ResourcesPage({ params }: PageProps) {
             </p>
             <ul className="card-links">
               <li>
-                <Link href="/resources/buyer-trade-support">
+                <Link href="/resources/buyer-support">
                   Access Trade Support
                   <span className="arrow">→</span>
                 </Link>
@@ -139,31 +174,17 @@ export default async function ResourcesPage({ params }: PageProps) {
             <p className="card-description">
               Real-world application examples, system design guidance and project case studies.
             </p>
-            <ul className="card-links">
-              <li>
-                <Link href="/solar-dc-protection">
-                  Solar PV System Protection
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Residential Distribution Boards
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Commercial & Industrial Projects
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Energy Storage Integration
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
+            <div className="featured-cta">
+              <Link href="/resources/application-solutions" className="launch-button">
+                View Application Solutions
+                <span className="arrow">→</span>
+              </Link>
+            </div>
+            <ul className="feature-list">
+              <li>✓ Solar PV system protection</li>
+              <li>✓ Residential distribution boards</li>
+              <li>✓ Commercial & industrial projects</li>
+              <li>✓ Energy storage integration</li>
             </ul>
           </div>
 
@@ -176,31 +197,17 @@ export default async function ResourcesPage({ params }: PageProps) {
             <p className="card-description">
               Frequently asked questions about products, customization, certification and supply.
             </p>
-            <ul className="card-links">
-              <li>
-                <Link href="/blog">
-                  Product Selection FAQ
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Customization & OEM FAQ
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Certification & Testing FAQ
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  Ordering & Delivery FAQ
-                  <span className="arrow">→</span>
-                </Link>
-              </li>
+            <div className="featured-cta">
+              <Link href="/resources/faq" className="launch-button">
+                Browse FAQ Knowledge Base
+                <span className="arrow">→</span>
+              </Link>
+            </div>
+            <ul className="feature-list">
+              <li>✓ Product selection FAQ</li>
+              <li>✓ Customization & OEM FAQ</li>
+              <li>✓ Certification & testing FAQ</li>
+              <li>✓ Ordering & delivery FAQ</li>
             </ul>
           </div>
         </div>

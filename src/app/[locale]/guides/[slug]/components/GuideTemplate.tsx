@@ -7,6 +7,7 @@ import OnThisPage from "@/components/technical-guide/OnThisPage";
 import QuickSupportCard from "@/components/technical-guide/QuickSupportCard";
 import RelatedSidebar from "@/components/technical-guide/RelatedSidebar";
 import ResourceList from "@/components/technical-guide/ResourceList";
+import { NextStep } from "@/components/resources/NextStep";
 import "./guide.css";
 import "./tpkele-guide.css";
 
@@ -16,7 +17,7 @@ type GuideTemplateProps = {
 
 export default function GuideTemplate({ guide }: GuideTemplateProps) {
   const marketAccessUrl = guide.marketAccessAdvisor?.enabled
-    ? `/electrical-international-standards-inquiry-center?product=${guide.marketAccessAdvisor.product}&application=${guide.marketAccessAdvisor.application}${
+    ? `/resources/market-access-advisor?product=${guide.marketAccessAdvisor.product}&application=${guide.marketAccessAdvisor.application}${
         guide.marketAccessAdvisor.market ? `&market=${guide.marketAccessAdvisor.market}` : ""
       }${guide.marketAccessAdvisor.buyer ? `&buyer=${guide.marketAccessAdvisor.buyer}` : ""}`
     : null;
@@ -100,6 +101,32 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
               </Link>
             </section>
           )}
+
+          <NextStep
+            title="Continue Your Journey"
+            description="Explore related resources to complete your product selection and compliance workflow"
+            actions={[
+              {
+                title: "Market Access Advisor",
+                href: marketAccessUrl || "/resources/market-access-advisor",
+                description: "Check country-specific standards and certification requirements for your target market",
+                icon: "✓",
+                badge: "COMPLIANCE",
+              },
+              {
+                title: "Standards Database",
+                href: "/resources/standards-database",
+                description: "Browse IEC and UL technical standards relevant to this product category",
+                icon: "📚",
+              },
+              {
+                title: "Application Solutions",
+                href: "/resources/application-solutions",
+                description: "See real-world system designs and application examples",
+                icon: "🔧",
+              },
+            ]}
+          />
         </article>
 
         <aside className="tpk-guide__right">

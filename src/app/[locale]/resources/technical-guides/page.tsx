@@ -9,9 +9,45 @@ type PageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "Technical Guides | TPKELE Resources",
-  description: "Comprehensive technical selection guides for electrical protection devices. Expert guidance on DC MCBs, SPDs, energy meters, and more.",
-  keywords: ["technical guides", "selection guide", "DC MCB guide", "SPD guide", "electrical engineering"],
+  title: "Technical Guides | TPKELE Resources - Expert Selection Guides",
+  description:
+    "Comprehensive technical selection guides for electrical protection devices. Expert guidance on DC MCBs, SPDs, energy meters, ATS, and more. Step-by-step workflows for engineers and installers.",
+  keywords: [
+    "technical guides",
+    "selection guide",
+    "DC MCB guide",
+    "SPD guide",
+    "electrical engineering",
+    "product selection",
+    "ATS guide",
+    "energy meter guide",
+    "installation guide",
+  ],
+  openGraph: {
+    title: "Technical Guides - Expert Selection Guides for Electrical Protection | TPKELE",
+    description:
+      "Step-by-step technical selection guides for DC MCB, SPD, ATS, Energy Meters, and more. Expert guidance for engineers and installers.",
+    url: "https://www.tpkele.com/resources/technical-guides",
+    siteName: "TPKELE",
+    type: "website",
+    images: [
+      {
+        url: "https://www.tpkele.com/images/resources/technical-guides-og.png",
+        width: 1200,
+        height: 630,
+        alt: "TPKELE Technical Guides",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Technical Guides - Expert Selection Guides for Electrical Protection",
+    description: "Comprehensive technical selection guides for DC MCB, SPD, ATS, Energy Meters, and more.",
+    images: ["https://www.tpkele.com/images/resources/technical-guides-og.png"],
+  },
+  alternates: {
+    canonical: "https://www.tpkele.com/resources/technical-guides",
+  },
 };
 
 export default async function TechnicalGuidesPage({ params }: PageProps) {
@@ -51,7 +87,7 @@ export default async function TechnicalGuidesPage({ params }: PageProps) {
       <section className="guides-cta">
         <h2>Need Export Compliance Guidance?</h2>
         <p>Check market-specific technical standards and certification requirements with our Market Access Advisor.</p>
-        <Link href="/electrical-international-standards-inquiry-center" className="guides-cta-button">
+        <Link href="/resources/market-access-advisor" className="guides-cta-button">
           Launch Market Access Advisor →
         </Link>
       </section>

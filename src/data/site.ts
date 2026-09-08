@@ -402,13 +402,76 @@ export const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const resourcesMenu = [
+// New grouped resources menu structure for Mega Menu
+export type ResourcesMenuGroup = {
+  label: string;
+  type: "group";
+  children: Array<{
+    label: string;
+    href: string;
+    desc: string;
+  }>;
+};
+
+export const resourcesMenu: ResourcesMenuGroup[] = [
+  {
+    label: "Engineering",
+    type: "group",
+    children: [
+      {
+        label: "Technical Guides",
+        href: "/resources/technical-guides",
+        desc: "Product selection & sizing guides"
+      },
+      {
+        label: "Application Solutions",
+        href: "/resources/application-solutions",
+        desc: "System-level design guidance"
+      },
+    ]
+  },
+  {
+    label: "Compliance",
+    type: "group",
+    children: [
+      {
+        label: "Market Access Advisor",
+        href: "/resources/market-access-advisor",
+        desc: "Country requirements & certification"
+      },
+      {
+        label: "Standards Database",
+        href: "/resources/standards-database",
+        desc: "IEC & UL technical references"
+      },
+    ]
+  },
+  {
+    label: "Buying & Support",
+    type: "group",
+    children: [
+      {
+        label: "Buyer Trade Support",
+        href: "/resources/buyer-support",
+        desc: "OEM, documents & trade terms"
+      },
+      {
+        label: "FAQ Knowledge Base",
+        href: "/resources/faq",
+        desc: "Product & order questions"
+      },
+    ]
+  }
+];
+
+// Flat menu for backward compatibility (legacy code)
+export const resourcesMenuFlat = [
   { label: "Technical Guides", href: "/resources/technical-guides" },
-  { label: "Market Access Advisor", href: "/electrical-international-standards-inquiry-center" },
-  { label: "Buyer Trade Support", href: "/resources/buyer-trade-support" },
-  { label: "Standards Database", href: "/electric-standards-database" },
-  { label: "Application Solutions", href: "/resources#application-solutions" },
-  { label: "FAQ Knowledge Base", href: "/resources#faq" },
+  { label: "Market Access Advisor", href: "/resources/market-access-advisor" },
+  { label: "Buyer Trade Support", href: "/resources/buyer-support" },
+  { label: "Standards Database", href: "/resources/standards-database" },
+  { label: "Application Solutions", href: "/resources/application-solutions" },
+  { label: "FAQ Knowledge Base", href: "/resources/faq" },
 ];
 
 export const manufacturerMenu = [

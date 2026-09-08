@@ -1,0 +1,141 @@
+.next-step-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 60px 20px;
+  margin-top: 80px;
+}
+
+.next-step-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.next-step-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.next-step-header h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: #0f172a;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.next-step-header p {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.next-step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.next-step-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.next-step-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+  transform: translateY(-4px);
+}
+
+.next-step-icon {
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.next-step-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.next-step-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.next-step-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.next-step-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.next-step-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.next-step-arrow {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  align-self: center;
+}
+
+.next-step-card:hover .next-step-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .next-step-section {
+    padding: 40px 20px;
+    margin-top: 60px;
+  }
+
+  .next-step-header {
+    margin-bottom: 32px;
+  }
+
+  .next-step-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .next-step-card {
+    padding: 20px;
+  }
+
+  .next-step-icon {
+    font-size: 32px;
+  }
+
+  .next-step-card h3 {
+    font-size: 1rem;
+  }
+}

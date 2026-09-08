@@ -231,7 +231,154 @@ textarea {
   color: var(--green-dark);
 }
 
-/* ── Resources dropdown ─────────────────────────────── */
+/* ── Resources Mega Menu (NEW) ─────────────────────────────── */
+.resources-mega-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 30;
+  width: min(900px, calc(100vw - 40px));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.resources-mega-menu::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: transparent;
+}
+
+.nav-dropdown:hover .resources-mega-menu,
+.nav-dropdown:focus-within .resources-mega-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.resources-mega-menu .mega-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: #fff;
+  border-right: 1px solid var(--line);
+}
+
+.resources-mega-menu .mega-col:last-child {
+  border-right: none;
+}
+
+.resources-mega-menu .mega-col-engineering {
+  background: #f0f9ff;
+}
+
+.resources-mega-menu .mega-col-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.resources-mega-menu .mega-col-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.resources-mega-menu .mega-col-title {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.resources-mega-menu .mega-col-sub {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.resources-mega-menu .mega-col-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resources-mega-menu .mega-col-list li a {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: transparent;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: background 0.15s ease;
+}
+
+.resources-mega-menu .mega-col-list li a::after {
+  display: none;
+}
+
+.resources-mega-menu .mega-item-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.resources-mega-menu .mega-item-desc {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.resources-mega-menu .mega-arrow {
+  color: var(--green);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.15s ease;
+}
+
+.resources-mega-menu .mega-col-list li a:hover {
+  background: rgba(11, 155, 63, 0.08);
+}
+
+.resources-mega-menu .mega-col-engineering .mega-col-list li a:hover {
+  background: #dbeafe;
+}
+
+.resources-mega-menu .mega-col-list li a:hover .mega-arrow {
+  transform: translateX(3px);
+}
+
+/* Old resources dropdown (legacy fallback, hidden) */
 .resources-dropdown-menu {
   position: absolute;
   top: calc(100% + 14px);
@@ -247,6 +394,7 @@ textarea {
   pointer-events: none;
   transform: translate(-50%, 10px);
   transition: opacity 0.2s ease, transform 0.2s ease;
+  display: none; /* Hidden by default, mega menu is primary */
 }
 
 .resources-dropdown-menu::before {
@@ -1161,9 +1309,65 @@ h3 {
   text-transform: uppercase;
 }
 
+/* Mobile Bottom Navigation Bar - Hidden by default */
+.mobile-bottom-nav {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .hero-banner {
     min-height: auto;
+  }
+
+  /* Mobile Bottom Navigation Bar */
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    height: 64px;
+  }
+
+  .mobile-bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 8px 4px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-right: 1px solid var(--line);
+  }
+
+  .mobile-bottom-nav a:last-child {
+    border-right: none;
+  }
+
+  .mobile-bottom-nav a .nav-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .mobile-bottom-nav a:hover,
+  .mobile-bottom-nav a.active {
+    color: var(--green);
+    background: var(--green-soft);
+  }
+
+  body {
+    padding-bottom: 64px;
   }
 }
 
@@ -2391,6 +2595,9 @@ textarea {
     border: 1px solid var(--line);
     border-radius: 8px;
     box-shadow: var(--shadow);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .products-mega-menu {
@@ -2403,6 +2610,36 @@ textarea {
     opacity: 1;
     pointer-events: auto;
     transform: none;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .resources-mega-menu {
+    position: static;
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 12px 0 0 16px;
+    border: 0;
+    box-shadow: none;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  .resources-mega-menu .mega-col {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+  }
+
+  .resources-mega-menu .mega-col:last-child {
+    border-bottom: none;
+  }
+
+  .resources-mega-menu .mega-col-engineering {
+    background: transparent;
   }
 
   .site-nav.open {

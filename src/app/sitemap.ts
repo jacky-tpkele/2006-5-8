@@ -35,6 +35,24 @@ function expandLocales(specs: RouteSpec[]): MetadataRoute.Sitemap {
   });
 }
 
+// Import guides data for dynamic routes
+// Note: Create this file if it doesn't exist
+function getAllGuideSlugs(): string[] {
+  // Temporary static list - replace with actual import when guides.ts is created
+  return [
+    "dc-mcb-selection-guide",
+    "dc-spd-selection-guide",
+    "ats-selection-guide",
+    "ac-mcb-selection-guide",
+    "voltage-protector-selection-guide",
+    "din-rail-energy-meter-guide",
+    "pv-combiner-box-guide",
+    "dc-isolator-selection-guide",
+    "rccb-rcbo-selection-guide",
+    "solar-pv-protection-system-guide",
+  ];
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -44,10 +62,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products",
     "/solar-dc-protection",
     "/blog",
-    "/resources",
-    "/resources/market-access-advisor",
-    "/resources/buyer-trade-support",
     "/contact",
+
+    // Resources paths (updated URLs)
+    "/resources",
+    "/resources/technical-guides",
+    "/resources/application-solutions",
+    "/resources/market-access-advisor",
+    "/resources/standards-database",
+    "/resources/buyer-support",
+    "/resources/faq",
+
+    // Manufacturer pages
     "/mcb-manufacturer",
     "/spd-manufacturer",
     "/ats-manufacturer",
@@ -62,7 +88,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path,
       lastModified: now,
       changeFrequency: "weekly" as const,
-      priority: path === "/" ? 1 : path.endsWith("-manufacturer") ? 0.85 : 0.8,
+      priority:
+        path === "/" ? 1 :
+        path === "/resources" ? 0.9 :
+        path.startsWith("/resources/") ? 0.85 :
+        path.endsWith("-manufacturer") ? 0.85 :
+        0.8,
+    })),
+
+    // Technical Guides dynamic routes (NEW)
+    ...getAllGuideSlugs().map((slug) => ({
+      path: `/guides/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.9, // High priority - core SEO content
     })),
 
     ...Object.values(categorySlugMap).map((slug) => ({
