@@ -2597,6 +2597,7 @@ textarea {
     box-shadow: var(--shadow);
     max-height: calc(100vh - 100px);
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -2612,6 +2613,7 @@ textarea {
     transform: none;
     max-height: 60vh;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .resources-mega-menu {
@@ -2626,6 +2628,7 @@ textarea {
     transform: none;
     max-height: 60vh;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .resources-mega-menu .mega-col {
@@ -2640,6 +2643,24 @@ textarea {
 
   .resources-mega-menu .mega-col-engineering {
     background: transparent;
+  }
+
+  /* Prevent horizontal scrolling in mobile mega menus */
+  .products-mega-menu .mega-col,
+  .resources-mega-menu .mega-col {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .products-mega-menu .mega-col-list,
+  .resources-mega-menu .mega-col-list {
+    max-width: 100%;
+  }
+
+  .products-mega-menu .mega-col-list a,
+  .resources-mega-menu .mega-col-list a {
+    max-width: 100%;
+    word-wrap: break-word;
   }
 
   .site-nav.open {
