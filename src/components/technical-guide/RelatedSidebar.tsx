@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type RelatedProduct = {
   name: string;
   href: string;
   desc: string;
+  image?: string;
 };
 
 type RelatedSidebarProps = {
@@ -20,7 +22,19 @@ export default function RelatedSidebar({ items }: RelatedSidebarProps) {
       <div className="tpk-guide__productList">
         {items.map((item) => (
           <Link key={item.name} href={item.href} className="tpk-guide__productItem">
-            <div className="tpk-guide__productThumb" />
+            {item.image ? (
+              <div className="tpk-guide__productThumb">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={58}
+                  height={58}
+                  className="tpk-guide__productThumbImg"
+                />
+              </div>
+            ) : (
+              <div className="tpk-guide__productThumb" />
+            )}
             <div>
               <strong>{item.name}</strong>
               <p>{item.desc}</p>

@@ -26,12 +26,75 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
   const heroImage = `/images/guides/${guide.slug}/hero.png`;
   const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.png`;
 
-  // Related products based on guide context
-  const relatedProducts = [
-    { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection" },
-    { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits" },
-    { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection" },
-    { name: "ATS", href: "/products/ats", desc: "Automatic source transfer for backup power" },
+  // Related products based on guide context — each guide shows its own relevant products
+  const relatedProductsMap: Record<string, { name: string; href: string; desc: string; image: string }[]> = {
+    "dc-mcb-selection-guide": [
+      { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection", image: "/assets/products/gallery/dc-mcb-1p-1.webp" },
+      { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "Combiner Box", href: "/products/combiner-box", desc: "PV string aggregation and protection enclosure", image: "/assets/home-products-normalized/combiner-box.webp" },
+      { name: "DC Isolator", href: "/products/dc-isolator", desc: "PV DC disconnect switch for maintenance safety", image: "/assets/products/gallery/dc-mcb-2p-1.webp" },
+    ],
+    "dc-spd-selection-guide": [
+      { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection", image: "/assets/products/gallery/dc-mcb-1p-1.webp" },
+      { name: "AC SPD", href: "/products/ac-spd", desc: "Surge protection for AC distribution systems", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "Combiner Box", href: "/products/combiner-box", desc: "PV string aggregation and protection enclosure", image: "/assets/home-products-normalized/combiner-box.webp" },
+    ],
+    "ac-mcb-selection-guide": [
+      { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+      { name: "RCCB / RCBO", href: "/products/rccb-rcbo", desc: "Residual current protection for personal safety", image: "/assets/products/gallery/ac-mcb-2p-1.webp" },
+      { name: "AC SPD", href: "/products/ac-spd", desc: "Surge protection for AC distribution systems", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "Energy Meter", href: "/products/energy-meter", desc: "DIN rail energy metering and monitoring", image: "/assets/home-products-normalized/din-rail-energy-meter.webp" },
+    ],
+    "ats-selection-guide": [
+      { name: "ATS", href: "/products/ats", desc: "Automatic source transfer for backup power", image: "/assets/products/gallery/ats-st-2p-1.webp" },
+      { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+      { name: "AC SPD", href: "/products/ac-spd", desc: "Surge protection for AC distribution systems", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "Energy Meter", href: "/products/energy-meter", desc: "DIN rail energy metering and monitoring", image: "/assets/home-products-normalized/din-rail-energy-meter.webp" },
+    ],
+    "voltage-protector-selection-guide": [
+      { name: "Voltage Protector", href: "/products/voltage-protector", desc: "Over/under voltage protection for sensitive loads", image: "/assets/products/gallery/pn2-va2-1.webp" },
+      { name: "AC SPD", href: "/products/ac-spd", desc: "Surge protection for AC distribution systems", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+      { name: "Energy Meter", href: "/products/energy-meter", desc: "DIN rail energy metering and monitoring", image: "/assets/home-products-normalized/din-rail-energy-meter.webp" },
+    ],
+    "din-rail-energy-meter-guide": [
+      { name: "Energy Meter", href: "/products/energy-meter", desc: "DIN rail energy metering and monitoring", image: "/assets/home-products-normalized/din-rail-energy-meter.webp" },
+      { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+      { name: "Voltage Protector", href: "/products/voltage-protector", desc: "Over/under voltage protection for sensitive loads", image: "/assets/products/gallery/pn2-va2-1.webp" },
+      { name: "ATS", href: "/products/ats", desc: "Automatic source transfer for backup power", image: "/assets/products/gallery/ats-st-2p-1.webp" },
+    ],
+    "pv-combiner-box-guide": [
+      { name: "Combiner Box", href: "/products/combiner-box", desc: "PV string aggregation and protection enclosure", image: "/assets/home-products-normalized/combiner-box.webp" },
+      { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection", image: "/assets/products/gallery/dc-mcb-1p-1.webp" },
+      { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "DC Isolator", href: "/products/dc-isolator", desc: "PV DC disconnect switch for maintenance safety", image: "/assets/products/gallery/dc-mcb-2p-1.webp" },
+    ],
+    "dc-isolator-selection-guide": [
+      { name: "DC Isolator", href: "/products/dc-isolator", desc: "PV DC disconnect switch for maintenance safety", image: "/assets/products/gallery/dc-mcb-2p-1.webp" },
+      { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection", image: "/assets/products/gallery/dc-mcb-1p-1.webp" },
+      { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "Combiner Box", href: "/products/combiner-box", desc: "PV string aggregation and protection enclosure", image: "/assets/home-products-normalized/combiner-box.webp" },
+    ],
+    "rccb-rcbo-selection-guide": [
+      { name: "RCCB / RCBO", href: "/products/rccb-rcbo", desc: "Residual current protection for personal safety", image: "/assets/products/gallery/ac-mcb-2p-1.webp" },
+      { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+      { name: "Voltage Protector", href: "/products/voltage-protector", desc: "Over/under voltage protection for sensitive loads", image: "/assets/products/gallery/pn2-va2-1.webp" },
+      { name: "AC SPD", href: "/products/ac-spd", desc: "Surge protection for AC distribution systems", image: "/assets/home-products-normalized/spd.webp" },
+    ],
+    "solar-pv-protection-system-guide": [
+      { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection", image: "/assets/products/gallery/dc-mcb-1p-1.webp" },
+      { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits", image: "/assets/home-products-normalized/spd.webp" },
+      { name: "Combiner Box", href: "/products/combiner-box", desc: "PV string aggregation and protection enclosure", image: "/assets/home-products-normalized/combiner-box.webp" },
+      { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+    ],
+  };
+
+  const relatedProducts = relatedProductsMap[guide.slug] || [
+    { name: "DC MCB", href: "/products/dc-mcb", desc: "PV string and combiner box overcurrent protection", image: "/assets/products/gallery/dc-mcb-1p-1.webp" },
+    { name: "DC SPD", href: "/products/dc-spd", desc: "Surge protection for PV DC circuits", image: "/assets/home-products-normalized/spd.webp" },
+    { name: "AC MCB", href: "/products/ac-mcb", desc: "Building and industrial circuit protection", image: "/assets/products/gallery/ac-mcb-1p-1.webp" },
+    { name: "ATS", href: "/products/ats", desc: "Automatic source transfer for backup power", image: "/assets/products/gallery/ats-st-2p-1.webp" },
   ];
 
   const resources = [
