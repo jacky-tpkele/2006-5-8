@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import { NextStep } from "@/components/resources/NextStep";
 import "./application-solutions.css";
 
@@ -206,9 +207,11 @@ export default async function ApplicationSolutionsPage({ params }: PageProps) {
           <h2>Need Project-Specific Guidance?</h2>
           <p>Our technical team provides customized application consulting and system design review services.</p>
           <div className="cta-actions">
-            <Link href="/contact" className="cta-button primary">
-              Contact Engineering Team
-            </Link>
+            <InquiryModal
+              triggerLabel="Contact Engineering Team"
+              triggerClassName="cta-button primary"
+              intent="support"
+            />
             <Link href="/resources/technical-guides" className="cta-button secondary">
               Browse Technical Guides
             </Link>

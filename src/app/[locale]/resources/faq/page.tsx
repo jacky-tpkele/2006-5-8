@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import { NextStep } from "@/components/resources/NextStep";
 import "./faq.css";
 
@@ -248,9 +249,11 @@ export default async function FAQPage({ params }: PageProps) {
             questions.
           </p>
           <div className="cta-actions">
-            <Link href="/contact" className="cta-btn primary">
-              Contact Us
-            </Link>
+            <InquiryModal
+              triggerLabel="Contact Us"
+              triggerClassName="cta-btn primary"
+              intent="support"
+            />
             <Link href="/resources/technical-guides" className="cta-btn secondary">
               Browse Technical Guides
             </Link>

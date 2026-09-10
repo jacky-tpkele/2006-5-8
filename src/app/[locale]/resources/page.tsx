@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import { InquiryModal } from "@/components/InquiryModal";
 import "./resources.css";
 
 export const metadata: Metadata = {
@@ -221,9 +222,11 @@ export default async function ResourcesPage({ params }: PageProps) {
               Our technical team provides personalized recommendations for your project requirements.
             </p>
           </div>
-          <Link href="/contact" className="cta-btn">
-            Contact Technical Team
-          </Link>
+          <InquiryModal
+            triggerLabel="Contact Technical Team"
+            triggerClassName="cta-btn"
+            intent="support"
+          />
         </div>
       </section>
     </main>
