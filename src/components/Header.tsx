@@ -10,6 +10,7 @@ import { manufacturerMenu, resourcesMenu, navItems, productMegaMenu, products, s
 const NAV_LABEL_KEYS: Record<string, string> = {
   "/": "home",
   "/products": "products",
+  "/projects": "projects",
   "/solar-dc-protection": "solutions",
   "/resources": "resources",
   "/mcb-manufacturer": "manufacturing",

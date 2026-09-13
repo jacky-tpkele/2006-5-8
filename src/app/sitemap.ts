@@ -60,6 +60,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/about",
     "/products",
+    "/projects",
+    "/projects/zimbabwe-sirdc-solar-project",
     "/solar-dc-protection",
     "/blog",
     "/contact",

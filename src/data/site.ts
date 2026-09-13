@@ -396,6 +396,7 @@ export const navItems = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Products", href: "/products" },
+  { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "Resources", href: "/resources" },
   { label: "Manufacturing", href: "/mcb-manufacturer" },

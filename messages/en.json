@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "products": "Products",
+    "projects": "Projects",
     "solutions": "Solutions",
     "resources": "Resources",
     "manufacturing": "Manufacturing",
@@ -12,7 +13,7 @@
   "resourcesMenu": {
     "technical-guides": "Technical Guides",
     "market-access-advisor": "Market Access Advisor",
-    "buyer-trade-support": "Buyer Trade Support",
+    "buyer-support": "Buyer Trade Support",
     "standards-database": "Standards Database",
     "application-solutions": "Application Solutions",
     "faq": "FAQ Knowledge Base"
