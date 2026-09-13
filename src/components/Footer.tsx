@@ -17,11 +17,24 @@ const productLinkEntries: Array<{ key: string; href: string }> = [
   { key: "meter", href: `/products/category/${categorySlugMap["Energy Meter"]}` },
 ];
 
-const solutionLinkEntries: Array<{ key: string; href: string }> = [
-  { key: "solar", href: "/solar-dc-protection" },
-  { key: "lv", href: "/products" },
-  { key: "oem", href: "/about" },
-  { key: "all", href: "/products" },
+const resourceLinkEntries: Array<{ key: string; href: string }> = [
+  { key: "technical-guides", href: "/resources/technical-guides" },
+  { key: "application-solutions", href: "/resources/application-solutions" },
+  { key: "market-access", href: "/resources/market-access-advisor" },
+  { key: "standards", href: "/resources/standards-database" },
+  { key: "buyer-support", href: "/resources/buyer-support" },
+  { key: "faq", href: "/resources/faq" },
+];
+
+const projectLinkEntries: Array<{ key: string; href: string }> = [
+  { key: "zimbabwe", href: "/projects/zimbabwe-sirdc-solar-project" },
+  { key: "viewAll", href: "/projects" },
+];
+
+const companyLinkEntries: Array<{ key: string; href: string }> = [
+  { key: "about", href: "/about" },
+  { key: "contact", href: "/contact" },
+  { key: "certs", href: "/about#certifications" },
 ];
 
 export async function Footer() {
@@ -58,23 +71,34 @@ export async function Footer() {
           </div>
 
           <div>
-            <h2>{t("solutions")}</h2>
-            {solutionLinkEntries.map((item) => (
-              <Link key={item.href + item.key} href={item.href}>
-                {t(`solutionLinks.${item.key}`)}
-              </Link>
-            ))}
-            <h2 style={{ marginTop: 22 }}>{t("quickLinks")}</h2>
-            <Link href="/about">{t("quickLinkLabels.about")}</Link>
-            <Link href="/contact">{t("quickLinkLabels.contact")}</Link>
-            <Link href="/about#certifications">{t("quickLinkLabels.certs")}</Link>
-          </div>
-
-          <div>
             <h2>{t("products")}</h2>
             {productLinkEntries.map((item) => (
               <Link key={item.href + item.key} href={item.href} title={t(`productLinks.${item.key}`)}>
                 {t(`productLinks.${item.key}`)}
+              </Link>
+            ))}
+          </div>
+
+          <div>
+            <h2>{t("resources")}</h2>
+            {resourceLinkEntries.map((item) => (
+              <Link key={item.href + item.key} href={item.href}>
+                {t(`resourceLinks.${item.key}`)}
+              </Link>
+            ))}
+          </div>
+
+          <div>
+            <h2>{t("projects")}</h2>
+            {projectLinkEntries.map((item) => (
+              <Link key={item.href + item.key} href={item.href}>
+                {t(`projectLinks.${item.key}`)}
+              </Link>
+            ))}
+            <h2 style={{ marginTop: 22 }}>{t("company")}</h2>
+            {companyLinkEntries.map((item) => (
+              <Link key={item.href + item.key} href={item.href}>
+                {t(`companyLinks.${item.key}`)}
               </Link>
             ))}
           </div>

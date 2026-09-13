@@ -68,19 +68,6 @@
     "email": "Email",
     "whatsapp": "WhatsApp",
     "chatWhatsapp": "Chat on WhatsApp",
-    "solutions": "Solutions",
-    "solutionLinks": {
-      "solar": "Solar DC Protection",
-      "lv": "Low Voltage Protection",
-      "oem": "OEM / ODM Services",
-      "all": "View All Products"
-    },
-    "quickLinks": "Quick Links",
-    "quickLinkLabels": {
-      "about": "About TPKELE",
-      "contact": "Contact Sales",
-      "certs": "Quality Certifications"
-    },
     "products": "Products",
     "productLinks": {
       "dc-mcb": "DC MCB — Solar Circuit Breaker",
@@ -91,6 +78,26 @@
       "ats": "ATS — Automatic Transfer Switch",
       "voltage": "Voltage Protector",
       "meter": "DIN Rail Energy Meter"
+    },
+    "resources": "Resources",
+    "resourceLinks": {
+      "technical-guides": "Technical Guides",
+      "application-solutions": "Application Solutions",
+      "market-access": "Market Access Advisor",
+      "standards": "Standards Database",
+      "buyer-support": "Buyer Trade Support",
+      "faq": "FAQ Knowledge Base"
+    },
+    "projects": "Projects",
+    "projectLinks": {
+      "zimbabwe": "Zimbabwe Solar Project",
+      "viewAll": "View All Projects →"
+    },
+    "company": "Company",
+    "companyLinks": {
+      "about": "About TPKELE",
+      "contact": "Contact Sales",
+      "certs": "Quality Certifications"
     },
     "blog": "From the Blog",
     "viewAllArticles": "View all articles →",

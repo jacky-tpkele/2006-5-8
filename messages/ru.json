@@ -68,19 +68,6 @@
     "email": "Эл. почта",
     "whatsapp": "WhatsApp",
     "chatWhatsapp": "Чат в WhatsApp",
-    "solutions": "Решения",
-    "solutionLinks": {
-      "solar": "Защита солнечных систем DC",
-      "lv": "Низковольтная защита",
-      "oem": "OEM / ODM услуги",
-      "all": "Все продукты"
-    },
-    "quickLinks": "Быстрые ссылки",
-    "quickLinkLabels": {
-      "about": "О компании TPKELE",
-      "contact": "Связаться с отделом продаж",
-      "certs": "Сертификаты качества"
-    },
     "products": "Продукция",
     "productLinks": {
       "dc-mcb": "DC MCB — Автоматический выключатель для солнечных систем",
@@ -91,6 +78,26 @@
       "ats": "ATS — Автоматический переключатель ввода резерва",
       "voltage": "Реле напряжения",
       "meter": "DIN-рейка счётчик электроэнергии"
+    },
+    "resources": "Ресурсы",
+    "resourceLinks": {
+      "technical-guides": "Технические руководства",
+      "application-solutions": "Прикладные решения",
+      "market-access": "Консультант по доступу к рынку",
+      "standards": "База данных стандартов",
+      "buyer-support": "Поддержка торговых покупателей",
+      "faq": "База знаний FAQ"
+    },
+    "projects": "Проекты",
+    "projectLinks": {
+      "zimbabwe": "Солнечный проект в Зимбабве",
+      "viewAll": "Посмотреть все проекты →"
+    },
+    "company": "Компания",
+    "companyLinks": {
+      "about": "О компании TPKELE",
+      "contact": "Связаться с отделом продаж",
+      "certs": "Сертификаты качества"
     },
     "blog": "Из блога",
     "viewAllArticles": "Посмотреть все статьи →",
