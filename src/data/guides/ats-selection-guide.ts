@@ -11,7 +11,7 @@ const atsSelectionGuide: Guide = {
       id: "selection-overview",
       title: "Selection Overview",
       content: `
-        <p>Selecting the right ATS is critical for safety, reliability and commercial success. In real projects, a product decision should reflect the electrical system, the installation conditions and the buyer's documentation expectations, not just a basic catalogue line. This guide is written to help procurement teams, engineers and distributors move from a general product name to a usable specification path.</p>
+        <p>Selecting the right ATS is critical for safety, reliability and commercial success. In real projects, a product decision should reflect the electrical system, the installation conditions and the buyer's documentation expectations, not just a basic catalogue line. This guide helps procurement teams, engineers and distributors move from a general product name to a usable specification path.</p>
         <p>The correct ATS selection process starts by understanding the actual application context. For TPKELE customers, this usually means matching product performance to solar PV, building electrical distribution or power-switching conditions, and then connecting the technical decision to quotation, export and project-delivery needs.</p>
         <div class="callout">Do not select an ATS only by one headline parameter. Review system voltage, current, switching duty, coordination and application context together.</div>
       `,
@@ -33,7 +33,7 @@ const atsSelectionGuide: Guide = {
       title: "Key Selection Parameters",
       content: `
         <p>Before comparing suppliers, buyers should list the parameters that truly determine whether the ATS fits the project. Good product selection normally combines electrical ratings, application logic, physical arrangement and commercial documentation needs. That approach is more reliable than selecting by a model number alone.</p>
-        <p>For TPKELE's target users such as distributors, EPC engineers and procurement managers, the most efficient workflow is to confirm the project conditions first, then compare a short list of technically suitable products, and finally review destination-market and quotation details.</p>
+        <p>The most efficient workflow for distributors, EPC engineers and procurement managers is to confirm the project conditions first, then compare a short list of technically suitable products, and finally review destination-market and quotation details.</p>
         <table class="guide-table">
           <thead>
             <tr>
@@ -143,7 +143,7 @@ const atsSelectionGuide: Guide = {
       title: "Related Products and Next Steps",
       content: `
         <p>A complete backup power system typically includes more than just an ATS. Projects often combine automatic transfer switches with circuit breakers (for overcurrent protection), surge protective devices (for lightning and transient protection), and energy meters (for load monitoring and power quality analysis).</p>
-        <p>For comprehensive project planning, consider reviewing TPKELE's related product lines: AC MCBs for circuit protection, voltage protectors for under/over voltage conditions, and DIN rail energy meters for consumption monitoring. These components work together to create a reliable and maintainable power distribution system.</p>
+        <p>For comprehensive project planning, consider these related product lines: AC MCBs for circuit protection, voltage protectors for under/over voltage conditions, and DIN rail energy meters for consumption monitoring. These components work together to create a reliable and maintainable power distribution system.</p>
         <figure class="guide-figure">
           <img src="/images/guides/ats-selection-guide/related-grid.png" alt="Related TPKELE product paths for ATS" />
           <figcaption>Figure 3. Related TPKELE product paths for ATS</figcaption>

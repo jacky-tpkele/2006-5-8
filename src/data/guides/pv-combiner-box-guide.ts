@@ -11,7 +11,7 @@ const pvCombinerBoxGuide: Guide = {
       id: "selection-overview",
       title: "Selection Overview",
       content: `
-        <p>Selecting the right PV Combiner Box is critical for safety, reliability and commercial success. In real projects, a product decision should reflect the electrical system, the installation conditions and the buyer's documentation expectations, not just a basic catalogue line. This guide is written to help procurement teams, engineers and distributors move from a general product name to a usable specification path.</p>
+        <p>Selecting the right PV Combiner Box is critical for safety, reliability and commercial success. In real projects, a product decision should reflect the electrical system, the installation conditions and the buyer's documentation expectations, not just a basic catalogue line. This guide helps procurement teams, engineers and distributors move from a general product name to a usable specification path.</p>
         <p>The correct PV Combiner Box selection process starts by understanding the actual application context. For TPKELE customers, this usually means matching product performance to solar PV, building electrical distribution or power-switching conditions, and then connecting the technical decision to quotation, export and project-delivery needs.</p>
         <div class="callout">Do not select a PV Combiner Box only by one headline parameter. Review system voltage, current, switching duty, coordination and application context together.</div>
       `,
@@ -21,7 +21,7 @@ const pvCombinerBoxGuide: Guide = {
       title: "What is a PV Combiner Box?",
       content: `
         <p>A PV Combiner Box is a low-voltage electrical product used to perform a defined protective, switching, control or monitoring function inside the system. Its real value is not the device alone, but how accurately it matches the circuit, the environment and the maintenance expectations of the user.</p>
-        <p>In project supply, buyers often compare similar-looking products across different brands. A better approach is to understand the operating duty, key ratings and the failure modes that the device must handle. That makes quotation more accurate and reduces risk during installation and commissioning.</p>
+        <p>When evaluating products, understanding the operating duty, key ratings and failure modes is more important than comparing visual similarities across brands. That makes quotation more accurate and reduces risk during installation and commissioning.</p>
         <figure class="guide-figure">
           <img src="/images/guides/pv-combiner-box-guide/figure.png" alt="Functional selection view for PV Combiner Box" />
           <figcaption>Figure 1. Functional selection view for PV Combiner Box</figcaption>
@@ -33,7 +33,7 @@ const pvCombinerBoxGuide: Guide = {
       title: "Key Selection Parameters",
       content: `
         <p>Before comparing suppliers, buyers should list the parameters that truly determine whether the PV Combiner Box fits the project. Good product selection normally combines electrical ratings, application logic, physical arrangement and commercial documentation needs. That approach is more reliable than selecting by a model number alone.</p>
-        <p>For TPKELE's target users such as distributors, EPC engineers and procurement managers, the most efficient workflow is to confirm the project conditions first, then compare a short list of technically suitable products, and finally review destination-market and quotation details.</p>
+        <p>The most efficient workflow for distributors, EPC engineers and procurement managers is to confirm the project conditions first, then compare a short list of technically suitable products, and finally review destination-market and quotation details.</p>
         <table class="guide-table">
           <thead>
             <tr>
@@ -95,7 +95,7 @@ const pvCombinerBoxGuide: Guide = {
       title: "Standards and Compliance Perspective",
       content: `
         <p>Technical standards and market-access expectations should be understood as related but separate topics. A technical standard helps define how a product is evaluated, tested or described. However, mentioning a standard does not automatically mean that every destination market imposes the same mandatory certification route for every product scope.</p>
-        <p>Commercially, another error is waiting too long to review documents, labels or market-facing requirements. When this review happens late, quotation and shipment timelines become harder to control. A stronger process combines technical selection and document preparation from the beginning.</p>
+        <p>Commercially, another error is waiting too long to review certification documents and market-specific requirements. When this review happens late, quotation and shipment timelines become harder to control. A stronger process combines technical selection and document preparation from the beginning.</p>
       `,
     },
     {
@@ -126,7 +126,7 @@ const pvCombinerBoxGuide: Guide = {
       id: "related-products",
       title: "Related Products and Next Steps",
       content: `
-        <p>A complete buying decision usually includes more than a single PV Combiner Box. Users often compare related products that work in the same project package so that protection, switching and monitoring decisions remain coordinated.</p>
+        <p>A complete electrical protection system typically includes more than a single PV Combiner Box. Projects often combine these devices with related products such as circuit breakers, surge protection devices, and monitoring equipment to create a coordinated protection system.</p>
         <p>After completing the technical review, open the TPKELE Market Access Advisor to continue with the next step: checking likely market requirements, evidence expectations and buyer-facing compliance context for the target product and application.</p>
       `,
     },
