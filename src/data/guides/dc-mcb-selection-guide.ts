@@ -144,48 +144,30 @@ const dcMcbGuide: Guide = {
         <ul>
           <li><strong>IEC 60947-2:</strong> Low-voltage switchgear and controlgear - Circuit breakers</li>
           <li><strong>IEC 60364-7-712:</strong> Electrical installations of buildings - Solar photovoltaic systems</li>
-          <li><strong>UL 489:</strong> Molded-Case Circuit Breakers (North America)</li>
-          <li><strong>UL 1741:</strong> Inverters, Converters, Controllers and Interconnection System Equipment (US)</li>
         </ul>
 
-        <h3>Certification Requirements</h3>
-        <p>Ensure the DC MCB carries appropriate certifications for your target market:</p>
-        <ul>
-          <li>CE marking (Europe)</li>
-          <li>UL listing (USA)</li>
-          <li>CCC certification (China)</li>
-          <li>TUV certification (international recognition)</li>
-        </ul>
+        <h3>Compliance Documentation</h3>
+        <p>DC MCBs for international projects require conformity documentation appropriate to the destination market. Requirements vary by product scope, voltage class, application and country-specific regulations.</p>
+        <p>→ For verified market-specific requirements, use the <strong>Market Access Advisor</strong></p>
       `,
     },
     {
       id: "export-requirements",
-      title: "Export Requirements",
+      title: "Market Access Requirements",
       content: `
-        <p>Market-specific requirements vary significantly. Use our Market Access Advisor to check compliance for your target country.</p>
+        <p>Compliance requirements for DC MCBs vary significantly by product scope, voltage rating, breaking capacity, intended use and destination country. Specific certification needs depend on whether the product is classified as industrial switchgear, household protection or PV-specific equipment.</p>
 
-        <h3>Common Regional Requirements</h3>
-
-        <h4>European Union</h4>
+        <h3>Common Regulatory Frameworks</h3>
         <ul>
-          <li>CE marking mandatory</li>
-          <li>Low Voltage Directive (LVD) compliance</li>
-          <li>IEC 60947-2 certification</li>
+          <li>IEC-based approval systems (Europe, Middle East, Asia-Pacific)</li>
+          <li>UL/CSA listing requirements (North America)</li>
+          <li>National certification schemes (CCC, SASO, ESMA, etc.)</li>
         </ul>
 
-        <h4>North America</h4>
-        <ul>
-          <li>UL 489 listing required</li>
-          <li>UL 1741 for PV applications</li>
-          <li>NEC Article 690 compliance</li>
-        </ul>
-
-        <h4>Middle East (Saudi Arabia, UAE)</h4>
-        <ul>
-          <li>SASO certification (Saudi)</li>
-          <li>ESMA approval (UAE)</li>
-          <li>IEC standards recognized</li>
-        </ul>
+        <div class="callout">
+          <p><strong>Important:</strong> Do not assume certification requirements based on product category alone. Market access rules are product-scope-dependent and change frequently.</p>
+          <p>→ Check verified, current requirements in the <strong>Market Access Advisor</strong></p>
+        </div>
       `,
     },
     {
