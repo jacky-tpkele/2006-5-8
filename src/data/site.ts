@@ -824,7 +824,7 @@ export const products: Product[] = [
       { label: "Protection Functions", value: "Over-voltage, Under-voltage, Over-current, Delay Protection" },
       { label: "OEM Customization", value: "Logo customization supported" },
       { label: "Application", value: "Residential Distribution Boards, Light Commercial Premises, Home Appliance Protection" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -877,7 +877,7 @@ export const products: Product[] = [
       { label: "Mechanical Life", value: "≥10,000 Cycles" },
       { label: "Protection Functions", value: "Over-voltage, Under-voltage, Over-current, Delay Protection" },
       { label: "Application", value: "Commercial Electrical Installations, Contractor Panel Builds, Office Buildings, Export Projects" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -932,7 +932,7 @@ export const products: Product[] = [
       { label: "Protection Functions", value: "Over-voltage, Under-voltage, Over-current, Delay Protection" },
       { label: "Application", value: "Wholesale Distribution Programs, Panel Builder OEM Projects, Private-Label Electrical Brands" },
       { label: "Target Buyer", value: "Electrical Distributors, Panel Builders, OEM Wholesale Customers" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -987,7 +987,7 @@ export const products: Product[] = [
       { label: "Protection Functions", value: "Over-voltage, Under-voltage, Over-current, Delay Protection" },
       { label: "Application", value: "Premium OEM Electrical Brands, High-End Panel Manufacturing, Branded Distribution Boards" },
       { label: "Target Buyer", value: "Premium OEM Customers, Electrical Equipment Manufacturers, High-End Panel Builders" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1043,7 +1043,7 @@ export const products: Product[] = [
       { label: "Mechanical Life", value: "≥10,000 Cycles" },
       { label: "Protection Functions", value: "Over-voltage, Under-voltage, Over-current, Delay Protection, kWh Metering" },
       { label: "Application", value: "Rental Property Sub-metering, Tenant Electricity Billing, Light Commercial Premises" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1102,7 +1102,7 @@ export const products: Product[] = [
       { label: "Mechanical Life", value: "≥10,000 Cycles" },
       { label: "Protection & Measurement Functions", value: "Over-voltage, Under-voltage, Over-current, Delay, kWh, Power (W), Frequency (Hz), Over-current counting, Preset power level" },
       { label: "Application", value: "Home Energy Monitoring, Light Commercial Power Quality Analysis, Solar PV Installations" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1157,7 +1157,7 @@ export const products: Product[] = [
       { label: "Relative Humidity", value: "≤50% at 40°C (Non-Condensing)" },
       { label: "Core Functions", value: "3-Way Priority Switching, Over/Under Voltage Protection, Over-Current Protection, Triple Input Voltage Monitoring" },
       { label: "Application", value: "CNC Machinery, Server Rooms, Generator-Backed Retail, Solar-Grid Hybrid Systems" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1212,7 +1212,7 @@ export const products: Product[] = [
       { label: "Relative Humidity", value: "≤50% at 40°C (Non-Condensing)" },
       { label: "Core Functions", value: "3-Way Priority Switching, Over/Under Voltage Protection, Over-Current Protection, Triple Voltage + Output Current Monitoring" },
       { label: "Application", value: "Generator Sizing Verification, Electrical Panel Commissioning, Rental Property Sub-metering, Solar Load Monitoring" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1267,7 +1267,7 @@ export const products: Product[] = [
       { label: "Relative Humidity", value: "≤50% at 40°C (Non-Condensing)" },
       { label: "Core Functions", value: "3-Way Priority Switching, Over/Under Voltage Protection, Over-Current Protection, Full Input/Output Voltage & Output Current Monitoring" },
       { label: "Application", value: "Data Center UPS Bypass Panels, Hospital Life-Safety Power Systems, Precision Manufacturing Lines, Industrial Automation Multi-Source Cabinets" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1419,7 +1419,7 @@ export const products: Product[] = [
       { label: "Application", value: "Rental Properties, Home Appliances, Office Equipment, Travel Use, Refrigerators, TVs, Air Conditioners" },
       { label: "Operating Temperature", value: "-10℃ ~ +50℃" },
       { label: "Color", value: "White" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1526,7 +1526,7 @@ export const products: Product[] = [
       { label: "Under-Voltage Protection", value: "85V (110V mode) / 175V (220V mode)" },
       { label: "Housing Material", value: "PA6 Flame-Retardant" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1583,7 +1583,7 @@ export const products: Product[] = [
       { label: "Under-Voltage Protection", value: "85V (110V mode) / 175V (220V mode)" },
       { label: "Housing Material", value: "PA6 Flame-Retardant" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1638,7 +1638,7 @@ export const products: Product[] = [
       { label: "Transfer Time", value: "≤ 0.05s (50ms)" },
       { label: "Housing Material", value: "PA6 Flame-Retardant" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1693,7 +1693,7 @@ export const products: Product[] = [
       { label: "Transfer Time", value: "≤ 0.05s (50ms)" },
       { label: "Housing Material", value: "PA6 Flame-Retardant" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1748,7 +1748,7 @@ export const products: Product[] = [
       { label: "Transfer Time", value: "≤ 0.05s (50ms)" },
       { label: "Housing Material", value: "PA6 Flame-Retardant" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1805,7 +1805,7 @@ export const products: Product[] = [
       { label: "Max Load Power", value: "~6.9kW (6930W)" },
       { label: "Internal Components", value: "PCB Control Board, Motor, Thermal Relay" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1862,7 +1862,7 @@ export const products: Product[] = [
       { label: "Max Load Power", value: "~22kW (Three-Phase)" },
       { label: "Internal Components", value: "PCB Control Board, Motor, Thermal Relay" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1920,7 +1920,7 @@ export const products: Product[] = [
       { label: "Max Load Power", value: "~13.9kW (13870W)" },
       { label: "Internal Components", value: "PCB Control Board, Motor, Thermal Relay" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -1977,7 +1977,7 @@ export const products: Product[] = [
       { label: "Max Load Power", value: "~6.9kW (6930W)" },
       { label: "Internal Components", value: "PCB Control Board, Motor, Thermal Relay" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -2034,7 +2034,7 @@ export const products: Product[] = [
       { label: "Max Load Power", value: "~22kW (Three-Phase)" },
       { label: "Internal Components", value: "PCB Control Board, Motor, Thermal Relay" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -2092,7 +2092,7 @@ export const products: Product[] = [
       { label: "Max Load Power", value: "~13.9kW (13870W)" },
       { label: "Internal Components", value: "PCB Control Board, Motor, Thermal Relay" },
       { label: "Installation", value: "35mm DIN Rail" },
-      { label: "Certification", value: "CE, RoHS" },
+      { label: "Conformity", value: "CE marking, RoHS compliant" },
     ],
   },
   {
@@ -3123,7 +3123,8 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Mechanical Life", value: "20,000 operations" },
     { label: "Electrical Life", value: "10,000 operations" },
     { label: "Mounting", value: "DIN-rail 35mm" },
-    { label: "Certification", value: "CE, RoHS, IEC 60898-1" },
+    { label: "Conformity", value: "CE marking, RoHS compliant" },
+      { label: "Standard", value: "IEC 60898-1" },
     { label: "Contact Material", value: "High-Conductivity Copper Alloy" },
   ],
   SPD: [
@@ -3135,7 +3136,8 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Response Time", value: "≤ 25 ns" },
     { label: "Indicator", value: "Visual status window" },
     { label: "Mounting", value: "DIN-rail 35mm" },
-    { label: "Certification", value: "CE, RoHS, IEC 61643-11" },
+    { label: "Conformity", value: "CE marking, RoHS compliant" },
+      { label: "Standard", value: "IEC 61643-11" },
   ],
   ATS: [
     { label: "Utilization Class", value: "PC Class (ATS-ST / W2R) / CB Class (STQ1 / STQ2)" },
@@ -3146,7 +3148,7 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Transfer Time", value: "≤ 0.05s (PC class) / ~2s (CB class)" },
     { label: "Operation", value: "Manual / Auto, mechanical interlock" },
     { label: "Mounting", value: "DIN-rail 35mm" },
-    { label: "Certification", value: "CE, RoHS" },
+    { label: "Conformity", value: "CE marking, RoHS compliant" },
   ],
   "Combiner Box": [
     { label: "Enclosure", value: "Plastic / Metal" },
@@ -3156,7 +3158,8 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Internal Components", value: "DC fuse, DC SPD, DC breaker" },
     { label: "Operating Temperature", value: "-25°C to +60°C" },
     { label: "Mounting", value: "Wall mount" },
-    { label: "Certification", value: "CE, IEC 61439" },
+    { label: "Conformity", value: "CE marking" },
+      { label: "Standard", value: "IEC 61439" },
   ],
   "Voltage Protector": [
     { label: "Phase", value: "Single phase / Three phase" },
@@ -3166,7 +3169,7 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Reconnection Delay", value: "Adjustable, 5s – 600s" },
     { label: "Response Time", value: "< 200 ms" },
     { label: "Mounting", value: "DIN-rail 35mm" },
-    { label: "Certification", value: "CE, RoHS" },
+    { label: "Conformity", value: "CE marking, RoHS compliant" },
   ],
   "Energy Meter": [
     { label: "Phase", value: "Single phase / Three phase" },
@@ -3176,7 +3179,8 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Display", value: "LCD digital display" },
     { label: "Communication", value: "Pulse output / RS485 Modbus (optional)" },
     { label: "Mounting", value: "DIN-rail 35mm" },
-    { label: "Certification", value: "CE, IEC 62052/62053" },
+    { label: "Conformity", value: "CE marking" },
+      { label: "Standard", value: "IEC 62052/62053" },
   ],
 };
 

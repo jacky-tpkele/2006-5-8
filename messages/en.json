@@ -62,7 +62,7 @@
     "combiner-box": "Combiner Box Manufacturer"
   },
   "footer": {
-    "tagline": "CE / IEC / RoHS certified — exporting to 100+ countries across Europe, the Middle East, Southeast Asia and South America.",
+    "tagline": "ISO 9001 certified manufacturer — IEC standards compliant products — exporting to 100+ countries across Europe, the Middle East, Southeast Asia and South America.",
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
@@ -377,32 +377,32 @@
     "intro": "TPKELE is an ISO 9001 manufacturer dedicated to solar DC protection and low voltage electrical components. Our product program covers DC MCB, AC MCB, DC SPD, AC SPD, PV combiner boxes, ATS, voltage protectors and DIN-rail energy meters — engineered to IEC standards and CE / RoHS compliant. We support solar EPCs, electrical distributors, OEM buyers, panel builders, industrial contractors and importers with technical product matching, certificate documentation, custom OEM programs and reliable container-load delivery.",
     "requestFactoryProfile": "Request Factory Profile",
     "buildingAlt": "TPKELE headquarters and factory building",
-    "certificationsEyebrow": "Certifications & Standards",
-    "certificationsHeading": "Independently verified for international tenders",
+    "certificationsEyebrow": "Quality & Compliance",
+    "certificationsHeading": "Documented conformity for international projects",
     "certifications": {
       "CE": {
         "label": "CE Marking",
-        "description": "EU low voltage & EMC directives"
+        "description": "EU conformity (applicable models)"
       },
       "RoHS": {
-        "label": "RoHS Compliant",
-        "description": "Restricted hazardous substances"
+        "label": "RoHS Compliance",
+        "description": "Directive 2011/65/EU"
       },
       "IEC": {
         "label": "IEC Standards",
-        "description": "60898 / 60947 / 61643 / 62052"
+        "description": "Design & testing basis"
       },
       "ISO": {
-        "label": "ISO 9001",
-        "description": "Quality management system"
+        "label": "ISO 9001:2015",
+        "description": "Quality management certified"
       },
       "TUV": {
-        "label": "TÜV Tested",
-        "description": "Independent lab verification"
+        "label": "TÜV Reports",
+        "description": "Available for specified models"
       },
       "CB": {
-        "label": "CB Scheme",
-        "description": "Globally recognized test report"
+        "label": "CB Certificates",
+        "description": "Available for specified models"
       }
     },
     "factoryEyebrow": "Our Factory",
