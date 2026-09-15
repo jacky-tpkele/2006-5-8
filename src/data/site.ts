@@ -2485,12 +2485,12 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
   MCB: {
     hero: "MCB Manufacturer — AC & DC Miniature Circuit Breakers",
     intro:
-      "TPKELE manufactures AC and DC miniature circuit breakers for low voltage distribution boards, photovoltaic strings and battery energy storage. Our DZ47 / DZ47Z series cover 1P–4P pole configurations, 6A–63A current ratings and B / C / D trip curves to IEC 60898-1, with breaking capacities up to 10kA. Trusted by solar EPCs, electrical distributors and panel builders across Europe, the Middle East, Southeast Asia and South America.",
+      "TPKELE manufactures AC and DC miniature circuit breakers for low voltage distribution boards, photovoltaic strings and battery energy storage. Our DZ47 / DZ47Z series cover 1P–4P pole configurations, 6A–63A current ratings and B / C / D trip curves, with breaking capacities up to 10kA. AC models are designed to IEC 60898-1; DC models follow IEC 60947-2. Trusted by solar EPCs, electrical distributors and panel builders across Europe, the Middle East, Southeast Asia and South America.",
     bullets: [
       "AC MCB & DC MCB series for distribution and solar / BESS applications",
       "1P / 2P / 3P / 4P pole configurations, 6A–63A rated currents",
       "B / C / D trip curves, 6kA / 10kA breaking capacity",
-      "Tested to IEC 60898-1 / IEC 60947-2, CE & RoHS compliant",
+      "Tested to IEC 60898-1 (AC) / IEC 60947-2 (DC), CE & RoHS compliant",
       "OEM logo, color housing and packaging customization",
       "Stable lead time and container-load supply for distributors",
     ],
@@ -2501,11 +2501,11 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { q: "What system voltages do your DC MCBs cover?", a: "Standard DC MCBs cover up to 1000V DC; for utility-scale PV we offer up to 1500V DC versions using 3P / 4P series configuration." },
       { q: "Which curve should I choose — B, C or D?", a: "B curve (3–5 In) for resistive loads, C curve (5–10 In) for general-purpose distribution and mixed loads, D curve (10–20 In) for inductive loads with high inrush currents like motors and transformers." },
       { q: "Do you support OEM branding for MCBs?", a: "Yes — logo printing, custom housing color, dedicated packaging and private-label catalogs are supported for distributor and brand-owner programs." },
-      { q: "Do your MCBs carry CE certification?", a: "Yes, all TPKELE MCBs are CE & RoHS compliant and tested per IEC 60898-1. Test reports are available for project tenders and customs documentation." },
+      { q: "Do your MCBs carry CE certification?", a: "Yes, TPKELE MCBs are CE & RoHS compliant. AC models are tested per IEC 60898-1; DC models per IEC 60947-2. Test reports are available for project tenders and customs documentation." },
     ],
     seoTitle: "MCB Manufacturer | AC & DC Miniature Circuit Breakers",
     seoDescription:
-      "TPKELE manufactures AC MCB and DC MCB, 1P–4P, 6A–63A, B/C/D curves, IEC 60898-1, CE & RoHS. OEM and project supply for distributors and solar EPCs.",
+      "TPKELE manufactures AC MCB and DC MCB, 1P–4P, 6A–63A, B/C/D curves. AC models: IEC 60898-1; DC models: IEC 60947-2. CE & RoHS compliant. OEM and project supply for distributors and solar EPCs.",
     seoKeywords: ["MCB manufacturer", "miniature circuit breaker", "AC MCB", "DC MCB", "DZ47", "solar circuit breaker", "PV DC breaker", "low voltage breaker", "IEC 60898 MCB"],
   },
   SPD: {
