@@ -85,14 +85,6 @@ const dcSpdGuide: Guide = {
       title: "Application Matching",
       content: `
         <p>The same DC SPD family can be used in different projects, but the best specification often changes with the application. Residential systems usually focus on compactness, ease of installation and stable everyday use. Commercial and industrial projects may require higher ratings, more coordination and deeper documentation for internal review or export submission.</p>
-        <p>That is why TPKELE's content strategy connects every guide to a product-focused Market Access Advisor. The guide helps the user understand how to select the product technically, while the advisor helps convert that technical decision into a market-facing action plan.</p>
-      `,
-    },
-    {
-      id: "selection-workflow",
-      title: "Recommended Selection Workflow",
-      content: `
-        <p>A practical selection workflow for DC SPD starts with the electrical system and not the catalogue. Confirm the system voltage, lightning risk level, PV string configuration, installation point (combiner or inverter side), coordination needs and existing protection devices. Only after that should model comparison begin.</p>
         <p>Next, shortlist products that fit the technical envelope, check supporting documents such as datasheets or test reports, and then align the final choice with the buyer type. For example, a distributor may care more about standardized models and market breadth, while a project buyer may prioritize exact ratings, lead time and documentation completeness.</p>
         <figure class="guide-figure">
           <img src="/images/guides/dc-spd-selection-guide/quick-flow.png" alt="Quick selection workflow for DC SPD" />
@@ -105,14 +97,6 @@ const dcSpdGuide: Guide = {
       title: "Standards and Compliance Perspective",
       content: `
         <p>Technical standards and market-access expectations should be understood as related but separate topics. A technical standard helps define how a product is evaluated, tested or described. However, mentioning a standard does not automatically mean that every destination market imposes the same mandatory certification route for every product scope.</p>
-        <p>For this reason, TPKELE's website architecture benefits from connecting guides to the Market Access Advisor. Users can read the selection article first, then open an advisor link with the product and application pre-filled. That makes the buying journey smoother and reduces the risk of mixing engineering standards with destination-market certification assumptions.</p>
-      `,
-    },
-    {
-      id: "common-mistakes",
-      title: "Common Mistakes to Avoid",
-      content: `
-        <p>The most frequent mistake is selecting a DC SPD by habit rather than by project conditions. Buyers may copy an old specification without checking if the new system voltage, environment, current level or use case has changed. Another mistake is assuming that all visually similar products from the market have the same internal performance or supporting evidence.</p>
         <p>Commercially, another error is waiting too long to review documents, labels or market-facing requirements. When this review happens late, quotation and shipment timelines become harder to control. A stronger process combines technical selection and document preparation from the beginning.</p>
       `,
     },
@@ -145,18 +129,6 @@ const dcSpdGuide: Guide = {
       title: "Related Products and Next Steps",
       content: `
         <p>A complete buying decision usually includes more than a single DC SPD. Users often compare related products that work in the same project package so that protection, switching and monitoring decisions remain coordinated.</p>
-        <p>On the TPKELE website, every guide should therefore link to related product pages, downloadable resources and the Market Access Advisor. This structure helps turn informational traffic into qualified inquiry traffic.</p>
-        <figure class="guide-figure">
-          <img src="/images/guides/dc-spd-selection-guide/related-grid.png" alt="Related TPKELE product paths for DC SPD" />
-          <figcaption>Figure 3. Related TPKELE product paths for DC SPD</figcaption>
-        </figure>
-      `,
-    },
-    {
-      id: "conclusion",
-      title: "Conclusion",
-      content: `
-        <p>A reliable DC SPD decision combines product knowledge, application matching and documentation readiness. If you define the use case clearly and review the key parameters in a structured order, selection becomes faster and more accurate.</p>
         <p>After completing the technical review, open the TPKELE Market Access Advisor to continue with the next step: checking likely market requirements, evidence expectations and buyer-facing compliance context for the target product and application.</p>
       `,
     },

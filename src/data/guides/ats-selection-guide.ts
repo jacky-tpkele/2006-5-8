@@ -13,15 +13,15 @@ const atsSelectionGuide: Guide = {
       content: `
         <p>Selecting the right ATS is critical for safety, reliability and commercial success. In real projects, a product decision should reflect the electrical system, the installation conditions and the buyer's documentation expectations, not just a basic catalogue line. This guide is written to help procurement teams, engineers and distributors move from a general product name to a usable specification path.</p>
         <p>The correct ATS selection process starts by understanding the actual application context. For TPKELE customers, this usually means matching product performance to solar PV, building electrical distribution or power-switching conditions, and then connecting the technical decision to quotation, export and project-delivery needs.</p>
-        <div class="callout">Do not select a ATS only by one headline parameter. Review system voltage, current, switching duty, coordination and application context together.</div>
+        <div class="callout">Do not select an ATS only by one headline parameter. Review system voltage, current, switching duty, coordination and application context together.</div>
       `,
     },
     {
       id: "what-is-it",
-      title: "What is a ATS?",
+      title: "What is an ATS?",
       content: `
-        <p>A ATS is a low-voltage electrical product used to perform a defined protective, switching, control or monitoring function inside the system. Its real value is not the device alone, but how accurately it matches the circuit, the environment and the maintenance expectations of the user.</p>
-        <p>In project supply, buyers often compare similar-looking products across different brands. A better approach is to understand the operating duty, key ratings and the failure modes that the device must handle. That makes quotation more accurate and reduces risk during installation and commissioning.</p>
+        <p>An Automatic Transfer Switch (ATS) is a low-voltage switching device that automatically transfers electrical load between two power sources — typically between mains utility and backup generator, or between two independent utility feeds. When the primary source fails or its voltage drops below acceptable limits, the ATS detects the fault and switches the load to the secondary source within seconds.</p>
+        <p>In commercial and industrial applications, ATS devices ensure continuous power to critical loads such as emergency lighting, fire safety systems, data centers, hospitals and telecommunications equipment. The switching logic can be either open transition (brief power interruption) or closed transition (momentary parallel operation), depending on the load requirements and system design.</p>
         <figure class="guide-figure">
           <img src="/images/guides/ats-selection-guide/figure.png" alt="Functional selection view for ATS" />
           <figcaption>Figure 1. Functional selection view for ATS</figcaption>
@@ -82,8 +82,8 @@ const atsSelectionGuide: Guide = {
       id: "application-match",
       title: "Application Matching",
       content: `
-        <p>The same ATS family can be used in different projects, but the best specification often changes with the application. Residential systems usually focus on compactness, ease of installation and stable everyday use. Commercial and industrial projects may require higher ratings, more coordination and deeper documentation for internal review or export submission.</p>
-        <p>That is why TPKELE's content strategy connects every guide to a product-focused Market Access Advisor. The guide helps the user understand how to select the product technically, while the advisor helps convert that technical decision into a market-facing action plan.</p>
+        <p>The same ATS family can be used in different projects, but the best specification often changes with the application. Residential backup systems typically require 2-pole switches with ratings up to 63A, focusing on simplicity and cost-effectiveness. Commercial buildings may need 3-pole or 4-pole units rated 125A to 400A, with more sophisticated control logic and monitoring capabilities.</p>
+        <p>Industrial facilities often require ATS devices with higher breaking capacity, motorized operation, and integration with building management systems (BMS) or SCADA networks. Understanding these application-specific requirements helps buyers choose products that match both the electrical specifications and the operational environment.</p>
       `,
     },
     {
@@ -102,16 +102,16 @@ const atsSelectionGuide: Guide = {
       id: "standards-and-compliance",
       title: "Standards and Compliance Perspective",
       content: `
-        <p>Technical standards and market-access expectations should be understood as related but separate topics. A technical standard helps define how a product is evaluated, tested or described. However, mentioning a standard does not automatically mean that every destination market imposes the same mandatory certification route for every product scope.</p>
-        <p>For this reason, TPKELE's website architecture benefits from connecting guides to the Market Access Advisor. Users can read the selection article first, then open an advisor link with the product and application pre-filled. That makes the buying journey smoother and reduces the risk of mixing engineering standards with destination-market certification assumptions.</p>
+        <p>ATS devices are typically designed to meet IEC 60947-6-1 (Automatic Transfer Switching Equipment) or equivalent national standards such as UL 1008 (North America). These standards define performance requirements for voltage detection, transfer time, endurance testing and environmental conditions.</p>
+        <p>For international projects, buyers should verify which certifications are mandatory in the destination market. European markets often require CE marking, while Middle Eastern and African markets may accept IEC test reports with additional third-party verification. Understanding these requirements early helps avoid delays during customs clearance and project commissioning.</p>
       `,
     },
     {
       id: "common-mistakes",
       title: "Common Mistakes to Avoid",
       content: `
-        <p>The most frequent mistake is selecting a ATS by habit rather than by project conditions. Buyers may copy an old specification without checking if the new system voltage, environment, current level or use case has changed. Another mistake is assuming that all visually similar products from the market have the same internal performance or supporting evidence.</p>
-        <p>Commercially, another error is waiting too long to review documents, labels or market-facing requirements. When this review happens late, quotation and shipment timelines become harder to control. A stronger process combines technical selection and document preparation from the beginning.</p>
+        <p>The most frequent mistake is selecting an ATS by habit rather than by project conditions. Buyers may copy an old specification without checking if the new system voltage, environment, current level or use case has changed. Another mistake is assuming that all visually similar products from the market have the same internal performance or supporting evidence.</p>
+        <p>Commercially, another error is waiting too long to review certification documents and market-specific requirements. When this review happens late, quotation and shipment timelines become harder to control. A stronger process combines technical selection and document preparation from the beginning.</p>
       `,
     },
     {
@@ -142,8 +142,8 @@ const atsSelectionGuide: Guide = {
       id: "related-products",
       title: "Related Products and Next Steps",
       content: `
-        <p>A complete buying decision usually includes more than a single ATS. Users often compare related products that work in the same project package so that protection, switching and monitoring decisions remain coordinated.</p>
-        <p>On the TPKELE website, every guide should therefore link to related product pages, downloadable resources and the Market Access Advisor. This structure helps turn informational traffic into qualified inquiry traffic.</p>
+        <p>A complete backup power system typically includes more than just an ATS. Projects often combine automatic transfer switches with circuit breakers (for overcurrent protection), surge protective devices (for lightning and transient protection), and energy meters (for load monitoring and power quality analysis).</p>
+        <p>For comprehensive project planning, consider reviewing TPKELE's related product lines: AC MCBs for circuit protection, voltage protectors for under/over voltage conditions, and DIN rail energy meters for consumption monitoring. These components work together to create a reliable and maintainable power distribution system.</p>
         <figure class="guide-figure">
           <img src="/images/guides/ats-selection-guide/related-grid.png" alt="Related TPKELE product paths for ATS" />
           <figcaption>Figure 3. Related TPKELE product paths for ATS</figcaption>
