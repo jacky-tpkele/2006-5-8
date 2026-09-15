@@ -62,6 +62,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     alternates: {
       canonical: canonicalUrl,
+      languages: {
+        'en': `https://www.tpkele.com/en/guides/${slug}`,
+        'ru': `https://www.tpkele.com/ru/guides/${slug}`,
+        'x-default': `https://www.tpkele.com/en/guides/${slug}`,
+      },
     },
   };
 }
