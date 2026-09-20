@@ -4,21 +4,21 @@ import { Link } from "@/i18n/navigation";
 export function ProductsGrid() {
   const products = [
     {
-      slug: "wifi-smart-switch-1p",
+      slug: "wifi-smart-mcb-1p",
       name: "18mm Wi-Fi Smart Circuit Breaker",
       image: "/assets/products/smart-mcb-18mm.webp",
       summary: "Ultra-compact 18mm smart MCB with WiFi remote control and real-time monitoring.",
       features: ["18×84×68mm", "Single relay", "1-63A configurable", "WiFi + Tuya Smart"],
     },
     {
-      slug: "wifi-smart-switch-2p",
+      slug: "wifi-smart-mcb-2p",
       name: "2P Wi-Fi Smart Circuit Breaker",
       image: "/assets/products/smart-mcb-2p.webp",
       summary: "Dual-pole smart MCB with single/dual relay options for commercial applications.",
       features: ["36×84×68mm", "2P poles", "Single/Dual relay", "220V/400V systems"],
     },
     {
-      slug: "wifi-earth-leakage-breaker",
+      slug: "wifi-earthleakage-mcb",
       name: "Wi-Fi Smart Earth Leakage Circuit Breaker",
       image: "/assets/products/smart-mcb-leakage.webp",
       summary: "Smart ELCB with real-time leakage current monitoring and temperature protection.",

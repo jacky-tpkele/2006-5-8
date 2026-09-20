@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: "Smart Wi-Fi Circuit Breaker Manufacturer | IoT MCB Remote Control",
     description: "TPKELE Smart Wi-Fi Circuit Breakers: Remote app control, real-time monitoring, energy metering, overvoltage/undervoltage protection. 18mm & 2P models, Tuya Smart compatible, for smart homes and commercial buildings.",
     alternates: {
-      canonical: localizedPath("/products/smart-mcb", locale),
-      languages: alternateLanguages("/products/smart-mcb"),
+      canonical: localizedPath("/products/smart-circuit-breaker", locale),
+      languages: alternateLanguages("/products/smart-circuit-breaker"),
     },
     keywords: [
       "Smart circuit breaker manufacturer",
@@ -46,7 +46,7 @@ export default async function SmartMcbPage({ params }: PageProps) {
     "@type": "Product",
     name: "Smart Wi-Fi Circuit Breaker",
     description: "IoT-enabled circuit breakers with remote control, real-time monitoring, and programmable protection via smartphone app.",
-    url: "https://www.tpkele.com/products/smart-mcb",
+    url: "https://www.tpkele.com/products/smart-circuit-breaker",
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Smart Electrical Protection Devices",
   };

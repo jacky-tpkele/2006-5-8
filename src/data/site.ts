@@ -295,7 +295,7 @@ export const subCategories: SubCategory[] = [
     seoKeywords: ["DC SPD", "PV SPD", "solar SPD", "1500V DC SPD", "1000V DC SPD", "PV surge protector", "photovoltaic surge protective device", "solar surge arrester", "Type 1+2 DC SPD"],
   },
   {
-    slug: "smart-mcb",
+    slug: "smart-circuit-breaker",
     label: "Smart Wi-Fi MCB",
     parent: "MCB",
     hero: "Smart Wi-Fi Circuit Breakers - Remote Control & Real-Time Monitoring",
@@ -2469,12 +2469,12 @@ export const products: Product[] = [
   },
   // Smart Wi-Fi Circuit Breakers
   {
-    slug: "wifi-smart-switch-1p",
+    slug: "wifi-smart-mcb-1p",
     name: "18mm Wi-Fi Smart Circuit Breaker",
     shortName: "Smart MCB 18mm",
     category: "MCB",
     parentCategory: "MCB",
-    subCategorySlug: "smart-mcb",
+    subCategorySlug: "smart-circuit-breaker",
     series: "Smart Wi-Fi Series",
     application: "Residential smart homes, compact lighting control, remote switching",
     image: "/assets/products/smart-mcb-18mm.webp",
@@ -2511,12 +2511,12 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "wifi-smart-switch-2p",
+    slug: "wifi-smart-mcb-2p",
     name: "2P Wi-Fi Smart Circuit Breaker",
     shortName: "Smart MCB 2P",
     category: "MCB",
     parentCategory: "MCB",
-    subCategorySlug: "smart-mcb",
+    subCategorySlug: "smart-circuit-breaker",
     series: "Smart Wi-Fi Series",
     application: "Commercial buildings, office lighting control, distribution monitoring",
     image: "/assets/products/smart-mcb-2p.webp",
@@ -2554,12 +2554,12 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "wifi-earth-leakage-breaker",
+    slug: "wifi-earthleakage-mcb",
     name: "Wi-Fi Smart Earth Leakage Circuit Breaker",
     shortName: "Smart ELCB",
     category: "MCB",
     parentCategory: "MCB",
-    subCategorySlug: "smart-mcb",
+    subCategorySlug: "smart-circuit-breaker",
     series: "Smart Wi-Fi Series",
     application: "Residential bathrooms, commercial kitchens, wet location monitoring",
     image: "/assets/products/smart-mcb-leakage.webp",
@@ -2797,7 +2797,7 @@ export const productMenu: ProductMenuGroup[] = [
     children: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
       { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
-      { label: "Smart Wi-Fi MCB", href: "/products/smart-mcb" },
+      { label: "Smart Wi-Fi MCB", href: "/products/smart-circuit-breaker" },
     ],
   },
   {
@@ -2868,7 +2868,7 @@ export const productMegaMenu: ProductMegaColumn[] = [
     cta: { label: "AC MCB Landing →", href: "/products/ac-mcb" },
     items: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
-      { label: "Smart Wi-Fi MCB", href: "/products/smart-mcb", tag: "New" },
+      { label: "Smart Wi-Fi MCB", href: "/products/smart-circuit-breaker", tag: "New" },
       { label: "AC SPD", href: "/products/category/spd/ac-spd" },
       { label: "ATS", href: "/products/category/ats" },
     ],
