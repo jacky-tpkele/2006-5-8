@@ -24,6 +24,11 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // 0. 排除 Yandex/Bing 验证文件（静态资源，不应被路由拦截）
+  if (pathname.match(/^\/(yandex_[a-f0-9]+\.html|BingSiteAuth\.xml)$/)) {
+    return NextResponse.next();
+  }
+
   // 1. 先处理 301 重定向（优先级最高，避免被语言路由拦截）
   if (redirects[pathname]) {
     const url = request.nextUrl.clone();
