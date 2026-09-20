@@ -2884,7 +2884,9 @@ export const productMegaMenu: ProductMegaColumn[] = [
     recommended: true,
     cta: { label: "Explore Smart Series →", href: "/products/smart-circuit-breaker" },
     items: [
-      { label: "Smart Wi-Fi MCB", href: "/products/smart-circuit-breaker" },
+      { label: "18mm Smart MCB (1P)", href: "/products/wifi-smart-mcb-1p" },
+      { label: "36mm Smart MCB (2P)", href: "/products/wifi-smart-mcb-2p" },
+      { label: "Earth Leakage MCB", href: "/products/wifi-earthleakage-mcb" },
     ],
   },
   {
