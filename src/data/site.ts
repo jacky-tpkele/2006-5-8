@@ -2505,8 +2505,9 @@ export const products: Product[] = [
     ],
     gallery: [
       "/assets/products/smart-mcb-18mm.webp",
-      "/assets/products/smart-mcb-18mm-2.webp",
-      "/assets/products/smart-mcb-18mm-3.webp",
+      "/assets/products/wifi-smart-mcb-1p/wifi-smart-mcb-1p-front-view.webp",
+      "/assets/products/wifi-smart-mcb-1p/wifi-smart-mcb-1p-side-view.webp",
+      "/assets/products/wifi-smart-mcb-1p/wifi-smart-mcb-1p-installation.webp",
       "/assets/products/smart-mcb-app.webp"
     ],
   },
@@ -2548,8 +2549,10 @@ export const products: Product[] = [
     ],
     gallery: [
       "/assets/products/smart-mcb-2p.webp",
-      "/assets/products/smart-mcb-2p-2.webp",
-      "/assets/products/smart-mcb-2p-3.webp",
+      "/assets/products/wifi-smart-mcb-2p/wifi-smart-mcb-2p-front-view.webp",
+      "/assets/products/wifi-smart-mcb-2p/wifi-smart-mcb-2p-terminal-view.webp",
+      "/assets/products/wifi-smart-mcb-2p/wifi-smart-mcb-2p-installation.webp",
+      "/assets/products/wifi-smart-mcb-2p/wifi-smart-mcb-2p-dimensions.webp",
       "/assets/products/smart-mcb-app.webp"
     ],
   },
@@ -2593,8 +2596,10 @@ export const products: Product[] = [
     ],
     gallery: [
       "/assets/products/smart-mcb-leakage.webp",
-      "/assets/products/smart-mcb-leakage-2.webp",
-      "/assets/products/smart-mcb-leakage-3.webp",
+      "/assets/products/wifi-earthleakage-mcb/wifi-earthleakage-mcb-front-view.webp",
+      "/assets/products/wifi-earthleakage-mcb/wifi-earthleakage-mcb-side-view.webp",
+      "/assets/products/wifi-earthleakage-mcb/wifi-earthleakage-mcb-terminal-view.webp",
+      "/assets/products/wifi-earthleakage-mcb/wifi-earthleakage-mcb-dimensions.webp",
       "/assets/products/smart-mcb-app.webp"
     ],
   },
