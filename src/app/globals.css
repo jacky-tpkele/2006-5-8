@@ -5070,6 +5070,169 @@ button.cb-option-card {
     height: min(70vh, 540px);
   }
 }
+
+/* ============ Smart Circuit Breaker series page ============ */
+.products-grid-section .product-card-body h3 {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.product-summary {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.product-features {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  width: 100%;
+}
+
+.product-features li {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.product-card-cta {
+  margin-top: 16px;
+  color: var(--green);
+  font-size: 12.5px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: rgba(11, 155, 63, 0.4);
+}
+
+.feature-icon {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: var(--green-soft);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.feature-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.application-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--green);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.application-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.application-card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.application-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.use-cases-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.use-cases-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--ink);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.use-cases-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .features-grid,
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
 :root{--g:#16965a;--gd:#0f7445;--gs:#eef8f2;--ink:#172127;--tx:#5f6c75;--line:#e1e8e4;--bg:#f7f9f8;--warn:#fff8e9;--blue:#eef6ff}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#fff}a{text-decoration:none;color:inherit}button,input,select{font:inherit}.container{max-width:1280px;margin:auto;padding:0 24px}
 .siteHeader{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center}.headerInner{display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:9px;font-size:22px;font-weight:900}.brandMark{display:grid;place-items:center;width:34px;height:34px;background:var(--g);color:#fff;border-radius:9px;font-size:11px}.mainNav{display:flex;gap:26px;font-size:14px;font-weight:700;color:#3b474f}.mainNav a:hover{color:var(--g)}.headerCta,.primaryButton{background:var(--g);color:#fff;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:800;display:inline-flex}.breadcrumb{border-bottom:1px solid #eef1ef;padding:14px 0;color:#8b969e;font-size:12px}
