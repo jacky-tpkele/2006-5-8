@@ -1,12 +1,12 @@
 export function FeaturesGrid() {
   const features = [
     {
-      icon: "📱",
+      icon: "📡",
       title: "Remote WiFi Control",
       description: "Control circuit breakers from anywhere via smartphone app. Turn circuits on/off remotely, perfect for smart homes and commercial buildings.",
     },
     {
-      icon: "📊",
+      icon: "▦",
       title: "Real-Time Monitoring",
       description: "Monitor voltage, current, power, frequency, and energy consumption in real-time. Track electrical parameters via app dashboard.",
     },
@@ -16,17 +16,17 @@ export function FeaturesGrid() {
       description: "Built-in energy meter displays 0–9999 kWh. Track electricity usage, analyze consumption patterns, and optimize energy management.",
     },
     {
-      icon: "⏰",
+      icon: "⏱",
       title: "Programmable Timers",
       description: "Set up to 15 timer groups for automated switching. Schedule circuits for lighting, HVAC, or non-critical loads.",
     },
     {
-      icon: "🛡️",
+      icon: "◈",
       title: "Configurable Protection",
       description: "App-adjustable overvoltage (130-300V), undervoltage (75-210V), overcurrent (1-63A), and overload protection settings.",
     },
     {
-      icon: "🔊",
+      icon: "◎",
       title: "Voice Control Ready",
       description: "Compatible with smart home voice assistants. Integrate with existing smart home ecosystems via Tuya Smart platform.",
     },
