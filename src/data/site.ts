@@ -2845,7 +2845,7 @@ export const productMenu: ProductMenuGroup[] = [
 
 export type ProductMegaItem = { label: string; href: string; tag?: string };
 export type ProductMegaColumn = {
-  key: "solar" | "lv" | "metering";
+  key: "solar" | "lv" | "smart" | "metering";
   title: string;
   subtitle: string;
   recommended?: boolean;
@@ -2873,9 +2873,18 @@ export const productMegaMenu: ProductMegaColumn[] = [
     cta: { label: "AC MCB Landing →", href: "/products/ac-mcb" },
     items: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
-      { label: "Smart Wi-Fi MCB", href: "/products/smart-circuit-breaker", tag: "New" },
       { label: "AC SPD", href: "/products/category/spd/ac-spd" },
       { label: "ATS", href: "/products/category/ats" },
+    ],
+  },
+  {
+    key: "smart",
+    title: "Wi-Fi Smart Series",
+    subtitle: "IoT & Remote Management",
+    recommended: true,
+    cta: { label: "Explore Smart Series →", href: "/products/smart-circuit-breaker" },
+    items: [
+      { label: "Smart Wi-Fi MCB", href: "/products/smart-circuit-breaker" },
     ],
   },
   {
