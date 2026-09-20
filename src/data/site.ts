@@ -294,6 +294,29 @@ export const subCategories: SubCategory[] = [
       "TPKELE DC SPD: Type 1+2 and Type 2 for solar PV, 600V/1000V/1500V Uoc, 20kA/40kA, IEC 61643-31, CE & RoHS. PV surge protector built for solar projects.",
     seoKeywords: ["DC SPD", "PV SPD", "solar SPD", "1500V DC SPD", "1000V DC SPD", "PV surge protector", "photovoltaic surge protective device", "solar surge arrester", "Type 1+2 DC SPD"],
   },
+  {
+    slug: "smart-mcb",
+    label: "Smart Wi-Fi MCB",
+    parent: "MCB",
+    hero: "Smart Wi-Fi Circuit Breakers - Remote Control & Real-Time Monitoring",
+    intro:
+      "TPKELE Smart Wi-Fi Circuit Breakers enable remote control, real-time electrical parameter monitoring, and programmable protection via smartphone app. Built on the Tuya Smart ecosystem with support for energy metering, scheduled switching, and configurable voltage/current protection — designed for residential smart homes, commercial buildings, and distribution circuits requiring IoT integration. Available in compact 18mm, 2P dual-pole, and earth leakage protection configurations.",
+    seoTitle: "Smart Wi-Fi Circuit Breaker Manufacturer | IoT MCB Remote Control",
+    seoDescription:
+      "TPKELE Smart Wi-Fi Circuit Breakers: Remote app control, real-time monitoring, energy metering, overvoltage/undervoltage protection. 18mm & 2P models, Tuya Smart compatible, for smart homes and commercial buildings.",
+    seoKeywords: [
+      "Smart circuit breaker manufacturer",
+      "WiFi circuit breaker",
+      "IoT MCB",
+      "Remote control circuit breaker",
+      "Smart MCB app control",
+      "Tuya smart circuit breaker",
+      "WiFi MCB manufacturer",
+      "Smart home circuit breaker",
+      "Energy monitoring breaker",
+      "App controlled MCB"
+    ],
+  },
 ];
 
 export const subCategoryBySlug: Record<string, SubCategory> = Object.fromEntries(
@@ -2444,6 +2467,137 @@ export const products: Product[] = [
       },
     ],
   },
+  // Smart Wi-Fi Circuit Breakers
+  {
+    slug: "wifi-smart-switch-1p",
+    name: "18mm Wi-Fi Smart Circuit Breaker",
+    shortName: "Smart MCB 18mm",
+    category: "MCB",
+    parentCategory: "MCB",
+    subCategorySlug: "smart-mcb",
+    series: "Smart Wi-Fi Series",
+    application: "Residential smart homes, compact lighting control, remote switching",
+    image: "/assets/products/smart-mcb-18mm.webp",
+    summary: "Ultra-compact 18mm smart MCB with WiFi remote control, real-time monitoring, and programmable protection.",
+    description: "The most compact smart circuit breaker in TPKELE's IoT lineup. At just 18mm wide, it fits standard DIN rails while delivering full remote control, real-time voltage/current/power monitoring, and programmable protection settings via the Tuya Smart app. Ideal for residential smart home retrofits where space is limited.",
+    specs: [
+      "Dimensions: 18×84×68mm",
+      "Rated Voltage: AC 220V / 110V, 50/60Hz",
+      "Current Setting: 1–63A (app configurable)",
+      "WiFi Control: Tuya Smart ecosystem",
+      "Real-time Monitoring: Voltage, Current, Power, Energy (kWh)",
+      "Protection: Overvoltage (130-300V), Undervoltage (75-210V), Overcurrent, Overload",
+      "Timer Functions: 15 programmable groups",
+      "Energy Metering: 0–9999 kWh display",
+      "IP Rating: IP30",
+      "Relay Type: Single relay",
+      "Electrical Life: 10,000 cycles"
+    ],
+    seoKeywords: [
+      "18mm smart circuit breaker",
+      "compact WiFi MCB",
+      "single module smart breaker",
+      "WiFi MCB 18mm",
+      "ultra-slim smart MCB",
+      "Tuya smart breaker",
+      "smart home circuit breaker",
+      "IoT MCB compact"
+    ],
+    gallery: [
+      "/assets/products/smart-mcb-18mm.webp",
+      "/assets/products/smart-mcb-18mm-2.webp",
+      "/assets/products/smart-mcb-18mm-3.webp",
+      "/assets/products/smart-mcb-app.webp"
+    ],
+  },
+  {
+    slug: "wifi-smart-switch-2p",
+    name: "2P Wi-Fi Smart Circuit Breaker",
+    shortName: "Smart MCB 2P",
+    category: "MCB",
+    parentCategory: "MCB",
+    subCategorySlug: "smart-mcb",
+    series: "Smart Wi-Fi Series",
+    application: "Commercial buildings, office lighting control, distribution monitoring",
+    image: "/assets/products/smart-mcb-2p.webp",
+    summary: "Dual-pole smart MCB with single/dual relay options, WiFi control, and real-time electrical parameter monitoring.",
+    description: "TPKELE 2P Smart Wi-Fi MCB combines dual-pole switching with IoT connectivity. Available in single-relay or dual-relay configurations, it supports 220V/400V systems and delivers the same remote control, monitoring, and protection features in a 36mm form factor. Perfect for commercial distribution panels and office building automation.",
+    specs: [
+      "Dimensions: 36×84×68mm",
+      "Rated Voltage: AC 220V / 110V, 50/60Hz",
+      "Poles: 2P (Single relay / Dual relay options)",
+      "Current Setting: 1–63A (app configurable)",
+      "WiFi Control: Tuya Smart ecosystem",
+      "Real-time Monitoring: Voltage, Current, Power, Energy (kWh)",
+      "Protection: Overvoltage (130-300V), Undervoltage (75-210V), Overcurrent, Overload, Delay",
+      "Timer Functions: 15 programmable groups",
+      "Energy Metering: 0–9999 kWh display",
+      "IP Rating: IP30",
+      "Relay Type: Single or Dual relay",
+      "Electrical Life: 10,000 cycles"
+    ],
+    seoKeywords: [
+      "2P smart circuit breaker",
+      "dual pole WiFi MCB",
+      "2P IoT circuit breaker",
+      "smart MCB 2 pole",
+      "WiFi MCB 400V",
+      "commercial smart circuit breaker",
+      "2P remote control MCB",
+      "Tuya 2P breaker"
+    ],
+    gallery: [
+      "/assets/products/smart-mcb-2p.webp",
+      "/assets/products/smart-mcb-2p-2.webp",
+      "/assets/products/smart-mcb-2p-3.webp",
+      "/assets/products/smart-mcb-app.webp"
+    ],
+  },
+  {
+    slug: "wifi-earth-leakage-breaker",
+    name: "Wi-Fi Smart Earth Leakage Circuit Breaker",
+    shortName: "Smart ELCB",
+    category: "MCB",
+    parentCategory: "MCB",
+    subCategorySlug: "smart-mcb",
+    series: "Smart Wi-Fi Series",
+    application: "Residential bathrooms, commercial kitchens, wet location monitoring",
+    image: "/assets/products/smart-mcb-leakage.webp",
+    summary: "Smart earth leakage circuit breaker with real-time leakage current monitoring, temperature protection, and remote control.",
+    description: "TPKELE's first smart earth leakage circuit breaker integrates residual current detection with IoT control. Monitor leakage current in real time via app, receive instant alerts, and remotely trip or reset the device. Temperature protection adds an extra layer of safety. Ideal for wet locations, residential bathrooms, and commercial kitchens requiring both leakage monitoring and remote management.",
+    specs: [
+      "Dimensions: 36×85×65mm",
+      "Rated Voltage: AC 220V / 110V, 50/60Hz",
+      "Poles: 2P (WiFi 2P Smart Earth Leakage Circuit Breaker)",
+      "Current Setting: 1–63A (app configurable)",
+      "Leakage Monitoring: 10–99mA range (display in app)",
+      "WiFi Control: Tuya Smart ecosystem",
+      "Real-time Monitoring: Voltage, Current, Power, Energy, Leakage Current",
+      "Protection: Overvoltage (130-300V), Undervoltage (75-210V), Overcurrent, Overload, Earth Leakage, Temperature",
+      "Timer Functions: 15 programmable groups",
+      "Energy Metering: 0–9999 kWh display",
+      "IP Rating: IP30",
+      "Electrical Life: 10,000 cycles",
+      "Special Features: Leakage current display, Temperature monitoring"
+    ],
+    seoKeywords: [
+      "smart earth leakage circuit breaker",
+      "WiFi ELCB",
+      "IoT RCCB",
+      "smart leakage protection",
+      "WiFi residual current breaker",
+      "remote control ELCB",
+      "smart RCD manufacturer",
+      "leakage monitoring breaker",
+      "Tuya ELCB"
+    ],
+    gallery: [
+      "/assets/products/smart-mcb-leakage.webp",
+      "/assets/products/smart-mcb-leakage-2.webp",
+      "/assets/products/smart-mcb-leakage-3.webp",
+      "/assets/products/smart-mcb-app.webp"
+    ],
+  },
 ];
 
 export const categories: Array<"All Products" | ProductCategory> = [
@@ -2643,6 +2797,7 @@ export const productMenu: ProductMenuGroup[] = [
     children: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
       { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
+      { label: "Smart Wi-Fi MCB", href: "/products/smart-mcb" },
     ],
   },
   {
@@ -2713,6 +2868,7 @@ export const productMegaMenu: ProductMegaColumn[] = [
     cta: { label: "AC MCB Landing →", href: "/products/ac-mcb" },
     items: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
+      { label: "Smart Wi-Fi MCB", href: "/products/smart-mcb", tag: "New" },
       { label: "AC SPD", href: "/products/category/spd/ac-spd" },
       { label: "ATS", href: "/products/category/ats" },
     ],

@@ -26,6 +26,7 @@ const MEGA_ITEM_KEYS: Record<string, string> = {
   "/products/category/spd/dc-spd": "dc-spd",
   "/products/category/combiner-box": "pv-combiner-box",
   "/products/category/mcb/ac-mcb": "ac-mcb",
+  "/products/smart-mcb": "smart-mcb",
   "/products/category/spd/ac-spd": "ac-spd",
   "/products/category/ats": "ats",
   "/products/category/energy-meter": "energy-meter",
