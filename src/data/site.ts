@@ -2931,6 +2931,104 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "smart-circuit-breaker-vs-traditional-breaker",
+    title: "Smart Circuit Breaker vs Traditional Circuit Breaker: Functions, Differences & Selection Guide",
+    seoTitle: "Smart Circuit Breaker vs Traditional Breaker | TPKELE",
+    seoDescription:
+      "Compare smart Wi-Fi switches and traditional MCBs: verified protection, remote control, energy monitoring, safety standards and practical selection criteria.",
+    date: "2026-09-23",
+    image: "/images/blog/smart-circuit-breaker-vs-traditional-breaker/smart-vs-traditional-hero.webp",
+    excerpt: "A practical comparison of overcurrent protection, Wi-Fi switching, electrical monitoring and model-specific safety requirements—written for electrical contractors, panel builders and procurement teams.",
+    intent: "Smart circuit breaker selection support",
+    body: [
+      {
+        heading: "Why compare smart and traditional breakers?",
+        paragraphs: [
+          "Electrical distribution boards once relied mainly on local switching, upstream protection and manual inspection. A connected distribution design may also require scheduled operation, energy tracking and remote status visibility. These goals involve different functions: protection against electrical faults, switching a load on command, and monitoring the circuit's operating conditions.",
+          "A traditional miniature circuit breaker (MCB) is chosen according to voltage, current, trip characteristic and documented short-circuit breaking capacity. A smart Wi-Fi device may include a remote switching mechanism, electronic sensing, metering or additional protective functions. However, its exact capabilities depend on the device configuration; a Wi-Fi icon or a 63 A marking alone cannot establish that it has certified overcurrent breaking performance.",
+          "TPKELE offers a [Smart Wi-Fi Circuit Breaker series](/products/smart-circuit-breaker) alongside its [AC miniature circuit breaker range](/products/ac-mcb). This guide explains how to read the distinctions without assuming that every product in the smart series performs all functions.",
+        ],
+      },
+      {
+        heading: "What is a smart circuit breaker—and what is a smart switch?",
+        paragraphs: [
+          "In common online searches, 'smart circuit breaker' is sometimes used loosely for three electrically different devices. Separating them at the beginning prevents incorrect substitution during panel design.",
+        ],
+        bullets: [
+          "Conventional MCB: A circuit breaker that provides documented overload and short-circuit protection. Many models have a mechanical manual operating lever and no network connection.",
+          "Connected smart switch: A switching device controlled locally or over a network. It may also monitor energy or voltage; do not assume it provides MCB-level short-circuit protection unless that function is explicitly rated and documented.",
+          "Protective smart device: A specific model may combine connected switching with overcurrent, voltage or residual-current protection. Confirm the exact protection type, fault rating, applicable test standard and certification for that model.",
+        ],
+      },
+      {
+        heading: "Smart circuit breaker vs traditional breaker: key differences",
+        paragraphs: [
+          "Compare the functions that your project actually requires rather than using 'smart' as a shorthand for superior protection.",
+          "Traditional MCBs provide documented overload and short-circuit interruption. Wi-Fi smart switches offer connected switching and/or monitoring; protection must be verified separately.",
+          "Remote ON/OFF, voltage and energy data, scheduling and alerts are available on selected connected versions. Network outages may affect remote commands, so local protective behavior must be confirmed for each model.",
+        ],
+      },
+      {
+        heading: "How to select the right device for your project",
+        paragraphs: [
+          "The selection sequence below starts from the electrical design and works toward optional smart functions. It is intended for discussions between the buyer, panel builder and qualified designer.",
+        ],
+        bullets: [
+          "Define the power system and load: Record AC or DC, nominal and maximum voltage, frequency, phase arrangement, prospective fault current, earthing system and load category.",
+          "Specify protection independently of connectivity: Determine the required overcurrent and short-circuit protection, residual-current protection and any voltage-related disconnection.",
+          "Check actual device ratings: Match rated operational voltage/current, poles, terminals, conductor sizes, ambient temperature, mechanical endurance, breaking capacity where applicable.",
+          "Decide which connected functions are needed: Select remote ON/OFF, voltage/current display, kWh tracking, scheduling or alerts only where they serve a real operating need.",
+          "Verify safe remote-operation policy: Review who is authorized to energize a circuit remotely. Equipment serving life safety, critical processes, or personnel performing maintenance requires additional restrictions.",
+          "Request model-specific evidence: Ask for the datasheet, wiring diagram, short-circuit and residual-current test details, applicable standards, destination-market documents, firmware/app specifications and installation instructions.",
+        ],
+      },
+      {
+        heading: "Practical applications in low-voltage distribution",
+        paragraphs: [
+          "For non-critical lighting or selected auxiliary loads, a Wi-Fi switching device can add approved scheduled operation. Maintain independently specified electrical protection and ensure that unexpected remote energization will not expose maintenance personnel to hazards.",
+          "Electricians may use metering-equipped connected devices to observe operating voltage, current or kWh readings. Where the project requires revenue-grade billing accuracy, three-phase measurement or integration over RS485/Modbus, evaluate a dedicated [DIN rail energy meter](/products/din-rail-energy-meter) instead.",
+          "Remote visibility may reduce unnecessary site visits, but reliability still depends on safe fault response, communications availability and a documented local service procedure. Do not design essential protection around continuous internet access.",
+        ],
+      },
+      {
+        heading: "Standards and technical evidence to check",
+        paragraphs: [
+          "Different IEC documents govern different protective-device categories. Do not claim conformity based only on the product name or a visible CE marking. A manufacturer's model-specific declaration, test documentation and the destination market's requirements must be reviewed together.",
+          "IEC 60898-1 covers household and similar AC circuit breakers for overcurrent protection. IEC 60947-2 addresses low-voltage circuit-breaker requirements. IEC 61009-1 is relevant to RCBOs with integral overcurrent protection. IEC 61008-1 applies to RCCBs without integral overcurrent protection.",
+          "Explore the [TPKELE Standards Database](/resources/standards-database) for background and use the [Market Access Advisor](/resources/market-access-advisor) to structure country-specific questions.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Can a Wi-Fi smart switch replace an MCB?",
+        answer:
+          "Not automatically. Remote switching and an adjustable current setting do not establish that a smart switch has a certified short-circuit interruption rating. Use the exact device classification and supporting test documentation when deciding whether a separate MCB is required.",
+      },
+      {
+        question: "Will the protective function still work if Wi-Fi is disconnected?",
+        answer:
+          "For any protective function claimed by the manufacturer, ask for its local operating behavior and test evidence in offline conditions. Internet connectivity should not be assumed to provide the circuit's essential protection; remote operation and alerts may be unavailable while disconnected.",
+      },
+      {
+        question: "Does a 30 mA mark prove that the device is an RCBO?",
+        answer:
+          "No. A 30 mA residual-current marking and a test button warrant a closer look, but they do not independently establish integral overcurrent protection, device classification or the applicable certification.",
+      },
+      {
+        question: "Is a Wi-Fi smart circuit breaker suitable for a solar PV DC string?",
+        answer:
+          "Only if the specific device is rated, tested and approved for the required DC voltage, polarity and prospective fault current. A 230 V AC Wi-Fi product must not be assumed suitable for PV DC applications.",
+      },
+      {
+        question: "Can the app's kWh reading replace a billing meter?",
+        answer:
+          "Not without verifying the required accuracy, calibration, applicable metering requirements and local billing rules. For sub-metering or billing applications, compare the specifications of a dedicated energy meter.",
+      },
+    ],
+    relatedProducts: ["smart-circuit-breaker", "ac-mcb", "din-rail-energy-meter"],
+  },
+  {
     slug: "choose-right-mcb",
     title: "How to Choose the Right MCB for Your Application",
     seoTitle: "How to Choose the Right MCB | AC & DC Selection Guide",
