@@ -1,9 +1,27 @@
 const IMAGE_PATTERN = /^!\[([^\]]*)\]\(([^)]+)\)$/;
 const TABLE_ROW_PATTERN = /^\|.*\|$/;
 const TABLE_SEPARATOR_PATTERN = /^\|?[\s:-]+(?:\|[\s:-]+)+\|?$/;
+const HTML_BLOCK_PATTERN = /^<(div|section|article|aside|header|footer|nav|main)/i;
+
+// 允许的安全 HTML 标签（用于布局和样式）
+const ALLOWED_HTML_TAGS = ['div', 'section', 'article', 'aside', 'header', 'footer', 'nav', 'main', 'span', 'a', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'br'];
+const ALLOWED_ATTRIBUTES = ['style', 'href', 'src', 'alt', 'class', 'id', 'target', 'rel', 'title', 'width', 'height'];
 
 function isExternalHref(href: string) {
   return /^(https?:)?\/\//i.test(href);
+}
+
+// 清理 HTML：只允许白名单标签和属性
+function sanitizeHtml(html: string): string {
+  // 移除危险标签
+  let clean = html.replace(/<(script|iframe|object|embed|form|input|textarea|button)[^>]*>.*?<\/\1>/gis, '');
+  clean = clean.replace(/<(script|iframe|object|embed|form|input|textarea|button)[^>]*>/gi, '');
+
+  // 移除事件处理器属性
+  clean = clean.replace(/\s+on\w+\s*=\s*["'][^"']*["']/gi, '');
+  clean = clean.replace(/\s+on\w+\s*=\s*[^\s>]*/gi, '');
+
+  return clean;
 }
 
 export function escapeHtml(value: string) {
@@ -86,6 +104,11 @@ export function parseMarkdownTable(block: string) {
 export function renderMarkdownBlockHtml(block: string) {
   const text = block.trim();
   if (!text) return "";
+
+  // 检测是否是 HTML 块（以 HTML 标签开头）
+  if (HTML_BLOCK_PATTERN.test(text)) {
+    return sanitizeHtml(text);
+  }
 
   const imageMatch = text.match(IMAGE_PATTERN);
   if (imageMatch) {
