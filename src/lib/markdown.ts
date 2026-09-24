@@ -3,23 +3,20 @@ const TABLE_ROW_PATTERN = /^\|.*\|$/;
 const TABLE_SEPARATOR_PATTERN = /^\|?[\s:-]+(?:\|[\s:-]+)+\|?$/;
 const HTML_BLOCK_PATTERN = /^<(div|section|article|aside|header|footer|nav|main)/i;
 
-// 允许的安全 HTML 标签（用于布局和样式）
-const ALLOWED_HTML_TAGS = ['div', 'section', 'article', 'aside', 'header', 'footer', 'nav', 'main', 'span', 'a', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'br'];
-const ALLOWED_ATTRIBUTES = ['style', 'href', 'src', 'alt', 'class', 'id', 'target', 'rel', 'title', 'width', 'height'];
+const DANGEROUS_TAG_SOURCE = '<(script|iframe|object|embed|form|input|textarea|button|style|link|meta|base)[^>]*>';
 
 function isExternalHref(href: string) {
   return /^(https?:)?\/\//i.test(href);
 }
 
-// 清理 HTML：只允许白名单标签和属性
+// 清理 HTML：移除可执行标签、事件处理器和危险协议
+// 注意：不使用 dotAll 标志（tsconfig target 为 ES2017），换行用 [\s\S] 匹配
 function sanitizeHtml(html: string): string {
-  // 移除危险标签
-  let clean = html.replace(/<(script|iframe|object|embed|form|input|textarea|button)[^>]*>.*?<\/\1>/gis, '');
-  clean = clean.replace(/<(script|iframe|object|embed|form|input|textarea|button)[^>]*>/gi, '');
+  let clean = html.replace(new RegExp(`${DANGEROUS_TAG_SOURCE}[\\s\\S]*?<\\/\\1\\s*>`, "gi"), "");
+  clean = clean.replace(new RegExp(DANGEROUS_TAG_SOURCE, "gi"), "");
 
-  // 移除事件处理器属性
-  clean = clean.replace(/\s+on\w+\s*=\s*["'][^"']*["']/gi, '');
-  clean = clean.replace(/\s+on\w+\s*=\s*[^\s>]*/gi, '');
+  clean = clean.replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+  clean = clean.replace(/\s(?:href|src|xlink:href)\s*=\s*(?:"\s*(?:javascript|vbscript|data:text\/html)[^"]*"|'\s*(?:javascript|vbscript|data:text\/html)[^']*')/gi, "");
 
   return clean;
 }
