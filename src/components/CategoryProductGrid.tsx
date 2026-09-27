@@ -51,15 +51,15 @@ function CategoryProductGridInner({
   const pathname = usePathname();
   const [series, setSeries] = useState(initialSeries);
   const gridRef = useRef<HTMLElement>(null);
-  const hasScrolled = useRef(false);
+  const isInitialMount = useRef(true);
 
   // Read series from URL on mount and when URL changes
   useEffect(() => {
     const urlSeries = searchParams.get("series") ?? "";
     setSeries(urlSeries);
 
-    // Auto-scroll to product grid if series parameter exists
-    if (urlSeries && !hasScrolled.current && gridRef.current) {
+    // Auto-scroll to product grid only on initial page load with series parameter
+    if (urlSeries && isInitialMount.current && gridRef.current) {
       setTimeout(() => {
         const yOffset = -120; // 向上偏移，留出导航栏空间
         const element = gridRef.current;
@@ -67,9 +67,11 @@ function CategoryProductGridInner({
           const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
         }
-        hasScrolled.current = true;
       }, 150);
     }
+
+    // Mark that we've passed the initial mount
+    isInitialMount.current = false;
   }, [searchParams]);
 
   // Update URL when series changes
