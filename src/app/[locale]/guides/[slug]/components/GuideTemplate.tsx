@@ -24,7 +24,7 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
 
   // Mock data for hero image and related products - will be enhanced with real data
   const heroImage = `/images/guides/${guide.slug}/hero.png`;
-  const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.png`;
+  const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.webp`;
 
   // Related products based on guide context — each guide shows its own relevant products
   const relatedProductsMap: Record<string, { name: string; href: string; desc: string; image: string }[]> = {
