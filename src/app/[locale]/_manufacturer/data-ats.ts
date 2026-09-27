@@ -45,10 +45,10 @@ export const atsManufacturer: ManufacturerData = {
   scopeIntro:
     "TPKELE offers PC-class and CB-class automatic transfer switch families for different low-voltage power transfer applications. Select a product family first, then confirm the required pole configuration, rated current, neutral switching method and project requirements.",
   series: [
-    { label: "ATS-ST Series", meta: "PC Class · 2P / 4P", desc: "Compact PC-class automatic transfer switches for applications requiring fast source transfer.", href: "/products/ats?series=ats-st" },
-    { label: "ATS-W2R Series", meta: "PC Class · 2P / 3P / 4P", desc: "PC-class ATS family with multiple pole configurations for single-phase and three-phase systems.", href: "/products/ats?series=ats-w2r" },
-    { label: "STQ1 Series", meta: "CB Class · 2P / 3P / 4P", desc: "CB-class motorized automatic transfer switches for low-voltage distribution applications.", href: "/products/ats?series=stq1" },
-    { label: "STQ2 Series", meta: "CB Class · 2P / 3P / 4P", desc: "CB-class automatic transfer switch family with multiple pole configurations for power distribution systems.", href: "/products/ats?series=stq2" },
+    { label: "ATS-ST Series", meta: "PC Class · 2P / 4P", desc: "Compact PC-class automatic transfer switches for applications requiring fast source transfer.", image: "/assets/products/gallery/ats-st-2p-1.webp", href: "/products/ats?series=ats-st" },
+    { label: "ATS-W2R Series", meta: "PC Class · 2P / 3P / 4P", desc: "PC-class ATS family with multiple pole configurations for single-phase and three-phase systems.", image: "/assets/products/gallery/ats-w2r-2p-1.webp", href: "/products/ats?series=ats-w2r" },
+    { label: "STQ1 Series", meta: "CB Class · 2P / 3P / 4P", desc: "CB-class motorized automatic transfer switches for low-voltage distribution applications.", image: "/assets/products/gallery/stq1-2p-1.webp", href: "/products/ats?series=stq1" },
+    { label: "STQ2 Series", meta: "CB Class · 2P / 3P / 4P", desc: "CB-class automatic transfer switch family with multiple pole configurations for power distribution systems.", image: "/assets/products/gallery/stq2-2p-1.webp", href: "/products/ats?series=stq2" },
   ],
   scopeNote:
     "Note: PC-class and CB-class ATS products have different operating characteristics and application requirements. Confirm the ATS class, pole count, rated current, system voltage and neutral switching requirements before requesting a sample or quotation.",

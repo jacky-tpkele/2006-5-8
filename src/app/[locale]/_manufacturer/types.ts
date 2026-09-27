@@ -23,6 +23,7 @@ export type SeriesCard = {
   label: string;
   meta: string;
   desc?: string;
+  image?: string;
   href: string;
 };
 

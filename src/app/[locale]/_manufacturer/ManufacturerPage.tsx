@@ -121,10 +121,17 @@ export async function ManufacturerPage({ data, locale }: { data: ManufacturerDat
         <div className="mfr-series-grid">
           {data.series.map((s, i) => (
             <Link href={s.href} className="mfr-series-card" key={`${s.href}-${i}`}>
-              <strong>{s.label}</strong>
-              <span className="mfr-series-meta">{s.meta}</span>
-              {s.desc && <p className="mfr-series-desc">{s.desc}</p>}
-              <span className="mfr-series-cta">View {s.label.split(' ')[0]} Series →</span>
+              {s.image && (
+                <div className="mfr-series-image">
+                  <Image src={s.image} alt={s.label} width={200} height={200} />
+                </div>
+              )}
+              <div className="mfr-series-content">
+                <strong>{s.label}</strong>
+                <span className="mfr-series-meta">{s.meta}</span>
+                {s.desc && <p className="mfr-series-desc">{s.desc}</p>}
+                <span className="mfr-series-cta">View {s.label.split(' ')[0]} Series →</span>
+              </div>
             </Link>
           ))}
         </div>
