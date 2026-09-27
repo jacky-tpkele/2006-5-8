@@ -61,7 +61,12 @@ function CategoryProductGridInner({
     // Auto-scroll to product grid if series parameter exists
     if (urlSeries && !hasScrolled.current && gridRef.current) {
       setTimeout(() => {
-        gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        const yOffset = -100; // 向上偏移 100px，留出导航栏和一些空间
+        const element = gridRef.current;
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
         hasScrolled.current = true;
       }, 100);
     }
