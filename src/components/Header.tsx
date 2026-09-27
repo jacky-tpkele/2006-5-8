@@ -202,10 +202,7 @@ export function Header() {
                     {resourcesMenu.map((group) => (
                       <div className={`mega-col mega-col-${group.label.toLowerCase()}`} key={group.label}>
                         <div className="mega-col-head">
-                          <span className="mega-col-icon">
-                            {group.label === "Engineering" ? "🔧" : group.label === "Compliance" ? "✓" : "📦"}
-                          </span>
-                          <span className="mega-col-title">{group.label}</span>
+                          <span className="mega-col-title" style={{ color: '#0b9b3f' }}>{group.label}</span>
                         </div>
                         <span className="mega-col-sub">
                           {group.label === "Engineering" ? "Select & Design" :
