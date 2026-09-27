@@ -23,7 +23,7 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
     : null;
 
   // Mock data for hero image and related products - will be enhanced with real data
-  const heroImage = `/images/guides/${guide.slug}/hero.png`;
+  const heroImage = `/images/guides/${guide.slug}/hero.webp`;
   const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.webp`;
 
   // Related products based on guide context — each guide shows its own relevant products
