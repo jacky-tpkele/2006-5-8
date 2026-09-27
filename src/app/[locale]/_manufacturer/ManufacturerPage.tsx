@@ -122,8 +122,9 @@ export async function ManufacturerPage({ data, locale }: { data: ManufacturerDat
           {data.series.map((s, i) => (
             <Link href={s.href} className="mfr-series-card" key={`${s.href}-${i}`}>
               <strong>{s.label}</strong>
-              <span>{s.meta}</span>
-              <span className="mfr-arrow" aria-hidden>→</span>
+              <span className="mfr-series-meta">{s.meta}</span>
+              {s.desc && <p className="mfr-series-desc">{s.desc}</p>}
+              <span className="mfr-series-cta">View {s.label.split(' ')[0]} Series →</span>
             </Link>
           ))}
         </div>

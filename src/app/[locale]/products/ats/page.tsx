@@ -15,7 +15,7 @@ type PageProps = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const content = getCategoryContent("ATS", locale);
-  const canonical = localizedPath("/products/ats", locale);
+  const canonical = `${site.url}/products/ats`;
 
   return {
     title: content.seoTitle,
@@ -102,7 +102,12 @@ export default async function AtsCategoryPage({ params }: PageProps) {
       <CategoryProductGrid
         category={category}
         products={items}
-        seriesOptions={[]}
+        seriesOptions={[
+          { label: "ATS-ST", href: "/products/ats?series=ats-st" },
+          { label: "ATS-W2R", href: "/products/ats?series=ats-w2r" },
+          { label: "STQ1", href: "/products/ats?series=stq1" },
+          { label: "STQ2", href: "/products/ats?series=stq2" },
+        ]}
         categorySlug="ats"
       />
 

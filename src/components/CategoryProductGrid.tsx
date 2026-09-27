@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { Suspense, useEffect, useMemo, useState, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { InquiryModal } from "@/components/InquiryModal";
@@ -47,11 +47,40 @@ function CategoryProductGridInner({
   const t = useTranslations("categoryGrid");
   const tc = useTranslations("common");
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const [series, setSeries] = useState(initialSeries);
+  const gridRef = useRef<HTMLElement>(null);
+  const hasScrolled = useRef(false);
 
+  // Read series from URL on mount and when URL changes
   useEffect(() => {
-    setSeries(searchParams.get("series") ?? "");
+    const urlSeries = searchParams.get("series") ?? "";
+    setSeries(urlSeries);
+
+    // Auto-scroll to product grid if series parameter exists
+    if (urlSeries && !hasScrolled.current && gridRef.current) {
+      setTimeout(() => {
+        gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        hasScrolled.current = true;
+      }, 100);
+    }
   }, [searchParams]);
+
+  // Update URL when series changes
+  const updateSeriesUrl = (newSeries: string) => {
+    setSeries(newSeries);
+
+    const params = new URLSearchParams(searchParams.toString());
+    if (newSeries) {
+      params.set("series", newSeries);
+    } else {
+      params.delete("series");
+    }
+
+    const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname;
+    router.replace(newUrl, { scroll: false });
+  };
 
   const visible = useMemo(
     () =>
@@ -95,7 +124,7 @@ function CategoryProductGridInner({
   const showSeriesBar = seriesOptions.length > 1;
 
   return (
-    <section className="section category-grid-section">
+    <section className="section category-grid-section" ref={gridRef}>
       <div className="category-grid-head">
         <div>
           <span className="section-mark" aria-hidden="true" />
@@ -111,7 +140,7 @@ function CategoryProductGridInner({
           <button
             type="button"
             className={`series-chip ${series === "" ? "active" : ""}`}
-            onClick={() => setSeries("")}
+            onClick={() => updateSeriesUrl("")}
           >
             {t("allFilter", { category })}
           </button>
@@ -122,7 +151,7 @@ function CategoryProductGridInner({
                 key={opt.label}
                 type="button"
                 className={`series-chip ${series === value ? "active" : ""}`}
-                onClick={() => setSeries(value)}
+                onClick={() => updateSeriesUrl(value)}
               >
                 {opt.label}
               </button>

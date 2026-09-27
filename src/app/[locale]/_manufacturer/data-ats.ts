@@ -41,17 +41,17 @@ export const atsManufacturer: ManufacturerData = {
     ],
   },
 
-  scopeTitle: "ATS product scope buyers should confirm by class and pole count",
+  scopeTitle: "ATS product families by class and pole configuration",
   scopeIntro:
-    "TPKELE supplies PC-class ATS for fast electronic transfer and CB-class motorised ATS for applications where circuit breaker-level interruption is required. Both are available in 2P, 3P and 4P configurations.",
+    "TPKELE offers PC-class and CB-class automatic transfer switch families for different low-voltage power transfer applications. Select a product family first, then confirm the required pole configuration, rated current, neutral switching method and project requirements.",
   series: [
-    { label: "PC-class ATS 2P", meta: "Fast transfer · single phase", href: "/products/ats" },
-    { label: "PC-class ATS 3P", meta: "Fast transfer · three phase", href: "/products/ats" },
-    { label: "PC-class ATS 4P", meta: "Fast transfer · three phase + neutral", href: "/products/ats" },
-    { label: "CB-class ATS 63A", meta: "Motorised breaker · 2P/3P/4P", href: "/products/ats" },
+    { label: "ATS-ST Series", meta: "PC Class · 2P / 4P", desc: "Compact PC-class automatic transfer switches for applications requiring fast source transfer.", href: "/products/ats?series=ats-st" },
+    { label: "ATS-W2R Series", meta: "PC Class · 2P / 3P / 4P", desc: "PC-class ATS family with multiple pole configurations for single-phase and three-phase systems.", href: "/products/ats?series=ats-w2r" },
+    { label: "STQ1 Series", meta: "CB Class · 2P / 3P / 4P", desc: "CB-class motorized automatic transfer switches for low-voltage distribution applications.", href: "/products/ats?series=stq1" },
+    { label: "STQ2 Series", meta: "CB Class · 2P / 3P / 4P", desc: "CB-class automatic transfer switch family with multiple pole configurations for power distribution systems.", href: "/products/ats?series=stq2" },
   ],
   scopeNote:
-    "Note: PC-class and CB-class ATS have different transfer time profiles and different interrupting ratings. Confirm the class, pole count, rated current and neutral handling requirement before placing a sample order.",
+    "Note: PC-class and CB-class ATS products have different operating characteristics and application requirements. Confirm the ATS class, pole count, rated current, system voltage and neutral switching requirements before requesting a sample or quotation.",
 
   buyerTitle: "What export buyers usually need from an ATS factory",
   buyerIntro:

@@ -22,6 +22,7 @@ export type CompareTable = {
 export type SeriesCard = {
   label: string;
   meta: string;
+  desc?: string;
   href: string;
 };
 
