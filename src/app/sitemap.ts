@@ -77,12 +77,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Manufacturer pages
     "/mcb-manufacturer",
+    "/rcbo-manufacturer",
     "/spd-manufacturer",
     "/ats-manufacturer",
     "/combiner-box-manufacturer",
     "/energy-meter-manufacturer",
     "/voltage-protector-manufacturer",
     "/privacy-policy",
+
+    // RCBO landing pages
+    "/products/rcbo-australia-new-zealand",
   ];
 
   const specs: RouteSpec[] = [

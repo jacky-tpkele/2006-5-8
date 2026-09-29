@@ -1,0 +1,319 @@
+=================================================================
+TPKELE.COM - Google Search Console 全部 184 个 URL 提交清单
+生成日期: 2026-09-13
+网站: https://www.tpkele.com
+Sitemap: https://www.tpkele.com/sitemap.xml
+=================================================================
+
+【提交方法 - 推荐使用方法1】
+
+方法 1: 自动提交 Sitemap（最快，一次搞定）
+----------------------------------------
+1. 访问: https://search.google.com/search-console
+2. 选择资源: www.tpkele.com
+3. 左侧菜单 → Sitemaps
+4. 输入: sitemap.xml
+5. 点击"提交"
+✅ Google 会自动爬取下面所有 184 个 URL
+
+方法 2: 手动单独提交（用于加速特定页面收录）
+----------------------------------------
+1. 访问: https://search.google.com/search-console
+2. 顶部搜索框 → 粘贴下面的 URL
+3. 点击"请求编入索引"
+4. 限制: 每天最多 10-15 个
+
+=================================================================
+🔥 新增页面 - 优先提交（18个URL）
+=================================================================
+
+【Resources 资源中心 - 14个】
+https://www.tpkele.com/resources
+https://www.tpkele.com/ru/resources
+https://www.tpkele.com/resources/technical-guides
+https://www.tpkele.com/ru/resources/technical-guides
+https://www.tpkele.com/resources/application-solutions
+https://www.tpkele.com/ru/resources/application-solutions
+https://www.tpkele.com/resources/market-access-advisor
+https://www.tpkele.com/ru/resources/market-access-advisor
+https://www.tpkele.com/resources/standards-database
+https://www.tpkele.com/ru/resources/standards-database
+https://www.tpkele.com/resources/buyer-support
+https://www.tpkele.com/ru/resources/buyer-support
+https://www.tpkele.com/resources/faq
+https://www.tpkele.com/ru/resources/faq
+
+【Projects 项目案例 - 4个】
+https://www.tpkele.com/projects
+https://www.tpkele.com/ru/projects
+https://www.tpkele.com/projects/zimbabwe-sirdc-solar-project
+https://www.tpkele.com/ru/projects/zimbabwe-sirdc-solar-project
+
+=================================================================
+📄 核心页面（16个URL）
+=================================================================
+
+【首页】
+https://www.tpkele.com/
+https://www.tpkele.com/ru
+
+【关于我们】
+https://www.tpkele.com/about
+https://www.tpkele.com/ru/about
+
+【产品中心】
+https://www.tpkele.com/products
+https://www.tpkele.com/ru/products
+
+【解决方案】
+https://www.tpkele.com/solar-dc-protection
+https://www.tpkele.com/ru/solar-dc-protection
+
+【博客】
+https://www.tpkele.com/blog
+https://www.tpkele.com/ru/blog
+
+【联系我们】
+https://www.tpkele.com/contact
+https://www.tpkele.com/ru/contact
+
+【隐私政策】
+https://www.tpkele.com/privacy-policy
+https://www.tpkele.com/ru/privacy-policy
+
+=================================================================
+🏭 制造商页面（12个URL）
+=================================================================
+
+https://www.tpkele.com/mcb-manufacturer
+https://www.tpkele.com/ru/mcb-manufacturer
+https://www.tpkele.com/spd-manufacturer
+https://www.tpkele.com/ru/spd-manufacturer
+https://www.tpkele.com/ats-manufacturer
+https://www.tpkele.com/ru/ats-manufacturer
+https://www.tpkele.com/combiner-box-manufacturer
+https://www.tpkele.com/ru/combiner-box-manufacturer
+https://www.tpkele.com/energy-meter-manufacturer
+https://www.tpkele.com/ru/energy-meter-manufacturer
+https://www.tpkele.com/voltage-protector-manufacturer
+https://www.tpkele.com/ru/voltage-protector-manufacturer
+
+=================================================================
+📚 技术指南（20个URL）
+=================================================================
+
+https://www.tpkele.com/guides/dc-mcb-selection-guide
+https://www.tpkele.com/ru/guides/dc-mcb-selection-guide
+https://www.tpkele.com/guides/dc-spd-selection-guide
+https://www.tpkele.com/ru/guides/dc-spd-selection-guide
+https://www.tpkele.com/guides/ats-selection-guide
+https://www.tpkele.com/ru/guides/ats-selection-guide
+https://www.tpkele.com/guides/ac-mcb-selection-guide
+https://www.tpkele.com/ru/guides/ac-mcb-selection-guide
+https://www.tpkele.com/guides/voltage-protector-selection-guide
+https://www.tpkele.com/ru/guides/voltage-protector-selection-guide
+https://www.tpkele.com/guides/din-rail-energy-meter-guide
+https://www.tpkele.com/ru/guides/din-rail-energy-meter-guide
+https://www.tpkele.com/guides/pv-combiner-box-guide
+https://www.tpkele.com/ru/guides/pv-combiner-box-guide
+https://www.tpkele.com/guides/dc-isolator-selection-guide
+https://www.tpkele.com/ru/guides/dc-isolator-selection-guide
+https://www.tpkele.com/guides/rccb-rcbo-selection-guide
+https://www.tpkele.com/ru/guides/rccb-rcbo-selection-guide
+https://www.tpkele.com/guides/solar-pv-protection-system-guide
+https://www.tpkele.com/ru/guides/solar-pv-protection-system-guide
+
+=================================================================
+📦 产品分类页面（24个URL）
+=================================================================
+
+【主要分类】
+https://www.tpkele.com/products/category/mcb
+https://www.tpkele.com/ru/products/category/mcb
+https://www.tpkele.com/products/category/spd
+https://www.tpkele.com/ru/products/category/spd
+https://www.tpkele.com/products/category/ats
+https://www.tpkele.com/ru/products/category/ats
+https://www.tpkele.com/products/category/combiner-box
+https://www.tpkele.com/ru/products/category/combiner-box
+https://www.tpkele.com/products/category/voltage-protector
+https://www.tpkele.com/ru/products/category/voltage-protector
+https://www.tpkele.com/products/category/energy-meter
+https://www.tpkele.com/ru/products/category/energy-meter
+
+【子分类】
+https://www.tpkele.com/products/category/mcb/ac-mcb
+https://www.tpkele.com/ru/products/category/mcb/ac-mcb
+https://www.tpkele.com/products/category/mcb/dc-mcb
+https://www.tpkele.com/ru/products/category/mcb/dc-mcb
+https://www.tpkele.com/products/category/spd/ac-spd
+https://www.tpkele.com/ru/products/category/spd/ac-spd
+https://www.tpkele.com/products/category/spd/dc-spd
+https://www.tpkele.com/ru/products/category/spd/dc-spd
+
+=================================================================
+🔌 具体产品页面（86个URL - AC/DC MCB, SPD, ATS, 组合器, 电表）
+=================================================================
+
+【AC MCB - 8个】
+https://www.tpkele.com/products/ac-mcb-1p
+https://www.tpkele.com/ru/products/ac-mcb-1p
+https://www.tpkele.com/products/ac-mcb-2p
+https://www.tpkele.com/ru/products/ac-mcb-2p
+https://www.tpkele.com/products/ac-mcb-3p
+https://www.tpkele.com/ru/products/ac-mcb-3p
+https://www.tpkele.com/products/ac-mcb-4p
+https://www.tpkele.com/ru/products/ac-mcb-4p
+
+【DC MCB - 8个】
+https://www.tpkele.com/products/dc-mcb-1p
+https://www.tpkele.com/ru/products/dc-mcb-1p
+https://www.tpkele.com/products/dc-mcb-2p
+https://www.tpkele.com/ru/products/dc-mcb-2p
+https://www.tpkele.com/products/dc-mcb-3p
+https://www.tpkele.com/ru/products/dc-mcb-3p
+https://www.tpkele.com/products/dc-mcb-4p
+https://www.tpkele.com/ru/products/dc-mcb-4p
+
+【SPD 系列 - 8个】
+https://www.tpkele.com/products/ac-spd
+https://www.tpkele.com/ru/products/ac-spd
+https://www.tpkele.com/products/dc-spd
+https://www.tpkele.com/ru/products/dc-spd
+https://www.tpkele.com/products/green-spd-series
+https://www.tpkele.com/ru/products/green-spd-series
+https://www.tpkele.com/products/white-spd-series
+https://www.tpkele.com/ru/products/white-spd-series
+
+【电压保护器 - 14个】
+https://www.tpkele.com/products/pn2-va2
+https://www.tpkele.com/ru/products/pn2-va2
+https://www.tpkele.com/products/pn2-va3
+https://www.tpkele.com/ru/products/pn2-va3
+https://www.tpkele.com/products/pn2-va4
+https://www.tpkele.com/ru/products/pn2-va4
+https://www.tpkele.com/products/pn2-va5
+https://www.tpkele.com/ru/products/pn2-va5
+https://www.tpkele.com/products/pn2-vak
+https://www.tpkele.com/ru/products/pn2-vak
+https://www.tpkele.com/products/pn2-vafdm
+https://www.tpkele.com/ru/products/pn2-vafdm
+https://www.tpkele.com/products/czva1
+https://www.tpkele.com/ru/products/czva1
+
+【ATS 自动转换开关 - 18个】
+https://www.tpkele.com/products/stats-03
+https://www.tpkele.com/ru/products/stats-03
+https://www.tpkele.com/products/stats-04
+https://www.tpkele.com/ru/products/stats-04
+https://www.tpkele.com/products/stats-05
+https://www.tpkele.com/ru/products/stats-05
+https://www.tpkele.com/products/stats-06
+https://www.tpkele.com/ru/products/stats-06
+https://www.tpkele.com/products/czva2
+https://www.tpkele.com/ru/products/czva2
+https://www.tpkele.com/products/czva3
+https://www.tpkele.com/ru/products/czva3
+https://www.tpkele.com/products/ats-st-2p
+https://www.tpkele.com/ru/products/ats-st-2p
+https://www.tpkele.com/products/ats-st-4p
+https://www.tpkele.com/ru/products/ats-st-4p
+https://www.tpkele.com/products/ats-w2r-2p
+https://www.tpkele.com/ru/products/ats-w2r-2p
+
+【ATS 续】
+https://www.tpkele.com/products/ats-w2r-3p
+https://www.tpkele.com/ru/products/ats-w2r-3p
+https://www.tpkele.com/products/ats-w2r-4p
+https://www.tpkele.com/ru/products/ats-w2r-4p
+https://www.tpkele.com/products/stq1-2p
+https://www.tpkele.com/ru/products/stq1-2p
+https://www.tpkele.com/products/stq1-3p
+https://www.tpkele.com/ru/products/stq1-3p
+https://www.tpkele.com/products/stq1-4p
+https://www.tpkele.com/ru/products/stq1-4p
+https://www.tpkele.com/products/stq2-2p
+https://www.tpkele.com/ru/products/stq2-2p
+https://www.tpkele.com/products/stq2-3p
+https://www.tpkele.com/ru/products/stq2-3p
+https://www.tpkele.com/products/stq2-4p
+https://www.tpkele.com/ru/products/stq2-4p
+
+【组合器箱 - 4个】
+https://www.tpkele.com/products/plastic-box-series
+https://www.tpkele.com/ru/products/plastic-box-series
+https://www.tpkele.com/products/metal-box-series
+https://www.tpkele.com/ru/products/metal-box-series
+
+【电表 - 12个】
+https://www.tpkele.com/products/din-rail-energy-meter
+https://www.tpkele.com/ru/products/din-rail-energy-meter
+https://www.tpkele.com/products/d52-2068-energy-meter
+https://www.tpkele.com/ru/products/d52-2068-energy-meter
+https://www.tpkele.com/products/dds-series-energy-meter
+https://www.tpkele.com/ru/products/dds-series-energy-meter
+https://www.tpkele.com/products/qy2p-display-meter
+https://www.tpkele.com/ru/products/qy2p-display-meter
+https://www.tpkele.com/products/add-single-phase-energy-meter
+https://www.tpkele.com/ru/products/add-single-phase-energy-meter
+https://www.tpkele.com/products/ddr-din-rail-meter
+https://www.tpkele.com/ru/products/ddr-din-rail-meter
+
+=================================================================
+📝 博客文章（12个URL）
+=================================================================
+
+https://www.tpkele.com/blog/choose-right-mcb
+https://www.tpkele.com/ru/blog/choose-right-mcb
+https://www.tpkele.com/blog/understanding-spd-surge
+https://www.tpkele.com/ru/blog/understanding-spd-surge
+https://www.tpkele.com/blog/ats-modern-distribution
+https://www.tpkele.com/ru/blog/ats-modern-distribution
+https://www.tpkele.com/blog/solar-combiner-box-safety
+https://www.tpkele.com/ru/blog/solar-combiner-box-safety
+https://www.tpkele.com/blog/energy-meter-selection
+https://www.tpkele.com/ru/blog/energy-meter-selection
+https://www.tpkele.com/blog/tpkele-snec-2026
+https://www.tpkele.com/ru/blog/tpkele-snec-2026
+
+=================================================================
+📊 URL 统计汇总
+=================================================================
+
+新增 Resources 页面:    14 个
+新增 Projects 页面:      4 个
+核心页面:               16 个
+制造商页面:             12 个
+技术指南:               20 个
+产品分类:               24 个
+具体产品页面:           86 个
+博客文章:               12 个
+---------------------------------
+总计:                  184 个
+
+说明: 每个页面包含英文(en)和俄文(ru)两个版本
+
+=================================================================
+⏰ 提交后时间线
+=================================================================
+
+Day 0:    提交 sitemap.xml
+Day 1-3:  Google 开始爬取
+Day 3-7:  页面编入索引
+Day 7-14: 搜索结果显示
+Day 14+:  SEO 排名稳定
+
+=================================================================
+✅ 检查收录状态
+=================================================================
+
+在 Google 搜索框输入以下命令:
+
+site:www.tpkele.com
+site:www.tpkele.com/resources
+site:www.tpkele.com/projects
+site:www.tpkele.com/products
+
+如果显示结果，说明已被收录 ✅
+
+=================================================================

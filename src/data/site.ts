@@ -1,5 +1,6 @@
 export type ProductCategory =
   | "MCB"
+  | "RCBO"
   | "SPD"
   | "Voltage Protector"
   | "ATS"
@@ -2467,6 +2468,75 @@ export const products: Product[] = [
       },
     ],
   },
+  // RCBO
+  {
+    slug: "rcbo-1pn-18mm-6ka",
+    name: "1P+N 18mm RCBO 6kA — Type A / AC, 1–40A",
+    shortName: "RCBO 1P+N 18mm",
+    category: "RCBO",
+    parentCategory: "RCBO",
+    series: "TPL6-40 Series",
+    application: "Residential & commercial switchboards, one RCBO per final circuit",
+    image: "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-front.webp",
+    summary: "Single-module 1P+N RCBO combining 30mA earth leakage and B/C curve overcurrent protection, 6kA breaking capacity.",
+    description:
+      "The TPKELE TPL6-40 is a 1P+N double-break RCBO that fits earth leakage, overload and short-circuit protection into one 18mm DIN-rail module. Rated 1A–40A at 230V AC with 6kA breaking capacity and 100% service breaking, it is available in B or C curve with 10 / 30 / 50 / 100 mA sensitivity in Type A or Type AC — built to IEC 61009-1 for one-RCBO-per-circuit switchboards in Australia, New Zealand and other 230V markets.",
+    specs: [
+      "Poles: 1P+N double break, 18mm single module",
+      "Rated current: 1A – 40A",
+      "Rated voltage: 230V AC",
+      "Breaking capacity: 6kA, Ics = 100% Icn",
+      "Residual sensitivity: 10 / 30 / 50 / 100 mA",
+      "Residual current type: Type A / Type AC",
+      "Trip curve: B / C, thermal-magnetic",
+      "Contact position indicator window",
+      "Terminal capacity: 1–10 mm², IP20 terminals",
+      "Operating temperature: -30°C to +70°C",
+    ],
+    seoKeywords: [
+      "1P+N RCBO",
+      "18mm RCBO",
+      "single module RCBO",
+      "RCBO 6kA",
+      "Type A RCBO",
+      "30mA RCBO",
+      "RCBO Australia",
+      "RCBO New Zealand",
+      "IEC 61009-1 RCBO",
+      "RCBO manufacturer",
+    ],
+    gallery: [
+      "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-front.webp",
+      "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-side.webp",
+      "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-dimensions.webp",
+    ],
+    technicalSpecs: [
+      { label: "Product Model", value: "TPL6-40 (XYDL6-40)" },
+      { label: "Product Type", value: "RCBO — Residual Current Circuit Breaker with Overcurrent Protection" },
+      { label: "Poles", value: "1P+N" },
+      { label: "Frame Rated Current", value: "40A" },
+      { label: "Rated Current (In)", value: "1, 2, 3, 4, 6, 10, 16, 20, 25, 32, 40A" },
+      { label: "Rated Operational Voltage (Ue)", value: "230V AC" },
+      { label: "Rated Residual Operating Current (IΔn)", value: "10 / 30 / 50 / 100 mA" },
+      { label: "Residual Current Type", value: "Type A / Type AC" },
+      { label: "Tripping Curve", value: "B, C" },
+      { label: "Trip Mechanism", value: "Thermal-Magnetic" },
+      { label: "Rated Short-Circuit Breaking Capacity (Icn)", value: "6kA" },
+      { label: "Service Breaking Capacity (Ics)", value: "6kA (100% of Icn)" },
+      { label: "Rated Insulation Voltage (Ui)", value: "500V" },
+      { label: "Rated Impulse Withstand Voltage (Uimp)", value: "4kV" },
+      { label: "Degree of Protection — Enclosure", value: "IP40" },
+      { label: "Degree of Protection — Terminals", value: "IP20" },
+      { label: "Terminal Capacity", value: "1–10 mm²" },
+      { label: "Operating Temperature", value: "-30°C to +70°C" },
+      { label: "Installation Altitude", value: "≤ 2000 m" },
+      { label: "Pollution Degree", value: "3" },
+      { label: "Installation Category", value: "Category III" },
+      { label: "Mounting Method", value: "35mm DIN Rail" },
+      { label: "Dimensions (W × H × D)", value: "18 × 82 × 71.6 mm" },
+      { label: "Weight", value: "118 g" },
+    ],
+  },
   // Smart Wi-Fi Circuit Breakers
   {
     slug: "wifi-smart-mcb-1p",
@@ -2608,6 +2678,7 @@ export const products: Product[] = [
 export const categories: Array<"All Products" | ProductCategory> = [
   "All Products",
   "MCB",
+  "RCBO",
   "SPD",
   "Voltage Protector",
   "ATS",
@@ -2617,6 +2688,7 @@ export const categories: Array<"All Products" | ProductCategory> = [
 
 export const categorySlugMap: Record<ProductCategory, string> = {
   MCB: "mcb",
+  RCBO: "rcbo",
   SPD: "spd",
   ATS: "ats",
   "Combiner Box": "combiner-box",
@@ -2666,6 +2738,32 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
     seoDescription:
       "TPKELE manufactures AC MCB and DC MCB, 1P–4P, 6A–63A, B/C/D curves. AC models: IEC 60898-1; DC models: IEC 60947-2. CE & RoHS compliant. OEM and project supply for distributors and solar EPCs.",
     seoKeywords: ["MCB manufacturer", "miniature circuit breaker", "AC MCB", "DC MCB", "DZ47", "solar circuit breaker", "PV DC breaker", "low voltage breaker", "IEC 60898 MCB"],
+  },
+  RCBO: {
+    hero: "RCBO Manufacturer — 1P+N 18mm Residual Current Breakers with Overcurrent Protection",
+    intro:
+      "TPKELE RCBOs combine earth leakage protection and MCB overload / short-circuit protection in a single 18mm DIN-rail module. The TPL6-40 series is a 1P+N double-break RCBO rated 1A–40A at 230V AC with 6kA breaking capacity, B / C trip curves and 10 / 30 / 50 / 100 mA residual sensitivity in Type A or Type AC. Built to IEC 61009-1 for one-RCBO-per-circuit switchboards — the layout now standard in Australia and New Zealand — and supplied to distributors, switchboard builders and private-label brands.",
+    bullets: [
+      "RCD + MCB in one 18mm module — 1P+N double break",
+      "1A–40A rated current, B / C trip curves, 230V AC",
+      "6kA short-circuit breaking capacity, 100% service breaking (Ics = Icn)",
+      "10 / 30 / 50 / 100 mA residual sensitivity, Type A or Type AC",
+      "Contact position indicator, PA flame-retardant housing, IP20 terminals",
+      "OEM logo, housing print and packaging for distributor programs",
+    ],
+    applications: ["Residential switchboards (one RCBO per circuit)", "Commercial & retail sub-boards", "Solar & battery storage AC circuits", "Wet areas, kitchens & outdoor circuits", "Switchboard builder & wholesaler stock programs"],
+    buyerPersona: "Specified by electrical wholesalers, switchboard builders and private-label brand owners who need compact 1P+N RCBOs with consistent quality, full documentation and container-load supply.",
+    faq: [
+      { q: "What is the difference between an RCBO and an RCCB?", a: "An RCCB (RCD) only detects earth leakage and has no overcurrent protection, so it must be paired with MCBs. An RCBO combines residual current protection with thermal-magnetic overload and short-circuit protection in one device, so each circuit gets its own leakage protection and a fault on one circuit does not trip the others." },
+      { q: "Type A or Type AC — which should I choose?", a: "Type AC detects sinusoidal AC residual current only. Type A also detects pulsating DC residual current produced by inverters, induction cooktops, LED drivers, variable-speed appliances and EV chargers. Type A is the safer default for modern installations and is increasingly specified in Australia, New Zealand and Europe." },
+      { q: "Which residual current rating do I need?", a: "30 mA is the standard for personal protection on final circuits. 10 mA is used for special locations such as medical areas and some wet locations. 50 mA and 100 mA are used for equipment or fire protection where personal protection is provided elsewhere." },
+      { q: "Can the RCBO be used on EV charger circuits?", a: "Yes — a Type A RCBO can protect an EV charger circuit when the charger has built-in 6 mA DC residual current detection (RDC-DD). Where the charger has no DC detection, a Type B device or a Type A RCBO plus a separate RDC-DD is required." },
+      { q: "Do you support OEM branding for RCBOs?", a: "Yes — logo printing, housing print, rating labels and packaging can be customised for distributor and brand-owner programs. Samples are available within 5–10 working days." },
+    ],
+    seoTitle: "RCBO Manufacturer | 1P+N 18mm RCBO Type A 6kA",
+    seoDescription:
+      "TPKELE RCBO: 1P+N 18mm single-module RCBO, 1-40A, 6kA, B/C curve, 10/30/50/100mA, Type A & Type AC, IEC 61009-1. OEM supply for AU/NZ and global distributors.",
+    seoKeywords: ["RCBO manufacturer", "RCBO", "1P+N RCBO", "18mm RCBO", "single module RCBO", "Type A RCBO", "30mA RCBO", "6kA RCBO", "IEC 61009-1 RCBO", "residual current breaker with overcurrent protection", "OEM RCBO"],
   },
   SPD: {
     hero: "SPD Manufacturer — AC & DC Solar Surge Protective Devices",
@@ -2806,6 +2904,14 @@ export const productMenu: ProductMenuGroup[] = [
     ],
   },
   {
+    label: "RCBO",
+    href: "/products/category/rcbo",
+    children: [
+      { label: "RCBO for Australia & NZ", href: "/products/rcbo-australia-new-zealand" },
+      { label: "1P+N 18mm RCBO", href: "/products/rcbo-1pn-18mm-6ka" },
+    ],
+  },
+  {
     label: "SPD",
     href: "/products/category/spd",
     children: [
@@ -2873,6 +2979,7 @@ export const productMegaMenu: ProductMegaColumn[] = [
     cta: { label: "AC MCB Landing →", href: "/products/ac-mcb" },
     items: [
       { label: "AC MCB", href: "/products/category/mcb/ac-mcb" },
+      { label: "RCBO", href: "/products/category/rcbo" },
       { label: "AC SPD", href: "/products/category/spd/ac-spd" },
       { label: "ATS", href: "/products/category/ats" },
     ],
@@ -3397,6 +3504,19 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
       { label: "Standard", value: "IEC 60898-1" },
     { label: "Contact Material", value: "High-Conductivity Copper Alloy" },
   ],
+  RCBO: [
+    { label: "Poles", value: "1P+N" },
+    { label: "Rated Current", value: "1A, 2A, 3A, 4A, 6A, 10A, 16A, 20A, 25A, 32A, 40A" },
+    { label: "Rated Voltage", value: "230V AC" },
+    { label: "Breaking Capacity", value: "6 kA" },
+    { label: "Residual Current Type", value: "Type A / Type AC" },
+    { label: "Residual Sensitivity", value: "10mA, 30mA, 50mA, 100mA" },
+    { label: "Trip Curve", value: "B, C" },
+    { label: "Width", value: "18mm (single module)" },
+    { label: "Mounting", value: "DIN-rail 35mm" },
+    { label: "Conformity", value: "CE marking, RoHS compliant" },
+    { label: "Standard", value: "IEC 61009-1" },
+  ],
   SPD: [
     { label: "Type", value: "Type 1 / Type 2 / Type 1+2" },
     { label: "Max Continuous Voltage Uc", value: "275V / 385V / 440V AC" },
@@ -3466,6 +3586,14 @@ const extraKeyFeaturesByCategory: Record<ProductCategory, string[]> = {
     "Flame-retardant thermoplastic housing for fire safety",
     "ISO 9001 certified manufacturing facility",
     "Stable lead time and project quantity supply support",
+  ],
+  RCBO: [
+    "1P+N double break in 18mm single module – space-saving design",
+    "Type A detects AC and pulsating DC residual current – safe for modern appliances",
+    "6kA breaking capacity with 100% service breaking (Ics = Icn)",
+    "CE, RoHS and IEC 61009-1 compliant for global distribution",
+    "OEM branding and packaging for distributor programs",
+    "ISO 9001 certified manufacturing facility",
   ],
   SPD: [
     "Pluggable module design for fast field replacement",

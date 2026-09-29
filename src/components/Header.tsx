@@ -27,6 +27,7 @@ const MEGA_ITEM_KEYS: Record<string, string> = {
   "/products/category/combiner-box": "pv-combiner-box",
   "/products/category/mcb/ac-mcb": "ac-mcb",
   "/products/smart-circuit-breaker": "smart-mcb",
+  "/products/category/rcbo": "rcbo",
   "/products/category/spd/ac-spd": "ac-spd",
   "/products/category/ats": "ats",
   "/products/category/energy-meter": "energy-meter",
@@ -36,6 +37,7 @@ const MEGA_ITEM_KEYS: Record<string, string> = {
 // manufacturer 菜单 href → messages.manufacturerMenu 的 key
 const MFR_MENU_KEYS: Record<string, string> = {
   "/mcb-manufacturer": "mcb",
+  "/rcbo-manufacturer": "rcbo",
   "/spd-manufacturer": "spd",
   "/ats-manufacturer": "ats",
   "/voltage-protector-manufacturer": "voltage-protector",

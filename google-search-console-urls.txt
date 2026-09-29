@@ -1,0 +1,124 @@
+=================================================================
+TPKELE.COM - Google Search Console URL 提交清单
+生成日期: 2026-09-13
+用途: 提交新增 Resources 和 Projects 页面到 Google 索引
+=================================================================
+
+【方法 1：批量提交 Sitemap（推荐）】
+直接在 Google Search Console 提交这个 URL：
+https://www.tpkele.com/sitemap.xml
+
+【方法 2：单独提交重点页面】
+如果 Sitemap 提交后，想加速特定页面收录，可以单独提交以下 URL：
+
+=================================================================
+🔥 新增 RESOURCES 页面（优先提交 - SEO 核心内容）
+=================================================================
+
+https://www.tpkele.com/en/resources
+https://www.tpkele.com/ru/resources
+https://www.tpkele.com/en/resources/technical-guides
+https://www.tpkele.com/ru/resources/technical-guides
+https://www.tpkele.com/en/resources/application-solutions
+https://www.tpkele.com/ru/resources/application-solutions
+https://www.tpkele.com/en/resources/market-access-advisor
+https://www.tpkele.com/ru/resources/market-access-advisor
+https://www.tpkele.com/en/resources/standards-database
+https://www.tpkele.com/ru/resources/standards-database
+https://www.tpkele.com/en/resources/buyer-support
+https://www.tpkele.com/ru/resources/buyer-support
+https://www.tpkele.com/en/resources/faq
+https://www.tpkele.com/ru/resources/faq
+
+=================================================================
+🎯 新增 PROJECTS 页面（优先提交 - 案例展示）
+=================================================================
+
+https://www.tpkele.com/en/projects
+https://www.tpkele.com/ru/projects
+https://www.tpkele.com/en/projects/zimbabwe-sirdc-solar-project
+https://www.tpkele.com/ru/projects/zimbabwe-sirdc-solar-project
+
+=================================================================
+📄 核心页面（已有，但可重新提交以更新 Footer 内链）
+=================================================================
+
+https://www.tpkele.com/en
+https://www.tpkele.com/ru
+https://www.tpkele.com/en/about
+https://www.tpkele.com/ru/about
+https://www.tpkele.com/en/products
+https://www.tpkele.com/ru/products
+https://www.tpkele.com/en/solar-dc-protection
+https://www.tpkele.com/ru/solar-dc-protection
+https://www.tpkele.com/en/blog
+https://www.tpkele.com/ru/blog
+https://www.tpkele.com/en/contact
+https://www.tpkele.com/ru/contact
+
+=================================================================
+🏭 制造商页面（已有）
+=================================================================
+
+https://www.tpkele.com/en/mcb-manufacturer
+https://www.tpkele.com/ru/mcb-manufacturer
+https://www.tpkele.com/en/spd-manufacturer
+https://www.tpkele.com/ru/spd-manufacturer
+https://www.tpkele.com/en/ats-manufacturer
+https://www.tpkele.com/ru/ats-manufacturer
+https://www.tpkele.com/en/combiner-box-manufacturer
+https://www.tpkele.com/ru/combiner-box-manufacturer
+https://www.tpkele.com/en/energy-meter-manufacturer
+https://www.tpkele.com/ru/energy-meter-manufacturer
+https://www.tpkele.com/en/voltage-protector-manufacturer
+https://www.tpkele.com/ru/voltage-protector-manufacturer
+
+=================================================================
+📋 提交步骤（Google Search Console）
+=================================================================
+
+方法 1：自动提交（推荐，最快）
+-------------------------------
+1. 登录 Google Search Console: https://search.google.com/search-console
+2. 选择 "www.tpkele.com" 资源
+3. 左侧菜单 → 点击 "Sitemaps"
+4. 输入: sitemap.xml
+5. 点击 "提交"
+6. 等待 Google 自动爬取所有页面（通常 1-3 天）
+
+方法 2：手动单独提交（加速特定页面）
+-------------------------------
+1. 登录 Google Search Console
+2. 顶部搜索框 → 粘贴上面的 URL（比如 https://www.tpkele.com/en/resources）
+3. 点击 "请求编入索引"
+4. 每天最多可以提交 10-15 个 URL
+
+优先提交顺序（如果手动提交）：
+-------------------------------
+1. 先提交主 Resources 页: /en/resources, /ru/resources
+2. 再提交主 Projects 页: /en/projects, /ru/projects
+3. 然后提交 Zimbabwe 项目详情页
+4. 最后提交各个 Resources 子页面
+
+=================================================================
+⏰ 预计生效时间
+=================================================================
+
+- Sitemap 提交后: 1-3 天内 Google 开始爬取
+- 页面首次收录: 3-7 天
+- 搜索结果开始显示: 1-2 周
+- SEO 排名效果显现: 2-4 周
+
+=================================================================
+✅ 检查收录状态
+=================================================================
+
+在 Google 搜索框输入以下命令检查是否已收录：
+
+site:www.tpkele.com/en/resources
+site:www.tpkele.com/en/projects
+site:www.tpkele.com/en/projects/zimbabwe-sirdc-solar-project
+
+如果显示结果，说明已经被 Google 收录。
+
+=================================================================

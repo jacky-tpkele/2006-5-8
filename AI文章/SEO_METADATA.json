@@ -1,0 +1,28 @@
+{
+  "title": "Smart Circuit Breaker vs Traditional Breaker | TPKELE",
+  "meta_description": "Compare smart Wi-Fi switches and traditional MCBs: verified protection, remote control, energy monitoring, safety standards and practical selection criteria.",
+  "canonical": "https://www.tpkele.com/blog/smart-circuit-breaker-vs-traditional-breaker",
+  "slug": "smart-circuit-breaker-vs-traditional-breaker",
+  "og_image": "/images/blog/smart-circuit-breaker-vs-traditional-breaker/smart-circuit-breaker-og-1200x630.jpg",
+  "publish_date": "2026-09-23 (adjust to actual publish date)",
+  "images": [
+    {
+      "file": "smart-vs-traditional-hero.webp",
+      "alt": "Illustrative smart Wi-Fi device and conventional MCB comparison with TPKELE-style green accents",
+      "placement": "fig-hero",
+      "caption": "Conceptual comparison artwork. Actual protection functions depend on the exact model and its verified technical documentation."
+    },
+    {
+      "file": "wifi-leakage-model-feature-explainer.webp",
+      "alt": "Feature callouts around the Wi-Fi switch model with 30 mA leakage marking",
+      "placement": "fig-feature",
+      "caption": "Feature illustration of the photographed 30 mA leakage-marked Wi-Fi model. Graphic labels and displayed functions are illustrative; confirm each specification against the exact supplied model."
+    },
+    {
+      "file": "smart-distribution-monitoring-concept.webp",
+      "alt": "Illustrative DIN-rail distribution board with a smartphone monitoring dashboard",
+      "placement": "fig-application",
+      "caption": "Application concept, not a wiring diagram or a photograph of a commissioned installation. Dashboard readings and additional products shown are illustrative."
+    }
+  ]
+}

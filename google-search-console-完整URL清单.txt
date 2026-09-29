@@ -1,0 +1,177 @@
+=================================================================
+TPKELE.COM - Google Search Console 完整 URL 提交清单
+生成日期: 2026-09-13
+用途: 提交新增 Resources 和 Projects 页面到 Google 索引
+=================================================================
+
+【推荐方法：自动提交 Sitemap】
+直接提交这个 URL，Google 会自动爬取所有页面：
+https://www.tpkele.com/sitemap.xml
+
+=================================================================
+🔥 新增 RESOURCES 页面（14个 URL - 优先提交）
+=================================================================
+
+https://www.tpkele.com/en/resources
+https://www.tpkele.com/ru/resources
+https://www.tpkele.com/en/resources/technical-guides
+https://www.tpkele.com/ru/resources/technical-guides
+https://www.tpkele.com/en/resources/application-solutions
+https://www.tpkele.com/ru/resources/application-solutions
+https://www.tpkele.com/en/resources/market-access-advisor
+https://www.tpkele.com/ru/resources/market-access-advisor
+https://www.tpkele.com/en/resources/standards-database
+https://www.tpkele.com/ru/resources/standards-database
+https://www.tpkele.com/en/resources/buyer-support
+https://www.tpkele.com/ru/resources/buyer-support
+https://www.tpkele.com/en/resources/faq
+https://www.tpkele.com/ru/resources/faq
+
+=================================================================
+🎯 新增 PROJECTS 页面（4个 URL - 优先提交）
+=================================================================
+
+https://www.tpkele.com/en/projects
+https://www.tpkele.com/ru/projects
+https://www.tpkele.com/en/projects/zimbabwe-sirdc-solar-project
+https://www.tpkele.com/ru/projects/zimbabwe-sirdc-solar-project
+
+=================================================================
+📄 首页和核心页面（12个 URL）
+=================================================================
+
+https://www.tpkele.com/en
+https://www.tpkele.com/ru
+https://www.tpkele.com/en/about
+https://www.tpkele.com/ru/about
+https://www.tpkele.com/en/products
+https://www.tpkele.com/ru/products
+https://www.tpkele.com/en/solar-dc-protection
+https://www.tpkele.com/ru/solar-dc-protection
+https://www.tpkele.com/en/blog
+https://www.tpkele.com/ru/blog
+https://www.tpkele.com/en/contact
+https://www.tpkele.com/ru/contact
+
+=================================================================
+🏭 制造商页面（12个 URL）
+=================================================================
+
+https://www.tpkele.com/en/mcb-manufacturer
+https://www.tpkele.com/ru/mcb-manufacturer
+https://www.tpkele.com/en/spd-manufacturer
+https://www.tpkele.com/ru/spd-manufacturer
+https://www.tpkele.com/en/ats-manufacturer
+https://www.tpkele.com/ru/ats-manufacturer
+https://www.tpkele.com/en/combiner-box-manufacturer
+https://www.tpkele.com/ru/combiner-box-manufacturer
+https://www.tpkele.com/en/energy-meter-manufacturer
+https://www.tpkele.com/ru/energy-meter-manufacturer
+https://www.tpkele.com/en/voltage-protector-manufacturer
+https://www.tpkele.com/ru/voltage-protector-manufacturer
+
+=================================================================
+📦 产品分类页面（主要类别）
+=================================================================
+
+https://www.tpkele.com/en/products/category/mcb
+https://www.tpkele.com/ru/products/category/mcb
+https://www.tpkele.com/en/products/category/spd
+https://www.tpkele.com/ru/products/category/spd
+https://www.tpkele.com/en/products/category/ats
+https://www.tpkele.com/ru/products/category/ats
+https://www.tpkele.com/en/products/category/combiner-box
+https://www.tpkele.com/ru/products/category/combiner-box
+https://www.tpkele.com/en/products/category/energy-meter
+https://www.tpkele.com/ru/products/category/energy-meter
+https://www.tpkele.com/en/products/category/voltage-protector
+https://www.tpkele.com/ru/products/category/voltage-protector
+
+=================================================================
+🔌 产品子分类页面（重点产品）
+=================================================================
+
+https://www.tpkele.com/en/products/category/mcb/dc-mcb
+https://www.tpkele.com/ru/products/category/mcb/dc-mcb
+https://www.tpkele.com/en/products/category/mcb/ac-mcb
+https://www.tpkele.com/ru/products/category/mcb/ac-mcb
+https://www.tpkele.com/en/products/category/spd/dc-spd
+https://www.tpkele.com/ru/products/category/spd/dc-spd
+https://www.tpkele.com/en/products/category/spd/ac-spd
+https://www.tpkele.com/ru/products/category/spd/ac-spd
+
+=================================================================
+📋 提交步骤（三种方法）
+=================================================================
+
+【方法 1：Sitemap 自动提交（最推荐）】
+-----------------------------------
+1. 访问: https://search.google.com/search-console
+2. 选择资源: www.tpkele.com
+3. 左侧菜单 → Sitemaps（站点地图）
+4. 输入: sitemap.xml
+5. 点击"提交"
+6. ✅ 完成！Google 会自动爬取全部 356 个页面
+
+【方法 2：URL 检查工具单独提交（加速收录）】
+-----------------------------------
+1. 访问: https://search.google.com/search-console
+2. 顶部搜索框 → 粘贴完整 URL
+3. 点击"请求编入索引"
+4. 每天限额: 10-15 个 URL
+
+优先提交顺序：
+  第1天: Resources 主页 + Projects 主页
+  第2天: Technical Guides + Zimbabwe 项目详情
+  第3天: 其他 Resources 子页面
+
+【方法 3：批量 URL 提交（使用 API）】
+-----------------------------------
+需要开发者使用 Google Indexing API
+适合大量 URL 快速提交（不推荐手动操作）
+
+=================================================================
+⏰ 收录时间线
+=================================================================
+
+Day 0:   提交 Sitemap
+Day 1-3: Google 开始爬取新页面
+Day 3-7: 页面被编入索引
+Day 7-14: 搜索结果开始显示
+Day 14-30: SEO 排名逐步稳定
+
+=================================================================
+✅ 检查收录状态（在 Google 搜索框输入）
+=================================================================
+
+site:www.tpkele.com/en/resources
+site:www.tpkele.com/en/projects
+site:www.tpkele.com/en/projects/zimbabwe-sirdc-solar-project
+
+如果有结果，说明已被 Google 收录 ✅
+
+=================================================================
+📊 统计信息
+=================================================================
+
+- 新增 Resources 页面: 14 个 URL
+- 新增 Projects 页面: 4 个 URL
+- 核心页面: 12 个 URL
+- 制造商页面: 12 个 URL
+- 产品分类页面: 12 个 URL
+- 产品子分类页面: 8 个 URL
+
+本次重点提交: 18 个新增 URL（Resources + Projects）
+网站总页面数: 356 个（包括所有产品、博客文章等）
+
+=================================================================
+🎯 SEO 优化建议
+=================================================================
+
+1. 提交 Sitemap 后，每周检查一次收录状态
+2. 新页面收录后，可以在 GSC 查看点击率和展现量
+3. 关注 Resources 页面的搜索词表现
+4. Zimbabwe 项目页面可能会吸引 "solar project reference" 等长尾词
+5. 定期更新 Blog 内容，保持网站活跃度
+
+=================================================================

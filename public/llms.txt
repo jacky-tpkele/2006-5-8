@@ -9,6 +9,7 @@
 - [PV Combiner Box](https://www.tpkele.com/products/combiner-box): IP65 PV combiner boxes pre-assembled with DC fuses, DC SPDs and DC breakers
 - [AC Circuit Breakers](https://www.tpkele.com/products/category/mcb/ac-mcb): AC miniature circuit breakers, 1P–4P, 6–63A, B/C/D curves to IEC 60898-1
 - [AC Surge Protectors](https://www.tpkele.com/products/category/spd/ac-spd): AC surge protective devices for distribution panels and inverter AC outputs
+- [RCBO](https://www.tpkele.com/products/category/rcbo): Residual current circuit breakers with overcurrent protection — 1P+N 18mm, Type A/AC, for AU/NZ and global markets
 - [Automatic Transfer Switch](https://www.tpkele.com/products/ats): Dual-power automatic transfer switches for critical load transfer — PC & CB class
 - [Voltage Protector](https://www.tpkele.com/products/voltage-protector): Voltage protectors monitor incoming mains and disconnect when line moves outside safe limits
 - [Energy Meter](https://www.tpkele.com/products/energy-meter): DIN rail energy meters for distribution boards, sub-metering and tenant billing
@@ -16,6 +17,7 @@
 ## Manufacturer Landing Pages
 
 - [MCB Manufacturer](https://www.tpkele.com/mcb-manufacturer): Miniature circuit breaker manufacturing capabilities and certifications
+- [RCBO Manufacturer](https://www.tpkele.com/rcbo-manufacturer): Residual current breaker with overcurrent protection — OEM supply for AU/NZ and global distributors
 - [SPD Manufacturer](https://www.tpkele.com/spd-manufacturer): Surge protective device production facility and quality control
 - [ATS Manufacturer](https://www.tpkele.com/ats-manufacturer): Automatic transfer switch manufacturing and testing center
 - [Voltage Protector Manufacturer](https://www.tpkele.com/voltage-protector-manufacturer): Voltage protection device OEM and ODM services

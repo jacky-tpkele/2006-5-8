@@ -53,6 +53,7 @@
       "pv-combiner-box": "PV Combiner Box",
       "ac-mcb": "AC MCB",
       "smart-mcb": "Smart Wi-Fi MCB",
+      "rcbo": "RCBO",
       "ac-spd": "AC SPD",
       "ats": "ATS",
       "energy-meter": "Energy Meter",
@@ -61,6 +62,7 @@
   },
   "manufacturerMenu": {
     "mcb": "MCB Manufacturer",
+    "rcbo": "RCBO Manufacturer",
     "spd": "SPD Manufacturer",
     "ats": "ATS Manufacturer",
     "voltage-protector": "Voltage Protector Manufacturer",
