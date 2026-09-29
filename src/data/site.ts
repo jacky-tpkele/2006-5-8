@@ -2470,17 +2470,17 @@ export const products: Product[] = [
   },
   // RCBO
   {
-    slug: "rcbo-1pn-18mm-6ka",
+    slug: "1pn-rcbo",
     name: "1P+N 18mm RCBO 6kA — Type A / AC, 1–40A",
     shortName: "RCBO 1P+N 18mm",
     category: "RCBO",
     parentCategory: "RCBO",
-    series: "TPL6-40 Series",
+    series: "XYDL6-40 Series",
     application: "Residential & commercial switchboards, one RCBO per final circuit",
     image: "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-front.webp",
     summary: "Single-module 1P+N RCBO combining 30mA earth leakage and B/C curve overcurrent protection, 6kA breaking capacity.",
     description:
-      "The TPKELE TPL6-40 is a 1P+N double-break RCBO that fits earth leakage, overload and short-circuit protection into one 18mm DIN-rail module. Rated 1A–40A at 230V AC with 6kA breaking capacity and 100% service breaking, it is available in B or C curve with 10 / 30 / 50 / 100 mA sensitivity in Type A or Type AC — built to IEC 61009-1 for one-RCBO-per-circuit switchboards in Australia, New Zealand and other 230V markets.",
+      "The TPKELE XYDL6-40 is a 1P+N double-break RCBO that fits earth leakage, overload and short-circuit protection into one 18mm DIN-rail module. Rated 1A–40A at 230V AC with 6kA breaking capacity and 100% service breaking, it is available in B or C curve with 10 / 30 / 50 / 100 mA sensitivity in Type A or Type AC — built to IEC/EN 61009-1 and AS/NZS 61009.1 for one-RCBO-per-circuit switchboards in Australia, New Zealand and global 230V markets.",
     specs: [
       "Poles: 1P+N double break, 18mm single module",
       "Rated current: 1A – 40A",
@@ -2492,6 +2492,7 @@ export const products: Product[] = [
       "Contact position indicator window",
       "Terminal capacity: 1–10 mm², IP20 terminals",
       "Operating temperature: -30°C to +70°C",
+      "Standards: IEC/EN 61009-1, AS/NZS 61009.1",
     ],
     seoKeywords: [
       "1P+N RCBO",
@@ -2503,6 +2504,7 @@ export const products: Product[] = [
       "RCBO Australia",
       "RCBO New Zealand",
       "IEC 61009-1 RCBO",
+      "AS/NZS 61009.1 RCBO",
       "RCBO manufacturer",
     ],
     gallery: [
@@ -2511,7 +2513,7 @@ export const products: Product[] = [
       "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-dimensions.webp",
     ],
     technicalSpecs: [
-      { label: "Product Model", value: "TPL6-40 (XYDL6-40)" },
+      { label: "Product Model", value: "XYDL6-40" },
       { label: "Product Type", value: "RCBO — Residual Current Circuit Breaker with Overcurrent Protection" },
       { label: "Poles", value: "1P+N" },
       { label: "Frame Rated Current", value: "40A" },
@@ -2535,6 +2537,7 @@ export const products: Product[] = [
       { label: "Mounting Method", value: "35mm DIN Rail" },
       { label: "Dimensions (W × H × D)", value: "18 × 82 × 71.6 mm" },
       { label: "Weight", value: "118 g" },
+      { label: "Standards", value: "IEC/EN 61009-1, AS/NZS 61009.1" },
     ],
   },
   // Smart Wi-Fi Circuit Breakers
@@ -2908,7 +2911,7 @@ export const productMenu: ProductMenuGroup[] = [
     href: "/products/category/rcbo",
     children: [
       { label: "RCBO for Australia & NZ", href: "/products/rcbo-australia-new-zealand" },
-      { label: "1P+N 18mm RCBO", href: "/products/rcbo-1pn-18mm-6ka" },
+      { label: "1P+N 18mm RCBO", href: "/products/1pn-rcbo" },
     ],
   },
   {
@@ -3515,7 +3518,7 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
     { label: "Width", value: "18mm (single module)" },
     { label: "Mounting", value: "DIN-rail 35mm" },
     { label: "Conformity", value: "CE marking, RoHS compliant" },
-    { label: "Standard", value: "IEC 61009-1" },
+    { label: "Standard", value: "IEC/EN 61009-1, AS/NZS 61009.1" },
   ],
   SPD: [
     { label: "Type", value: "Type 1 / Type 2 / Type 1+2" },
