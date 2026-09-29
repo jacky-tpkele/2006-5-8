@@ -2475,12 +2475,12 @@ export const products: Product[] = [
     shortName: "RCBO 1P+N 18mm",
     category: "RCBO",
     parentCategory: "RCBO",
-    series: "XYDL6-40 Series",
+    series: "TPK L6-40 Series",
     application: "Residential & commercial switchboards, one RCBO per final circuit",
     image: "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-front.webp",
     summary: "Single-module 1P+N RCBO combining 30mA earth leakage and B/C curve overcurrent protection, 6kA breaking capacity.",
     description:
-      "The TPKELE XYDL6-40 is a 1P+N double-break RCBO that fits earth leakage, overload and short-circuit protection into one 18mm DIN-rail module. Rated 1A–40A at 230V AC with 6kA breaking capacity and 100% service breaking, it is available in B or C curve with 10 / 30 / 50 / 100 mA sensitivity in Type A or Type AC — built to IEC/EN 61009-1 and AS/NZS 61009.1 for one-RCBO-per-circuit switchboards in Australia, New Zealand and global 230V markets.",
+      "The TPKELE TPK L6-40 is a 1P+N double-break RCBO that fits earth leakage, overload and short-circuit protection into one 18mm DIN-rail module. Rated 1A–40A at 230V AC with 6kA breaking capacity and 100% service breaking, it is available in B or C curve with 10 / 30 / 50 / 100 mA sensitivity in Type A or Type AC — built to IEC/EN 61009-1 and AS/NZS 61009.1 for one-RCBO-per-circuit switchboards in Australia, New Zealand and global 230V markets.",
     specs: [
       "Poles: 1P+N double break, 18mm single module",
       "Rated current: 1A – 40A",
@@ -2511,9 +2511,10 @@ export const products: Product[] = [
       "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-front.webp",
       "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-side.webp",
       "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-dimensions.webp",
+      "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-back.webp",
     ],
     technicalSpecs: [
-      { label: "Product Model", value: "XYDL6-40" },
+      { label: "Product Model", value: "TPK L6-40" },
       { label: "Product Type", value: "RCBO — Residual Current Circuit Breaker with Overcurrent Protection" },
       { label: "Poles", value: "1P+N" },
       { label: "Frame Rated Current", value: "40A" },

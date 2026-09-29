@@ -6,7 +6,7 @@ export const features = [
 ];
 
 export const specs = [
-  { label: "Product Model", value: "XYDL6-40" },
+  { label: "Product Model", value: "TPK L6-40" },
   { label: "Product Type", value: "RCBO — Residual Current Circuit Breaker with Overcurrent Protection" },
   { label: "Poles", value: "1P+N (double break)" },
   { label: "Frame Rated Current", value: "40A" },
