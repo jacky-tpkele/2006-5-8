@@ -29,6 +29,8 @@ export type Product = ProductFamily & {
   gallery?: string[];
   technicalSpecs?: Array<{ label: string; value: string }>;
   specMatrices?: SpecMatrix[];
+  /** 覆盖全局认证条上 IEC 那一格的说明文字（例如 RCBO 用 61009-1 / AS/NZS） */
+  certIecDescription?: string;
 };
 
 export type SpecMatrix = {
@@ -2540,6 +2542,7 @@ export const products: Product[] = [
       { label: "Weight", value: "118 g" },
       { label: "Standards", value: "IEC/EN 61009-1, AS/NZS 61009.1" },
     ],
+    certIecDescription: "IEC/EN 61009-1, AS/NZS 61009.1",
   },
   // Smart Wi-Fi Circuit Breakers
   {

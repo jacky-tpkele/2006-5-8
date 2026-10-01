@@ -363,7 +363,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <div className="cert-chip" key={cert.code}>
               <CertIcon code={cert.code} className="cert-chip-icon" />
               <strong>{cert.label}</strong>
-              <span>{cert.description}</span>
+              <span>
+                {cert.code === "IEC" && product.certIecDescription
+                  ? product.certIecDescription
+                  : cert.description}
+              </span>
             </div>
           ))}
         </div>
