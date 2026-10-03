@@ -33,6 +33,13 @@ export async function GET() {
     { loc: `${site.url}/blog/application-scenarios`, priority: 0.75, changefreq: "weekly" },
     { loc: `${site.url}/blog/comparisons`, priority: 0.75, changefreq: "weekly" },
     { loc: `${site.url}/blog/faqs`, priority: 0.7, changefreq: "weekly" },
+
+    // 区域市场采购指南（AU/NZ RCBO）
+    {
+      loc: `${site.url}/blog/rcbo-australia-new-zealand-selection-guide`,
+      priority: 0.8,
+      changefreq: "monthly",
+    },
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

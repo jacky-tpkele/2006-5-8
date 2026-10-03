@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: "RCBO Australia & New Zealand | AS/NZS 61009.1 Type A 1P+N 18mm",
     description:
-      "TPKELE RCBO for Australia and New Zealand: 1P+N 18mm single-module RCBO, 1-40A, 6kA, Type A & AC, 10/30mA, AS/NZS 61009.1 & IEC/EN 61009-1. CE & RCM compliant, OEM ready for switchboard builders and distributors.",
+      "TPKELE RCBO for Australia and New Zealand: 1P+N 18mm single-module RCBO, 1-40A, 6kA, Type A & AC, 10/30mA. Built to AS/NZS 61009.1 & IEC/EN 61009-1 with CE marking. Request exact-model certificates and registration documents. OEM ready for switchboard builders and distributors.",
     keywords: [
       "RCBO Australia",
       "RCBO New Zealand",
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     openGraph: {
       title: "RCBO for Australia & New Zealand | AS/NZS 61009.1 Type A",
-      description: "1P+N 18mm RCBO, 6kA, Type A & AC, 10/30mA. AS/NZS 61009.1 & IEC/EN 61009-1 compliant for AU/NZ switchboards.",
+      description: "1P+N 18mm RCBO, 6kA, Type A & AC, 10/30mA. Built to AS/NZS 61009.1 & IEC/EN 61009-1 with CE marking for AU/NZ switchboards.",
       url: `${site.url}/products/rcbo-australia-new-zealand`,
       type: "website",
     },
@@ -53,7 +53,7 @@ export default async function RcboAuNzPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "RCBO for Australia & New Zealand",
-    description: "AS/NZS 61009.1 and IEC/EN 61009-1 compliant RCBO with CE & RCM marking for Australian and New Zealand switchboards.",
+    description: "1P+N 18mm RCBO built to AS/NZS 61009.1 and IEC/EN 61009-1, with CE marking, for Australian and New Zealand switchboards. Exact-model certificates and registration documents available on request.",
     url: `${site.url}/products/rcbo-australia-new-zealand`,
     brand: { "@type": "Brand", name: "TPKELE" },
     category: "Electrical Protection Devices",
@@ -67,7 +67,7 @@ export default async function RcboAuNzPage({ params }: PageProps) {
   const companyHighlights = [
     "In-house production with full QC traceability",
     "OEM/ODM capability — custom logo, housing print, and packaging",
-    "IEC/EN 61009-1 and AS/NZS 61009.1 certified product lines",
+    "Product lines built to IEC/EN 61009-1 and AS/NZS 61009.1 — test reports available per model",
     "Export experience to 50+ countries — strong distributor client base",
     "Sample preparation within 5–10 working days",
   ];
@@ -91,7 +91,7 @@ export default async function RcboAuNzPage({ params }: PageProps) {
         <div>
           <h2>Ready to Source RCBO for Your Next Project?</h2>
           <p>
-            Contact our technical sales team for datasheets, test reports, AS/NZS 61009.1 & IEC/EN 61009-1 certificates, pricing, and lead times.
+            Contact our technical sales team for datasheets, test reports, exact-model AS/NZS 61009.1 & IEC/EN 61009-1 documentation, pricing, and lead times.
           </p>
           <div className="button-row">
             <InquiryModal triggerLabel="Request Quotation" triggerClassName="btn primary" product="RCBO Australia NZ" intent="quote" />

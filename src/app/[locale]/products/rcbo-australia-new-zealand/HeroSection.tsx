@@ -17,7 +17,7 @@ export function HeroSection() {
         <div className="cb-hero-content">
           <h2>RCBO Manufacturer for Australia & New Zealand</h2>
           <p className="cb-hero-subtitle">
-            1P+N 18mm RCBO with IEC/EN 61009-1 and AS/NZS 61009.1 certification — combining earth leakage and overcurrent protection in one DIN rail module for AU/NZ switchboards.
+            1P+N 18mm RCBO built to IEC/EN 61009-1 and AS/NZS 61009.1 — combining earth leakage and overcurrent protection in one DIN rail module for AU/NZ switchboards.
           </p>
           <div className="cb-hero-params">
             <span className="cb-param-tag">1P+N (18mm)</span>

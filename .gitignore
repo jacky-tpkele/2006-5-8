@@ -34,3 +34,6 @@ next-env.d.ts
 
 # raw source material (not for repo)
 补充素材/
+
+# 集成包原始素材（zip 与解压件，不入库）
+AI新增BLOG/

@@ -373,6 +373,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </div>
       </section>
 
+      {product.relatedReading && product.relatedReading.length > 0 && (
+        <section className="section product-related-reading">
+          <span className="section-mark" aria-hidden="true" />
+          <h2 className="sub-section-title">Related Reading</h2>
+          <div className="product-reading-grid">
+            {product.relatedReading.map((item) => (
+              <Link key={item.href} href={item.href} className="product-reading-card">
+                <strong>{item.title}</strong>
+                <p>{item.description}</p>
+                <span className="text-link">Read the guide →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="section muted">
         <div className="oem-band">
           <div>

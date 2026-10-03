@@ -12,7 +12,7 @@ export function FeaturesGrid() {
         <div style={{ padding: "24px", background: "white", borderRadius: 8, border: "1px solid var(--border)" }}>
           <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 12, color: "var(--primary)" }}>IEC/EN 61009-1 & AS/NZS 61009.1</h3>
           <p style={{ color: "var(--muted)", lineHeight: 1.6 }}>
-            Dual standard compliance for global and AU/NZ markets — CE marking plus AS/NZS certification for local switchboard approval
+            Designed to IEC/EN 61009-1 and AS/NZS 61009.1 with CE marking — request exact-model test reports and AU/NZ registration documents before ordering
           </p>
         </div>
         <div style={{ padding: "24px", background: "white", borderRadius: 8, border: "1px solid var(--border)" }}>

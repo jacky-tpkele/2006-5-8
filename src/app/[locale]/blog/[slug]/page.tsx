@@ -15,17 +15,48 @@ import {
   getPublishedBlogPostWithFallback,
 } from "@/lib/blog";
 import { renderMarkdownBlockHtml } from "@/lib/markdown";
+import RichBlogArticle from "../components/RichBlogArticle";
+import { getRichBlogArticle, getRichBlogSlugs } from "@/data/blog/rcbo-au-nz-guide";
 
 type RouteParams = { slug: string; locale: string };
 
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return getAllBlogSlugsWithFallback();
+  const posts = await getAllBlogSlugsWithFallback();
+  // 采购导航式文章不在 Supabase / 静态列表中，单独并入，保证能被静态预渲染
+  const richSlugs = getRichBlogSlugs().map((slug) => ({ slug }));
+  const seen = new Set(posts.map((post) => post.slug));
+  return [...posts, ...richSlugs.filter((item) => !seen.has(item.slug))];
 }
 
 export async function generateMetadata({ params }: { params: Promise<RouteParams> }): Promise<Metadata> {
   const { slug, locale } = await params;
+
+  // 采购导航式文章：使用集成包指定的 title / description / canonical
+  const rich = getRichBlogArticle(slug);
+  if (rich) {
+    const route = `/blog/${rich.slug}`;
+    return {
+      // absolute 绕开布局的 "%s | TPKELE" 模板：集成包已指定完整标题，
+      // 否则会渲染成 "... | TPKELE | TPKELE"
+      title: { absolute: rich.seoTitle },
+      description: rich.seoDescription,
+      alternates: {
+        canonical: localizedPath(route, locale),
+        languages: alternateLanguages(route),
+      },
+      openGraph: {
+        type: "article",
+        title: rich.seoTitle,
+        description: rich.seoDescription,
+        url: `${site.url}${localizedPath(route, locale)}`,
+        images: [{ url: getAbsoluteUrl(rich.heroImage, site.url) }],
+        publishedTime: rich.date,
+      },
+    };
+  }
+
   const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) return { title: "Article not found" };
 
@@ -52,6 +83,80 @@ export async function generateMetadata({ params }: { params: Promise<RouteParams
 export default async function BlogArticlePage({ params }: { params: Promise<RouteParams> }) {
   const { slug, locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
+
+  // 采购导航式文章：使用专属模版（sticky 采购导航 / On This Page / 资源联动）
+  const rich = getRichBlogArticle(slug);
+  if (rich) {
+    const articleSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: rich.title,
+      description: rich.seoDescription,
+      image: rich.schemaImages,
+      datePublished: rich.date,
+      dateModified: rich.date,
+      inLanguage: locale,
+      about: rich.about,
+      author: { "@type": "Organization", name: site.name, url: site.url },
+      publisher: { "@type": "Organization", name: site.name, url: site.url },
+      mainEntityOfPage: { "@type": "WebPage", "@id": rich.canonical },
+    };
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+        { "@type": "ListItem", position: 3, name: rich.title, item: rich.canonical },
+      ],
+    };
+
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: rich.faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <RichBlogArticle
+          article={rich}
+          locale={locale}
+          labels={{
+            home: t("breadcrumbHome"),
+            blog: t("breadcrumbBlog"),
+            onThisPage: t("onThisPage"),
+            nextBuyerStep: t("nextBuyerStep"),
+            faqHeading: t("faqHeading"),
+            relatedHeading: t("relatedHeading"),
+            ctaEyebrow: t("ctaEyebrow"),
+            ctaTitle: t("ctaTitle"),
+            readMore: t("readArticle"),
+          }}
+          categoryLabel="Selection Guides"
+          categoryHref="/blog/selection-guides"
+        />
+      </>
+    );
+  }
+
   const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) notFound();
 

@@ -4,9 +4,15 @@ import { useEffect, useMemo, useState } from 'react';
 
 type OnThisPageProps = {
   items: { id: string; title: string }[];
+  /**
+   * 点击目录后标题距离视口顶部的留白。
+   * 默认 100 保持原有行为；有 sticky 顶部导航的页面（如采购导航式 BLOG）
+   * 可传入更大的值，避免标题被站点 Header 和 sticky 导航遮住。
+   */
+  offset?: number;
 };
 
-export default function OnThisPage({ items }: OnThisPageProps) {
+export default function OnThisPage({ items, offset = 100 }: OnThisPageProps) {
   const [activeId, setActiveId] = useState(items[0]?.id || '');
 
   useEffect(() => {
@@ -44,7 +50,7 @@ export default function OnThisPage({ items }: OnThisPageProps) {
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const top = element.offsetTop - 100;
+      const top = element.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     }
   };

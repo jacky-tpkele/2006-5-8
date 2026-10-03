@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, categorySlugMap, products, site, subCategories } from "@/data/site";
+import { getRichBlogArticlesForSitemap } from "@/data/blog/rcbo-au-nz-guide";
 import { routing } from "@/i18n/routing";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
@@ -136,6 +137,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.date),
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+
+    // 采购导航式 BLOG 文章（不在静态 blogPosts 中）
+    ...getRichBlogArticlesForSitemap().map((post) => ({
+      path: `/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
   ];
 

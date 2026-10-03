@@ -1,0 +1,734 @@
+/* ==========================================================================
+   Blog 采购导航式文章样式（仅作用于 .blog-rich 容器）
+   --------------------------------------------------------------------------
+   新增文件，不改动 globals.css。所有选择器都以 .blog-rich 开头，
+   因此普通 BLOG 文章（仍走 blog-article 模版）完全不受影响。
+   配色复用站点变量 --green / --ink / --muted / --line / --wash。
+   ========================================================================== */
+
+.blog-rich {
+  --blog-header-offset: 76px;
+  --blog-journey-h: 48px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 34px 24px 72px;
+}
+
+/* 锚点跳转时留出站点 Header + sticky 采购导航的高度 */
+.blog-rich [id] {
+  scroll-margin-top: calc(var(--blog-header-offset) + var(--blog-journey-h) + 18px);
+}
+
+/* ---------- 文章头部 ---------- */
+.blog-rich__crumbs {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.blog-rich__crumbs a:hover {
+  color: var(--green);
+}
+.blog-rich__crumbs [aria-current="page"] {
+  color: var(--ink);
+}
+
+.blog-rich__header {
+  max-width: 920px;
+}
+.blog-rich__eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  font-weight: 800;
+  color: var(--green);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+.blog-rich__header h1 {
+  font-size: clamp(30px, 4.4vw, 46px);
+  line-height: 1.12;
+  margin: 10px 0 20px;
+  letter-spacing: -0.02em;
+}
+.blog-rich__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.blog-rich__lead {
+  font-size: clamp(17px, 1.9vw, 20px);
+  color: #34414a;
+  max-width: 900px;
+  line-height: 1.65;
+}
+.blog-rich__notice {
+  background: #f5f8f6;
+  border-left: 4px solid var(--green);
+  padding: 18px 20px;
+  margin: 26px 0;
+  border-radius: 0 10px 10px 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #33413c;
+}
+.blog-rich__notice strong {
+  color: var(--ink);
+}
+
+/* ---------- sticky 采购导航 ---------- */
+.blog-rich__journey {
+  position: sticky;
+  top: var(--blog-header-offset);
+  z-index: 15;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 30px 0 26px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 26px rgba(20, 31, 38, 0.06);
+  overflow: hidden;
+}
+.blog-rich__journey a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.blog-rich__journey a:last-child {
+  border-right: 0;
+}
+.blog-rich__journey a:hover {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+.blog-rich__journeyNum {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+}
+
+/* ---------- Buyer Quick Navigator ---------- */
+.blog-rich__quick {
+  display: grid;
+  grid-template-columns: 0.8fr 1.7fr;
+  gap: 30px;
+  background: var(--ink);
+  color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  margin: 26px 0 42px;
+}
+.blog-rich__quick h2 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2.6vw, 27px);
+  color: #fff;
+}
+.blog-rich__quick p {
+  color: #cbd4d9;
+  margin: 0;
+  line-height: 1.6;
+}
+.blog-rich__quick .blog-rich__eyebrow {
+  color: #9ac6aa;
+  margin-bottom: 8px;
+}
+.blog-rich__quickGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.blog-rich__pathCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid #3a464e;
+  background: #202b32;
+  color: #fff;
+  border-radius: 10px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.blog-rich__pathCard:hover {
+  border-color: #6d8278;
+  background: #24322d;
+}
+.blog-rich__pathCard--primary {
+  background: #24573d;
+  border-color: #3a7757;
+}
+.blog-rich__pathCard--primary:hover {
+  background: #2b6647;
+  border-color: #4b8f6b;
+}
+.blog-rich__pathKicker {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #aebbc2;
+  text-transform: uppercase;
+}
+.blog-rich__pathCard strong {
+  font-size: 15px;
+  line-height: 1.35;
+}
+.blog-rich__pathCard span:last-child {
+  font-size: 12px;
+  color: #dce4e0;
+}
+
+/* ---------- 两栏：侧栏 + 正文 ---------- */
+.blog-rich__layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 46px;
+  align-items: start;
+}
+.blog-rich__sidebar {
+  position: sticky;
+  top: calc(var(--blog-header-offset) + var(--blog-journey-h) + 22px);
+  padding-top: 22px;
+}
+.blog-rich__actionCard {
+  border: 1px solid #d7e8dc;
+  background: var(--green-soft);
+  border-radius: 12px;
+  padding: 17px;
+  margin-top: 16px;
+}
+.blog-rich__actionCard a {
+  display: block;
+  color: #25603f;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 0;
+  border-bottom: 1px solid #d7e4db;
+}
+.blog-rich__actionCard a:last-child {
+  border-bottom: 0;
+}
+.blog-rich__actionCard a:hover {
+  color: var(--green);
+}
+.blog-rich__actionTitle {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.blog-rich__content {
+  min-width: 0;
+}
+.blog-rich__content > section {
+  margin-bottom: 40px;
+}
+.blog-rich__content h2 {
+  font-size: clamp(23px, 2.6vw, 30px);
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: -0.015em;
+}
+.blog-rich__content h3 {
+  font-size: 21px;
+  margin: 22px 0 10px;
+}
+.blog-rich__content p {
+  font-size: 16px;
+  line-height: 1.72;
+  margin: 0 0 16px;
+}
+.blog-rich__content a {
+  color: #12643f;
+  font-weight: 600;
+}
+.blog-rich__content a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 图片 ---------- */
+.blog-rich__content figure {
+  margin: 30px 0;
+}
+.blog-rich__content figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+.blog-rich__content figcaption {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* ---------- 卡片网格 ---------- */
+.blog-rich__grid2,
+.blog-rich__grid3 {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0;
+}
+.blog-rich__grid2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.blog-rich__grid3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.blog-rich__tile {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px;
+  background: var(--wash);
+}
+.blog-rich__tile strong {
+  display: block;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+.blog-rich__tile span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------- 表格（移动端横向滚动） ---------- */
+.blog-rich__tableWrap {
+  margin: 22px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.blog-rich__table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.blog-rich__table th,
+.blog-rich__table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  text-align: left;
+}
+.blog-rich__table th {
+  background: var(--wash);
+  font-weight: 700;
+  color: var(--ink);
+}
+.blog-rich__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------- 情境 CTA ---------- */
+.blog-rich__contextAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin: 26px 0;
+  padding: 18px 20px;
+  border: 1px solid #d8e6dd;
+  background: #f8fbf9;
+  border-radius: 12px;
+}
+.blog-rich__contextAction strong {
+  display: block;
+  font-size: 16px;
+}
+.blog-rich__contextAction p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.blog-rich__contextAction > a {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* ---------- 资源条 ---------- */
+.blog-rich__resourceStrip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.blog-rich__resourceStrip a {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+}
+.blog-rich__resourceStrip a:hover {
+  border-color: #a9c7b4;
+  background: var(--green-soft);
+}
+.blog-rich__resourceStrip .num {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+}
+.blog-rich__resourceStrip strong,
+.blog-rich__resourceStrip small {
+  display: block;
+}
+.blog-rich__resourceStrip small {
+  color: var(--muted);
+}
+
+/* ---------- 产品 CTA 卡 ---------- */
+.blog-rich__productAction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  margin: 30px 0;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 14px;
+  padding: 24px;
+}
+.blog-rich__productAction .blog-rich__eyebrow {
+  color: #9ac6aa;
+  margin-bottom: 8px;
+}
+.blog-rich__productAction h3 {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 20px;
+}
+.blog-rich__productAction p {
+  margin: 0;
+  color: #ced6da;
+  font-size: 15px;
+}
+.blog-rich__button {
+  display: inline-block;
+  background: #fff;
+  color: var(--ink) !important;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.blog-rich__button:hover {
+  text-decoration: none !important;
+  background: var(--green-soft);
+}
+
+/* ---------- 资源中心 ---------- */
+.blog-rich__hub {
+  margin: 32px 0;
+  background: #f6f8f8;
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: 14px;
+}
+.blog-rich__hub h3 {
+  margin: 0 0 18px;
+}
+.blog-rich__hub a {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.blog-rich__hub a:hover {
+  border-color: #a9c7b4;
+  text-decoration: none;
+}
+.blog-rich__hub a strong {
+  font-weight: 700;
+}
+.blog-rich__hub a span {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ---------- 采购步骤 ---------- */
+.blog-rich__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 26px 0;
+}
+.blog-rich__steps a {
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+.blog-rich__steps a:hover {
+  background: var(--green-soft);
+  border-color: #b7d1c0;
+  text-decoration: none;
+}
+.blog-rich__steps span,
+.blog-rich__steps strong,
+.blog-rich__steps small {
+  display: block;
+}
+.blog-rich__steps span {
+  font-size: 10px;
+  color: var(--green);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.blog-rich__steps strong {
+  margin: 4px 0;
+}
+.blog-rich__steps small {
+  color: var(--muted);
+}
+
+/* ---------- FAQ（复用 globals.css 的 .faq-item accordion） ---------- */
+.blog-rich__faqList {
+  margin-top: 18px;
+}
+
+/* ---------- 官方参考 + 页脚 ---------- */
+.blog-rich__references ul {
+  padding-left: 20px;
+  margin: 0;
+}
+.blog-rich__references li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.blog-rich__backTop {
+  text-align: right;
+  margin-top: 28px;
+}
+.blog-rich__backTop a {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.blog-rich__footer {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ---------- 复用 OnThisPage 组件所需的样式（限定在 .blog-rich 内） ---------- */
+.blog-rich .tpk-guide__toc {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+}
+.blog-rich .tpk-guide__toc h3 {
+  margin: 0 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 800;
+}
+.blog-rich .tpk-guide__tocRail {
+  position: relative;
+}
+.blog-rich .tpk-guide__tocSlider {
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  width: 4px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--green);
+  transition: transform 0.25s ease;
+}
+.blog-rich .tpk-guide__toc a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 38px;
+  color: #44525b;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.blog-rich .tpk-guide__toc a .dot {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border: 2px solid #cfd8d3;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 2;
+  box-sizing: border-box;
+}
+.blog-rich .tpk-guide__toc a.is-active {
+  color: var(--green);
+  font-weight: 700;
+}
+.blog-rich .tpk-guide__toc a.is-active .dot {
+  border-color: var(--green);
+  background: var(--green);
+}
+
+/* ---------- 关联产品 ---------- */
+.blog-rich__related {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.blog-rich__relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.blog-rich__relatedCard {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  align-items: center;
+  color: var(--ink);
+}
+.blog-rich__relatedCard:hover {
+  border-color: var(--green);
+  text-decoration: none;
+}
+.blog-rich__relatedCard img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.blog-rich__relatedCard strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.blog-rich__relatedCard span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   响应式
+   ========================================================================== */
+
+/* 平板：侧栏收起，保留正文 */
+@media (max-width: 1080px) {
+  .blog-rich__layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .blog-rich__sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .blog-rich__quick {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .blog-rich__hub a {
+    padding: 14px;
+  }
+}
+
+/* 移动端：保留横向滚动的 sticky 采购导航 */
+@media (max-width: 700px) {
+  .blog-rich {
+    --blog-header-offset: 66px;
+    padding: 22px 16px 56px;
+  }
+  .blog-rich__journey {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .blog-rich__journey::-webkit-scrollbar {
+    display: none;
+  }
+  .blog-rich__journey a {
+    min-width: 132px;
+    font-size: 13px;
+  }
+  .blog-rich__quick {
+    padding: 22px 18px;
+  }
+  .blog-rich__quickGrid,
+  .blog-rich__grid2,
+  .blog-rich__grid3,
+  .blog-rich__resourceStrip,
+  .blog-rich__hub .blog-rich__hubGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .blog-rich__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .blog-rich__contextAction,
+  .blog-rich__productAction {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .blog-rich__productAction .blog-rich__button {
+    width: 100%;
+    text-align: center;
+  }
+  .blog-rich__table {
+    min-width: 520px;
+  }
+}
+
+/* 资源中心网格在桌面为两列 */
+.blog-rich__hubGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}

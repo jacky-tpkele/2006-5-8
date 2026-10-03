@@ -136,6 +136,15 @@ const rccbRcboSelectionGuide: Guide = {
     product: "rccb",
     application: "Residential",
   },
+  relatedReading: [
+    {
+      title: "RCBO requirements for Australia & New Zealand",
+      href: "/blog/rcbo-australia-new-zealand-selection-guide",
+      description:
+        "Region-specific RCBO selection guide covering 30mA sensitivity, Type A vs Type AC, 6kA breaking capacity, 1P+N design and AS/NZS 61009.1 compliance checks.",
+      meta: "AUSTRALIA & NEW ZEALAND",
+    },
+  ],
 };
 
 export default rccbRcboSelectionGuide;

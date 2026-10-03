@@ -165,6 +165,22 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
             </section>
           )}
 
+          {guide.relatedReading && guide.relatedReading.length > 0 && (
+            <section className="tpk-guide__section">
+              <h2>Related Reading</h2>
+              <div className="tpk-guide__relatedReading">
+                {guide.relatedReading.map((item) => (
+                  <Link key={item.href} href={item.href} className="tpk-guide__relatedCard">
+                    {item.meta ? <span className="tpk-guide__relatedMeta">{item.meta}</span> : null}
+                    <strong>{item.title}</strong>
+                    <p>{item.description}</p>
+                    <span className="tpk-guide__relatedCta">Read the guide →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
           <NextStep
             title="Continue Your Journey"
             description="Explore related resources to complete your product selection and compliance workflow"

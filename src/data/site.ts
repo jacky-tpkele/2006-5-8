@@ -31,6 +31,12 @@ export type Product = ProductFamily & {
   specMatrices?: SpecMatrix[];
   /** 覆盖全局认证条上 IEC 那一格的说明文字（例如 RCBO 用 61009-1 / AS/NZS） */
   certIecDescription?: string;
+  /** 相关阅读 / 区域市场专题（可选） */
+  relatedReading?: Array<{
+    title: string;
+    href: string;
+    description: string;
+  }>;
 };
 
 export type SpecMatrix = {
@@ -2543,6 +2549,14 @@ export const products: Product[] = [
       { label: "Standards", value: "IEC/EN 61009-1, AS/NZS 61009.1" },
     ],
     certIecDescription: "IEC/EN 61009-1, AS/NZS 61009.1",
+    relatedReading: [
+      {
+        title: "Australia & New Zealand RCBO selection guide",
+        href: "/blog/rcbo-australia-new-zealand-selection-guide",
+        description:
+          "How to read 30mA sensitivity, Type A vs Type AC, 6kA breaking capacity and AS/NZS 61009.1 compliance checks for AU/NZ switchboards.",
+      },
+    ],
   },
   // Smart Wi-Fi Circuit Breakers
   {

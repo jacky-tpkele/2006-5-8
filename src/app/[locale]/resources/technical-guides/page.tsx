@@ -84,6 +84,25 @@ export default async function TechnicalGuidesPage({ params }: PageProps) {
         ))}
       </section>
 
+      <section className="guides-regional">
+        <h2>Regional &amp; Market-Specific Guides</h2>
+        <p>
+          Some selection decisions depend on the destination market rather than the product family alone. These guides cover
+          region-specific standards, ratings and compliance checks.
+        </p>
+        <div className="guides-regional-grid">
+          <Link href="/blog/rcbo-australia-new-zealand-selection-guide" className="guides-regional-card">
+            <span className="guides-regional-kicker">AUSTRALIA &amp; NEW ZEALAND</span>
+            <strong>RCBO Australia &amp; New Zealand Selection Guide</strong>
+            <span className="guides-regional-text">
+              How to select an RCBO for AU/NZ installations: 30mA sensitivity, Type A vs Type AC, 6kA breaking capacity,
+              1P+N 18mm design, wiring checks and AS/NZS 61009.1 compliance.
+            </span>
+            <span className="guides-regional-cta">Read the guide →</span>
+          </Link>
+        </div>
+      </section>
+
       <section className="guides-cta">
         <h2>Need Export Compliance Guidance?</h2>
         <p>Check market-specific technical standards and certification requirements with our Market Access Advisor.</p>

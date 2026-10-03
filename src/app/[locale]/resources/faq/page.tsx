@@ -241,6 +241,30 @@ export default async function FAQPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="faq-related">
+        <h2>Related Technical Resources</h2>
+        <p>
+          Choosing between RCCB and RCBO is only the first step. For market-specific selection criteria, continue with the
+          regional guide below.
+        </p>
+        <div className="faq-related-grid">
+          <Link href="/blog/rcbo-australia-new-zealand-selection-guide" className="faq-related-card">
+            <span className="faq-related-kicker">AUSTRALIA &amp; NEW ZEALAND</span>
+            <strong>RCBO Australia &amp; New Zealand buying guide</strong>
+            <span className="faq-related-text">
+              30mA sensitivity, Type A vs Type AC, 6kA breaking capacity, 1P+N design and AS/NZS 61009.1 compliance checks.
+            </span>
+          </Link>
+          <Link href="/guides/rccb-rcbo-selection-guide" className="faq-related-card">
+            <span className="faq-related-kicker">TECHNICAL SELECTION</span>
+            <strong>RCCB and RCBO Selection Guide</strong>
+            <span className="faq-related-text">
+              When to select RCCB or RCBO and how to match residual current protection to the circuit.
+            </span>
+          </Link>
+        </div>
+      </section>
+
       <section className="faq-cta">
         <div className="cta-box">
           <h2>Still Have Questions?</h2>

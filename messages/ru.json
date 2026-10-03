@@ -658,7 +658,14 @@
       }
     },
     "breadcrumbHome": "Главная",
-    "breadcrumbBlog": "Блог"
+    "breadcrumbBlog": "Блог",
+    "onThisPage": "На этой странице",
+    "nextBuyerStep": "Следующий шаг покупателя",
+    "faqHeading": "Частые вопросы",
+    "relatedHeading": "Связанные продукты",
+    "ctaEyebrow": "Нужна помощь по этому семейству продуктов?",
+    "ctaTitle": "Отправьте список проектов — ответим в течение одного рабочего дня.",
+    "readMinutes": "мин чтения"
   },
   "manufacturer": {
     "manufacturing": "Производство",

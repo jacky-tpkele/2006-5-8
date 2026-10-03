@@ -1,4 +1,6 @@
 import { blogPosts as staticBlogPosts, type BlogPost as StaticBlogPost } from "@/data/site";
+import type { RichBlogArticle } from "@/data/blog/rcbo-au-nz-guide";
+import { getRichBlogArticles } from "@/data/blog/rcbo-au-nz-guide";
 
 export const BLOG_REVALIDATE_SECONDS = 30;
 export const DEFAULT_BLOG_IMAGE = "/assets/blog/default.webp";
@@ -313,6 +315,40 @@ export function fallbackBlogPost(slug: string): BlogPost | undefined {
   return fallbackBlogPosts().find((post) => post.slug === slug);
 }
 
+/**
+ * 把采购导航式文章转换成列表页可用的 BlogPost 形态。
+ *
+ * 这类文章正文结构特殊（卡片 / 表格 / 采购导航），不走 body 的
+ * markdown 渲染，因此这里只提供列表卡片与分类统计所需的字段。
+ */
+function normalizeRichBlogArticle(article: RichBlogArticle): BlogPost {
+  return {
+    slug: article.slug,
+    title: article.title,
+    seoTitle: article.seoTitle,
+    seoDescription: article.seoDescription,
+    subKeywords: [],
+    articleType: "selection-guides",
+    date: article.date,
+    image: article.heroImage,
+    coverImageAlt: article.heroImageAlt,
+    excerpt: article.lead,
+    wordCount: 0,
+    readingTime: article.readingTime,
+    intent: article.intent,
+    body: [],
+    relatedProducts: article.relatedProducts,
+    faq: article.faq,
+    internalLinks: [],
+    externalLinks: [],
+    status: "published",
+  };
+}
+
+export function richBlogPosts(): BlogPost[] {
+  return getRichBlogArticles().map(normalizeRichBlogArticle);
+}
+
 export async function fetchSupabaseBlogRows(
   path: string,
   key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
@@ -370,12 +406,30 @@ export async function fetchPublishedBlogPost(slug: string) {
   return rows[0] ? normalizeBlogPost(rows[0]) : undefined;
 }
 
+/**
+ * 把采购导航式文章并入列表，按日期倒序、slug 去重。
+ * 这类文章的正文由专门模版渲染，此处只负责让它们出现在列表页与分类页。
+ */
+function mergeRichPosts(posts: BlogPost[]): BlogPost[] {
+  const merged = [...posts];
+  const seen = new Set(merged.map((post) => post.slug));
+
+  for (const rich of richBlogPosts()) {
+    if (!seen.has(rich.slug)) {
+      merged.push(rich);
+      seen.add(rich.slug);
+    }
+  }
+
+  return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
 export async function getPublishedBlogPostsWithFallback() {
   try {
-    return await fetchPublishedBlogPosts();
+    return mergeRichPosts(await fetchPublishedBlogPosts());
   } catch (error) {
     console.warn("Falling back to static blog posts:", error);
-    return fallbackBlogPosts();
+    return mergeRichPosts(fallbackBlogPosts());
   }
 }
 

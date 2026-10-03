@@ -660,7 +660,14 @@
       }
     },
     "breadcrumbHome": "Home",
-    "breadcrumbBlog": "Blog"
+    "breadcrumbBlog": "Blog",
+    "onThisPage": "On this page",
+    "nextBuyerStep": "Next buyer step",
+    "faqHeading": "Frequently Asked Questions",
+    "relatedHeading": "Related Products",
+    "ctaEyebrow": "Need help on this product family?",
+    "ctaTitle": "Send your project list - we will reply within one business day.",
+    "readMinutes": "min read"
   },
   "manufacturer": {
     "manufacturing": "Manufacturing",

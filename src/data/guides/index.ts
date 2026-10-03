@@ -4,6 +4,17 @@ export type GuideSection = {
   content: string;
 };
 
+/**
+ * 指南页的「相关阅读」卡片。
+ * 可选：不传时指南页渲染结果与之前完全一致。
+ */
+export type GuideRelatedReading = {
+  title: string;
+  href: string;
+  description: string;
+  meta?: string;
+};
+
 export type Guide = {
   slug: string;
   title: string;
@@ -18,6 +29,8 @@ export type Guide = {
     market?: string;
     buyer?: string;
   };
+  /** 相关阅读 / 延伸内容（例如区域市场专题文章） */
+  relatedReading?: GuideRelatedReading[];
 };
 
 // Import all guides
