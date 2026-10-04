@@ -406,8 +406,13 @@ export async function fetchPublishedBlogPost(slug: string) {
   return rows[0] ? normalizeBlogPost(rows[0]) : undefined;
 }
 
+/** 按发布日期倒序排列，列表页、分类页与 sitemap 共用。 */
+function sortByDateDesc(posts: BlogPost[]): BlogPost[] {
+  return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
 /**
- * 把采购导航式文章并入列表，按日期倒序、slug 去重。
+ * 把采购导航式文章并入列表，slug 去重。
  * 这类文章的正文由专门模版渲染，此处只负责让它们出现在列表页与分类页。
  */
 function mergeRichPosts(posts: BlogPost[]): BlogPost[] {
@@ -421,15 +426,44 @@ function mergeRichPosts(posts: BlogPost[]): BlogPost[] {
     }
   }
 
-  return merged.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return sortByDateDesc(merged);
 }
 
+/**
+ * 把写在代码里的静态文章并入列表，slug 去重。
+ *
+ * 这些文章不在 Supabase 中，动态流程带不出它们；但它们已经发布、且多数已被
+ * 搜索引擎收录，必须出现在列表页与 sitemap 中，否则就是站内孤儿页面
+ * —— sitemap 里有、能访问，站内却没有任何入口。
+ *
+ * slug 冲突时保留先并入的那一份（即 Supabase 版本，它是可编辑的最新内容）。
+ */
+function mergeStaticPosts(posts: BlogPost[]): BlogPost[] {
+  const merged = [...posts];
+  const seen = new Set(merged.map((post) => post.slug));
+
+  for (const post of fallbackBlogPosts()) {
+    if (!seen.has(post.slug)) {
+      merged.push(post);
+      seen.add(post.slug);
+    }
+  }
+
+  return sortByDateDesc(merged);
+}
+
+/**
+ * 列表页 / 分类页 / sitemap 的统一数据源。
+ *
+ * 三路合并：Supabase 动态文章（主）+ 采购导航式文章 + 代码内静态文章。
+ * Supabase 不可用时自动降级为「采购导航 + 静态」，站点不会因此空白或构建失败。
+ */
 export async function getPublishedBlogPostsWithFallback() {
   try {
-    return mergeRichPosts(await fetchPublishedBlogPosts());
+    return mergeStaticPosts(mergeRichPosts(await fetchPublishedBlogPosts()));
   } catch (error) {
     console.warn("Falling back to static blog posts:", error);
-    return mergeRichPosts(fallbackBlogPosts());
+    return mergeStaticPosts(mergeRichPosts([]));
   }
 }
 
