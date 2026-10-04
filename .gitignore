@@ -37,3 +37,6 @@ next-env.d.ts
 
 # 集成包原始素材（zip 与解压件，不入库）
 AI新增BLOG/
+
+# 本地预览服务器日志（SitePilot 工具产生）
+sitepilot-preview.*.log
