@@ -166,9 +166,15 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
       <RichBlogArticle
         article={post.richContent}
         labels={{
-          backToList: t("backToList"),
-          relatedProducts: t("relatedProducts"),
-          requestQuote: t("requestQuote"),
+          home: t("home"),
+          blog: t("blog"),
+          onThisPage: t("onThisPage"),
+          nextBuyerStep: t("nextBuyerStep"),
+          faqHeading: t("faqHeading"),
+          relatedHeading: t("relatedHeading"),
+          ctaEyebrow: t("ctaEyebrow"),
+          ctaTitle: t("ctaTitle"),
+          readMore: t("readMore"),
         }}
         locale={locale}
       />
