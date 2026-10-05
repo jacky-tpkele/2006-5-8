@@ -160,6 +160,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
   const post = await getPublishedBlogPostWithFallback(slug);
   if (!post) notFound();
 
+  // 如果是工作台发布的富版式文章，用富版式渲染
+  if (post.richContent) {
+    return <RichBlogArticle article={post.richContent} />;
+  }
+
   const related = post.relatedProducts
     .map((productSlug: string) => findProduct(productSlug))
     .filter((product): product is NonNullable<ReturnType<typeof findProduct>> => Boolean(product));

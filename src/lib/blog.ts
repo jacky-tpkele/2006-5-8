@@ -78,6 +78,7 @@ export type BlogPost = {
   internalLinks: BlogLink[];
   externalLinks: BlogLink[];
   status?: string;
+  richContent?: any; // 工作台发布的富版式结构
 };
 
 type SupabaseFetchOptions = RequestInit & {
@@ -277,6 +278,8 @@ export function normalizeBlogPost(row: Record<string, unknown>): BlogPost {
     internalLinks: normalizeLinks(row.internal_links),
     externalLinks: normalizeLinks(row.external_links),
     status: getString(row.status) || undefined,
+    // 工作台发布的富版式文章会带 rich_content，优先使用
+    richContent: row.rich_content as any || undefined,
   };
 }
 
