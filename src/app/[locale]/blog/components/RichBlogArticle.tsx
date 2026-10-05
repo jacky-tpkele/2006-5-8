@@ -55,12 +55,21 @@ function renderBlock(block: RichBlock, index: number) {
       // 工作台发布的文章用 block.url，旧的用 block.png
       const imgSrc = (block as any).url || block.png;
       const imgWebp = block.webp;
+      const imgWidth = block.width || 1254;
+      const imgHeight = block.height || 1254;
+
       return (
         <figure key={index}>
-          <picture>
-            {imgWebp && <source srcSet={imgWebp} type="image/webp" />}
-            <img src={imgSrc} alt={block.alt} width={1254} height={1254} loading="lazy" />
-          </picture>
+          <Image
+            src={imgSrc}
+            alt={block.alt}
+            width={imgWidth}
+            height={imgHeight}
+            quality={90}
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmNWY1ZjUiLz48L3N2Zz4="
+            style={{ width: '100%', height: 'auto' }}
+          />
           {block.caption && <figcaption>{block.caption}</figcaption>}
         </figure>
       );
