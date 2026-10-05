@@ -273,18 +273,6 @@ export default function RichBlogArticle({
       </section>
 
       <div className="blog-rich__layout">
-        <aside className="blog-rich__sidebar" aria-label={labels.onThisPage}>
-          <OnThisPage items={toc} offset={140} />
-
-          <div className="blog-rich__actionCard">
-            <p className="blog-rich__actionTitle">{labels.nextBuyerStep}</p>
-            <Link href="/products/1pn-rcbo">View 1P+N RCBO</Link>
-            <Link href="/resources/market-access-advisor">Check Market Access</Link>
-            <Link href="/resources/buyer-support">Prepare Documents</Link>
-            <Link href="/contact">Ask TPKELE</Link>
-          </div>
-        </aside>
-
         <article className="blog-rich__content">
           {article.sections.map((section) => (
             <section id={section.id} key={section.id}>
@@ -329,7 +317,21 @@ export default function RichBlogArticle({
             </p>
           </footer>
         </article>
+
+        <aside className="blog-rich__toc" aria-label={labels.onThisPage}>
+          <OnThisPage items={toc} offset={140} />
+        </aside>
       </div>
+
+      <aside className="blog-rich__cta-sidebar">
+        <p className="blog-rich__actionTitle">{labels.nextBuyerStep}</p>
+        <div className="blog-rich__actionLinks">
+          <Link href="/products/1pn-rcbo">View 1P+N RCBO</Link>
+          <Link href="/resources/market-access-advisor">Check Market Access</Link>
+          <Link href="/resources/buyer-support">Prepare Documents</Link>
+          <Link href="/contact">Ask TPKELE</Link>
+        </div>
+      </aside>
 
       {related.length > 0 ? (
         <aside className="blog-rich__related">

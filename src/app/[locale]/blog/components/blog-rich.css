@@ -195,39 +195,73 @@
   color: #dce4e0;
 }
 
-/* ---------- 两栏：侧栏 + 正文 ---------- */
+/* ---------- 新布局：正文优先 + 右侧目录 ---------- */
 .blog-rich__layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 46px;
+  grid-template-columns: minmax(0, 920px) 280px;
+  gap: 60px;
   align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
 }
-.blog-rich__sidebar {
+
+/* 正文区域 */
+.blog-rich__content {
+  min-width: 0;
+  width: 100%;
+}
+
+/* 右侧目录 - sticky 定位 */
+.blog-rich__toc {
   position: sticky;
   top: calc(var(--blog-header-offset) + var(--blog-journey-h) + 22px);
   padding-top: 22px;
 }
-.blog-rich__actionCard {
+
+/* NEXT BUYER STEP 移到底部，独立容器 */
+.blog-rich__cta-sidebar {
+  max-width: 920px;
+  margin: 40px auto 0;
   border: 1px solid #d7e8dc;
   background: var(--green-soft);
   border-radius: 12px;
-  padding: 17px;
-  margin-top: 16px;
+  padding: 24px;
 }
-.blog-rich__actionCard a {
+
+.blog-rich__cta-sidebar .blog-rich__actionTitle {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.blog-rich__actionLinks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.blog-rich__actionLinks a {
   display: block;
   color: #25603f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 6px 0;
-  border-bottom: 1px solid #d7e4db;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #d7e4db;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s;
 }
-.blog-rich__actionCard a:last-child {
-  border-bottom: 0;
-}
-.blog-rich__actionCard a:hover {
+
+.blog-rich__actionLinks a:hover {
   color: var(--green);
+  border-color: var(--green);
+  background: #f5f9f7;
 }
+
 .blog-rich__actionTitle {
   font-size: 11px;
   font-weight: 800;
@@ -235,10 +269,6 @@
   color: var(--muted);
   margin: 0 0 12px;
   text-transform: uppercase;
-}
-
-.blog-rich__content {
-  min-width: 0;
 }
 .blog-rich__content > section {
   margin-bottom: 40px;
@@ -658,14 +688,18 @@
    响应式
    ========================================================================== */
 
-/* 平板：侧栏收起，保留正文 */
+/* 平板：收起右侧目录，单列布局 */
 @media (max-width: 1080px) {
   .blog-rich__layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
-  .blog-rich__sidebar {
+  .blog-rich__toc {
     display: none;
+  }
+  /* NEXT BUYER STEP 改成两列 */
+  .blog-rich__actionLinks {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
