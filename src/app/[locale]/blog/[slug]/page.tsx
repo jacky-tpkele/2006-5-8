@@ -162,7 +162,17 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
 
   // 如果是工作台发布的富版式文章，用富版式渲染
   if (post.richContent) {
-    return <RichBlogArticle article={post.richContent} />;
+    return (
+      <RichBlogArticle
+        article={post.richContent}
+        labels={{
+          backToList: t("backToList"),
+          relatedProducts: t("relatedProducts"),
+          requestQuote: t("requestQuote"),
+        }}
+        locale={locale}
+      />
+    );
   }
 
   const related = post.relatedProducts
