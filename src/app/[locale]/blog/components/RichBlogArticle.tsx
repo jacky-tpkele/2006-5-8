@@ -55,8 +55,8 @@ function renderBlock(block: RichBlock, index: number) {
       // 工作台发布的文章用 block.url，旧的用 block.png
       const imgSrc = (block as any).url || block.png;
       const imgWebp = block.webp;
-      const imgWidth = block.width || 1254;
-      const imgHeight = block.height || 1254;
+      const imgWidth = (block as any).width || 1254;
+      const imgHeight = (block as any).height || 1254;
 
       return (
         <figure key={index}>
