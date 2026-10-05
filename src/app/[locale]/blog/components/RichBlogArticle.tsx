@@ -52,13 +52,16 @@ function renderBlock(block: RichBlock, index: number) {
       );
 
     case "figure":
+      // 工作台发布的文章用 block.url，旧的用 block.png
+      const imgSrc = (block as any).url || block.png;
+      const imgWebp = block.webp;
       return (
         <figure key={index}>
           <picture>
-            <source srcSet={block.webp} type="image/webp" />
-            <img src={block.png} alt={block.alt} width={1254} height={1254} loading="lazy" />
+            {imgWebp && <source srcSet={imgWebp} type="image/webp" />}
+            <img src={imgSrc} alt={block.alt} width={1254} height={1254} loading="lazy" />
           </picture>
-          <figcaption>{block.caption}</figcaption>
+          {block.caption && <figcaption>{block.caption}</figcaption>}
         </figure>
       );
 
