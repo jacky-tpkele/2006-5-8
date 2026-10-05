@@ -42,9 +42,9 @@ function renderBlock(block: RichBlock, index: number) {
         <div className="blog-rich__grid2" key={index}>
           {block.items.map((item) => (
             <div className="blog-rich__tile" key={item.title}>
-              <strong>{item.title}</strong>
-              {item.lines.map((line) => (
-                <span key={line}>{line}</span>
+              <strong dangerouslySetInnerHTML={{ __html: item.title }} />
+              {item.lines.map((line, i) => (
+                <span key={i} dangerouslySetInnerHTML={{ __html: line }} />
               ))}
             </div>
           ))}
@@ -70,8 +70,8 @@ function renderBlock(block: RichBlock, index: number) {
         <div className="blog-rich__grid2" key={index}>
           {block.items.map((item) => (
             <div className="blog-rich__tile" key={item.label}>
-              <strong>{item.label}</strong>
-              <span>{item.text}</span>
+              <strong dangerouslySetInnerHTML={{ __html: item.label }} />
+              <span dangerouslySetInnerHTML={{ __html: item.text }} />
             </div>
           ))}
         </div>
