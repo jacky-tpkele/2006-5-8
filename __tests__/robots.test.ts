@@ -18,8 +18,10 @@ describe('Robots.txt Tests', () => {
     expect(config.rules).toBeDefined();
     expect(Array.isArray(config.rules)).toBe(true);
 
-    const mainRule = config.rules.find((rule: any) => rule.userAgent === '*');
+    const rules = Array.isArray(config.rules) ? config.rules : [config.rules];
+    const mainRule = rules.find((rule) => rule.userAgent === '*');
     expect(mainRule).toBeDefined();
+    if (!mainRule) throw new Error('Missing wildcard robots rule');
     expect(mainRule.allow).toBe('/');
   });
 
@@ -27,7 +29,9 @@ describe('Robots.txt Tests', () => {
     const robots = await import('../src/app/robots');
     const config = robots.default();
 
-    const mainRule = config.rules.find((rule: any) => rule.userAgent === '*');
+    const rules = Array.isArray(config.rules) ? config.rules : [config.rules];
+    const mainRule = rules.find((rule) => rule.userAgent === '*');
+    if (!mainRule) throw new Error('Missing wildcard robots rule');
     expect(mainRule.disallow).toContain('/blog/preview/');
     expect(mainRule.disallow).toContain('/api/');
   });
@@ -36,9 +40,13 @@ describe('Robots.txt Tests', () => {
     const robots = await import('../src/app/robots');
     const config = robots.default();
 
-    expect(config.sitemap).toBeDefined();
-    expect(Array.isArray(config.sitemap)).toBe(true);
-    expect(config.sitemap.length).toBeGreaterThan(0);
-    expect(config.sitemap[0]).toContain('sitemap.xml');
+    const sitemaps = Array.isArray(config.sitemap)
+      ? config.sitemap
+      : config.sitemap
+        ? [config.sitemap]
+        : [];
+
+    expect(sitemaps.length).toBeGreaterThan(0);
+    expect(sitemaps[0]).toContain('sitemap.xml');
   });
 });

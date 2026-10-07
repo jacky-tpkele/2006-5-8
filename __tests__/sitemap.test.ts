@@ -2,7 +2,11 @@
  * @jest-environment jsdom
  */
 
-import { describe, it, expect } from '@jest/globals';
+import { describe, it, expect, jest } from '@jest/globals';
+
+jest.mock('next-intl/routing', () => ({
+  defineRouting: (config: unknown) => config,
+}));
 
 describe('Sitemap Tests', () => {
   it('should export sitemap function', async () => {
