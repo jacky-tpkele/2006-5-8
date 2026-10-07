@@ -1,0 +1,31 @@
+name: Image Optimization Check
+
+on:
+  pull_request:
+    paths:
+      - 'public/**/*.jpg'
+      - 'public/**/*.jpeg'
+      - 'public/**/*.png'
+
+jobs:
+  check-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for unoptimized images
+        run: |
+          echo "Checking for JPG/PNG images that should be WebP..."
+          UNOPTIMIZED=$(find public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -name "apple-icon.png" ! -name "icon-*.png" | wc -l)
+
+          if [ $UNOPTIMIZED -gt 0 ]; then
+            echo "⚠️ Found $UNOPTIMIZED unoptimized images"
+            find public -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" \) ! -name "apple-icon.png" ! -name "icon-*.png"
+            echo ""
+            echo "Please convert these images to WebP format for better performance."
+            echo "Run: npm run optimize-images"
+          else
+            echo "✅ All images are optimized!"
+          fi

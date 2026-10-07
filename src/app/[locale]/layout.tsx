@@ -84,6 +84,58 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <html lang={locale}>
+      <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+        {/* JSON-LD Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "TPKELE",
+              "url": "https://www.tpkele.com",
+              "logo": "https://www.tpkele.com/logo.png",
+              "description": site.description,
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "CN"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/tpkele",
+                "https://twitter.com/tpkele"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Sales",
+                "email": "info@tpkele.com"
+              }
+            })
+          }}
+        />
+
+        {/* JSON-LD Structured Data - Website */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "TPKELE",
+              "url": "https://www.tpkele.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.tpkele.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <GoogleAnalytics />
