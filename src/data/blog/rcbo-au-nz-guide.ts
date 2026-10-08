@@ -11,6 +11,9 @@
 
 export type RichBlock =
   | { kind: "p"; html: string }
+  | { kind: "h3"; text: string }
+  | { kind: "list"; ordered: boolean; items: string[] }
+  | { kind: "callout"; tone: "info" | "warn" | "tip"; title?: string; html: string }
   | { kind: "comparison"; items: { title: string; lines: string[] }[] }
   | { kind: "figure"; webp: string; png: string; alt: string; caption: string }
   | { kind: "specGrid"; items: { label: string; text: string }[] }
@@ -77,7 +80,7 @@ export type RichBlogArticle = {
   };
   sections: RichSection[];
   faq: { question: string; answer: string }[];
-  references: { title: string; href: string }[];
+  references: { title: string; url: string }[];
   relatedProducts: string[];
   intent: string;
   disclaimer: string;
