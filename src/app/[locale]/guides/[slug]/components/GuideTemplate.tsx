@@ -22,9 +22,9 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
       }${guide.marketAccessAdvisor.buyer ? `&buyer=${guide.marketAccessAdvisor.buyer}` : ""}`
     : null;
 
-  // Mock data for hero image and related products - will be enhanced with real data
-  const heroImage = `/images/guides/${guide.slug}/hero.webp`;
-  const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.webp`;
+  const imageFormat = guide.slug === "dc-mcb-selection-guide" ? "webp" : "png";
+  const heroImage = `/images/guides/${guide.slug}/hero.${imageFormat}`;
+  const quickFlowImage = `/images/guides/${guide.slug}/quick-flow.${imageFormat}`;
 
   // Related products based on guide context — each guide shows its own relevant products
   const relatedProductsMap: Record<string, { name: string; href: string; desc: string; image: string }[]> = {
@@ -138,8 +138,8 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
               <Image
                 src={heroImage}
                 alt={guide.title}
-                width={800}
-                height={600}
+                width={1600}
+                height={900}
                 className="tpk-guide__heroImage"
                 priority
               />
