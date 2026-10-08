@@ -31,7 +31,8 @@ export default function MarketAccessAdvisor() {
 .market-access-advisor .hero h1 {
   display: block !important;
   width: 100%;
-  white-space: normal;
+  max-width: none !important;
+  white-space: nowrap !important;
 }
 .market-access-advisor .hero p:not(.eyebrow) {
   display: block !important;
@@ -39,6 +40,11 @@ export default function MarketAccessAdvisor() {
   max-width: 1100px;
   margin: 0;
   color: #111 !important;
+}
+@media (max-width: 1100px) {
+  .market-access-advisor .hero h1 {
+    white-space: normal !important;
+  }
 }`,
         }}
       />
