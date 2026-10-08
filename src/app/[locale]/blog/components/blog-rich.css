@@ -315,6 +315,51 @@
   line-height: 1.6;
 }
 
+/* ---------- 列表 ---------- */
+.blog-rich__content ul,
+.blog-rich__content ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+.blog-rich__content li {
+  font-size: 16px;
+  line-height: 1.72;
+  margin-bottom: 8px;
+}
+
+/* ---------- 提示框 (Callout) ---------- */
+.blog-rich__callout {
+  margin: 24px 0;
+  padding: 18px 20px;
+  border-radius: 10px;
+  border-left: 4px solid;
+}
+.blog-rich__callout strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.blog-rich__callout p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.blog-rich__callout--info {
+  background: #e7f5ee;
+  border-color: var(--green);
+  color: #17231f;
+}
+.blog-rich__callout--warn {
+  background: #fff4e6;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+.blog-rich__callout--tip {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  color: #1e3a8a;
+}
+
 /* ---------- 卡片网格 ---------- */
 .blog-rich__grid2,
 .blog-rich__grid3 {

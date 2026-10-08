@@ -37,6 +37,29 @@ function renderBlock(block: RichBlock, index: number) {
     case "p":
       return <p key={index} dangerouslySetInnerHTML={{ __html: block.html }} />;
 
+    case "h3":
+      return <h3 key={index}>{(block as any).text}</h3>;
+
+    case "list":
+      const ListTag = (block as any).ordered ? "ol" : "ul";
+      return (
+        <ListTag key={index}>
+          {(block as any).items.map((item: string, i: number) => (
+            <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+          ))}
+        </ListTag>
+      );
+
+    case "callout":
+      const calloutBlock = block as any;
+      const calloutClass = `blog-rich__callout blog-rich__callout--${calloutBlock.tone || "info"}`;
+      return (
+        <div className={calloutClass} key={index}>
+          {calloutBlock.title && <strong>{calloutBlock.title}</strong>}
+          <div dangerouslySetInnerHTML={{ __html: calloutBlock.html }} />
+        </div>
+      );
+
     case "comparison":
       return (
         <div className="blog-rich__grid2" key={index}>
@@ -290,39 +313,46 @@ export default function RichBlogArticle({
             </section>
           ))}
 
-          <section id="faq">
-            <h2>{labels.faqHeading}</h2>
-            {/* 复用 globals.css 已有的 .faq-item accordion 样式 */}
-            <div className="faq-list blog-rich__faqList">
-              {article.faq.map((item) => (
-                <details className="faq-item" key={item.question}>
-                  <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
-                </details>
-              ))}
-            </div>
-          </section>
+          {/* FAQ 区块：只在有内容时显示 */}
+          {article.faq && article.faq.length > 0 && (
+            <section id="faq">
+              <h2>{labels.faqHeading}</h2>
+              {/* 复用 globals.css 已有的 .faq-item accordion 样式 */}
+              <div className="faq-list blog-rich__faqList">
+                {article.faq.map((item) => (
+                  <details className="faq-item" key={item.question}>
+                    <summary>{item.question}</summary>
+                    <p>{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
 
-          <section className="blog-rich__references">
-            <h2>Official References</h2>
-            <ul>
-              {article.references.map((ref) => (
-                <li key={ref.href}>
-                  <a href={ref.href} target="_blank" rel="noopener noreferrer">
-                    {ref.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+          {/* Official References 区块：只在有内容时显示 */}
+          {article.references && article.references.length > 0 && (
+            <section className="blog-rich__references">
+              <h2>Official References</h2>
+              <ul>
+                {article.references.map((ref) => (
+                  <li key={ref.url}>
+                    <a href={ref.url} target="_blank" rel="noopener noreferrer">
+                      {ref.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <div className="blog-rich__backTop">
             <a href="#top">↑ Back to top</a>
           </div>
 
+          {/* Technical Disclaimer：固定显示通用免责声明 */}
           <footer className="blog-rich__footer">
             <p>
-              <strong>Technical disclaimer:</strong> {article.disclaimer}
+              <strong>Technical disclaimer:</strong> This guide provides general technical principles for product selection and application. Final specifications must be determined by a qualified electrical engineer based on actual site conditions, local electrical codes, load characteristics, and installation environment. TPKELE is not liable for damages resulting from improper product selection, installation, or use. Always verify compliance with applicable standards (IEC, UL, AS/NZS, etc.) and consult local authorities before installation.
             </p>
           </footer>
         </article>
