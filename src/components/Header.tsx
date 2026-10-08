@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import Image from "next/image";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { manufacturerMenu, resourcesMenu, navItems, productMegaMenu, products, site } from "@/data/site";
+import { manufacturerMenu, resourcesMenu, navItems, productMenu, products, site, type ProductCategory } from "@/data/site";
+import { getProducts } from "@/lib/i18n";
 
 // 导航项 href → messages 里的 key，用于把菜单文案国际化
 const NAV_LABEL_KEYS: Record<string, string> = {
@@ -19,19 +21,45 @@ const NAV_LABEL_KEYS: Record<string, string> = {
   "/contact": "contact",
 };
 
-// mega menu 条目 href → messages.megaMenu.items 的 key。
-// 注意：只映射显示文案，href 一律用 site.ts 的原值，保证 URL 与内链结构不变。
-const MEGA_ITEM_KEYS: Record<string, string> = {
-  "/products/category/mcb/dc-mcb": "dc-mcb",
-  "/products/category/spd/dc-spd": "dc-spd",
-  "/products/category/combiner-box": "pv-combiner-box",
-  "/products/category/mcb/ac-mcb": "ac-mcb",
-  "/products/smart-circuit-breaker": "smart-mcb",
-  "/products/category/rcbo": "rcbo",
-  "/products/category/spd/ac-spd": "ac-spd",
-  "/products/category/ats": "ats",
-  "/products/category/energy-meter": "energy-meter",
-  "/products/category/voltage-protector": "voltage-protector",
+const PRODUCT_CATEGORY_KEYS: Record<ProductCategory, string> = {
+  MCB: "mcb",
+  RCBO: "rcbo",
+  SPD: "spd",
+  ATS: "ats",
+  "Combiner Box": "combinerBox",
+  "Voltage Protector": "voltageProtector",
+  "Energy Meter": "energyMeter",
+};
+
+const PRODUCT_LINK_KEYS: Record<string, string> = {
+  "/products/category/mcb/ac-mcb": "acMcb",
+  "/products/category/mcb/dc-mcb": "dcMcb",
+  "/products/smart-circuit-breaker": "smartMcb",
+  "/products/rcbo-australia-new-zealand": "rcboAuNz",
+  "/products/1pn-rcbo": "rcbo1pn",
+  "/products/category/spd/ac-spd": "acSpd",
+  "/products/category/spd/dc-spd": "dcSpd",
+  "/products/category/ats?series=ATS-ST%20Series": "atsSt",
+  "/products/category/ats?series=ATS-W2R%20Series": "atsW2r",
+  "/products/category/ats?series=STQ1%20Series": "stq1",
+  "/products/category/ats?series=STQ2%20Series": "stq2",
+  "/products/category/combiner-box?series=Plastic%20Box%20Series": "plasticBox",
+  "/products/category/combiner-box?series=Metal%20Box%20Series": "metalBox",
+};
+
+const PRODUCT_NAV_DESTINATIONS: Record<string, string> = {
+  "/products/category/mcb/ac-mcb": "/products/ac-mcb",
+  "/products/category/mcb/dc-mcb": "/products/dc-mcb",
+};
+
+const FEATURED_PRODUCT_SLUGS: Partial<Record<ProductCategory, string[]>> = {
+  MCB: ["ac-mcb-2p", "dc-mcb-2p", "wifi-smart-mcb-1p"],
+  RCBO: ["1pn-rcbo"],
+  SPD: ["ac-spd", "dc-spd"],
+  ATS: ["ats-st-2p", "ats-w2r-2p", "stq1-2p"],
+  "Combiner Box": ["plastic-box-series", "metal-box-series"],
+  "Voltage Protector": ["pn2-va2", "pn2-va3", "pn2-vak"],
+  "Energy Meter": ["din-rail-energy-meter", "d52-2068-energy-meter", "dds-series-energy-meter"],
 };
 
 // manufacturer 菜单 href → messages.manufacturerMenu 的 key
@@ -57,14 +85,16 @@ const RESOURCES_MENU_KEYS: Record<string, string> = {
 
 export function Header() {
   const pathname = usePathname();
+  const locale = useLocale();
   const t = useTranslations("nav");
   const tHeader = useTranslations("header");
-  const tMega = useTranslations("megaMenu");
+  const tProductNav = useTranslations("productNav");
   const tResources = useTranslations("resourcesMenu");
   const tMfr = useTranslations("manufacturerMenu");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>(productMenu[0].label);
 
   // 统一的取文案逻辑：有翻译用翻译，没有则回落到 site.ts 的英文原值，
   // 避免漏 key 时界面出现空白。
@@ -86,8 +116,8 @@ export function Header() {
   const navLabel = (href: string, fallback: string) =>
     labelFrom((k) => t(k as never), NAV_LABEL_KEYS, href, fallback);
 
-  const megaItemLabel = (href: string, fallback: string) =>
-    labelFrom((k) => tMega(`items.${k}` as never), MEGA_ITEM_KEYS, href, fallback);
+  const productLabel = (href: string, fallback: string) =>
+    labelFrom((k) => tProductNav(`links.${k}` as never), PRODUCT_LINK_KEYS, href, fallback);
 
   const mfrLabel = (href: string, fallback: string) =>
     labelFrom((k) => tMfr(k as never), MFR_MENU_KEYS, href, fallback);
@@ -95,14 +125,15 @@ export function Header() {
   const resourcesLabel = (href: string, fallback: string) =>
     labelFrom((k) => tResources(k as never), RESOURCES_MENU_KEYS, href, fallback);
 
-  // mega menu 分栏标题/副标题/CTA：col.key 就是 messages 里的分组名
-  const megaCol = (key: string, field: string, fallback: string) => {
-    try {
-      return tMega(`${key}.${field}` as never) || fallback;
-    } catch {
-      return fallback;
-    }
-  };
+  const selectedGroup = productMenu.find((group) => group.label === selectedCategory) ?? productMenu[0];
+  const localizedProducts = getProducts(locale);
+  const categoryPanels = productMenu.map((group) => {
+    const categoryProducts = localizedProducts.filter((product) => product.parentCategory === group.label);
+    const featuredProducts = (FEATURED_PRODUCT_SLUGS[group.label] ?? [])
+      .map((slug) => categoryProducts.find((product) => product.slug === slug))
+      .filter((product): product is (typeof categoryProducts)[number] => Boolean(product));
+    return { group, key: PRODUCT_CATEGORY_KEYS[group.label], featuredProducts, image: featuredProducts[0]?.image ?? categoryProducts[0]?.image };
+  });
 
   const matches = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -138,34 +169,74 @@ export function Header() {
 
             if (item.href === "/products") {
               return (
-                <div className="nav-dropdown" key={item.href}>
+                <div className="nav-dropdown product-dropdown" key={item.href}>
                   <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
                     {navLabel(item.href, item.label)}
                   </Link>
-                  <div className="products-mega-menu">
-                    {productMegaMenu.map((col) => (
-                      <div className={`mega-col mega-col-${col.key}`} key={col.key}>
-                        <div className="mega-col-head">
-                          <span className="mega-col-title">{megaCol(col.key, "title", col.title)}</span>
-                          {col.recommended ? (
-                            <span className="mega-col-flag">{tMega("recommended")}</span>
-                          ) : null}
-                        </div>
-                        <span className="mega-col-sub">{megaCol(col.key, "subtitle", col.subtitle)}</span>
-                        <ul className="mega-col-list">
-                          {col.items.map((item) => (
-                            <li key={item.href}>
-                              <Link href={item.href} onClick={() => setMenuOpen(false)}>
-                                <span>{megaItemLabel(item.href, item.label)}</span>
-                                <span className="mega-arrow">→</span>
+                  <div className="products-mega-menu" aria-label={tProductNav("families")}>
+                    <div className="product-nav-rail">
+                      <p className="product-nav-kicker">{tProductNav("families")}</p>
+                      {productMenu.map((group) => (
+                        <button
+                          className={`product-nav-category ${group.label === selectedGroup.label ? "active" : ""}`}
+                          key={group.href}
+                          type="button"
+                          aria-pressed={group.label === selectedGroup.label}
+                          aria-controls={`product-nav-${PRODUCT_CATEGORY_KEYS[group.label]}`}
+                          onMouseEnter={() => setSelectedCategory(group.label)}
+                          onFocus={() => setSelectedCategory(group.label)}
+                          onClick={() => setSelectedCategory(group.label)}
+                        >
+                          <span>{tProductNav(`categories.${PRODUCT_CATEGORY_KEYS[group.label]}` as never)}</span>
+                          <span aria-hidden="true">›</span>
+                        </button>
+                      ))}
+                    </div>
+                    {categoryPanels.map(({ group, key: selectedKey, featuredProducts, image: categoryImage }) => (
+                    <div className="product-nav-panel" id={`product-nav-${selectedKey}`} key={group.href} hidden={group.label !== selectedGroup.label}>
+                    <div className="product-nav-content">
+                      <p className="product-nav-kicker">{tProductNav("range")}</p>
+                      <h2>{tProductNav(`categories.${selectedKey}` as never)}</h2>
+                      <p className="product-nav-description">{tProductNav(`descriptions.${selectedKey}` as never)}</p>
+                      {group.children.some((child) => child.href !== group.href) && (
+                        <>
+                          <h3>{tProductNav("series")}</h3>
+                          <div className="product-nav-links">
+                            {group.children.filter((child) => child.href !== group.href).map((child) => (
+                              <Link key={child.href} href={PRODUCT_NAV_DESTINATIONS[child.href] ?? child.href} onClick={() => setMenuOpen(false)}>
+                                <span>{productLabel(child.href, child.label)}</span>
+                                <span aria-hidden="true">→</span>
                               </Link>
-                            </li>
-                          ))}
-                        </ul>
-                        <Link className="mega-col-cta" href={col.cta.href} onClick={() => setMenuOpen(false)}>
-                          {megaCol(col.key, "cta", col.cta.label)}
-                        </Link>
-                      </div>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                      {featuredProducts.length > 0 && (
+                        <>
+                          <h3>{tProductNav("models")}</h3>
+                          <div className="product-nav-models">
+                            {featuredProducts.map((product) => (
+                              <Link key={product.slug} href={`/products/${product.slug}`} onClick={() => setMenuOpen(false)}>
+                                {product.shortName || product.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </>
+                      )}
+                      <Link className="product-nav-all" href={group.href} onClick={() => setMenuOpen(false)}>
+                        {tProductNav("allCategory", { category: tProductNav(`categories.${selectedKey}` as never) })}
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                    <div className="product-nav-feature">
+                      {categoryImage && <Image src={categoryImage} alt="" width={250} height={220} sizes="250px" />}
+                      <strong>{tProductNav(`categories.${selectedKey}` as never)}</strong>
+                      <p>{tProductNav(`descriptions.${selectedKey}` as never)}</p>
+                      <Link href={group.href} onClick={() => setMenuOpen(false)}>
+                        {tProductNav("explore")} <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                    </div>
                     ))}
                   </div>
                 </div>

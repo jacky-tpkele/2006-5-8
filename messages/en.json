@@ -25,6 +25,47 @@
     "menu": "Menu",
     "close": "Close"
   },
+  "productNav": {
+    "families": "Product families",
+    "range": "Product range",
+    "series": "Series & product lines",
+    "models": "Selected models",
+    "allCategory": "View all {category}",
+    "explore": "Explore category",
+    "categories": {
+      "mcb": "MCB",
+      "rcbo": "RCBO",
+      "spd": "SPD",
+      "ats": "ATS",
+      "combinerBox": "PV Combiner Box",
+      "voltageProtector": "Voltage Protector",
+      "energyMeter": "Energy Meter"
+    },
+    "descriptions": {
+      "mcb": "AC, DC and smart miniature circuit breakers for distribution and solar systems.",
+      "rcbo": "Residual current breakers with overcurrent protection for distribution boards.",
+      "spd": "AC and solar DC surge protective devices for electrical systems.",
+      "ats": "Automatic transfer switches for mains and backup power.",
+      "combinerBox": "Plastic and metal PV combiner box series for solar installations.",
+      "voltageProtector": "DIN-rail over- and under-voltage protection across the PN2 range.",
+      "energyMeter": "DIN-rail energy meters and digital display instruments."
+    },
+    "links": {
+      "acMcb": "AC MCB range",
+      "dcMcb": "DC MCB range",
+      "smartMcb": "Smart Wi-Fi MCB",
+      "rcboAuNz": "RCBO for Australia & NZ",
+      "rcbo1pn": "1P+N 18mm RCBO",
+      "acSpd": "AC SPD",
+      "dcSpd": "DC SPD (Solar)",
+      "atsSt": "ATS-ST Series",
+      "atsW2r": "ATS-W2R Series",
+      "stq1": "STQ1 Series",
+      "stq2": "STQ2 Series",
+      "plasticBox": "Plastic Box Series",
+      "metalBox": "Metal Box Series"
+    }
+  },
   "megaMenu": {
     "recommended": "Recommended",
     "solar": {
