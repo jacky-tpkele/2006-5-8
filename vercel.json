@@ -40,8 +40,5 @@
     }
   ],
   "rewrites": [],
-  "redirects": [],
-  "env": {
-    "NEXT_PUBLIC_GSC_VERIFICATION": "@google-search-console-verification"
-  }
+  "redirects": []
 }
