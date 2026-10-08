@@ -22,17 +22,23 @@ export default function MarketAccessAdvisor() {
         dangerouslySetInnerHTML={{
           __html: `${advisorStyles}
 .market-access-advisor .hero {
-  display: block;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
   color: #111;
   background: #fff;
 }
 .market-access-advisor .hero h1 {
+  display: block !important;
+  width: 100%;
   white-space: normal;
 }
 .market-access-advisor .hero p:not(.eyebrow) {
+  display: block !important;
+  width: 100%;
   max-width: 1100px;
   margin: 0;
-  color: #374151;
+  color: #111 !important;
 }`,
         }}
       />
