@@ -581,19 +581,19 @@ export const rcboAuNzGuide: RichBlogArticle = {
   references: [
     {
       title: "EESS — Manufacturers and Importers / Responsible Suppliers",
-      href: "https://www.eess.gov.au/responsible-supplier/manufacturers-and-importers-responsible-suppliers/",
+      url: "https://www.eess.gov.au/responsible-supplier/manufacturers-and-importers-responsible-suppliers/",
     },
     {
       title: "EESS — Marking of Electrical Equipment / RCM",
-      href: "https://www.eess.gov.au/rcm/marking-of-electrical-equipment/",
+      url: "https://www.eess.gov.au/rcm/marking-of-electrical-equipment/",
     },
     {
       title: "EESS — Registration Purpose",
-      href: "https://www.eess.gov.au/registration/eess-registrations-purpose/",
+      url: "https://www.eess.gov.au/registration/eess-registrations-purpose/",
     },
     {
       title: "WorkSafe New Zealand — Electrical Safety Compliance",
-      href: "https://www.worksafe.govt.nz/topic-and-industry/electricity/appliances-and-fittings/core-requirements/",
+      url: "https://www.worksafe.govt.nz/topic-and-industry/electricity/appliances-and-fittings/core-requirements/",
     },
   ],
 
