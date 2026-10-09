@@ -31,6 +31,16 @@ const PRODUCT_CATEGORY_KEYS: Record<ProductCategory, string> = {
   "Energy Meter": "energyMeter",
 };
 
+const PRODUCT_NAV_IMAGES: Record<ProductCategory, string> = {
+  MCB: "/assets/navigation/mcb.webp",
+  RCBO: "/assets/navigation/rcbo.webp",
+  SPD: "/assets/navigation/spd.webp",
+  ATS: "/assets/navigation/ats.webp",
+  "Combiner Box": "/assets/navigation/combiner-box.webp",
+  "Voltage Protector": "/assets/navigation/voltage-protector.webp",
+  "Energy Meter": "/assets/navigation/energy-meter.webp",
+};
+
 const PRODUCT_LINK_KEYS: Record<string, string> = {
   "/products/category/mcb/ac-mcb": "acMcb",
   "/products/category/mcb/dc-mcb": "dcMcb",
@@ -132,7 +142,7 @@ export function Header() {
     const featuredProducts = (FEATURED_PRODUCT_SLUGS[group.label] ?? [])
       .map((slug) => categoryProducts.find((product) => product.slug === slug))
       .filter((product): product is (typeof categoryProducts)[number] => Boolean(product));
-    return { group, key: PRODUCT_CATEGORY_KEYS[group.label], featuredProducts, image: featuredProducts[0]?.image ?? categoryProducts[0]?.image };
+    return { group, key: PRODUCT_CATEGORY_KEYS[group.label], featuredProducts, image: PRODUCT_NAV_IMAGES[group.label] };
   });
 
   const matches = useMemo(() => {
@@ -229,7 +239,7 @@ export function Header() {
                       </Link>
                     </div>
                     <div className="product-nav-feature">
-                      {categoryImage && <Image src={categoryImage} alt="" width={250} height={220} sizes="250px" />}
+                      <Image src={categoryImage} alt="" width={600} height={600} sizes="190px" />
                       <strong>{tProductNav(`categories.${selectedKey}` as never)}</strong>
                       <p>{tProductNav(`descriptions.${selectedKey}` as never)}</p>
                       <Link href={group.href} onClick={() => setMenuOpen(false)}>
