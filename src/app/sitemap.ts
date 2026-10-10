@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { categorySlugMap, products, site, subCategories } from "@/data/site";
 import { getRichBlogArticlesForSitemap } from "@/data/blog/rcbo-au-nz-guide";
 import { getPublishedBlogPostsWithFallback } from "@/lib/blog";
+import { getAllGuideSlugs } from "@/data/guides";
+import { standards } from "@/data/standards";
 import { routing } from "@/i18n/routing";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
@@ -17,12 +19,21 @@ export const revalidate = 300;
 /** 采购导航式文章的 slug，仅用于沿用其较高的 priority。 */
 const RICH_BLOG_SLUGS = new Set(getRichBlogArticlesForSitemap().map((post) => post.slug));
 
+// These blog URLs already redirect in next.config.ts; their guide targets are listed separately.
+const REDIRECTED_BLOG_SLUGS = new Set([
+  "solar-dc-circuit-breaker-selection",
+  "mcb-selection-guide",
+  "dc-circuit-breaker-selection-guide",
+  "pv-combiner-box-guide",
+]);
+
 type RouteSpec = {
   /** 语言无关的路径，例如 /products/ac-mcb-1p */
   path: string;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
-  lastModified: Date;
+  lastModified?: Date;
+  locales?: readonly string[];
 };
 
 /**
@@ -32,6 +43,7 @@ type RouteSpec = {
  */
 function expandLocales(specs: RouteSpec[]): MetadataRoute.Sitemap {
   return specs.flatMap((spec) => {
+    const locales = spec.locales ?? routing.locales;
     const languages = Object.fromEntries(
       Object.entries(alternateLanguages(spec.path)).map(([locale, path]) => [
         locale,
@@ -39,46 +51,25 @@ function expandLocales(specs: RouteSpec[]): MetadataRoute.Sitemap {
       ])
     );
 
-    return routing.locales.map((locale) => ({
+    return locales.map((locale) => ({
       url: `${site.url}${localizedPath(spec.path, locale)}`,
-      lastModified: spec.lastModified,
+      ...(spec.lastModified ? { lastModified: spec.lastModified } : {}),
       changeFrequency: spec.changeFrequency,
       priority: spec.priority,
-      alternates: { languages },
+      ...(spec.locales ? {} : { alternates: { languages } }),
     }));
   });
 }
 
-// Import guides data for dynamic routes
-// Note: Create this file if it doesn't exist
-function getAllGuideSlugs(): string[] {
-  // Temporary static list - replace with actual import when guides.ts is created
-  return [
-    "dc-mcb-selection-guide",
-    "dc-spd-selection-guide",
-    "ats-selection-guide",
-    "ac-mcb-selection-guide",
-    "voltage-protector-selection-guide",
-    "din-rail-energy-meter-guide",
-    "pv-combiner-box-guide",
-    "dc-isolator-selection-guide",
-    "rccb-rcbo-selection-guide",
-    "solar-pv-protection-system-guide",
-  ];
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-
   // 博客文章统一走 blog 数据层：Supabase 动态文章 + 采购导航式文章 + 代码内静态文章，
   // 三者在 lib/blog.ts 中合并去重。构建期或运行期读不到 Supabase 时，
   // 该函数内部会降级为「采购导航 + 静态」，不会抛错导致 sitemap 整体失败。
   let blogEntries: RouteSpec[] = [];
   try {
     const posts = await getPublishedBlogPostsWithFallback();
-    blogEntries = posts.map((post) => ({
+    blogEntries = posts.filter((post) => !REDIRECTED_BLOG_SLUGS.has(post.slug)).map((post) => ({
       path: `/blog/${post.slug}`,
-      lastModified: new Date(post.date),
       changeFrequency: "monthly" as const,
       priority: RICH_BLOG_SLUGS.has(post.slug) ? 0.7 : 0.6,
     }));
@@ -107,7 +98,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Manufacturer pages
     "/mcb-manufacturer",
-    "/rcbo-manufacturer",
     "/spd-manufacturer",
     "/ats-manufacturer",
     "/combiner-box-manufacturer",
@@ -117,12 +107,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // RCBO landing pages
     "/products/rcbo-australia-new-zealand",
+
+    // Existing landing pages that are not all represented by the product data.
+    "/products/ac-mcb",
+    "/products/dc-mcb",
+    "/products/voltage-protector",
+    "/products/energy-meter",
+    "/products/smart-circuit-breaker",
   ];
 
   const specs: RouteSpec[] = [
     ...staticPaths.map((path) => ({
       path,
-      lastModified: now,
       changeFrequency: "weekly" as const,
       priority:
         path === "/" ? 1 :
@@ -135,34 +131,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Technical Guides dynamic routes (NEW)
     ...getAllGuideSlugs().map((slug) => ({
       path: `/guides/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.9, // High priority - core SEO content
     })),
 
     ...Object.values(categorySlugMap).map((slug) => ({
       path: `/products/category/${slug}`,
-      lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.9,
     })),
 
-    ...subCategories.map((s) => ({
+    ...subCategories.filter((s) => !(s.parent === "MCB" && ["ac-mcb", "dc-mcb"].includes(s.slug))).map((s) => ({
       path: `/products/category/${categorySlugMap[s.parent]}/${s.slug}`,
-      lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.88,
     })),
 
     ...products.map((product) => ({
       path: `/products/${product.slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
 
+    // These English records have English canonicals; do not invent translated alternatives.
+    ...standards.map((standard) => ({
+      path: `/resources/standards-database/${standard.slug}`,
+      locales: [routing.defaultLocale],
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    {
+      path: "/products/ats",
+      locales: [routing.defaultLocale],
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
     ...blogEntries,
   ];
 
-  return expandLocales(specs);
+  // lastmod is optional: omit it until a reliable content revision date is available.
+  return Array.from(new Map(expandLocales(specs).map((entry) => [entry.url, entry])).values());
 }

@@ -4,7 +4,7 @@ import BuyerTradeSupport from "./components/BuyerTradeSupport";
 import "./buyer-trade-support.css";
 
 const site = process.env.NEXT_PUBLIC_SITE_URL || "https://www.tpkele.com";
-const canonical = `${site}/resources/buyer-trade-support`;
+const canonical = `${site}/resources/buyer-support`;
 
 export const metadata: Metadata = {
   title: "International Buyer Trade Support",

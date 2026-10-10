@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${s.code} Standard Guide`,
     description: `${s.summary} Review scope, reference type, product relevance and official source.`,
-    alternates: { canonical: `/electric-standards-database/${s.slug}` },
+    alternates: { canonical: `/resources/standards-database/${s.slug}` },
   };
 }
 
@@ -35,13 +35,13 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
         "@type": "ListItem",
         position: 2,
         name: "Standards Database",
-        item: "https://www.tpkele.com/electric-standards-database",
+        item: "https://www.tpkele.com/resources/standards-database",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: s.code,
-        item: `https://www.tpkele.com/electric-standards-database/${s.slug}`,
+        item: `https://www.tpkele.com/resources/standards-database/${s.slug}`,
       },
     ],
   };
@@ -53,13 +53,13 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
       <div className="breadcrumb">
         <div className="container">
           <Link href="/">Home</Link> /{" "}
-          <Link href="/electric-standards-database">Standards Database</Link> / <b>{s.code}</b>
+          <Link href="/resources/standards-database">Standards Database</Link> / <b>{s.code}</b>
         </div>
       </div>
 
       <main className="standardDetail">
         <div className="container">
-          <Link className="backLink" href="/electric-standards-database">
+          <Link className="backLink" href="/resources/standards-database">
             ← Back to Standards Database
           </Link>
 
@@ -131,13 +131,13 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
               <div className="sideCard">
                 <h3>Need country-specific compliance?</h3>
                 <p>Continue to the Market Access Advisor for destination-specific certification and evidence.</p>
-                <Link href="/electrical-international-standards-inquiry-center">Check Market Access →</Link>
+                <Link href="/resources/market-access-advisor">Check Market Access →</Link>
               </div>
 
               <div className="sideCard">
                 <h3>Need test reports or certificates?</h3>
                 <p>Use Buyer Trade Support to request relevant documents and order support.</p>
-                <Link href="/resources/buyer-trade-support">Request Documents →</Link>
+                <Link href="/resources/buyer-support">Request Documents →</Link>
               </div>
             </aside>
           </div>
@@ -147,7 +147,7 @@ export default async function Detail({ params }: { params: Promise<{ slug: strin
               <h2>Related Standards</h2>
               <div className="relatedGrid">
                 {rel.map((r) => (
-                  <Link className="relatedCard" href={`/electric-standards-database/${r.slug}`} key={r.slug}>
+                  <Link className="relatedCard" href={`/resources/standards-database/${r.slug}`} key={r.slug}>
                     <strong>{r.code}</strong>
                     <span>
                       {r.referenceType} · {r.title}

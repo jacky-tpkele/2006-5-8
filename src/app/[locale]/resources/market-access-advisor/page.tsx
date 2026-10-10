@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "Electrical International Standards Inquiry Center | TPKELE" },
   description:
     "Review technical standards, market-access considerations, supporting documents and product-specific compliance checks for electrical products in global markets.",
+  alternates: { canonical: "/resources/market-access-advisor" },
   keywords: [
     "international standards",
     "electrical product certification",

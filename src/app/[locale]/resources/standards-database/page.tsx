@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: { absolute: "Electrical Standards Database | IEC & UL Reference | TPKELE" },
   description:
     "Search 32 electrical standards references for DC/AC MCB, SPD, ATS, energy meters, voltage protection and PV combiner systems. Compare scope, reference type, product relevance and official sources.",
-  alternates: { canonical: "/electric-standards-database" },
+  alternates: { canonical: "/resources/standards-database" },
   openGraph: {
     title: "Electrical Standards Database | TPKELE",
     description:
       "Search IEC and UL standards by product, application, reference type and standard number.",
-    url: "https://www.tpkele.com/electric-standards-database",
+    url: "https://www.tpkele.com/resources/standards-database",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ export default function Page() {
         "@type": "ListItem",
         position: 2,
         name: "Electrical Standards Database",
-        item: "https://www.tpkele.com/electric-standards-database",
+        item: "https://www.tpkele.com/resources/standards-database",
       },
     ],
   };
