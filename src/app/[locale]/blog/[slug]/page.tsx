@@ -61,9 +61,10 @@ export async function generateMetadata({ params }: { params: Promise<RouteParams
   if (!post) return { title: "Article not found" };
 
   const route = `/blog/${post.slug}`;
+  const seoTitle = post.seoTitle ?? post.title;
 
   return {
-    title: post.seoTitle ?? post.title,
+    title: { absolute: seoTitle.endsWith("| TPKELE") ? seoTitle : `${seoTitle} | TPKELE` },
     description: post.seoDescription,
     alternates: {
       canonical: localizedPath(route, locale),

@@ -3,7 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import MarketAccessAdvisor from "./components/MarketAccessAdvisor";
 
 export const metadata: Metadata = {
-  title: "Electrical International Standards Inquiry Center | TPKELE",
+  title: { absolute: "Electrical International Standards Inquiry Center | TPKELE" },
   description:
     "Review technical standards, market-access considerations, supporting documents and product-specific compliance checks for electrical products in global markets.",
   keywords: [

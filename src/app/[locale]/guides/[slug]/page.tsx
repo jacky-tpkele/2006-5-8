@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonicalUrl = `https://www.tpkele.com/guides/${slug}`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: [
       guide.product,

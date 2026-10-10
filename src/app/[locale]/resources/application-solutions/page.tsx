@@ -6,7 +6,7 @@ import { NextStep } from "@/components/resources/NextStep";
 import "./application-solutions.css";
 
 export const metadata: Metadata = {
-  title: "Application Solutions | TPKELE Resources",
+  title: { absolute: "Application Solutions | TPKELE Resources" },
   description:
     "Real-world application examples, system design guidance and project case studies for electrical protection systems. Solar PV, data centers, EV charging, and more.",
   keywords: [

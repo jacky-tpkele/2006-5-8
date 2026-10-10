@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const t = await getTranslations({ locale, namespace: "categoryPage" });
 
   return {
-    title: t("acMcb.seoTitle"),
+    title: { absolute: t("acMcb.seoTitle") },
     description: t("acMcb.seoDescription"),
     alternates: {
       canonical: localizedPath("/products/ac-mcb", locale),

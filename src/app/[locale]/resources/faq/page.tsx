@@ -6,7 +6,7 @@ import { NextStep } from "@/components/resources/NextStep";
 import "./faq.css";
 
 export const metadata: Metadata = {
-  title: "FAQ Knowledge Base | TPKELE Resources",
+  title: { absolute: "FAQ Knowledge Base | TPKELE Resources" },
   description:
     "Frequently asked questions about electrical protection products, customization, certification, ordering and delivery. Get answers from TPKELE experts.",
   keywords: [

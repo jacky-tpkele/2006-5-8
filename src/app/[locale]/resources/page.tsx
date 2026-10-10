@@ -5,7 +5,7 @@ import { InquiryModal } from "@/components/InquiryModal";
 import "./resources.css";
 
 export const metadata: Metadata = {
-  title: "Resources & Tools | TPKELE - Technical Guides, Compliance Tools & Support",
+  title: { absolute: "Resources & Tools | TPKELE - Technical Guides, Compliance Tools & Support" },
   description:
     "Technical guidance, compliance intelligence and engineering support for global electrical product decisions. Access technical guides, market access advisor, standards database, and more.",
   keywords: [

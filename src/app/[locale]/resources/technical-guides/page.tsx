@@ -9,7 +9,7 @@ type PageProps = {
 };
 
 export const metadata: Metadata = {
-  title: "Technical Guides | TPKELE Resources - Expert Selection Guides",
+  title: { absolute: "Technical Guides | TPKELE Resources - Expert Selection Guides" },
   description:
     "Comprehensive technical selection guides for electrical protection devices. Expert guidance on DC MCBs, SPDs, energy meters, ATS, and more. Step-by-step workflows for engineers and installers.",
   keywords: [

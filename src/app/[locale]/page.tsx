@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const t = await getTranslations({ locale, namespace: "home" });
 
   return {
-    title: t("seoTitle"),
+    title: { absolute: t("seoTitle") },
     description: t("seoDescription"),
     alternates: {
       canonical: localizedPath("/", locale),

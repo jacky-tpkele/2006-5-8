@@ -4,13 +4,12 @@ import { BackToTop } from "@/components/BackToTop";
 import { ChatWidget } from "@/components/ChatWidget";
 import { blogPosts, categorySlugMap, site, subCategoryBySlug } from "@/data/site";
 
-// 产品链接：href 由 site.ts 的映射生成，label 的 key 固定。
-// 每个 href 对应一个唯一的翻译 key，href 本身不做任何改动。
+// 产品链接沿用现有落地页，label 的 key 固定。
 const productLinkEntries: Array<{ key: string; href: string }> = [
-  { key: "dc-mcb", href: `/products/category/${categorySlugMap.MCB}/${subCategoryBySlug["dc-mcb"]?.slug ?? "dc-mcb"}` },
+  { key: "dc-mcb", href: "/products/dc-mcb" },
   { key: "dc-spd", href: `/products/category/${categorySlugMap.SPD}/${subCategoryBySlug["dc-spd"]?.slug ?? "dc-spd"}` },
   { key: "combiner", href: `/products/category/${categorySlugMap["Combiner Box"]}` },
-  { key: "ac-mcb", href: `/products/category/${categorySlugMap.MCB}/${subCategoryBySlug["ac-mcb"]?.slug ?? "ac-mcb"}` },
+  { key: "ac-mcb", href: "/products/ac-mcb" },
   { key: "ac-spd", href: `/products/category/${categorySlugMap.SPD}/${subCategoryBySlug["ac-spd"]?.slug ?? "ac-spd"}` },
   { key: "ats", href: `/products/category/${categorySlugMap.ATS}` },
   { key: "voltage", href: `/products/category/${categorySlugMap["Voltage Protector"]}` },

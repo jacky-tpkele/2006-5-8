@@ -5,7 +5,7 @@ import RelatedResources from "@/components/standards/RelatedResources";
 import StandardsFaq, { standardsFaqs } from "@/components/standards/StandardsFaq";
 
 export const metadata: Metadata = {
-  title: "Electrical Standards Database | IEC & UL Reference | TPKELE",
+  title: { absolute: "Electrical Standards Database | IEC & UL Reference | TPKELE" },
   description:
     "Search 32 electrical standards references for DC/AC MCB, SPD, ATS, energy meters, voltage protection and PV combiner systems. Compare scope, reference type, product relevance and official sources.",
   alternates: { canonical: "/electric-standards-database" },

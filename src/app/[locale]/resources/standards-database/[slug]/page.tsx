@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!s) return {};
 
   return {
-    title: `${s.code} Standard Guide | TPKELE`,
+    title: `${s.code} Standard Guide`,
     description: `${s.summary} Review scope, reference type, product relevance and official source.`,
     alternates: { canonical: `/electric-standards-database/${s.slug}` },
   };

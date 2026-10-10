@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const description = getBlogCategoryDescription("application-scenarios", (k) => t(k));
 
   return {
-    title: `${label} - TPKELE Blog`,
+    title: { absolute: `${label} - TPKELE Blog` },
     description,
     alternates: {
       canonical: localizedPath("/blog/application-scenarios", locale),
