@@ -52,6 +52,11 @@ function renderBlock(block: RichBlock, index: number) {
 
     case "callout":
       const calloutBlock = block as any;
+      // 跳过空的 callout 块（内容为空或只有空白）
+      const htmlText = calloutBlock.html?.replace(/<[^>]+>/g, '').trim();
+      if (!htmlText) {
+        return null; // 不渲染空 callout
+      }
       const calloutClass = `blog-rich__callout blog-rich__callout--${calloutBlock.tone || "info"}`;
       return (
         <div className={calloutClass} key={index}>
