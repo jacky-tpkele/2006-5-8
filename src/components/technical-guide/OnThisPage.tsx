@@ -48,6 +48,9 @@ export default function OnThisPage({ items, offset = 100 }: OnThisPageProps) {
   );
 
   const handleClick = (id: string) => {
+    // 立即更新高亮状态（不等滚动完成）
+    setActiveId(id);
+
     const element = document.getElementById(id);
     if (element) {
       const top = element.getBoundingClientRect().top + window.scrollY - offset;
@@ -59,7 +62,8 @@ export default function OnThisPage({ items, offset = 100 }: OnThisPageProps) {
     <div className="tpk-guide__toc">
       <h3>ON THIS PAGE</h3>
       <div className="tpk-guide__tocRail">
-        <div className="tpk-guide__tocSlider" style={{ transform: `translateY(${activeIndex * 38}px)` }} />
+        {/* 隐藏滑动条，只保留圆点 */}
+        {/* <div className="tpk-guide__tocSlider" style={{ transform: `translateY(${activeIndex * 38}px)` }} /> */}
         {items.map((item) => (
           <a
             key={item.id}
