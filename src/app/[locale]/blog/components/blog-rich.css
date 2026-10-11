@@ -69,17 +69,7 @@
   line-height: 1.65;
 }
 .blog-rich__notice {
-  background: #f5f8f6;
-  border-left: 4px solid var(--green);
-  padding: 18px 20px;
-  margin: 26px 0;
-  border-radius: 0 10px 10px 0;
-  font-size: 15px;
-  line-height: 1.65;
-  color: #33413c;
-}
-.blog-rich__notice strong {
-  color: var(--ink);
+  display: none !important; /* Hidden per user request */
 }
 
 /* ---------- sticky 采购导航 ---------- */
