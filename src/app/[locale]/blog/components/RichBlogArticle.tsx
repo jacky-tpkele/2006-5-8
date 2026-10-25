@@ -141,6 +141,7 @@ function renderBlock(block: RichBlock, index: number) {
       );
 
     case "contextAction":
+      if (!block.href) return null;
       return (
         <div className="blog-rich__contextAction" key={index}>
           <div>
@@ -154,19 +155,22 @@ function renderBlock(block: RichBlock, index: number) {
     case "resourceStrip":
       return (
         <div className="blog-rich__resourceStrip" key={index}>
-          {block.items.map((item) => (
-            <Link href={item.href} key={item.href}>
-              <span className="num">{item.index}</span>
-              <div>
-                <strong>{item.title}</strong>
-                <small>{item.sub}</small>
-              </div>
-            </Link>
-          ))}
+          {block.items
+            .filter((item) => item.href)
+            .map((item) => (
+              <Link href={item.href} key={item.href}>
+                <span className="num">{item.index}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <small>{item.sub}</small>
+                </div>
+              </Link>
+            ))}
         </div>
       );
 
     case "productAction":
+      if (!block.href) return null;
       return (
         <div className="blog-rich__productAction" key={index}>
           <div>
@@ -197,12 +201,14 @@ function renderBlock(block: RichBlock, index: number) {
         <div className="blog-rich__hub" key={index}>
           <h3>{block.title}</h3>
           <div className="blog-rich__hubGrid">
-            {block.items.map((item) => (
-              <Link href={item.href} key={item.href}>
-                <strong>{item.title}</strong>
-                <span>{item.text}</span>
-              </Link>
-            ))}
+            {block.items
+              .filter((item) => item.href)
+              .map((item) => (
+                <Link href={item.href} key={item.href}>
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                </Link>
+              ))}
           </div>
         </div>
       );
@@ -210,13 +216,15 @@ function renderBlock(block: RichBlock, index: number) {
     case "purchaseSteps":
       return (
         <div className="blog-rich__steps" key={index}>
-          {block.items.map((item) => (
-            <Link href={item.href} key={item.href}>
-              <span>{item.step}</span>
-              <strong>{item.title}</strong>
-              <small>{item.sub}</small>
-            </Link>
-          ))}
+          {block.items
+            .filter((item) => item.href)
+            .map((item) => (
+              <Link href={item.href} key={item.href}>
+                <span>{item.step}</span>
+                <strong>{item.title}</strong>
+                <small>{item.sub}</small>
+              </Link>
+            ))}
         </div>
       );
 
@@ -293,21 +301,23 @@ export default function RichBlogArticle({
           <p>{article.quickNavigator.text}</p>
         </div>
         <div className="blog-rich__quickGrid">
-          {article.quickNavigator.cards.map((card) => (
-            <Link
-              key={card.href}
-              href={card.href}
-              className={
-                card.primary
-                  ? "blog-rich__pathCard blog-rich__pathCard--primary"
-                  : "blog-rich__pathCard"
-              }
-            >
-              <span className="blog-rich__pathKicker">{card.kicker}</span>
-              <strong>{card.title}</strong>
-              <span>{card.cta}</span>
-            </Link>
-          ))}
+          {article.quickNavigator.cards
+            .filter((card) => card.href)
+            .map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className={
+                  card.primary
+                    ? "blog-rich__pathCard blog-rich__pathCard--primary"
+                    : "blog-rich__pathCard"
+                }
+              >
+                <span className="blog-rich__pathKicker">{card.kicker}</span>
+                <strong>{card.title}</strong>
+                <span>{card.cta}</span>
+              </Link>
+            ))}
         </div>
       </section>
 
