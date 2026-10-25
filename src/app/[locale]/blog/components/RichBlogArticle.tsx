@@ -277,6 +277,11 @@ export default function RichBlogArticle({
           </span>
         </div>
         <p className="blog-rich__lead">{article.lead}</p>
+        {article.complianceNote ? (
+          <div className="blog-rich__notice">
+            <strong>Compliance note:</strong> {article.complianceNote}
+          </div>
+        ) : null}
       </header>
 
       <BlogJourneyNav steps={article.journey} ariaLabel="RCBO buyer journey" />
