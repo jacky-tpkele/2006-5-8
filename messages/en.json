@@ -274,7 +274,18 @@
     "productAvailable": "{count} product available",
     "getOemProposal": "Get OEM Proposal",
     "backToTopAria": "Back to top",
-    "languageAria": "Language"
+    "languageAria": "Language",
+    "home": "Home",
+    "products": "Products",
+    "keyFeatures": "Key Features",
+    "technicalSpecifications": "Technical Specifications",
+    "typicalApplications": "Typical Applications",
+    "getDatasheet": "Get Datasheet",
+    "needDatasheet": "Need full datasheet, drawing or certificates for tender?",
+    "parameterCategory": "Parameter Category",
+    "keySpecifications": "Key Specifications",
+    "parameter": "Parameter",
+    "requirement": "Common Requirement"
   },
   "form": {
     "name": "Name",

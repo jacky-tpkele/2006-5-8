@@ -272,7 +272,18 @@
     "productAvailable": "Доступен {count} продукт",
     "getOemProposal": "Запросить предложение OEM",
     "backToTopAria": "Вернуться наверх",
-    "languageAria": "Язык"
+    "languageAria": "Язык",
+    "home": "Главная",
+    "products": "Продукция",
+    "keyFeatures": "Ключевые особенности",
+    "technicalSpecifications": "Технические характеристики",
+    "typicalApplications": "Типичные применения",
+    "getDatasheet": "Получить спецификацию",
+    "needDatasheet": "Нужна полная спецификация, чертежи или сертификаты для тендера?",
+    "parameterCategory": "Категория параметра",
+    "keySpecifications": "Ключевые характеристики",
+    "parameter": "Параметр",
+    "requirement": "Общие требования"
   },
   "form": {
     "name": "Имя",

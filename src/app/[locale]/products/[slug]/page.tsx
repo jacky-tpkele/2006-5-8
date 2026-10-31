@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { CertIcon } from "@/components/CertIcon";
 import { InquiryModal } from "@/components/InquiryModal";
 import { ProductGallery } from "@/components/ProductGallery";
+import { getTranslations } from "next-intl/server";
 import {
   categorySlugMap,
   certifications,
@@ -55,6 +56,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug, locale } = await params;
   const product = getProduct(slug, locale);
   if (!product) notFound();
+
+  const t = await getTranslations({ locale, namespace: "common" });
 
   const categorySlug = categorySlugMap[product.parentCategory];
   const subCat = product.subCategorySlug ? getSubCategory(product.subCategorySlug, locale) : undefined;
@@ -148,9 +151,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
       <nav className="slim-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
+        <Link href="/">{t('home')}</Link>
         <span aria-hidden="true">/</span>
-        <Link href="/products">Products</Link>
+        <Link href="/products">{t('products')}</Link>
         <span aria-hidden="true">/</span>
         <Link href={`/products/category/${categorySlug}`}>{product.parentCategory}</Link>
         {subCat && (
@@ -175,7 +178,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <h1>{product.name}</h1>
           <p className="product-detail-description">{product.description}</p>
           <div className="product-detail-features">
-            <h2 className="features-heading">Key Features</h2>
+            <h2 className="features-heading">{t('keyFeatures')}</h2>
             <ul>
               {keyFeatures.map((spec) => (
                 <li key={spec}>{spec}</li>
@@ -184,27 +187,27 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </div>
           <div className="button-row">
             <InquiryModal
-              triggerLabel="Request Quotation"
+              triggerLabel={t('requestQuotation')}
               triggerClassName="btn primary"
               product={product.name}
               intent="quote"
             />
             <InquiryModal
-              triggerLabel="Ask Technical Question"
+              triggerLabel={t('askTechnical')}
               triggerClassName="btn ghost dark"
               product={product.name}
               intent="technical"
-              title="Ask Technical Question"
+              title={t('askTechnical')}
             />
           </div>
           <div className="inline-cta-card">
-            <p>Need full datasheet, drawing or certificates for tender?</p>
+            <p>{t('needDatasheet')}</p>
             <InquiryModal
-              triggerLabel="Get Datasheet"
+              triggerLabel={t('getDatasheet')}
               triggerClassName="btn primary"
               product={product.name}
               intent="datasheet"
-              title="Request Datasheet"
+              title={t('getDatasheet')}
             />
           </div>
         </div>
@@ -213,7 +216,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       {catContent?.applications && catContent.applications.length > 0 && (
         <section className="section product-application-section">
           <span className="section-mark" aria-hidden="true" />
-          <h2 className="sub-section-title">Typical Applications</h2>
+          <h2 className="sub-section-title">{t('typicalApplications')}</h2>
           <div className="app-pill-row">
             {catContent.applications.map((a) => (
               <span className="app-pill" key={a}>{a}</span>
@@ -231,8 +234,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <thead>
                   <tr>
                     <th scope="col" className="spec-col-no">No.</th>
-                    <th scope="col" className="spec-col-cat">Parameter Category</th>
-                    <th scope="col" className="spec-col-key">Key Specifications</th>
+                    <th scope="col" className="spec-col-cat">{t('parameterCategory')}</th>
+                    <th scope="col" className="spec-col-key">{t('keySpecifications')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -335,7 +338,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </>
       ) : technicalSpecs.length > 0 ? (
         <section className="section product-spec-section">
-          <h2 className="product-spec-title">Technical Specifications</h2>
+          <h2 className="product-spec-title">{t('technicalSpecifications')}</h2>
           <div className="product-spec-table-wrap">
             <table className="product-spec-table">
               <tbody>
