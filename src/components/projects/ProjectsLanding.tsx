@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { zimbabweProject } from '@/lib/projects';
+import { mongoliaProject, zimbabweProject } from '@/lib/projects';
 import styles from './projects.module.css';
 
 const supportItems = [
@@ -37,9 +37,23 @@ export default function ProjectsLanding() {
       <section id="featured" className={styles.section}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <div><span className={styles.eyebrow}>FEATURED PROJECT REFERENCE</span><h2>Zimbabwe Solar PV & Battery Storage Project</h2></div>
-            <p>One buyer-provided procurement reference, presented with the quantities removed but the technical system context preserved.</p>
+            <div><span className={styles.eyebrow}>FEATURED PROJECT REFERENCES</span><h2>Real Projects — Battery Storage, Solar PV & Custom Distribution</h2></div>
+            <p>Two completed projects showcasing TPKELE's capabilities: custom distribution box engineering and system-level protection matching.</p>
           </div>
+
+          <Link href={mongoliaProject.route} className={styles.featuredProjectCard}>
+            <div className={styles.featuredVisual}>
+              <Image src="/assets/projects/mongolia-layout-2.webp" alt="Mongolia battery storage custom distribution box project" fill sizes="(max-width: 900px) 100vw, 55vw" />
+            </div>
+            <div className={styles.featuredContent}>
+              <div className={styles.badgeRow}><span>Mongolia · Ulaanbaatar</span><span>Nov 2026</span></div>
+              <h3>{mongoliaProject.displayTitle}</h3>
+              <p>Custom-engineered DC and AC distribution boxes for 11 parallel inverters with 300A battery protection and UV-printed branding.</p>
+              <div className={styles.tagRow}>{mongoliaProject.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              <strong className={styles.textLink}>View project →</strong>
+            </div>
+          </Link>
+
           <Link href={zimbabweProject.route} className={styles.featuredProjectCard}>
             <div className={styles.featuredVisual}>
               <Image src={zimbabweProject.hero} alt="Zimbabwe SIRDC 19/2026 solar PV and battery storage project" fill sizes="(max-width: 900px) 100vw, 55vw" />

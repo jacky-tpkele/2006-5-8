@@ -31,6 +31,24 @@ export const zimbabweProject = {
   tags: ['Solar PV', 'Battery Storage', 'DC/AC Protection', 'Automatic Transfer', 'Power Distribution'],
 };
 
+export const mongoliaProject = {
+  slug: 'mongolia-ulaanbaatar-battery-storage',
+  route: '/projects/mongolia-ulaanbaatar-battery-storage',
+  country: 'Mongolia',
+  city: 'Ulaanbaatar',
+  completionDate: '2026-11-05',
+  displayTitle: 'Mongolia Battery Storage & Multi-Inverter Distribution Project',
+  seoTitle: 'Mongolia Battery Storage Distribution Box Project | Ulaanbaatar',
+  summary:
+    'Custom-engineered DC and AC distribution boxes for a large-scale battery energy storage system with 11 parallel inverters in Ulaanbaatar, Mongolia. Pre-assembled, tested enclosures with 300A DC breakers, modular AC protection and UV-printed branding.',
+  hero: '/assets/projects/project-hero.webp',
+  og: '/assets/projects/mongolia-project-og.jpg',
+  tags: ['Battery Storage', 'Custom Distribution Box', 'Multi-Inverter System', 'Pre-Assembled Enclosure', 'OEM Panel'],
+  systemCapacity: '~330kW',
+  inverterCount: 11,
+  batteryCapacity: 'Large-scale lithium battery bank',
+};
+
 export const procurementEquipment: ProjectEquipment[] = [
   {
     title: 'Solar PV Modules',
@@ -157,4 +175,91 @@ export const productMatches: ProductMatch[] = [
   },
 ];
 
-export const projects = [zimbabweProject];
+export const mongoliaEquipment: ProjectEquipment[] = [
+  {
+    title: 'DC-01 Battery DC Distribution Box (×2)',
+    spec: '2P 300A DC MCCB · 12× PG21 cable glands',
+    note: 'High-current DC protection for battery-side connection. Two identical boxes for dual battery cabinet configuration.',
+    category: 'protection',
+  },
+  {
+    title: 'DC-02 Battery DC Distribution Box (×2)',
+    spec: '2P 300A DC MCCB · 12× PG21 cable glands',
+    note: 'Duplicate battery-side DC boxes matching DC-01 specification for system redundancy.',
+    category: 'protection',
+  },
+  {
+    title: 'AC-01 Inverter AC Distribution Box (×11)',
+    spec: '3× 4P 25A AC MCB · 6× 2P 16A AC MCB · 3× 4P 20kA AC SPD · PE busbar · 6× PG21',
+    note: 'One box per inverter. Three-phase + neutral protection with comprehensive surge protection and earth bonding.',
+    category: 'protection',
+  },
+  {
+    title: 'AC-02 AC Collection Box (×1)',
+    spec: '2× 4P 25A AC MCB · 2× 4P 20kA AC SPD',
+    note: 'Main AC collection point aggregating outputs from 11 inverter distribution boxes before grid connection.',
+    category: 'protection',
+  },
+  {
+    title: 'Inverter System',
+    spec: '11× parallel three-phase inverters · estimated 30kW each',
+    note: 'Multi-inverter parallel configuration requiring coordinated AC protection and collection.',
+    category: 'conversion',
+  },
+  {
+    title: 'Battery Storage System',
+    spec: 'Large-scale lithium battery bank · dual cabinet configuration',
+    note: 'High-capacity battery array with dual DC distribution for safety and maintenance isolation.',
+    category: 'storage',
+  },
+];
+
+export const mongoliaProductMatches: ProductMatch[] = [
+  {
+    name: 'DC MCCB — 300A 2-Pole',
+    procurementRequirement: '2P 300A DC MCCB for battery-side protection',
+    fit: 'technical-confirmation',
+    role: 'High-current DC molded case circuit breaker for battery cabinet isolation and overcurrent protection. Requires confirmation of DC voltage, breaking capacity and battery system architecture.',
+    href: '/products/dc-mcb',
+    image: '/assets/products/gallery/dc-mcb-2p-1.webp',
+    fallback: '/assets/projects/fallbacks/dc-mcb.svg',
+  },
+  {
+    name: 'AC MCB — 4P 25A',
+    procurementRequirement: '4P 25A AC MCB for three-phase inverter output',
+    fit: 'direct-family-fit',
+    role: 'Three-phase + neutral protection for individual inverter AC outputs. Direct product family match.',
+    href: '/products/ac-mcb',
+    image: '/assets/products/gallery/ac-mcb-4p-1.webp',
+    fallback: '/assets/projects/fallbacks/ac-mcb.svg',
+  },
+  {
+    name: 'AC MCB — 2P 16A',
+    procurementRequirement: '2P 16A AC MCB for branch circuit protection',
+    fit: 'direct-family-fit',
+    role: 'Two-pole branch circuit protection within inverter distribution boxes. Direct product family match.',
+    href: '/products/ac-mcb',
+    image: '/assets/products/gallery/ac-mcb-2p-1.webp',
+    fallback: '/assets/projects/fallbacks/ac-mcb.svg',
+  },
+  {
+    name: 'AC 4P SPD — 20kA',
+    procurementRequirement: '4P 20kA AC SPD for three-phase surge protection',
+    fit: 'direct-family-fit',
+    role: 'Four-pole surge protection for three-phase distribution. Matches newly added AC 4P SPD product family.',
+    href: '/products/ac-spd-4p',
+    image: '/assets/products/ac-spd-4p-2.webp',
+    fallback: '/assets/projects/fallbacks/spd.svg',
+  },
+  {
+    name: 'Custom Distribution Box Assembly',
+    procurementRequirement: 'Pre-assembled, tested distribution boxes with UV-printed panels',
+    fit: 'direct-family-fit',
+    role: 'TPKELE custom enclosure service: component integration, wiring, testing, UV panel printing and project-specific labeling.',
+    href: '/solutions/custom-distribution-boxes',
+    image: '/assets/products/mongolia-panel.webp',
+    fallback: '/assets/projects/fallbacks/distribution-box.svg',
+  },
+];
+
+export const projects = [mongoliaProject, zimbabweProject];
