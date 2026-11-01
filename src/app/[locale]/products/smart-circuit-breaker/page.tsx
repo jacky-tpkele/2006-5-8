@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ConfiguratorCta } from "@/components/box-configurator/ConfiguratorLink";
 import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
@@ -84,6 +85,7 @@ export default async function SmartMcbPage({ params }: PageProps) {
         </div>
         <InquiryModal triggerLabel="Get Quote" triggerClassName="btn primary" intent="quote" product="Smart Wi-Fi MCB" />
       </section>
+      <ConfiguratorCta locale={locale} item="smart-mcb" />
     </main>
   );
 }

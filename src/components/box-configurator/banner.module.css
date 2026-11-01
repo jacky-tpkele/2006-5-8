@@ -1,0 +1,20 @@
+.banner{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center;margin-top:32px;padding:clamp(22px,3vw,34px);border-radius:22px;background:linear-gradient(135deg,#0f1a1b 0%,#123326 100%);color:#e8eeec;overflow:hidden}
+.eyebrow{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#7ee2a5}
+.text h3{margin:0 0 10px;font-size:clamp(22px,2.4vw,30px);line-height:1.2;color:#fff}
+.text p{margin:0;font-size:15px;line-height:1.6;color:#b8c6c2}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
+.chip{padding:9px 14px;border:1px solid #2f4a42;border-radius:999px;font-size:13.5px;font-weight:700;color:#e8eeec;transition:border-color .2s,background .2s}
+.chip:hover{border-color:#7ee2a5;background:rgba(126,226,165,.08)}
+.visual{display:flex;justify-content:center}
+.rail{position:relative;display:flex;gap:2px;padding:18px 14px;border-radius:14px;background:#0b1112;box-shadow:inset 0 0 0 1px #263235,0 20px 40px rgba(0,0,0,.3)}
+.rail::before{content:"";position:absolute;left:8px;right:8px;top:50%;height:12px;transform:translateY(-50%);border-radius:2px;background:linear-gradient(#a7b1b4,#6c777a);opacity:.55}
+.dev{position:relative;z-index:1;display:flex;justify-content:center;width:34px;height:76px;border-radius:4px;background:linear-gradient(#fff,#e5eae8);box-shadow:0 2px 0 rgba(0,0,0,.3);overflow:hidden;transition:transform .3s}
+.dev::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--k,#0b9b3f)}
+.dev i{display:block;width:12px;height:24px;margin-top:16px;border-radius:2px;background:var(--k,#0b9b3f);box-shadow:inset 0 -8px 0 rgba(0,0,0,.18)}
+.dev[data-kind="rcbo"]{--k:#2563eb}
+.dev[data-kind="spd"]{--k:#d97706;width:70px}
+.dev[data-kind="spd"] i{width:70%;height:18px;border-radius:3px;background:#f6c46a;box-shadow:inset 0 0 0 2px #d97706}
+.dev[data-kind="meter"]{--k:#334155;width:70px}
+.dev[data-kind="meter"] i{width:72%;height:16px;background:#1c2b2a;box-shadow:inset 0 0 0 2px #3c4a48}
+.visual:hover .dev:nth-child(odd){transform:translateY(-3px)}
+@media (max-width:900px){.banner{grid-template-columns:1fr}.visual{order:-1}.dev{width:24px;height:58px}.dev[data-kind="spd"],.dev[data-kind="meter"]{width:50px}.dev i{margin-top:12px}}

@@ -32,6 +32,7 @@
     "models": "Популярные модели",
     "allCategory": "Все товары: {category}",
     "explore": "Смотреть категорию",
+    "newTag": "NEW",
     "categories": {
       "mcb": "MCB",
       "rcbo": "RCBO",
@@ -68,7 +69,8 @@
       "dcDistributionBox": "Щит постоянного тока",
       "acDistributionBox": "Щит переменного тока",
       "atsPanel": "Щит АВР",
-      "enclosures": "Корпуса щитов"
+      "enclosures": "Корпуса щитов",
+      "configurator": "Онлайн-конфигуратор щита"
     }
   },
   "megaMenu": {
@@ -129,7 +131,8 @@
       "ac-spd": "AC SPD — Ограничитель перенапряжений",
       "ats": "ATS — Автоматический переключатель ввода резерва",
       "voltage": "Реле напряжения",
-      "meter": "DIN-рейка счётчик электроэнергии"
+      "meter": "DIN-рейка счётчик электроэнергии",
+      "configurator": "Конфигуратор распределительного щита"
     },
     "resources": "Ресурсы",
     "resourceLinks": {

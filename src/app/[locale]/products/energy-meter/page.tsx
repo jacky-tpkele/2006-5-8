@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ConfiguratorCta } from "@/components/box-configurator/ConfiguratorLink";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -120,6 +121,7 @@ export default async function EnergyMeterCategoryPage({ params }: PageProps) {
           </div>
         </section>
       )}
+      <ConfiguratorCta locale={locale} item="ac-meter" />
     </main>
   );
 }

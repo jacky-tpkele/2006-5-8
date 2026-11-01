@@ -20,6 +20,7 @@ import {
 import { getCategoryContent, getProduct, getSubCategory } from "@/lib/i18n";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { ApplicationLinks, appContextForProduct } from "@/components/distribution-boxes/ApplicationLinks";
+import { ConfiguratorCta, ctaItemForProduct } from "@/components/box-configurator/ConfiguratorLink";
 
 type ProductPageProps = {
   params: Promise<{ slug: string; locale: string }>;
@@ -435,7 +436,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       {(() => {
         const appCtx = appContextForProduct(product);
-        return appCtx ? <ApplicationLinks context={appCtx} locale={locale} item={product.parentCategory === "SPD" ? `${appCtx}-spd` : undefined} /> : null;
+        if (appCtx) return <ApplicationLinks context={appCtx} locale={locale} item={product.parentCategory === "SPD" && appCtx !== "ats" ? `${appCtx}-spd` : undefined} />;
+        const ctaItem = ctaItemForProduct(product);
+        return ctaItem ? <ConfiguratorCta locale={locale} item={ctaItem} /> : null;
       })()}
 
       {related.length > 0 && (

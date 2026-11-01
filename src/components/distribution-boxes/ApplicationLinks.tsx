@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import type { Product } from "@/data/site";
-import { ConfiguratorLink } from "@/components/box-configurator/ConfiguratorLink";
+import { ConfiguratorCta } from "@/components/box-configurator/ConfiguratorLink";
 import styles from "./boxes.module.css";
 
 export type AppContext = "ac" | "dc" | "ats";
@@ -61,13 +61,8 @@ export function appContextForProduct(product: Pick<Product, "slug" | "parentCate
   return null;
 }
 
-const builder = {
-  en: "Need it pre-assembled? Build an AC or DC box with this component online.",
-  ru: "Нужен готовый щит? Соберите щит AC или DC с этим компонентом онлайн.",
-};
-
 /** `item` presets the configurator component; defaults to the MCB of the context. */
-export function ApplicationLinks({ context, locale, item }: { context: AppContext; locale: string; item?: string }) {
+export function ApplicationLinks({ context, locale, item }: { context: AppContext; locale: string; item?: "ac-spd" | "dc-spd" }) {
   const lang = locale === "ru" ? "ru" : "en";
   const c = copy[lang];
   return (
@@ -84,9 +79,8 @@ export function ApplicationLinks({ context, locale, item }: { context: AppContex
         ))}
       </div>
       {context !== "ats" ? (
-        <div className="inline-cta-card" style={{ marginTop: 16 }}>
-          <p>{builder[lang]}</p>
-          <ConfiguratorLink locale={locale} type={context} item={item ?? `${context}-mcb`} className="btn primary" />
+        <div style={{ marginTop: 16 }}>
+          <ConfiguratorCta locale={locale} item={item ?? `${context}-mcb`} wrap={false} />
         </div>
       ) : null}
     </section>

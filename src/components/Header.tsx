@@ -223,6 +223,12 @@ export function Header() {
                                 <span aria-hidden="true">→</span>
                               </Link>
                             ))}
+                            {group.label === "Combiner Box" && (
+                              <Link className="product-nav-config" href="/products/distribution-boxes/configurator" onClick={() => setMenuOpen(false)}>
+                                <span>{tProductNav("links.configurator" as never)}</span>
+                                <span className="product-nav-new">{tProductNav("newTag" as never)}</span>
+                              </Link>
+                            )}
                           </div>
                         </>
                       )}

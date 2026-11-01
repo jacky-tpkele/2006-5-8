@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
+import { ConfiguratorBanner } from "@/components/box-configurator/ConfiguratorBanner";
 import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
 import { BeyondSection } from "@/app/[locale]/products/ac-mcb/BeyondSection";
 import {
@@ -307,6 +308,8 @@ export default async function HomePage({ params }: PageProps) {
           <div className="product-tracks-footer">
             <Link className="btn ghost dark" href="/products">{t("products.viewAll")}</Link>
           </div>
+
+          <ConfiguratorBanner locale={locale} />
         </div>
       </section>
 

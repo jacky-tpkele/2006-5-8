@@ -14,6 +14,7 @@ const productLinkEntries: Array<{ key: string; href: string }> = [
   { key: "ats", href: `/products/category/${categorySlugMap.ATS}` },
   { key: "voltage", href: `/products/category/${categorySlugMap["Voltage Protector"]}` },
   { key: "meter", href: `/products/category/${categorySlugMap["Energy Meter"]}` },
+  { key: "configurator", href: "/products/distribution-boxes/configurator" },
 ];
 
 const resourceLinkEntries: Array<{ key: string; href: string }> = [

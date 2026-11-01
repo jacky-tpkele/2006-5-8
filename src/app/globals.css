@@ -5423,3 +5423,8 @@ button.cb-option-card {
 .product-reading-card .text-link {
   font-family: inherit;
 }
+
+/* Distribution box configurator link in the products mega menu (2026-11) */
+.site-nav .product-nav-links a.product-nav-config { grid-column: 1 / -1; border-color: var(--green); background: var(--green-soft); color: var(--green-dark); }
+.site-nav .product-nav-links a.product-nav-config:hover { background: #dff3e6; }
+.product-nav-links a.product-nav-config span.product-nav-new { flex: none; padding: 2px 7px; border-radius: 999px; background: var(--green); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; }

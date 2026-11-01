@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ConfiguratorCta } from "@/components/box-configurator/ConfiguratorLink";
 import { InquiryModal } from "@/components/InquiryModal";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
@@ -99,6 +100,7 @@ export default async function RcboAuNzPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+      <ConfiguratorCta locale={locale} item="rcbo" />
     </main>
   );
 }
