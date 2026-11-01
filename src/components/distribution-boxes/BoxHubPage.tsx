@@ -76,6 +76,13 @@ export function BoxHubPage({ locale }: { locale: string }) {
       </section>
 
       <section className="section">
+        <div className="inline-cta-card">
+          <p>{lang === "ru" ? "Нужен только пустой корпус? Пластиковые IP65 / IP50 и металлические щиты PZ30, от 2 до 60 модулей." : "Only need the empty box? Plastic IP65 / IP50 and PZ30 metal enclosures, 2 to 60 ways."}</p>
+          <Link className="btn primary" href="/products/enclosures">{lang === "ru" ? "Корпуса щитов →" : "View enclosures →"}</Link>
+        </div>
+      </section>
+
+      <section className="section">
         <h2 className="sub-section-title">{h.processTitle}</h2>
         <div className={styles.steps}>
           {h.process.map((s, i) => (

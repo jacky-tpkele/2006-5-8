@@ -67,7 +67,8 @@
       "pvCombinerBox": "Солнечный комбайнерный бокс",
       "dcDistributionBox": "Щит постоянного тока",
       "acDistributionBox": "Щит переменного тока",
-      "atsPanel": "Щит АВР"
+      "atsPanel": "Щит АВР",
+      "enclosures": "Корпуса щитов"
     }
   },
   "megaMenu": {

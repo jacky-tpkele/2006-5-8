@@ -67,7 +67,8 @@
       "pvCombinerBox": "PV Combiner Box",
       "dcDistributionBox": "DC Distribution Box",
       "acDistributionBox": "AC Distribution Box",
-      "atsPanel": "ATS Panel"
+      "atsPanel": "ATS Panel",
+      "enclosures": "Enclosures"
     }
   },
   "megaMenu": {

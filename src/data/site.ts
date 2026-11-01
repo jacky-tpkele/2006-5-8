@@ -3062,6 +3062,7 @@ export const productMenu: ProductMenuGroup[] = [
       { label: "DC Distribution Box", href: "/products/dc-distribution-box" },
       { label: "AC Distribution Box", href: "/products/ac-distribution-box" },
       { label: "ATS Panel", href: "/products/ats-panel" },
+      { label: "Enclosures", href: "/products/enclosures" },
     ],
   },
   {

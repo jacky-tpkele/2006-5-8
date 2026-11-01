@@ -121,6 +121,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/products/dc-distribution-box",
     "/products/ac-distribution-box",
     "/products/ats-panel",
+    "/products/enclosures",
+    "/products/enclosure-ht",
+    "/products/enclosure-ha",
+    "/products/enclosure-hv",
+    "/products/enclosure-ms-mf",
+    "/products/enclosure-pz30",
   ];
 
   const specs: RouteSpec[] = [

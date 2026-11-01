@@ -59,6 +59,7 @@ const PRODUCT_LINK_KEYS: Record<string, string> = {
   "/products/dc-distribution-box": "dcDistributionBox",
   "/products/ac-distribution-box": "acDistributionBox",
   "/products/ats-panel": "atsPanel",
+  "/products/enclosures": "enclosures",
 };
 
 const PRODUCT_NAV_DESTINATIONS: Record<string, string> = {
