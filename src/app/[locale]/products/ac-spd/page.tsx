@@ -154,7 +154,7 @@ export default async function AcSpdPage({ params }: PageProps) {
           </div>
         </section>
       )}
-      <ApplicationLinks context="ac" locale={locale} />
+      <ApplicationLinks context="ac" locale={locale} item="ac-spd" />
     </main>
   );
 }

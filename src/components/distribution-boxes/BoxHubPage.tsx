@@ -5,6 +5,7 @@ import { site } from "@/data/site";
 import { boxLocale, boxTypes, hubContent } from "@/data/distribution-boxes";
 import { ui } from "./BoxTypePage";
 import styles from "./boxes.module.css";
+import { ConfiguratorLink } from "@/components/box-configurator/ConfiguratorLink";
 
 export function BoxHubPage({ locale }: { locale: string }) {
   const lang = boxLocale(locale);
@@ -47,6 +48,7 @@ export function BoxHubPage({ locale }: { locale: string }) {
           <div className="button-row">
             <InquiryModal triggerLabel={t.quote} triggerClassName="btn primary" product={t.hub} intent="quote" />
             <InquiryModal triggerLabel={t.technical} triggerClassName="btn ghost dark" product={t.hub} intent="technical" title={t.technical} />
+            <ConfiguratorLink locale={locale} />
           </div>
         </div>
         <div>

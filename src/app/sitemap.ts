@@ -118,6 +118,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Distribution box category
     "/products/distribution-boxes",
+    "/products/distribution-boxes/configurator",
     "/products/dc-distribution-box",
     "/products/ac-distribution-box",
     "/products/ats-panel",

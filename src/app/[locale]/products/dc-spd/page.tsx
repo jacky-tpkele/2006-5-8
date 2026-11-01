@@ -154,7 +154,7 @@ export default async function DcSpdPage({ params }: PageProps) {
           </div>
         </section>
       )}
-      <ApplicationLinks context="dc" locale={locale} />
+      <ApplicationLinks context="dc" locale={locale} item="dc-spd" />
     </main>
   );
 }

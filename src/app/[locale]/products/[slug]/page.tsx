@@ -435,7 +435,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       {(() => {
         const appCtx = appContextForProduct(product);
-        return appCtx ? <ApplicationLinks context={appCtx} locale={locale} /> : null;
+        return appCtx ? <ApplicationLinks context={appCtx} locale={locale} item={product.parentCategory === "SPD" ? `${appCtx}-spd` : undefined} /> : null;
       })()}
 
       {related.length > 0 && (

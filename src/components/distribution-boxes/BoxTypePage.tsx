@@ -4,6 +4,7 @@ import { InquiryModal } from "@/components/InquiryModal";
 import { site } from "@/data/site";
 import { boxLocale, boxTypes, hubContent, type BoxType } from "@/data/distribution-boxes";
 import styles from "./boxes.module.css";
+import { ConfiguratorLink } from "@/components/box-configurator/ConfiguratorLink";
 
 export const ui = {
   en: {
@@ -89,6 +90,7 @@ export function BoxTypePage({ box, locale }: { box: BoxType; locale: string }) {
           <div className="button-row">
             <InquiryModal triggerLabel={t.quote} triggerClassName="btn primary" product={c.label} intent="quote" />
             <InquiryModal triggerLabel={t.technical} triggerClassName="btn ghost dark" product={c.label} intent="technical" title={t.technical} />
+            {box.slug !== "ats-panel" ? <ConfiguratorLink locale={locale} type={box.slug === "ac-distribution-box" ? "ac" : "dc"} /> : null}
           </div>
         </div>
         <div>

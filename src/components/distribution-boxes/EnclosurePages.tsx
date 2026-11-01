@@ -6,6 +6,7 @@ import { boxLocale } from "@/data/distribution-boxes";
 import { enclosureHub, enclosureSeries, type EnclosureSeries } from "@/data/enclosures";
 import { ui } from "./BoxTypePage";
 import styles from "./boxes.module.css";
+import { ConfiguratorLink } from "@/components/box-configurator/ConfiguratorLink";
 
 const extra = {
   en: { customizable: "Customizable", specs: "Specifications", parameter: "Parameter", value: "Value", otherSeries: "Other Enclosure Series", view: "View series →" },
@@ -79,6 +80,7 @@ export function EnclosureHubPage({ locale }: { locale: string }) {
           <p className="detail-copy">{h.intro}</p>
           <div className="button-row">
             <InquiryModal triggerLabel={t.quote} triggerClassName="btn primary" product={h.label} intent="quote" />
+            <ConfiguratorLink locale={locale} type="empty" />
           </div>
         </div>
         <div>
@@ -146,6 +148,7 @@ export function EnclosureSeriesPage({ series, locale }: { series: EnclosureSerie
           <div className="button-row">
             <InquiryModal triggerLabel={t.quote} triggerClassName="btn primary" product={name} intent="quote" />
             <InquiryModal triggerLabel={t.technical} triggerClassName="btn ghost dark" product={name} intent="technical" title={t.technical} />
+            <ConfiguratorLink locale={locale} type="empty" series={series.group === "plastic" ? series.code.split(" ")[0] : undefined} />
           </div>
         </div>
         <div>
