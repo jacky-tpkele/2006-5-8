@@ -24,5 +24,6 @@ a.pill:hover{border-color:#18a058}
 .caseItem span{display:block;font-size:13px;font-weight:800;color:#087a4c;margin-top:6px}
 .ctaBox{border:1px solid #cee7da;border-radius:20px;background:linear-gradient(135deg,#effaf5,#fff);padding:34px}
 .ctaBox p{max-width:760px}
+.cardGrid.cardGrid3{grid-template-columns:repeat(3,1fr)}
 @media(max-width:1050px){.cardGrid,.steps{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}}
 @media(max-width:640px){.cardGrid,.steps,.checklist{grid-template-columns:1fr}.heroImage{min-height:220px}}

@@ -19,6 +19,7 @@ import {
 } from "@/data/site";
 import { getCategoryContent, getProduct, getSubCategory } from "@/lib/i18n";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
+import { ApplicationLinks, appContextForProduct } from "@/components/distribution-boxes/ApplicationLinks";
 
 type ProductPageProps = {
   params: Promise<{ slug: string; locale: string }>;
@@ -431,6 +432,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </div>
         </section>
       )}
+
+      {(() => {
+        const appCtx = appContextForProduct(product);
+        return appCtx ? <ApplicationLinks context={appCtx} locale={locale} /> : null;
+      })()}
 
       {related.length > 0 && (
         <section className="section product-related-section">

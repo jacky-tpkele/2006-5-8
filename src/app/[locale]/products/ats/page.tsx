@@ -8,6 +8,7 @@ import {
   site,
 } from "@/data/site";
 import { getCategoryContent, getProducts, getSubCategories } from "@/lib/i18n";
+import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -125,6 +126,7 @@ export default async function AtsCategoryPage({ params }: PageProps) {
           </div>
         </section>
       )}
+      <ApplicationLinks context="ats" locale={locale} />
     </main>
   );
 }

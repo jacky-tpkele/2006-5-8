@@ -8,6 +8,7 @@ import {
   site,
 } from "@/data/site";
 import { getProducts, getSubCategories, getSubCategory } from "@/lib/i18n";
+import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 
 
@@ -153,6 +154,7 @@ export default async function DcSpdPage({ params }: PageProps) {
           </div>
         </section>
       )}
+      <ApplicationLinks context="dc" locale={locale} />
     </main>
   );
 }

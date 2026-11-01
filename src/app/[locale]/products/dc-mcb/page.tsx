@@ -8,6 +8,7 @@ import { HeroSection } from "./HeroSection";
 import { OptionsGrid } from "./OptionsGrid";
 import { FeaturesGrid } from "./FeaturesGrid";
 import { SpecsSection } from "./SpecsSection";
+import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { TripCurves } from "./TripCurves";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -83,6 +84,7 @@ export default async function DcCircuitBreakersPage({ params }: PageProps) {
         </div>
         <InquiryModal triggerLabel={t("dcMcb.requestQuote")} triggerClassName="btn primary" intent="quote" product="DC MCB" />
       </section>
+      <ApplicationLinks context="dc" locale={locale} />
     </main>
   );
 }

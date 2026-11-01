@@ -8,6 +8,7 @@ import { FeaturesGrid } from "./FeaturesGrid";
 import { SpecsSection } from "./SpecsSection";
 import { CompanySection } from "./CompanySection";
 import { TripCurves } from "./TripCurves";
+import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { BeyondSection } from "./BeyondSection";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -65,6 +66,7 @@ export default async function CircuitBreakersPage({ params }: PageProps) {
         </div>
         <InquiryModal triggerLabel={t("requestQuote")} triggerClassName="btn primary" intent="quote" product="AC MCB" />
       </section>
+      <ApplicationLinks context="ac" locale={locale} />
     </main>
   );
 }
