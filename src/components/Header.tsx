@@ -55,6 +55,10 @@ const PRODUCT_LINK_KEYS: Record<string, string> = {
   "/products/category/ats?series=STQ2%20Series": "stq2",
   "/products/category/combiner-box?series=Plastic%20Box%20Series": "plasticBox",
   "/products/category/combiner-box?series=Metal%20Box%20Series": "metalBox",
+  "/products/combiner-box": "pvCombinerBox",
+  "/products/dc-distribution-box": "dcDistributionBox",
+  "/products/ac-distribution-box": "acDistributionBox",
+  "/products/ats-panel": "atsPanel",
 };
 
 const PRODUCT_NAV_DESTINATIONS: Record<string, string> = {

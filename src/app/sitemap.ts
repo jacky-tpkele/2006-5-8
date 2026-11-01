@@ -83,6 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/products",
     "/projects",
     "/projects/zimbabwe-sirdc-solar-project",
+    "/projects/mongolia-ulaanbaatar-battery-storage",
     "/solar-dc-protection",
     "/blog",
     "/contact",
@@ -114,6 +115,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/products/voltage-protector",
     "/products/energy-meter",
     "/products/smart-circuit-breaker",
+
+    // Distribution box category
+    "/products/distribution-boxes",
+    "/products/dc-distribution-box",
+    "/products/ac-distribution-box",
+    "/products/ats-panel",
   ];
 
   const specs: RouteSpec[] = [

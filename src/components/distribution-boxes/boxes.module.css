@@ -1,0 +1,29 @@
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
+.heroImage{border:1px solid #e1e8e4;border-radius:18px;background:#f6f9f7;padding:20px;display:flex;align-items:center;justify-content:center;min-height:320px}
+.heroImage img{width:100%;height:auto;max-height:420px;object-fit:contain}
+.placeholderNote{font-size:12px;color:#7b8998;margin-top:8px;text-align:center}
+.cardGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.card{display:flex;flex-direction:column;border:1px solid #e1e8e4;border-radius:16px;padding:22px;background:#fff;text-decoration:none;color:inherit;transition:.2s}
+.card:hover{border-color:#9ed3b8;box-shadow:0 14px 34px rgba(16,66,44,.08);transform:translateY(-2px)}
+.card h3{margin:0 0 10px;font-size:18px}
+.card p{font-size:14px;line-height:1.6;margin:0 0 14px;color:#526279;flex:1}
+.cardLink{font-size:13px;font-weight:800;color:#087a4c}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+.step{border-top:3px solid #18a058;padding-top:14px}
+.step span{font-size:12px;font-weight:900;color:#087a4c;letter-spacing:.08em}
+.step h3{margin:6px 0 8px;font-size:17px}
+.step p{font-size:14px;line-height:1.6;margin:0;color:#526279}
+.checklist{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 24px}
+.checklist li{position:relative;padding-left:26px;font-size:15px;line-height:1.55}
+.checklist li::before{content:"✓";position:absolute;left:0;color:#087a4c;font-weight:900}
+.pillRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.pill{display:inline-block;padding:8px 14px;border:1px solid #c4e6d4;border-radius:999px;background:#effaf5;color:#0b5d3b;font-size:14px;font-weight:700;text-decoration:none}
+a.pill:hover{border-color:#18a058}
+.caseList{display:grid;gap:12px;margin-top:20px}
+.caseItem{display:block;border:1px solid #e1e8e4;border-radius:14px;padding:18px 20px;text-decoration:none;color:inherit}
+.caseItem:hover{border-color:#9ed3b8}
+.caseItem span{display:block;font-size:13px;font-weight:800;color:#087a4c;margin-top:6px}
+.ctaBox{border:1px solid #cee7da;border-radius:20px;background:linear-gradient(135deg,#effaf5,#fff);padding:34px}
+.ctaBox p{max-width:760px}
+@media(max-width:1050px){.cardGrid,.steps{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}}
+@media(max-width:640px){.cardGrid,.steps,.checklist{grid-template-columns:1fr}.heroImage{min-height:220px}}

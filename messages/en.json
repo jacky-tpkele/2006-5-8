@@ -37,7 +37,7 @@
       "rcbo": "RCBO",
       "spd": "SPD",
       "ats": "ATS",
-      "combinerBox": "PV Combiner Box",
+      "combinerBox": "Distribution Boxes",
       "voltageProtector": "Voltage Protector",
       "energyMeter": "Energy Meter"
     },
@@ -46,7 +46,7 @@
       "rcbo": "Residual current breakers with overcurrent protection for distribution boards.",
       "spd": "AC and solar DC surge protective devices for electrical systems.",
       "ats": "Automatic transfer switches for mains and backup power.",
-      "combinerBox": "Plastic and metal PV combiner box series for solar installations.",
+      "combinerBox": "PV combiner, DC, AC and ATS boxes built to your single-line diagram.",
       "voltageProtector": "DIN-rail over- and under-voltage protection across the PN2 range.",
       "energyMeter": "DIN-rail energy meters and digital display instruments."
     },
@@ -63,7 +63,11 @@
       "stq1": "STQ1 Series",
       "stq2": "STQ2 Series",
       "plasticBox": "Plastic Box Series",
-      "metalBox": "Metal Box Series"
+      "metalBox": "Metal Box Series",
+      "pvCombinerBox": "PV Combiner Box",
+      "dcDistributionBox": "DC Distribution Box",
+      "acDistributionBox": "AC Distribution Box",
+      "atsPanel": "ATS Panel"
     }
   },
   "megaMenu": {
@@ -285,7 +289,8 @@
     "parameterCategory": "Parameter Category",
     "keySpecifications": "Key Specifications",
     "parameter": "Parameter",
-    "requirement": "Common Requirement"
+    "requirement": "Common Requirement",
+    "faq": "Frequently Asked Questions"
   },
   "form": {
     "name": "Name",
@@ -318,6 +323,7 @@
     "view": "View"
   },
   "categoryPage": {
+    "requestQuote": "Request a Quote",
     "specifications": "Technical Specifications",
     "applications": "Applications",
     "whyChoose": "Why Choose TPKELE",

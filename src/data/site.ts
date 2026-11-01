@@ -3056,10 +3056,12 @@ export const productMenu: ProductMenuGroup[] = [
   },
   {
     label: "Combiner Box",
-    href: "/products/category/combiner-box",
+    href: "/products/distribution-boxes",
     children: [
-      { label: "Plastic Box Series", href: "/products/category/combiner-box?series=Plastic%20Box%20Series" },
-      { label: "Metal Box Series", href: "/products/category/combiner-box?series=Metal%20Box%20Series" },
+      { label: "PV Combiner Box", href: "/products/combiner-box" },
+      { label: "DC Distribution Box", href: "/products/dc-distribution-box" },
+      { label: "AC Distribution Box", href: "/products/ac-distribution-box" },
+      { label: "ATS Panel", href: "/products/ats-panel" },
     ],
   },
   {

@@ -37,7 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CombinerBoxCategoryPage({ params }: PageProps) {
   const { locale } = await params;
   const t = await getTranslations("common");
+  const tNav = await getTranslations("productNav");
   const category = "Combiner Box";
+  const categoryLabel = tNav("links.pvCombinerBox");
   const content = getCategoryContent(category, locale);
   const items = getProducts(locale).filter((p) => p.parentCategory === category);
   const heroImage = items[0]?.image;
@@ -63,16 +65,18 @@ export default async function CombinerBoxCategoryPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <nav className="slim-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
+        <Link href="/">{t("home")}</Link>
         <span aria-hidden="true">/</span>
-        <Link href="/products">Products</Link>
+        <Link href="/products">{t("products")}</Link>
         <span aria-hidden="true">/</span>
-        <span className="current">{category}</span>
+        <Link href="/products/distribution-boxes">{tNav("categories.combinerBox")}</Link>
+        <span aria-hidden="true">/</span>
+        <span className="current">{categoryLabel}</span>
       </nav>
 
       <section className="section category-hero">
         <div>
-          <p className="eyebrow">{category}</p>
+          <p className="eyebrow">{categoryLabel}</p>
           <h1>{content.hero}</h1>
           <p className="detail-copy">{content.intro}</p>
           <ul className="spec-list">
@@ -106,10 +110,23 @@ export default async function CombinerBoxCategoryPage({ params }: PageProps) {
         categorySlug="combiner-box"
       />
 
+      <section className="section">
+        <div className="inline-cta-card">
+          <p>
+            {locale === "ru"
+              ? "Нужен щит постоянного тока, переменного тока или АВР по вашей схеме?"
+              : "Need a DC distribution, AC distribution or ATS box built to your drawing?"}
+          </p>
+          <Link className="btn primary" href="/products/distribution-boxes">
+            {locale === "ru" ? "Все распределительные щиты →" : "View all distribution boxes →"}
+          </Link>
+        </div>
+      </section>
+
       {content.faq && content.faq.length > 0 && (
         <section className="section product-faq-section">
           <span className="section-mark" aria-hidden="true" />
-          <h2 className="sub-section-title">Frequently Asked Questions</h2>
+          <h2 className="sub-section-title">{t("faq")}</h2>
           <div className="faq-list">
             {content.faq.map((item) => (
               <details key={item.q} className="faq-item">
