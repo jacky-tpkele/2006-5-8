@@ -1,7 +1,6 @@
 .hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
 .heroImage{border:1px solid #e1e8e4;border-radius:18px;background:#f6f9f7;padding:20px;display:flex;align-items:center;justify-content:center;min-height:320px}
 .heroImage img{width:100%;height:auto;max-height:420px;object-fit:contain}
-.placeholderNote{font-size:12px;color:#7b8998;margin-top:8px;text-align:center}
 .cardGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
 .card{display:flex;flex-direction:column;border:1px solid #e1e8e4;border-radius:16px;padding:22px;background:#fff;text-decoration:none;color:inherit;transition:.2s}
 .card:hover{border-color:#9ed3b8;box-shadow:0 14px 34px rgba(16,66,44,.08);transform:translateY(-2px)}

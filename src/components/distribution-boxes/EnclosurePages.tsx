@@ -83,9 +83,8 @@ export function EnclosureHubPage({ locale }: { locale: string }) {
         </div>
         <div>
           <div className={styles.heroImage}>
-            <Image src="/assets/enclosures/plastic-placeholder.svg" alt={h.label} width={400} height={300} priority unoptimized />
+            <Image src="/assets/enclosures/enclosure-ht.webp" alt={h.label} width={1400} height={788} priority />
           </div>
-          <p className={styles.placeholderNote}>{t.photoNote}</p>
         </div>
       </section>
 
@@ -151,9 +150,8 @@ export function EnclosureSeriesPage({ series, locale }: { series: EnclosureSerie
         </div>
         <div>
           <div className={styles.heroImage}>
-            <Image src={series.image} alt={name} width={400} height={300} priority unoptimized />
+            <Image src={series.image} alt={name} width={1400} height={800} priority unoptimized={series.image.endsWith(".svg")} />
           </div>
-          <p className={styles.placeholderNote}>{t.photoNote}</p>
         </div>
       </section>
 

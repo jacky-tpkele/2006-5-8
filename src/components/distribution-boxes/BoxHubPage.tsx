@@ -53,7 +53,6 @@ export function BoxHubPage({ locale }: { locale: string }) {
           <div className={styles.heroImage}>
             <Image src="/assets/projects/mongolia-layout-1.webp" alt={h.mongoliaCase} width={560} height={260} priority />
           </div>
-          <p className={styles.placeholderNote}>{t.photoNote}</p>
         </div>
       </section>
 

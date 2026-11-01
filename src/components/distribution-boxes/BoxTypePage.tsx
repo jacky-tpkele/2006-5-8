@@ -21,7 +21,6 @@ export const ui = {
     technical: "Ask Technical Question",
     ctaTitle: "Send Your Single-Line Diagram",
     ctaText: "Attach your drawing or equipment list in the inquiry, or email it to",
-    photoNote: "Reference image. Finished box photos coming soon.",
     item: "Item",
     options: "Options",
   },
@@ -40,7 +39,6 @@ export const ui = {
     technical: "Задать технический вопрос",
     ctaTitle: "Пришлите однолинейную схему",
     ctaText: "Приложите схему или перечень оборудования к запросу или отправьте на",
-    photoNote: "Иллюстрация. Фото готовых щитов скоро будут добавлены.",
     item: "Параметр",
     options: "Варианты",
   },
@@ -97,7 +95,6 @@ export function BoxTypePage({ box, locale }: { box: BoxType; locale: string }) {
           <div className={styles.heroImage}>
             <Image src={box.image} alt={c.label} width={560} height={420} priority />
           </div>
-          <p className={styles.placeholderNote}>{t.photoNote}</p>
         </div>
       </section>
 

@@ -26,7 +26,6 @@ export type EnclosureSeries = {
   tables: ModelTable[];
 };
 
-const plasticImg = "/assets/enclosures/plastic-placeholder.svg";
 const metalImg = "/assets/enclosures/metal-placeholder.svg";
 
 const sizeHeaders = {
@@ -47,7 +46,7 @@ export const enclosureSeries: EnclosureSeries[] = [
     slug: "enclosure-ht",
     code: "HT",
     group: "plastic",
-    image: plasticImg,
+    image: "/assets/enclosures/enclosure-ht.webp",
     name: { en: "HT Waterproof Distribution Box", ru: "Влагозащищённый щит HT" },
     summary: { en: "IP65 ABS enclosure, 2 to 24 ways.", ru: "Корпус ABS IP65, от 2 до 24 модулей." },
     intro: {
@@ -86,7 +85,7 @@ export const enclosureSeries: EnclosureSeries[] = [
     slug: "enclosure-ha",
     code: "HA",
     group: "plastic",
-    image: plasticImg,
+    image: "/assets/enclosures/enclosure-ha.webp",
     name: { en: "HA Waterproof Distribution Box", ru: "Влагозащищённый щит HA" },
     summary: { en: "IP65 ABS enclosure, 4 to 24 ways.", ru: "Корпус ABS IP65, от 4 до 24 модулей." },
     intro: {
@@ -121,7 +120,7 @@ export const enclosureSeries: EnclosureSeries[] = [
     slug: "enclosure-hv",
     code: "HV",
     group: "plastic",
-    image: plasticImg,
+    image: "/assets/enclosures/enclosure-hv.webp",
     name: { en: "HV Waterproof Distribution Box", ru: "Влагозащищённый щит HV" },
     summary: { en: "IP65 ABS enclosure, 4 to 36 ways.", ru: "Корпус ABS IP65, от 4 до 36 модулей." },
     intro: {
@@ -158,7 +157,7 @@ export const enclosureSeries: EnclosureSeries[] = [
     slug: "enclosure-ms-mf",
     code: "TPMS / TPMF",
     group: "plastic",
-    image: plasticImg,
+    image: "/assets/enclosures/enclosure-ms-mf.webp",
     name: { en: "TPMS / TPMF Indoor Distribution Box", ru: "Щиты для помещений TPMS / TPMF" },
     summary: { en: "IP50 ABS box with transparent PC door, 2 to 36 ways.", ru: "Корпус ABS IP50 с прозрачной дверцей PC, от 2 до 36 модулей." },
     intro: {
