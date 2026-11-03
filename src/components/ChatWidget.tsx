@@ -65,7 +65,7 @@ export function ChatWidget() {
   // 轮询新消息
   useEffect(() => {
     if (!sessionId) return;
-    const id = setInterval(() => { pollNewMessages(); }, 3500);
+    const id = setInterval(() => { pollNewMessages(); }, 10000);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);

@@ -2,7 +2,7 @@ import { blogPosts as staticBlogPosts, type BlogPost as StaticBlogPost } from "@
 import type { RichBlogArticle } from "@/data/blog/rcbo-au-nz-guide";
 import { getRichBlogArticles } from "@/data/blog/rcbo-au-nz-guide";
 
-export const BLOG_REVALIDATE_SECONDS = 30;
+export const BLOG_REVALIDATE_SECONDS = 3600;
 export const DEFAULT_BLOG_IMAGE = "/assets/blog/default.webp";
 
 // 新的 slug 到标签的映射（英文回退，UI 请用 getBlogCategoryLabels）
