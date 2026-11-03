@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { componentById, defaultSpecs, seriesByCode, type Flow } from "@/data/box-configurator";
 import { copy } from "./copy";
 import { ComponentPicker } from "./ComponentPicker";
+import { CircuitStructureStep } from "./CircuitStructureStep";
 import { ContactPanel } from "./ContactPanel";
 import { EnclosureStep } from "./EnclosureStep";
 import { QuantityStep } from "./QuantityStep";
@@ -194,6 +195,7 @@ export function Configurator({ locale }: { locale: string }) {
                     <ComponentPicker line={line} set={set} t={t} lang={lang} />
                   </>
                 ) : null}
+                {custom && step === 2 ? <CircuitStructureStep line={line} set={set} t={t} lang={lang} /> : null}
                 {last ? <QuantityStep line={line} set={set} t={t} lang={lang} /> : null}
               </div>
 

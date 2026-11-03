@@ -195,6 +195,11 @@
 @keyframes snap{from{opacity:0;transform:translateY(-16px) scale(.96)}to{opacity:1;transform:none}}
 .railWarn{margin:12px 0 0;font-size:12.5px;line-height:1.5;color:#ffb4a8}
 .railDisclaimer{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:#f0f9ff;border:1px solid #bae6fd;color:#075985;font-size:12.5px;line-height:1.5}
+.circuitLegend{margin:12px 0 0;padding:12px 14px;border-radius:10px;background:var(--wash);border:1px solid var(--line)}
+.circuitLegend strong{display:block;margin-bottom:8px;font-size:13px}
+.circuitLegend ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.circuitLegend li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.circuitDot{flex:none;width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.1)}
 .railInline{display:none;margin-bottom:18px}
 
 /* ---- Empty box summary card ---- */
@@ -347,6 +352,28 @@
 .modalImg img{max-width:70px;max-height:70px;object-fit:contain}
 .modalBody .qtyRow{margin-top:8px;padding-top:16px;border-top:1px dashed var(--line)}
 .modalFooter{display:flex;justify-content:flex-end;gap:8px;padding:16px 28px;border-top:1px solid var(--line)}
+
+/* ---- Circuit Structure Step ---- */
+.circuitStep{display:grid;gap:20px}
+.circuitHeader h3{margin:0 0 6px;font-size:18px;font-weight:800}
+.circuitEmpty{text-align:center;padding:40px 20px;border:2px dashed var(--line);border-radius:18px;background:var(--wash)}
+.circuitEmpty p{margin:0 0 16px;color:var(--muted)}
+.circuitList{display:grid;gap:12px}
+.circuitCard{padding:16px 18px;border:1.5px solid var(--line);border-radius:16px;background:#fff;transition:.2s}
+.circuitCard[data-main="true"]{background:linear-gradient(135deg,#eaf8ef,#f0fdf4);border-color:#7ee2a5}
+.circuitCard.active{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.circuitCardHead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.circuitCardHead strong{font-size:15px;cursor:pointer}
+.circuitCardHead strong:hover{color:var(--green)}
+.circuitInput{flex:1;padding:6px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:15px;font-weight:700}
+.circuitCard small{font-size:13px;color:var(--muted)}
+.assignArea{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.assignLabel{margin:0 0 10px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.assignGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.assignItem{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:13px;text-align:left;transition:.2s}
+.assignItem:hover{border-color:#b9dcc7;background:var(--wash)}
+.assignItem.active{border-color:var(--green);background:var(--green-soft);font-weight:600}
+.circuitActions{display:flex;gap:8px}
 
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes modalSlide{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}

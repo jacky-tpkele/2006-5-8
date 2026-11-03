@@ -10,6 +10,13 @@ import type { BoxLocale } from "@/data/distribution-boxes";
 
 export type Item = { uid: string; id: string; specs: Record<string, string>; qty: number };
 
+/** Circuit structure: main busbar → sub-circuits */
+export type Circuit = {
+  uid: string;
+  label: string; // User-defined label, e.g., "Living Room", "Kitchen"
+  itemUids: string[]; // Items assigned to this circuit
+};
+
 export type Line = {
   uid: string;
   flow: Flow;
@@ -25,6 +32,8 @@ export type Line = {
   qty: number;
   extras: string[];
   notes: string;
+  /** Circuit structure: if undefined, all items are on main busbar */
+  circuits?: Circuit[];
 };
 
 export const uid = () => Math.random().toString(36).slice(2, 10);

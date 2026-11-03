@@ -18,6 +18,9 @@ export function RailPreview({ line, t, lang }: { line: Line; t: Copy; lang: "en"
   const { used, capacity, rec } = boxFit(line);
   const units: Unit[] = [];
   const sorted = sortedItems(line.items);
+  const circuits = line.circuits ?? [];
+  const hasCircuits = circuits.length > 0;
+
   for (const item of sorted) {
     const def = componentById(item.id);
     if (!def) continue;
@@ -112,6 +115,20 @@ export function RailPreview({ line, t, lang }: { line: Line; t: Copy; lang: "en"
         <p className={s.railDisclaimer}>
           ⚠️ {lang === "ru" ? "Схема проводки приведена для справки. Инженер TPKELE проверит логику подключения и соответствие перед составлением коммерческого предложения." : "Wiring preview for reference only. A TPKELE engineer will verify circuit logic and compliance before quotation."}
         </p>
+      ) : null}
+      {hasCircuits ? (
+        <div className={s.circuitLegend}>
+          <strong>{lang === "ru" ? "Структура цепей:" : "Circuit Structure:"}</strong>
+          <ul>
+            {circuits.map((circuit, i) => (
+              <li key={circuit.uid}>
+                <span className={s.circuitDot} style={{ background: `hsl(${i * 60}, 70%, 50%)` }} />
+                {circuit.label || `${lang === "ru" ? "Цепь" : "Circuit"} ${i + 1}`}
+                {` (${circuit.itemUids.length} ${lang === "ru" ? "компонент(ов)" : circuit.itemUids.length === 1 ? "component" : "components"})`}
+              </li>
+            ))}
+          </ul>
+        </div>
       ) : null}
     </div>
   );
