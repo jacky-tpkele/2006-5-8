@@ -138,7 +138,7 @@ export type SpecGroup = {
   wide?: boolean;
 };
 
-export type Kind = "mcb" | "rcbo" | "rccb" | "spd" | "meter" | "vp" | "ats" | "smart" | "fuse" | "isolator" | "acc";
+export type Kind = "mcb" | "mccb" | "rcbo" | "rccb" | "spd" | "meter" | "vp" | "ats" | "contactor" | "smart" | "fuse" | "isolator" | "acc";
 
 export type ComponentDef = {
   id: string;
@@ -230,6 +230,8 @@ const spdImax: SpecGroup = {
 };
 
 const g = (p: string) => `/assets/products/gallery/${p}`;
+/** Component photos supplied for the configurator (caption cropped, 480px WebP). */
+const cfg = (n: string) => `/assets/configurator/${n}.webp`;
 
 export const components: ComponentDef[] = [
   /* ---- AC ---- */
@@ -239,7 +241,7 @@ export const components: ComponentDef[] = [
     kind: "mcb",
     name: { en: "AC MCB", ru: "Автомат AC" },
     desc: { en: "Overload & short-circuit protection, IEC 60898-1", ru: "Защита от перегрузки и КЗ, IEC 60898-1" },
-    image: g("ac-mcb-1p-1.webp"),
+    image: cfg("ac-mcb"),
     href: "/products/ac-mcb",
     specs: [
       poles(["1P", "1P+N", "2P", "3P", "3P+N", "4P"], "1P"),
@@ -251,12 +253,63 @@ export const components: ComponentDef[] = [
     badge: (s) => `${s.curve}${ampNum(s)}`,
   },
   {
+    id: "mccb",
+    flow: "ac",
+    kind: "mccb",
+    name: { en: "MCCB (Molded Case Circuit Breaker)", ru: "Автомат в литом корпусе (MCCB)" },
+    desc: { en: "High-current circuit breaker, 63–1600A, IEC 60947-2", ru: "Силовой автомат, 63–1600А, IEC 60947-2" },
+    image: cfg("mccb"),
+    specs: [
+      poles(["3P", "4P"], "3P"),
+      {
+        key: "frame",
+        label: { en: "Frame size", ru: "Размер корпуса" },
+        options: [
+          { v: "100A frame", note: { en: "63–100A", ru: "63–100А" } },
+          { v: "225A frame", note: { en: "125–225A", ru: "125–225А" } },
+          { v: "400A frame", note: { en: "250–400A", ru: "250–400А" } },
+          { v: "630A frame", note: { en: "400–630A", ru: "400–630А" } },
+        ],
+        def: "225A frame",
+      },
+      {
+        key: "amps",
+        label: { en: "Rated current", ru: "Номинальный ток" },
+        options: [63, 80, 100, 125, 160, 200, 225, 250, 315, 400, 500, 630].map((a) => ({ v: `${a}A` })),
+        def: "160A",
+        wide: true,
+      },
+      {
+        key: "icn",
+        label: { en: "Breaking capacity Icu", ru: "Отключающая способность Icu" },
+        options: [
+          { v: "25kA", tier: 1 },
+          { v: "35kA", tier: 2 },
+          { v: "50kA", tier: 3 },
+          { v: "65kA", tier: 4 },
+        ],
+        def: "35kA",
+      },
+    ],
+    modules: (s) => {
+      const p = s.poles === "4P" ? 4 : 3;
+      const frame = s.frame || "225A frame";
+      if (frame.startsWith("100A")) return p * 1.5;
+      if (frame.startsWith("225A")) return p * 2;
+      return 0; // >225A: off-rail, mounted separately
+    },
+    badge: (s) => {
+      const a = parseInt(s.amps || "0", 10);
+      return a > 0 ? `${a}A` : "MCCB";
+    },
+  },
+  {
     id: "rcbo",
     flow: "ac",
     kind: "rcbo",
     name: { en: "RCBO", ru: "АВДТ (RCBO)" },
     desc: { en: "Earth leakage + overcurrent in one 18mm module", ru: "Защита от утечки и сверхтока в одном модуле 18 мм" },
-    image: "/assets/products/rcbo-1pn-18mm/rcbo-1pn-18mm-front.webp",
+    image: cfg("rcbo"),
     href: "/products/rcbo-australia-new-zealand",
     specs: [
       amps([6, 10, 16, 20, 25, 32, 40], 20),
@@ -286,7 +339,7 @@ export const components: ComponentDef[] = [
     kind: "rccb",
     name: { en: "RCCB (RCD)", ru: "УЗО (RCCB)" },
     desc: { en: "Earth leakage protection for a group of circuits", ru: "Защита от утечки для группы линий" },
-    image: "/assets/navigation/rcbo.webp",
+    image: cfg("rccb"),
     specs: [
       poles(["2P", "4P"], "2P"),
       amps([25, 40, 63, 80, 100], 40),
@@ -312,7 +365,7 @@ export const components: ComponentDef[] = [
     kind: "spd",
     name: { en: "AC Surge Protector (SPD)", ru: "УЗИП AC" },
     desc: { en: "Lightning & switching surge protection, IEC 61643-11", ru: "Защита от грозовых и коммутационных перенапряжений" },
-    image: g("ac-spd-4p-1.webp"),
+    image: cfg("ac-spd"),
     href: "/products/ac-spd",
     specs: [
       {
@@ -343,7 +396,7 @@ export const components: ComponentDef[] = [
     kind: "meter",
     name: { en: "DIN-Rail Energy Meter", ru: "Счётчик на DIN-рейку" },
     desc: { en: "kWh metering, optional RS485 / Modbus", ru: "Учёт кВт·ч, опционально RS485 / Modbus" },
-    image: g("dds-series-energy-meter-1.webp"),
+    image: cfg("energy-meter"),
     href: "/products/energy-meter",
     specs: [
       {
@@ -378,7 +431,7 @@ export const components: ComponentDef[] = [
     kind: "vp",
     name: { en: "Over/Under Voltage Protector", ru: "Реле напряжения" },
     desc: { en: "Self-resetting, voltage + current display", ru: "Автовозврат, индикация напряжения и тока" },
-    image: g("pn2-va2-1.webp"),
+    image: cfg("voltage-protector"),
     href: "/products/voltage-protector",
     specs: [
       {
@@ -393,12 +446,63 @@ export const components: ComponentDef[] = [
     badge: () => "V",
   },
   {
+    id: "contactor",
+    flow: "ac",
+    kind: "contactor",
+    name: { en: "AC Contactor", ru: "Контактор AC" },
+    desc: { en: "Electromagnetic contactor for motor control & switching", ru: "Электромагнитный контактор для управления двигателями и коммутации" },
+    image: cfg("contactor"),
+    specs: [
+      poles(["3P", "4P"], "3P"),
+      {
+        key: "amps",
+        label: { en: "Rated current Ie (AC-3)", ru: "Номинальный ток Ie (AC-3)" },
+        options: [9, 12, 18, 25, 32, 40, 50, 65, 80, 95].map((a) => ({ v: `${a}A` })),
+        def: "32A",
+        wide: true,
+      },
+      {
+        key: "coil",
+        label: { en: "Coil voltage", ru: "Напряжение катушки" },
+        options: [
+          { v: "24V AC" },
+          { v: "110V AC" },
+          { v: "230V AC", note: { en: "Most common", ru: "Наиболее распространённый" } },
+          { v: "400V AC" },
+          { v: "24V DC" },
+        ],
+        def: "230V AC",
+      },
+      {
+        key: "aux",
+        label: { en: "Auxiliary contacts", ru: "Вспомогательные контакты" },
+        options: [
+          { v: "None" },
+          { v: "1NO+1NC" },
+          { v: "2NO+2NC" },
+        ],
+        def: "1NO+1NC",
+      },
+    ],
+    modules: (s) => {
+      const p = s.poles === "4P" ? 4 : 3;
+      const a = parseInt(s.amps || "0", 10);
+      if (a <= 32) return p * 1.5;
+      if (a <= 65) return p * 2;
+      return 0; // >65A: typically off-rail
+    },
+    badge: (s) => {
+      const a = parseInt(s.amps || "0", 10);
+      return `K${a}`;
+    },
+  },
+  {
     id: "ats",
     flow: "ac",
     kind: "ats",
     name: { en: "Dual-Power ATS", ru: "АВР (ATS)" },
     desc: { en: "Automatic changeover mains / generator / inverter", ru: "Автоматическое переключение сеть / генератор / инвертор" },
-    image: g("ats-st-2p-1.webp"),
+    image: cfg("ats"),
     href: "/products/ats",
     specs: [poles(["2P", "3P", "4P"], "2P"), amps([16, 25, 32, 40, 50, 63, 80, 100, 125], 63)],
     modules: (s) => (s.poles === "2P" ? 4 : s.poles === "3P" ? 5 : 6),
@@ -432,7 +536,7 @@ export const components: ComponentDef[] = [
     kind: "mcb",
     name: { en: "DC MCB", ru: "Автомат DC" },
     desc: { en: "PV string, battery & DC bus protection, IEC 60947-2", ru: "Защита стрингов, АКБ и шины DC, IEC 60947-2" },
-    image: g("dc-mcb-1p-1.webp"),
+    image: cfg("dc-mcb"),
     href: "/products/dc-mcb",
     specs: [
       poles(["1P", "2P", "3P", "4P"], "2P"),
@@ -457,7 +561,7 @@ export const components: ComponentDef[] = [
     kind: "spd",
     name: { en: "DC Surge Protector (SPD)", ru: "УЗИП DC" },
     desc: { en: "PV & DC surge protection, IEC 61643-31", ru: "Защита СЭС и цепей DC, IEC 61643-31" },
-    image: "/assets/products/dc-spd-2p-product.webp",
+    image: cfg("dc-spd"),
     href: "/products/dc-spd",
     specs: [
       {

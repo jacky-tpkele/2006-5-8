@@ -121,3 +121,35 @@ export function track(event: string, params: Record<string, unknown> = {}) {
   const w = window as unknown as { gtag?: (...a: unknown[]) => void };
   w.gtag?.("event", event, params);
 }
+
+/** Smart sorting: SPD → Main MCB (large poles/amps) → Branch MCBs → Meters → Others */
+export function sortedItems(items: Item[]): Item[] {
+  const priority = (item: Item): number => {
+    const def = componentById(item.id);
+    if (!def) return 999;
+    // Kind priority: spd=0, mcb/mccb/rcbo/rccb=1, meter=8, others=5
+    const kindOrder: Record<string, number> = {
+      spd: 0,
+      mcb: 1,
+      mccb: 1,
+      rcbo: 1,
+      rccb: 1,
+      meter: 8,
+      vp: 5,
+      ats: 5,
+      contactor: 5,
+      smart: 5,
+      fuse: 5,
+      isolator: 5,
+      acc: 9,
+    };
+    const kindP = kindOrder[def.kind] ?? 5;
+    // Within same kind: sort by poles desc, then amps desc
+    const poles = item.specs.poles || "1P";
+    const poleNum = poles === "1P+N" ? 2 : Number(poles[0]) + (poles.includes("+N") ? 1 : 0);
+    const amps = parseInt(item.specs.amps || "0", 10);
+    // Encode as: kindP * 100000 + (99 - poleNum) * 1000 + (9999 - amps)
+    return kindP * 100000 + (99 - poleNum) * 1000 + (9999 - amps);
+  };
+  return [...items].sort((a, b) => priority(a) - priority(b));
+}
