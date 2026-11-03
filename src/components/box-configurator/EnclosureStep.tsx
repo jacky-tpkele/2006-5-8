@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { configSeries, seriesByCode, type Material } from "@/data/box-configurator";
@@ -55,6 +56,19 @@ function MetalFields({ line, set, t }: Omit<Props, "part" | "lang">) {
 function SeriesAndSize({ line, set, t, lang }: Omit<Props, "part">) {
   const list = configSeries.filter((x) => x.material === "abs" && (line.flow === "empty" || line.install === "indoor" || !x.indoorOnly));
   const series = line.series ? seriesByCode(line.series) : undefined;
+  const [sizeModal, setSizeModal] = React.useState<string | null>(null);
+
+  const modalSeries = sizeModal ? seriesByCode(sizeModal) : null;
+
+  const handleSeriesClick = (code: string) => {
+    setSizeModal(code);
+  };
+
+  const handleSizeSelect = (model: string) => {
+    set({ series: sizeModal!, model });
+    setSizeModal(null);
+  };
+
   return (
     <>
       <span className={s.label}>{t.series}</span>
@@ -62,7 +76,7 @@ function SeriesAndSize({ line, set, t, lang }: Omit<Props, "part">) {
         {list.map((x) => {
           const active = line.series === x.code;
           return (
-            <button type="button" key={x.code} className={`${s.seriesCard} ${active ? s.active : ""}`} onClick={() => set({ series: x.code, model: undefined })} aria-pressed={active}>
+            <button type="button" key={x.code} className={`${s.seriesCard} ${active ? s.active : ""}`} onClick={() => handleSeriesClick(x.code)} aria-pressed={active}>
               <span className={s.seriesImg}><Image src={x.image} alt="" width={160} height={100} /></span>
               <span className={s.seriesBody}>
                 <strong>{x.name[lang]}</strong>
@@ -73,24 +87,33 @@ function SeriesAndSize({ line, set, t, lang }: Omit<Props, "part">) {
           );
         })}
       </div>
-      {series ? (
-        <div className={s.sizeWrap} key={series.code}>
-          <div className={s.labelRow}>
-            <span className={s.label}>{t.pickSize}</span>
-            {series.href ? <Link href={series.href} target="_blank" className={s.textLink}>{t.view} ↗</Link> : null}
-          </div>
-          <div className={s.sizeGrid}>
-            {series.sizes.map((z) => {
-              const active = line.model === z.model;
-              return (
-                <button type="button" key={z.model} className={`${s.sizeCard} ${active ? s.active : ""}`} onClick={() => set({ model: z.model })} aria-pressed={active}>
-                  <strong>{z.ways}</strong>
-                  <span>{t.ways}</span>
-                  <small>{z.model}</small>
-                  {z.dims ? <em>{z.dims}</em> : null}
-                </button>
-              );
-            })}
+
+      {/* Size selection modal */}
+      {sizeModal && modalSeries ? (
+        <div className={s.modalOverlay} onClick={() => setSizeModal(null)}>
+          <div className={s.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div className={s.modalHeader}>
+              <h3>{modalSeries.name[lang]}</h3>
+              <button type="button" className={s.modalClose} onClick={() => setSizeModal(null)} aria-label="Close">×</button>
+            </div>
+            <div className={s.modalBody}>
+              <p className={s.modalLabel}>{t.pickSize}</p>
+              <div className={s.sizeGrid}>
+                {modalSeries.sizes.map((z) => (
+                  <button type="button" key={z.model} className={s.sizeCard} onClick={() => handleSizeSelect(z.model)}>
+                    <strong>{z.ways}</strong>
+                    <span>{t.ways}</span>
+                    <small>{z.model}</small>
+                    {z.dims ? <em>{z.dims}</em> : null}
+                  </button>
+                ))}
+              </div>
+              {modalSeries.href ? (
+                <Link href={modalSeries.href} target="_blank" className={s.textLink}>
+                  {t.view} ↗
+                </Link>
+              ) : null}
+            </div>
           </div>
         </div>
       ) : null}

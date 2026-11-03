@@ -323,7 +323,24 @@
   .compGrid{grid-template-columns:repeat(2,1fr)}
   .editor{padding:16px;margin-left:-6px;margin-right:-6px}
   .optCards{grid-template-columns:1fr 1fr}
+  .modalContent{max-width:calc(100vw - 24px);max-height:calc(100vh - 24px);margin:12px}
 }
+
+/* ---- Modal overlay for size selection ---- */
+.modalOverlay{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:rgba(7,16,17,.65);backdrop-filter:blur(4px);animation:fadeIn .25s var(--ease)}
+.modalContent{position:relative;width:min(720px,calc(100vw - 48px));max-height:calc(100vh - 96px);background:#fff;border-radius:22px;box-shadow:0 24px 60px rgba(7,16,17,.25);display:flex;flex-direction:column;animation:modalSlide .35s var(--ease) both}
+.modalHeader{display:flex;justify-content:space-between;align-items:center;padding:24px 28px 16px;border-bottom:1px solid var(--line)}
+.modalHeader h3{margin:0;font-size:20px;font-weight:800}
+.modalClose{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;border:0;background:var(--wash);font-size:28px;line-height:1;color:var(--muted);transition:.2s;display:grid;place-items:center}
+.modalClose:hover{background:#e0e7e4;color:var(--ink);transform:rotate(90deg)}
+.modalBody{padding:24px 28px 28px;overflow-y:auto}
+.modalLabel{margin:0 0 16px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.modalBody .sizeGrid{margin-bottom:20px}
+.modalBody .textLink{display:inline-block;margin-top:8px}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes modalSlide{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+
 @media (prefers-reduced-motion:reduce){
   .root *{animation:none!important;transition:none!important}
 }
