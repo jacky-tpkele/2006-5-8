@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { componentById } from "@/data/box-configurator";
 import type { Copy } from "./copy";
-import { uid, type Circuit, type Line } from "./model";
+import { circuitColor, uid, type Circuit, type Line } from "./model";
 import s from "./configurator.module.css";
 
 type Props = { line: Line; set: (patch: Partial<Line>) => void; t: Copy; lang: "en" | "ru" };
@@ -59,7 +59,7 @@ export function CircuitStructureStep({ line, set, t, lang }: Props) {
 
       {circuits.length === 0 ? (
         <div className={s.circuitEmpty}>
-          <p>{lang === "en" ? "No circuits defined. All components will be on the main busbar." : "Цепи не заданы. Все компоненты будут на главной шине."}</p>
+          <p>{t.noCircuitsYet}</p>
           <button type="button" className={s.primaryBtn} onClick={addCircuit}>
             + {t.addCircuit}
           </button>
@@ -69,19 +69,16 @@ export function CircuitStructureStep({ line, set, t, lang }: Props) {
           <div className={s.circuitList}>
             <div className={s.circuitCard} data-main="true">
               <strong>{t.mainBusbar}</strong>
-              <small>
-                {lang === "en"
-                  ? `${unassigned.length} unassigned ${unassigned.length === 1 ? "component" : "components"}`
-                  : `${unassigned.length} неназначенных компонент(ов)`}
-              </small>
+              <small>{t.unassignedCount(unassigned.length)}</small>
             </div>
 
-            {circuits.map((circuit) => {
+            {circuits.map((circuit, ci) => {
               const isEditing = editingCircuit === circuit.uid;
               const itemsInCircuit = line.items.filter((item) => circuit.itemUids.includes(item.uid));
               return (
                 <div key={circuit.uid} className={`${s.circuitCard} ${isEditing ? s.active : ""}`}>
                   <div className={s.circuitCardHead}>
+                    <span className={s.railSegDot} style={{ background: circuitColor(ci) }} />
                     {isEditing ? (
                       <input
                         type="text"
@@ -92,17 +89,13 @@ export function CircuitStructureStep({ line, set, t, lang }: Props) {
                         autoFocus
                       />
                     ) : (
-                      <strong onClick={() => setEditingCircuit(circuit.uid)}>{circuit.label || `${t.circuitLabel} ${circuits.indexOf(circuit) + 1}`}</strong>
+                      <strong onClick={() => setEditingCircuit(circuit.uid)}>{circuit.label || t.circuitDefaultLabel(circuits.indexOf(circuit) + 1)}</strong>
                     )}
                     <button type="button" className={s.iconBtn} onClick={() => deleteCircuit(circuit.uid)} aria-label={t.deleteCircuit}>
                       ×
                     </button>
                   </div>
-                  <small>
-                    {lang === "en"
-                      ? `${itemsInCircuit.length} ${itemsInCircuit.length === 1 ? "component" : "components"}`
-                      : `${itemsInCircuit.length} компонент(ов)`}
-                  </small>
+                  <small>{t.circuitItemCount(itemsInCircuit.length)}</small>
                   {isEditing ? (
                     <div className={s.assignArea}>
                       <p className={s.assignLabel}>{t.assignItems}</p>
@@ -134,6 +127,9 @@ export function CircuitStructureStep({ line, set, t, lang }: Props) {
           <div className={s.circuitActions}>
             <button type="button" className={s.ghostBtn} onClick={addCircuit}>
               + {t.addCircuit}
+            </button>
+            <button type="button" className={s.linkBtn} onClick={skipCircuits}>
+              {t.skipCircuits}
             </button>
           </div>
         </>

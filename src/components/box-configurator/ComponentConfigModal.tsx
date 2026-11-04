@@ -96,6 +96,8 @@ export function ComponentConfigModal({ def, initialSpecs, initialQty, lang, t, i
             </fieldset>
           ))}
 
+          {def.modules(specs) === 0 ? <p className={s.notice}>{t.offRailNotice}</p> : null}
+
           <div className={s.qtyRow}>
             <span className={s.label}>
               {t.qty} <small>({t.perBox})</small>

@@ -175,7 +175,7 @@ export function Configurator({ locale }: { locale: string }) {
                   const state = i < step ? s.done : i === step ? s.current : "";
                   const reachable = i <= step || (i === step + 1 && ok);
                   return (
-                    <li key={label} className={state}>
+                    <li key={i} className={state}>
                       <button type="button" disabled={!reachable} onClick={() => reachable && goStep(i)}>
                         <span className={s.num}>{i < step ? "✓" : i + 1}</span>
                         <span>{label}</span>

@@ -58,6 +58,16 @@ export function itemModules(item: Item) {
   return def ? def.modules(item.specs) * item.qty : 0;
 }
 
+/** Drop uids from every circuit that no longer exist in `items`. Call after removing/replacing items. */
+export function pruneCircuits(circuits: Circuit[] | undefined, items: Item[]): Circuit[] | undefined {
+  if (!circuits) return circuits;
+  const live = new Set(items.map((i) => i.uid));
+  return circuits.map((c) => ({ ...c, itemUids: c.itemUids.filter((id) => live.has(id)) }));
+}
+
+/** Stable accent color per circuit index, shared by the Circuit Structure step and the rail preview. */
+export const circuitColor = (i: number) => `hsl(${(i * 60) % 360}, 65%, 45%)`;
+
 export function usedModules(line: Line) {
   return line.items.reduce((sum, i) => sum + itemModules(i), 0);
 }
@@ -114,7 +124,25 @@ export function lineToText(line: Line, index: number) {
   if (line.flow !== "empty") {
     out.push(`Installation: ${line.install}`);
     if (line.engineerPicks && line.items.length === 0) out.push("Components: please recommend");
-    else {
+    else if (line.circuits && line.circuits.length > 0) {
+      const byUid = new Map(line.items.map((i) => [i.uid, i]));
+      const assigned = new Set(line.circuits.flatMap((c) => c.itemUids));
+      out.push("Circuit structure:");
+      line.circuits.forEach((c, idx) => {
+        const label = c.label.trim() || `Circuit ${idx + 1}`;
+        out.push(`  [${label}]`);
+        for (const itemUid of c.itemUids) {
+          const i = byUid.get(itemUid);
+          if (i) out.push(`    - ${componentById(i.id)?.name.en} | ${specText(i)} | x${i.qty}`);
+        }
+      });
+      const rest = line.items.filter((i) => !assigned.has(i.uid));
+      if (rest.length) {
+        out.push("  [Main busbar / unassigned]");
+        for (const i of rest) out.push(`    - ${componentById(i.id)?.name.en} | ${specText(i)} | x${i.qty}`);
+      }
+      out.push(`DIN modules used: ${usedModules(line)}`);
+    } else {
       out.push("Components per box:");
       for (const i of line.items) out.push(`  - ${componentById(i.id)?.name.en} | ${specText(i)} | x${i.qty}`);
       out.push(`DIN modules used: ${usedModules(line)}`);

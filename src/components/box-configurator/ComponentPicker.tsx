@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { componentById, components, defaultSpecs, type ComponentDef } from "@/data/box-configurator";
 import type { Copy } from "./copy";
-import { specText, uid, type Item, type Line } from "./model";
+import { pruneCircuits, specText, uid, type Item, type Line } from "./model";
 import { Stepper } from "./Stepper";
 import { ComponentConfigModal } from "./ComponentConfigModal";
 import s from "./configurator.module.css";
@@ -92,7 +92,17 @@ export function ComponentPicker({ line, set, t, lang }: Props) {
                     onChange={(qty) => set({ items: line.items.map((x) => (x.uid === i.uid ? { ...x, qty } : x)) })}
                   />
                   <button type="button" className={s.iconBtn} aria-label={t.edit} onClick={() => setDraft({ id: i.id, specs: i.specs, qty: i.qty, editing: i.uid })}>✎</button>
-                  <button type="button" className={s.iconBtn} aria-label={t.remove} onClick={() => set({ items: line.items.filter((x) => x.uid !== i.uid) })}>×</button>
+                  <button
+                    type="button"
+                    className={s.iconBtn}
+                    aria-label={t.remove}
+                    onClick={() => {
+                      const items = line.items.filter((x) => x.uid !== i.uid);
+                      set({ items, circuits: pruneCircuits(line.circuits, items) });
+                    }}
+                  >
+                    ×
+                  </button>
                 </li>
               );
             })}
