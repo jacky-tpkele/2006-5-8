@@ -16,7 +16,18 @@ import {
 } from "@/lib/blog";
 import { renderMarkdownBlockHtml } from "@/lib/markdown";
 import RichBlogArticle from "../components/RichBlogArticle";
-import { getRichBlogArticle, getRichBlogSlugs } from "@/data/blog/rcbo-au-nz-guide";
+import {
+  getRichBlogArticle as getBuiltinRichArticle,
+  getRichBlogSlugs as getBuiltinRichSlugs,
+} from "@/data/blog/rcbo-au-nz-guide";
+import {
+  getRichBlogArticle as getStudioRichArticle,
+  getRichBlogSlugs as getStudioRichSlugs,
+} from "@/data/blog/rich";
+
+// 内置的采购导航式文章 + 工作台静态发布的文章
+const getRichBlogArticle = (slug: string) => getBuiltinRichArticle(slug) ?? getStudioRichArticle(slug);
+const getRichBlogSlugs = () => [...getBuiltinRichSlugs(), ...getStudioRichSlugs()];
 
 type RouteParams = { slug: string; locale: string };
 
@@ -116,7 +127,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: rich.faq.map((item) => ({
+      mainEntity: rich.faq.map((item: { question: string; answer: string }) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: { "@type": "Answer", text: item.answer },
