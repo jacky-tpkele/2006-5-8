@@ -1,6 +1,7 @@
 import { blogPosts as staticBlogPosts, type BlogPost as StaticBlogPost } from "@/data/site";
 import type { RichBlogArticle } from "@/data/blog/rcbo-au-nz-guide";
 import { getRichBlogArticles } from "@/data/blog/rcbo-au-nz-guide";
+import { getRichBlogArticles as getStudioRichArticles } from "@/data/blog/rich";
 
 export const BLOG_REVALIDATE_SECONDS = 3600;
 export const DEFAULT_BLOG_IMAGE = "/assets/blog/default.webp";
@@ -349,7 +350,15 @@ function normalizeRichBlogArticle(article: RichBlogArticle): BlogPost {
 }
 
 export function richBlogPosts(): BlogPost[] {
-  return getRichBlogArticles().map(normalizeRichBlogArticle);
+  const builtin = getRichBlogArticles().map(normalizeRichBlogArticle);
+  // 工作台静态发布的文章：沿用文章自带的分类与卡片封面
+  const studio = getStudioRichArticles().map((article) => ({
+    ...normalizeRichBlogArticle(article),
+    articleType: normalizeBlogCategory(article.category) ?? "selection-guides",
+    image: article.heroImageCard || article.heroImage,
+  }));
+  const seen = new Set(builtin.map((post) => post.slug));
+  return [...builtin, ...studio.filter((post) => !seen.has(post.slug))];
 }
 
 export async function fetchSupabaseBlogRows(
