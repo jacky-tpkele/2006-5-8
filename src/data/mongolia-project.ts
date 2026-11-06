@@ -82,7 +82,7 @@ const en: MongoliaCopy = {
     text: "Distribution box contents from the project bill of materials, followed by the customer-supplied system equipment for context.",
     items: [
       { title: "DC-01 / DC-02 Battery-Side DC Distribution Box", spec: "2P 300A DC MCCB · 12× PG21 cable glands per box", note: "Isolates and protects the 48V LFP battery bank on the DC side of the hybrid inverters.", category: "protection" },
-      { title: "AC-01 AC Distribution Box — 30kW system (11 sets)", spec: "3× 4P 25A AC MCB · 6× 2P 16A AC MCB · 3× 4P 20kA AC SPD · PE busbar · 6× PG21", note: "One 4P breaker and one 4P SPD per inverter output, plus six 2P outgoing feeders, matching the customer single-line diagram.", category: "distribution" },
+      { title: "AC-01 AC Distribution Box — 30kW system", spec: "3× 4P 25A AC MCB · 6× 2P 16A AC MCB · 3× 4P 20kA AC SPD · PE busbar · 6× PG21", note: "One 4P breaker and one 4P SPD per inverter output, plus six 2P outgoing feeders, matching the customer single-line diagram.", category: "distribution" },
       { title: "AC-02 AC Distribution Box — 20kW system", spec: "2× 4P 25A AC MCB · 2× 4P 20kA AC SPD per box", note: "The same per-inverter protection logic applied to the two-inverter system.", category: "distribution" },
       { title: "Hybrid Inverters", spec: "SUN-10K-SG05LP3-EU-SM2 · 10kW three-phase · 3 units (30kW) / 2 units (20kW)", note: "Customer-supplied equipment shown in the single-line diagram.", category: "conversion" },
       { title: "Battery Storage", spec: "B-LFP48-300E · 12× 15.36kWh = 184.32kWh (30kW) / 6× 15.36kWh = 92.16kWh (20kW)", note: "Customer-supplied equipment shown in the single-line diagram.", category: "storage" },
@@ -95,7 +95,7 @@ const en: MongoliaCopy = {
     items: [
       ["Built to the customer drawing", "Box contents follow the customer single-line diagram: one 4P breaker and one 4P SPD per inverter output, plus the outgoing feeders."],
       ["300A battery-side DC isolation", "Each DC box carries a 2P 300A DC MCCB between the LFP battery bank and the hybrid inverters."],
-      ["Repeatable AC-01 build", "The 30kW AC box is built as 11 identical sets, so every site gets the same layout, labeling and spare parts."],
+      ["Repeatable AC-01 build", "The 30kW AC box is built as identical sets, so every site gets the same layout, labeling and spare parts."],
       ["Earthing included", "AC-01 boxes include a PE busbar for SPD and enclosure earthing."],
       ["Cable entry planned", "PG21 cable glands are specified per box: 12 on each DC box, 6 on each AC-01 box."],
       ["UV-printed front panel", "Project panels are UV-printed with the box type and TPKELE branding."],
@@ -124,7 +124,7 @@ const en: MongoliaCopy = {
     title: "Box-by-Box Breakdown and Power Path",
     items: [
       ["DC-01 / DC-02", "2P 300A DC MCCB + 12× PG21 per box"],
-      ["AC-01 (30kW, 11 sets)", "3× 4P 25A AC MCB + 6× 2P 16A AC MCB + 3× 4P 20kA AC SPD + PE busbar + 6× PG21"],
+      ["AC-01 (30kW)", "3× 4P 25A AC MCB + 6× 2P 16A AC MCB + 3× 4P 20kA AC SPD + PE busbar + 6× PG21"],
       ["AC-02 (20kW)", "2× 4P 25A AC MCB + 2× 4P 20kA AC SPD"],
       ["Power path", "PV strings + LFP battery → DC box → 10kW hybrid inverters → AC box (4P MCB + 4P SPD per inverter) → 2P 16A outgoing feeders"],
     ],
@@ -195,7 +195,7 @@ const ru: MongoliaCopy = {
     text: "Состав щитов по спецификации проекта, а также оборудование заказчика для понимания системы.",
     items: [
       { title: "DC-01 / DC-02 — щит постоянного тока на стороне батарей", spec: "Автомат MCCB DC 2P 300 А · 12 кабельных вводов PG21 на щит", note: "Отключает и защищает батареи LFP 48 В на стороне DC гибридных инверторов.", category: "protection" },
-      { title: "AC-01 — щит переменного тока, система 30 кВт (11 комплектов)", spec: "3× автомат AC 4P 25 А · 6× автомат AC 2P 16 А · 3× УЗИП AC 4P 20 кА · шина PE · 6× PG21", note: "Один автомат 4P и один УЗИП 4P на выход каждого инвертора плюс шесть отходящих линий 2P — по однолинейной схеме заказчика.", category: "distribution" },
+      { title: "AC-01 — щит переменного тока, система 30 кВт", spec: "3× автомат AC 4P 25 А · 6× автомат AC 2P 16 А · 3× УЗИП AC 4P 20 кА · шина PE · 6× PG21", note: "Один автомат 4P и один УЗИП 4P на выход каждого инвертора плюс шесть отходящих линий 2P — по однолинейной схеме заказчика.", category: "distribution" },
       { title: "AC-02 — щит переменного тока, система 20 кВт", spec: "2× автомат AC 4P 25 А · 2× УЗИП AC 4P 20 кА на щит", note: "Та же схема защиты на каждый инвертор для системы с двумя инверторами.", category: "distribution" },
       { title: "Гибридные инверторы", spec: "SUN-10K-SG05LP3-EU-SM2 · 10 кВт, три фазы · 3 шт. (30 кВт) / 2 шт. (20 кВт)", note: "Оборудование заказчика по однолинейной схеме.", category: "conversion" },
       { title: "Накопитель энергии", spec: "B-LFP48-300E · 12× 15,36 кВт·ч = 184,32 кВт·ч (30 кВт) / 6× 15,36 кВт·ч = 92,16 кВт·ч (20 кВт)", note: "Оборудование заказчика по однолинейной схеме.", category: "storage" },
@@ -208,7 +208,7 @@ const ru: MongoliaCopy = {
     items: [
       ["По схеме заказчика", "Состав щитов соответствует однолинейной схеме: один автомат 4P и один УЗИП 4P на выход каждого инвертора плюс отходящие линии."],
       ["Отключение батарей 300 А", "В каждом щите DC установлен автомат MCCB DC 2P 300 А между батареями LFP и гибридными инверторами."],
-      ["Повторяемая сборка AC-01", "Щит AC системы 30 кВт собирается в 11 одинаковых комплектах: на каждом объекте одинаковая компоновка, маркировка и ЗИП."],
+      ["Повторяемая сборка AC-01", "Щит AC системы 30 кВт собирается в одинаковых комплектах: на каждом объекте одинаковая компоновка, маркировка и ЗИП."],
       ["Заземление", "Щиты AC-01 комплектуются шиной PE для заземления УЗИП и корпуса."],
       ["Продуманный ввод кабелей", "Кабельные вводы PG21 заданы для каждого щита: 12 на щит DC, 6 на щит AC-01."],
       ["Панель с УФ-печатью", "Лицевые панели с УФ-печатью: тип щита и бренд TPKELE."],
@@ -237,7 +237,7 @@ const ru: MongoliaCopy = {
     title: "Состав каждого щита и путь питания",
     items: [
       ["DC-01 / DC-02", "Автомат MCCB DC 2P 300 А + 12× PG21 на щит"],
-      ["AC-01 (30 кВт, 11 комплектов)", "3× автомат AC 4P 25 А + 6× автомат AC 2P 16 А + 3× УЗИП AC 4P 20 кА + шина PE + 6× PG21"],
+      ["AC-01 (30 кВт)", "3× автомат AC 4P 25 А + 6× автомат AC 2P 16 А + 3× УЗИП AC 4P 20 кА + шина PE + 6× PG21"],
       ["AC-02 (20 кВт)", "2× автомат AC 4P 25 А + 2× УЗИП AC 4P 20 кА"],
       ["Путь питания", "Стринги PV + батареи LFP → щит DC → гибридные инверторы 10 кВт → щит AC (автомат 4P + УЗИП 4P на инвертор) → отходящие линии 2P 16 А"],
     ],
