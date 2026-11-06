@@ -23,6 +23,7 @@ const NAV_LABEL_KEYS: Record<string, string> = {
 
 const PRODUCT_CATEGORY_KEYS: Record<ProductCategory, string> = {
   MCB: "mcb",
+  MCCB: "mccb",
   RCBO: "rcbo",
   SPD: "spd",
   ATS: "ats",
@@ -33,6 +34,7 @@ const PRODUCT_CATEGORY_KEYS: Record<ProductCategory, string> = {
 
 const PRODUCT_NAV_IMAGES: Record<ProductCategory, string> = {
   MCB: "/assets/navigation/mcb.webp",
+  MCCB: "/assets/navigation/mccb.webp",
   RCBO: "/assets/navigation/rcbo.webp",
   SPD: "/assets/navigation/spd.webp",
   ATS: "/assets/navigation/ats.webp",
@@ -44,6 +46,7 @@ const PRODUCT_NAV_IMAGES: Record<ProductCategory, string> = {
 const PRODUCT_LINK_KEYS: Record<string, string> = {
   "/products/category/mcb/ac-mcb": "acMcb",
   "/products/category/mcb/dc-mcb": "dcMcb",
+  "/products/dc-mccb": "dcMccb",
   "/products/smart-circuit-breaker": "smartMcb",
   "/products/rcbo-australia-new-zealand": "rcboAuNz",
   "/products/1pn-rcbo": "rcbo1pn",
@@ -69,6 +72,7 @@ const PRODUCT_NAV_DESTINATIONS: Record<string, string> = {
 
 const FEATURED_PRODUCT_SLUGS: Partial<Record<ProductCategory, string[]>> = {
   MCB: ["ac-mcb-2p", "dc-mcb-2p", "wifi-smart-mcb-1p"],
+  MCCB: ["dc-mccb"],
   RCBO: ["1pn-rcbo"],
   SPD: ["ac-spd", "dc-spd"],
   ATS: ["ats-st-2p", "ats-w2r-2p", "stq1-2p"],

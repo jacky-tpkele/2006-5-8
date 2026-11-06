@@ -35,6 +35,7 @@
     "newTag": "NEW",
     "categories": {
       "mcb": "MCB",
+      "mccb": "MCCB",
       "rcbo": "RCBO",
       "spd": "SPD",
       "ats": "ATS",
@@ -44,6 +45,7 @@
     },
     "descriptions": {
       "mcb": "AC, DC and smart miniature circuit breakers for distribution and solar systems.",
+      "mccb": "DC molded case circuit breakers, 250A to 800A, up to 1500V DC.",
       "rcbo": "Residual current breakers with overcurrent protection for distribution boards.",
       "spd": "AC and solar DC surge protective devices for electrical systems.",
       "ats": "Automatic transfer switches for mains and backup power.",
@@ -54,6 +56,7 @@
     "links": {
       "acMcb": "AC MCB range",
       "dcMcb": "DC MCB range",
+      "dcMccb": "DC MCCB (PVM3 Series)",
       "smartMcb": "Smart Wi-Fi MCB",
       "rcboAuNz": "RCBO for Australia & NZ",
       "rcbo1pn": "1P+N 18mm RCBO",

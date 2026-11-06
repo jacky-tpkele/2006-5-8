@@ -1,5 +1,6 @@
 export type ProductCategory =
   | "MCB"
+  | "MCCB"
   | "RCBO"
   | "SPD"
   | "Voltage Protector"
@@ -2798,11 +2799,81 @@ export const products: Product[] = [
       "/assets/products/smart-mcb-app.webp"
     ],
   },
+  {
+    slug: "dc-mccb",
+    name: "DC MCCB PVM3 Series",
+    shortName: "DC MCCB",
+    category: "MCCB",
+    parentCategory: "MCCB",
+    series: "PVM3",
+    application: "Solar PV, BESS and DC distribution main breaker",
+    image: "/assets/products/gallery/dc-mccb-1.webp",
+    summary: "PVM3 DC molded case circuit breaker, 250A–800A, up to 1500V DC.",
+    description:
+      "TPKELE PVM3 DC MCCB is a molded case circuit breaker for high-current DC circuits, with 250A to 800A frame sizes, 1000V / 1250V / 1500V DC working voltage options and 20kA breaking capacity. It provides overload and short-circuit protection and isolation, and protects PV modules from dangerous reverse DC current.",
+    specs: [
+      "250A–800A frames: 250H / 320H / 400H / 630H / 800H",
+      "1000V / 1250V / 1500V DC working voltage options",
+      "Icu = Ics = 20kA, total breaking time 20ms",
+      "Zero-arc design, arcing distance ≥50mm",
+      "Isolation function, protects PV modules from reverse DC current",
+    ],
+    seoKeywords: ["DC MCCB", "PVM3 MCCB", "1500V DC MCCB", "solar DC molded case circuit breaker", "PV MCCB 800A", "DC MCCB 250A"],
+    certIecDescription: "Designed to IEC 60947-1 and IEC 60947-2 (GB/T 14048)",
+    gallery: [
+      "/assets/products/gallery/dc-mccb-1.webp",
+      "/assets/products/gallery/dc-mccb-2.webp",
+      "/assets/products/gallery/dc-mccb-3.webp",
+    ],
+    technicalSpecs: [
+      { label: "Frame Size", value: "250 / 320 / 400 / 630 / 800 A" },
+      { label: "Rated Working Voltage Ue", value: "1000V / 1250V / 1500V DC" },
+      { label: "Breaking Capacity Icu / Ics", value: "20 kA / 20 kA" },
+      { label: "Standard", value: "IEC 60947-1, IEC 60947-2" },
+    ],
+    specMatrices: [
+      {
+        title: "PVM3 DC MCCB Model Selection",
+        headers: ["Model", "PVM3-250H", "PVM3-320H", "PVM3-400H", "PVM3-630H", "PVM3-800H"],
+        rows: [
+          ["Frame current Inm (A)", "250", "320", "400", "630", "800"],
+          ["Rated current In (A)", "125, 140, 160, 180, 200, 225, 250", "280, 315, 320", "315, 350, 400", "400, 500, 630", "630, 700, 800"],
+          ["Poles", "2P / 3P", "2P / 3P", "4P", "4P", "4P"],
+          ["Rated working voltage Ue (V DC)", "1000 (2P) / 1250 (3P) / 1500 (3P)", "1000 (2P) / 1250 (3P) / 1500 (3P)", "1000 / 1250 / 1500", "1000 / 1250 / 1500", "1000 / 1250 / 1500"],
+          ["Rated insulation voltage Ui (V)", "1000 (2P) / 1500 (3P)", "1000 (2P) / 1500 (3P)", "1500", "1500", "1500"],
+          ["Overall dimensions L×W×H (mm)", "180×76×126 (2P) / 180×107×126 (3P)", "180×76×126 (2P) / 180×107×126 (3P)", "258×200×107", "280×280×115.5", "280×280×115.5"],
+        ],
+        note: "Please state the required system voltage, pole count and rated current when requesting a quotation.",
+      },
+      {
+        title: "PVM3 DC MCCB Common Parameters",
+        headers: ["Parameter", "Value"],
+        rows: [
+          ["Standard", "IEC 60947-1, IEC 60947-2 (GB/T 14048.1, GB/T 14048.2)"],
+          ["Rated impulse withstand voltage Uimp", "12 kV"],
+          ["Extreme short-circuit breaking capacity Icu", "20 kA"],
+          ["Running short-circuit breaking capacity Ics", "20 kA"],
+          ["Transient action value", "10 In"],
+          ["Total breaking time", "20 ms"],
+          ["Mechanical life", "10,000 operations"],
+          ["Electrical life", "2,000 operations"],
+          ["Isolation function", "Yes"],
+          ["Arcing distance", "≥50 mm (zero arc, with arcing cover)"],
+          ["Allowable ambient temperature", "-40°C to +70°C"],
+          ["Degree of protection", "IP20"],
+          ["Wiring mode", "Incoming line on top, load on bottom"],
+          ["Installation", "Fixed type, plug-in type"],
+          ["Accessories", "Auxiliary contact, alarm contact, shunt release, undervoltage release, electric operation"],
+        ],
+      },
+    ],
+  },
 ];
 
 export const categories: Array<"All Products" | ProductCategory> = [
   "All Products",
   "MCB",
+  "MCCB",
   "RCBO",
   "SPD",
   "Voltage Protector",
@@ -2813,6 +2884,7 @@ export const categories: Array<"All Products" | ProductCategory> = [
 
 export const categorySlugMap: Record<ProductCategory, string> = {
   MCB: "mcb",
+  MCCB: "mccb",
   RCBO: "rcbo",
   SPD: "spd",
   ATS: "ats",
@@ -2863,6 +2935,31 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
     seoDescription:
       "TPKELE manufactures AC MCB and DC MCB, 1P–4P, 6A–63A, B/C/D curves. AC models: IEC 60898-1; DC models: IEC 60947-2. CE & RoHS compliant. OEM and project supply for distributors and solar EPCs.",
     seoKeywords: ["MCB manufacturer", "miniature circuit breaker", "AC MCB", "DC MCB", "DZ47", "solar circuit breaker", "PV DC breaker", "low voltage breaker", "IEC 60898 MCB"],
+  },
+  MCCB: {
+    hero: "DC MCCB Manufacturer — Molded Case Circuit Breakers for Solar & DC Systems",
+    intro:
+      "TPKELE PVM3 DC molded case circuit breakers (MCCB) protect high-current DC circuits where miniature circuit breakers reach their limit. The series covers 250A to 800A frames with 1000V, 1250V and 1500V DC working voltage options, 20kA breaking capacity and built-in isolation. Designed to IEC 60947-1 and IEC 60947-2, they are used as PV array main breakers, battery energy storage disconnects and DC distribution incomers by solar EPCs, panel builders and distributors.",
+    bullets: [
+      "250A–800A frame sizes (250H / 320H / 400H / 630H / 800H)",
+      "1000V / 1250V / 1500V DC working voltage options, 2P / 3P / 4P",
+      "Icu = Ics = 20kA, total breaking time 20ms, zero-arc design with ≥50mm arcing distance",
+      "Protects PV modules from dangerous reverse DC current, with isolation function",
+      "Auxiliary, alarm, shunt release, undervoltage release and electric operation accessories",
+    ],
+    applications: ["PV array and combiner box main breakers", "Battery energy storage (BESS) DC disconnect", "DC distribution incomers", "Utility-scale solar plants (1500V DC)", "Telecom and industrial DC power systems"],
+    buyerPersona: "Specified by solar EPCs, BESS integrators and DC panel builders who need a high-current DC breaker with a clear voltage and frame selection range.",
+    faq: [
+      { q: "When should I use a DC MCCB instead of a DC MCB?", a: "DC MCBs on DIN rail cover currents up to 125A. Above that, such as PV array main circuits and battery bank disconnects, a molded case breaker with a higher frame size (250A–800A) and higher breaking capacity is the usual choice." },
+      { q: "What DC voltages does the PVM3 series support?", a: "Each frame is offered with 1000V, 1250V and 1500V DC working voltage options. 250H and 320H frames come in 2P and 3P versions; 400H, 630H and 800H frames are 4P." },
+      { q: "What is the breaking capacity?", a: "Extreme and running short-circuit breaking capacity (Icu and Ics) is 20kA for the series, with a total breaking time of 20ms. Please confirm the value for your system voltage when requesting a quotation." },
+      { q: "Which accessories are available?", a: "Auxiliary contacts, alarm contacts, shunt release, undervoltage release and electric operation. Available combinations depend on frame size and pole count, so please state your configuration in the inquiry." },
+      { q: "How should the breaker be connected?", a: "The series is wired with the incoming line on the top terminals and the load on the bottom terminals. A protective cover must be installed before powering on." },
+    ],
+    seoTitle: "DC MCCB Manufacturer | 250A-800A 1500V DC Molded Case Circuit Breaker",
+    seoDescription:
+      "TPKELE PVM3 DC MCCB: 250A-800A, up to 1500V DC, 20kA breaking capacity, IEC 60947-2, isolation function. For solar PV, BESS and DC distribution. Request a quote.",
+    seoKeywords: ["DC MCCB", "DC molded case circuit breaker", "1500V DC MCCB", "solar DC MCCB", "PV MCCB", "250A DC breaker", "800A DC breaker", "PVM3", "IEC 60947-2 MCCB"],
   },
   RCBO: {
     hero: "RCBO Manufacturer — 1P+N 18mm Residual Current Breakers with Overcurrent Protection",
@@ -3027,6 +3124,11 @@ export const productMenu: ProductMenuGroup[] = [
       { label: "DC MCB", href: "/products/category/mcb/dc-mcb" },
       { label: "Smart Wi-Fi MCB", href: "/products/smart-circuit-breaker" },
     ],
+  },
+  {
+    label: "MCCB",
+    href: "/products/category/mccb",
+    children: [{ label: "DC MCCB", href: "/products/dc-mccb" }],
   },
   {
     label: "RCBO",
@@ -3632,6 +3734,15 @@ const defaultTechnicalSpecsByCategory: Record<ProductCategory, Array<{ label: st
       { label: "Standard", value: "IEC 60898-1" },
     { label: "Contact Material", value: "High-Conductivity Copper Alloy" },
   ],
+  MCCB: [
+    { label: "Frame Size", value: "250 / 320 / 400 / 630 / 800 A" },
+    { label: "Poles", value: "2P / 3P (250H, 320H) / 4P (400H, 630H, 800H)" },
+    { label: "Rated Working Voltage Ue", value: "1000V / 1250V / 1500V DC" },
+    { label: "Breaking Capacity Icu / Ics", value: "20 kA / 20 kA" },
+    { label: "Rated Impulse Withstand Voltage Uimp", value: "12 kV" },
+    { label: "Mounting", value: "Fixed type, plug-in type" },
+    { label: "Standard", value: "IEC 60947-1, IEC 60947-2" },
+  ],
   RCBO: [
     { label: "Poles", value: "1P+N" },
     { label: "Rated Current", value: "1A, 2A, 3A, 4A, 6A, 10A, 16A, 20A, 25A, 32A, 40A" },
@@ -3714,6 +3825,13 @@ const extraKeyFeaturesByCategory: Record<ProductCategory, string[]> = {
     "Flame-retardant thermoplastic housing for fire safety",
     "ISO 9001 certified manufacturing facility",
     "Stable lead time and project quantity supply support",
+  ],
+  MCCB: [
+    "250A–800A frames with 1000V / 1250V / 1500V DC working voltage options",
+    "20kA breaking capacity with zero-arc design",
+    "Isolation function and protection against PV reverse current",
+    "Accessories: auxiliary, alarm, shunt release, undervoltage release, electric operation",
+    "ISO 9001 certified manufacturing facility",
   ],
   RCBO: [
     "1P+N double break in 18mm single module – space-saving design",
