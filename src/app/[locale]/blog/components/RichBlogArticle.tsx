@@ -98,7 +98,7 @@ function renderBlock(block: RichBlock, index: number) {
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmNWY1ZjUiLz48L3N2Zz4="
             style={{ width: '100%', height: 'auto' }}
           />
-          {block.caption && <figcaption>{block.caption}</figcaption>}
+          {block.caption && !/^img-\d+$/i.test(block.caption.trim()) && <figcaption>{block.caption}</figcaption>}
         </figure>
       );
 
