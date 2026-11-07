@@ -30,6 +30,8 @@ export type Product = ProductFamily & {
   gallery?: string[];
   technicalSpecs?: Array<{ label: string; value: string }>;
   specMatrices?: SpecMatrix[];
+  /** 技术图示（动作特性曲线、安装间距图等），显示在规格表之后 */
+  diagrams?: Array<{ src: string; alt: string; caption?: string }>;
   /** 覆盖全局认证条上 IEC 那一格的说明文字（例如 RCBO 用 61009-1 / AS/NZS） */
   certIecDescription?: string;
   /** 相关阅读 / 区域市场专题（可选） */
@@ -2866,6 +2868,63 @@ export const products: Product[] = [
           ["Accessories", "Auxiliary contact, alarm contact, shunt release, undervoltage release, electric operation"],
         ],
       },
+      {
+        title: "Safe Installation Clearance",
+        headers: ["Type", "L (mm)", "A — no cover (mm)", "A — with arcing cover (mm)", "B (mm)", "C (mm)", "E — no cover (mm)", "E — with arcing cover (mm)"],
+        rows: [
+          ["PVM3-250H / 320H", "40", "50", "30", "25", "25", "50", "60"],
+          ["PVM3-400H", "40", "50", "30", "25", "25", "50", "60"],
+          ["PVM3-630H", "70", "100", "30", "25", "25", "100", "60"],
+          ["PVM3-800H", "70", "100", "30", "25", "25", "100", "60"],
+        ],
+        note: "L = distance between adjacent breakers; A = clearance above and C = clearance to the side when mounted in an enclosure; B = clearance below; E = clearance below the terminals, with or without the zero-arc cover fitted. Confirm against the panel drawing for your specific frame and accessory combination before fabrication.",
+      },
+      {
+        title: "Release Type & Accessory Codes",
+        headers: ["Accessory Code", "Accessory", "250H / 320H (2P, 3P)", "400H–800H (4P)"],
+        rows: [
+          ["200 / 300", "Without inner accessory", "—", "—"],
+          ["208 / 308", "Alarm contact", "Yes", "Yes"],
+          ["210 / 310", "Shunt release", "Yes", "Yes"],
+          ["220 / 320", "Auxiliary contact (1NO1NC)", "Yes", "—"],
+          ["220 / 320", "Auxiliary contact (2NO2NC)", "—", "Yes"],
+          ["230 / 330", "Undervoltage release", "Yes", "Yes"],
+          ["240 / 340", "Shunt release + auxiliary contact (1NO1NC)", "Yes", "—"],
+          ["240 / 340", "Shunt release + auxiliary contact (2NO2NC)", "—", "Yes"],
+          ["250 / 350", "Shunt release + undervoltage release", "Yes", "Yes"],
+          ["260 / 360", "Group 2 auxiliary contact (2NO2NC)", "Yes", "—"],
+          ["260 / 360", "Group 2 auxiliary contact (4NO4NC)", "—", "Yes"],
+          ["270 / 370", "Undervoltage release + auxiliary contact (1NO1NC)", "Yes", "—"],
+          ["270 / 370", "Undervoltage release + auxiliary contact (2NO2NC)", "—", "Yes"],
+          ["218 / 318", "Shunt release + alarm contact", "Yes", "Yes"],
+          ["238 / 338", "Undervoltage release + alarm contact", "Yes", "Yes"],
+          ["248 / 348", "Shunt release + auxiliary contact + alarm contact", "Yes", "Yes"],
+          ["278 / 378", "Group 2 auxiliary contact + undervoltage release + alarm contact", "Yes", "Yes"],
+        ],
+        note: "Accessory availability and pole combinations vary by frame size. Please confirm the exact code with your order — state frame size, pole count and required accessory function in the inquiry.",
+      },
+    ],
+    diagrams: [
+      {
+        src: "/assets/products/dc-mccb/trip-curve-dc.webp",
+        alt: "PVM3DC-H DC MCCB action characteristic (trip) curve",
+        caption: "PVM3DC-H action characteristic curve — DC trip time vs. rated current (×In)",
+      },
+      {
+        src: "/assets/products/dc-mccb/trip-curve-ac.webp",
+        alt: "PVM3-H AC MCCB action characteristic (trip) curve",
+        caption: "PVM3-H action characteristic curve — AC trip time vs. rated current (×In), for reference on the shared PVM3 platform",
+      },
+      {
+        src: "/assets/products/dc-mccb/installation-clearance-1.webp",
+        alt: "PVM3 DC MCCB installation clearance diagram showing L, A, B and C dimensions",
+        caption: "Side-by-side spacing (L) and enclosure clearance (A, B, C) — see the Safe Installation Clearance table above for values",
+      },
+      {
+        src: "/assets/products/dc-mccb/installation-clearance-2.webp",
+        alt: "PVM3 DC MCCB terminal clearance diagram showing E dimension with and without insulated links and cable terminals",
+        caption: "Terminal clearance (E): 1 — no insulated link, 2 — insulated link, 3 — cable terminal",
+      },
     ],
   },
 ];
@@ -2954,6 +3013,7 @@ export const categoryContent: Record<ProductCategory, CategoryContent> = {
       { q: "What DC voltages does the PVM3 series support?", a: "Each frame is offered with 1000V, 1250V and 1500V DC working voltage options. 250H and 320H frames come in 2P and 3P versions; 400H, 630H and 800H frames are 4P." },
       { q: "What is the breaking capacity?", a: "Extreme and running short-circuit breaking capacity (Icu and Ics) is 20kA for the series, with a total breaking time of 20ms. Please confirm the value for your system voltage when requesting a quotation." },
       { q: "Which accessories are available?", a: "Auxiliary contacts, alarm contacts, shunt release, undervoltage release and electric operation. Available combinations depend on frame size and pole count, so please state your configuration in the inquiry." },
+      { q: "How do the auxiliary and alarm contacts work?", a: "The auxiliary contact (terminals F11-F14, F21-F24) follows the breaker position: closed when the breaker is ON, open when it is OFF, for remote status indication. The alarm contact (terminals B11-B14) switches when the breaker trips on a fault — it stays in its normal state for a manual OFF, and changes state on a 'free trip' (automatic) opening, so it can be wired to a fault alarm separately from normal switching. Rated 220V AC, 3A." },
       { q: "How should the breaker be connected?", a: "The series is wired with the incoming line on the top terminals and the load on the bottom terminals. A protective cover must be installed before powering on." },
     ],
     seoTitle: "DC MCCB Manufacturer | 250A-800A 1500V DC Molded Case Circuit Breaker",

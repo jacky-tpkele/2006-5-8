@@ -3659,6 +3659,40 @@ textarea {
   color: var(--muted);
 }
 
+/* Product technical diagrams (trip curves, installation clearance, etc.) */
+.product-diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.product-diagram-card {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 16px;
+}
+
+.product-diagram-card img {
+  display: block;
+  border-radius: 6px;
+}
+
+.product-diagram-card figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .product-diagram-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   .spec-table-matrix {
     display: block;
@@ -5428,3 +5462,13 @@ button.cb-option-card {
 .site-nav .product-nav-links a.product-nav-config { grid-column: 1 / -1; border-color: var(--green); background: var(--green-soft); color: var(--green-dark); }
 .site-nav .product-nav-links a.product-nav-config:hover { background: #dff3e6; }
 .product-nav-links a.product-nav-config span.product-nav-new { flex: none; padding: 2px 7px; border-radius: 999px; background: var(--green); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; }
+
+/* Configurator pointers: contact page, inquiry modal, chat (2026-11) */
+.configurator-nudge { margin: 22px 0 0; padding: 14px 16px; border: 1px dashed #b9dcc7; border-radius: 12px; background: var(--green-soft); color: var(--muted); font-size: 14px; line-height: 1.55; }
+.configurator-nudge a { color: var(--green-dark); font-weight: 800; }
+.configurator-nudge a:hover { text-decoration: underline; }
+.configurator-nudge > span[aria-hidden] { color: var(--green); }
+.configurator-nudge--modal { margin: 12px 0 0; padding: 10px 12px; font-size: 13px; }
+.configurator-nudge--modal .configurator-nudge-tail { display: none; }
+.chat-configurator-link { display: block; margin: -4px 0 12px; padding: 9px 12px; border-radius: 10px; background: var(--green-soft); color: var(--green-dark); font-size: 13px; font-weight: 700; }
+.chat-configurator-link:hover { background: #dff3e6; }

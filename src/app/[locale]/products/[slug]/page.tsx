@@ -356,6 +356,21 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </section>
       ) : null}
 
+      {product.diagrams && product.diagrams.length > 0 && (
+        <section className="section product-diagram-section">
+          <span className="section-mark" aria-hidden="true" />
+          <h2 className="product-spec-title">Technical Diagrams</h2>
+          <div className="product-diagram-grid">
+            {product.diagrams.map((d) => (
+              <figure className="product-diagram-card" key={d.src}>
+                <Image src={d.src} alt={d.alt} width={700} height={700} sizes="(max-width: 768px) 100vw, 50vw" style={{ width: "100%", height: "auto" }} />
+                {d.caption && <figcaption>{d.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="section">
         <div className="trust-band-head">
           <div>
