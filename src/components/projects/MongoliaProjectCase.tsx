@@ -148,6 +148,7 @@ export default function MongoliaProjectCase({ locale }: { locale: string }) {
               <div className={styles.supportActions}>
                 <Link className={styles.primaryButton} href="/contact">{c.inquiry.primary}</Link>
                 <Link className={styles.outlineButton} href="/products/distribution-boxes">{c.inquiry.secondary}</Link>
+                <Link className={styles.outlineButton} href="/products/distribution-boxes/configurator?type=ac&item=ac-spd">{locale === 'ru' ? 'Собрать щит онлайн →' : 'Configure a Similar Box →'}</Link>
               </div>
             </section>
           </article>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Fragment } from "react";
 import { InquiryModal } from "@/components/InquiryModal";
+import { ConfiguratorCta, anyCtaItemForProduct } from "@/components/box-configurator/ConfiguratorLink";
 import OnThisPage from "@/components/technical-guide/OnThisPage";
 import { findProduct } from "@/data/site";
 import {
@@ -409,6 +410,11 @@ export default function RichBlogArticle({
           </div>
         </aside>
       ) : null}
+
+      {(() => {
+        const item = related.map(anyCtaItemForProduct).find(Boolean);
+        return item ? <ConfiguratorCta locale={locale} item={item} /> : null;
+      })()}
 
       <div className="blog-article-cta">
         <p className="eyebrow">{labels.ctaEyebrow}</p>

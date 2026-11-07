@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { LeadForm } from "@/components/LeadForm";
+import { ConfiguratorNudge } from "@/components/box-configurator/ConfiguratorNudge";
 import { PageTitle } from "@/components/PageTitle";
 import { site } from "@/data/site";
 
@@ -71,6 +72,7 @@ export default async function ContactPage({ params, searchParams }: ContactPageP
               </p>
             </div>
           </div>
+          <ConfiguratorNudge locale={locale} />
         </div>
         <LeadForm initialProduct={product} initialIntent={intent} />
       </section>

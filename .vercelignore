@@ -1,0 +1,25 @@
+# 临时文件和开发资料（不需要部署到 Vercel）
+落地页/
+新增智能断路器/
+AI新增BLOG/
+导航专用图/
+GUIDE补充图/
+新增产品ATS/
+AI文章/
+补充素材/
+messages/
+resources/
+
+# 开发文档
+*.md
+!README.md
+
+# 日志文件
+*.log
+dev-server.log
+dev-server.err.log
+
+# 备份文件
+*.html.backup
+*_backup.*
+*.bak

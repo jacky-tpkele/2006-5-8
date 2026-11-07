@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { getTranslations } from "next-intl/server";
 import { InquiryModal } from "@/components/InquiryModal";
+import { ConfiguratorCta, anyCtaItemForProduct, blogCtaItem } from "@/components/box-configurator/ConfiguratorLink";
 import { findProduct, site } from "@/data/site";
 import { localizedPath, alternateLanguages } from "@/lib/locale-path";
 import {
@@ -357,6 +358,11 @@ export default async function BlogArticlePage({ params }: { params: Promise<Rout
             </div>
           </aside>
         ) : null}
+
+        {(() => {
+          const item = blogCtaItem[post.slug] ?? related.map(anyCtaItemForProduct).find(Boolean);
+          return item ? <ConfiguratorCta locale={locale} item={item} wrap={false} /> : null;
+        })()}
 
         <div className="blog-article-cta">
           <p className="eyebrow">Need help on this product family?</p>

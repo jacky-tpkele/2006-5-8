@@ -8,6 +8,7 @@ import QuickSupportCard from "@/components/technical-guide/QuickSupportCard";
 import RelatedSidebar from "@/components/technical-guide/RelatedSidebar";
 import ResourceList from "@/components/technical-guide/ResourceList";
 import { NextStep } from "@/components/resources/NextStep";
+import { ctaHref, guideCtaItem } from "@/components/box-configurator/ConfiguratorLink";
 import "./guide.css";
 import "./tpkele-guide.css";
 
@@ -21,6 +22,9 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
         guide.marketAccessAdvisor.market ? `&market=${guide.marketAccessAdvisor.market}` : ""
       }${guide.marketAccessAdvisor.buyer ? `&buyer=${guide.marketAccessAdvisor.buyer}` : ""}`
     : null;
+
+  const configItem = guideCtaItem[guide.slug];
+  const configuratorUrl = configItem ? ctaHref(configItem) : null;
 
   const imageFormat = guide.slug === "dc-mcb-selection-guide" ? "webp" : "png";
   const heroImage = `/images/guides/${guide.slug}/hero.${imageFormat}`;
@@ -153,6 +157,18 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
             </section>
           ))}
 
+          {configuratorUrl && (
+            <section className="tpk-guide__advisorBlock" style={{ marginBottom: 18 }}>
+              <div>
+                <h2>Need it pre-assembled in a box?</h2>
+                <p>Use the online configurator to pick the enclosure, components and quantity. A TPKELE engineer checks the configuration before quoting.</p>
+              </div>
+              <Link href={configuratorUrl} className="tpk-guide__button">
+                Configure a Box Online
+              </Link>
+            </section>
+          )}
+
           {marketAccessUrl && (
             <section className="tpk-guide__advisorBlock">
               <div>
@@ -219,6 +235,15 @@ export default function GuideTemplate({ guide }: GuideTemplateProps) {
               </Link>
             )}
           </div>
+          {configuratorUrl && (
+            <div className="tpk-guide__sidebarCard">
+              <h3>Box Configurator</h3>
+              <p>Build an AC / DC distribution box with these components in 3 steps.</p>
+              <Link href={configuratorUrl} className="tpk-guide__button tpk-guide__button--full" style={{ marginTop: 16 }}>
+                Start Configuring
+              </Link>
+            </div>
+          )}
           <ResourceList items={resources} />
           <div className="tpk-guide__sidebarCard">
             <Image

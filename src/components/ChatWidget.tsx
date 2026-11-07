@@ -2,6 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type ChatMessage = {
   id: string;
@@ -208,6 +209,9 @@ export function ChatWidget() {
           {!started ? (
             <form className="chat-pre-form" onSubmit={handleStart}>
               <p className="chat-pre-lede">{t("preLede")}</p>
+              <Link className="chat-configurator-link" href="/products/distribution-boxes/configurator" onClick={() => setOpen(false)}>
+                {t("configuratorLink")} →
+              </Link>
               <label>
                 <span>{t("nameLabel")}</span>
                 <input

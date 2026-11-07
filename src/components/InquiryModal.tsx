@@ -2,8 +2,9 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LeadForm } from "@/components/LeadForm";
+import { ConfiguratorNudge } from "@/components/box-configurator/ConfiguratorNudge";
 
 type InquiryModalProps = {
   triggerLabel: string;
@@ -25,6 +26,7 @@ export function InquiryModal({
   title,
 }: InquiryModalProps) {
   const t = useTranslations("form");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -77,6 +79,7 @@ export function InquiryModal({
                 </div>
                 <div className="inquiry-modal-body">
                   <LeadForm initialProduct={product} initialIntent={intent} />
+                  <ConfiguratorNudge locale={locale} onNavigate={() => setOpen(false)} className="configurator-nudge configurator-nudge--modal" />
                 </div>
               </div>
             </div>,

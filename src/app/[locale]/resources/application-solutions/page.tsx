@@ -53,6 +53,7 @@ type PageProps = {
 const applicationSolutions = [
   {
     id: "solar-pv",
+    configurator: "/products/distribution-boxes/configurator?type=dc&item=dc-mcb",
     title: "Solar PV System Protection",
     category: "Renewable Energy",
     description:
@@ -68,6 +69,7 @@ const applicationSolutions = [
   },
   {
     id: "residential",
+    configurator: "/products/distribution-boxes/configurator?type=ac&item=rcbo",
     title: "Residential Distribution Boards",
     category: "Residential",
     description:
@@ -83,6 +85,7 @@ const applicationSolutions = [
   },
   {
     id: "commercial",
+    configurator: "/products/distribution-boxes/configurator?type=ac&item=ac-mcb",
     title: "Commercial & Industrial Projects",
     category: "Commercial",
     description:
@@ -98,6 +101,7 @@ const applicationSolutions = [
   },
   {
     id: "energy-storage",
+    configurator: "/products/distribution-boxes/configurator?type=dc&item=dc-mcb",
     title: "Energy Storage Integration",
     category: "Energy Storage",
     description:
@@ -128,6 +132,7 @@ const applicationSolutions = [
   },
   {
     id: "ev-charging",
+    configurator: "/products/distribution-boxes/configurator?type=ac&item=rcbo",
     title: "EV Charging Infrastructure",
     category: "Electric Vehicles",
     description:
@@ -195,9 +200,16 @@ export default async function ApplicationSolutionsPage({ params }: PageProps) {
                 <li key={idx}>✓ {feature}</li>
               ))}
             </ul>
-            <Link href={solution.link} className="solution-link">
-              View Details <span className="arrow">→</span>
-            </Link>
+            <div className="solution-links">
+              <Link href={solution.link} className="solution-link">
+                View Details <span className="arrow">→</span>
+              </Link>
+              {"configurator" in solution && solution.configurator ? (
+                <Link href={solution.configurator} className="solution-link solution-link--config">
+                  Configure a Box <span className="arrow">→</span>
+                </Link>
+              ) : null}
+            </div>
           </div>
         ))}
       </section>

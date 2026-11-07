@@ -144,7 +144,7 @@ export default function ZimbabweProjectCase() {
               <span className={styles.eyebrow}>PROJECT SUPPORT</span>
               <h2>Working on a Similar Solar PV + Battery Storage Project?</h2>
               <p>Send the PV string data, inverter model / output voltage, single- or three-phase configuration, battery architecture and source-transfer requirement. TPKELE can help identify the protection and switching product families that deserve technical evaluation.</p>
-              <div className={styles.supportActions}><Link className={styles.primaryButton} href="/contact">Send Project Requirements</Link><Link className={styles.outlineButton} href="/products">Browse Products</Link></div>
+              <div className={styles.supportActions}><Link className={styles.primaryButton} href="/contact">Send Project Requirements</Link><Link className={styles.outlineButton} href="/products">Browse Products</Link><Link className={styles.outlineButton} href="/products/distribution-boxes/configurator?type=dc&item=dc-mcb">Configure a DC / AC Box →</Link></div>
             </section>
           </article>
         </div>

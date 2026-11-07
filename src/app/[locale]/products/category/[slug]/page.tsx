@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { CategoryProductGrid } from "@/components/CategoryProductGrid";
+import { CategorySeoContent } from "@/components/CategorySeoContent";
 import { InquiryModal } from "@/components/InquiryModal";
 import {
   categoryBySlug,
@@ -141,6 +142,8 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           </div>
         )}
       </section>
+
+      <CategorySeoContent slug={slug} />
 
       <CategoryProductGrid
         category={category}
