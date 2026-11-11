@@ -13,9 +13,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const s = getStandardBySlug(slug);
   if (!s) return {};
 
+  // Generate unique description for each standard
+  const productList = s.products.length > 0 ? s.products.join(", ") : "electrical products";
+  const appList = s.applications.slice(0, 2).join(" & ");
+  const uniqueDescription = `${s.code}: ${s.summary} for ${productList}. ${appList} applications. ${s.referenceType}.`;
+
   return {
     title: `${s.code} Standard Guide`,
-    description: `${s.summary} Review scope, reference type, product relevance and official source.`,
+    description: uniqueDescription,
     alternates: { canonical: `/electric-standards-database/${s.slug}` },
   };
 }
