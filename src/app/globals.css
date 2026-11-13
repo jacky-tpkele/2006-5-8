@@ -5472,3 +5472,52 @@ button.cb-option-card {
 .configurator-nudge--modal .configurator-nudge-tail { display: none; }
 .chat-configurator-link { display: block; margin: -4px 0 12px; padding: 9px 12px; border-radius: 10px; background: var(--green-soft); color: var(--green-dark); font-size: 13px; font-weight: 700; }
 .chat-configurator-link:hover { background: #dff3e6; }
+
+/* Blog pagination (2026-11) */
+.pagination-btn,
+.pagination-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.pagination-btn:hover,
+.pagination-number:hover {
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.pagination-number.active {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+  font-weight: 600;
+}
+
+.pagination-number.active:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  color: var(--muted);
+  font-size: 14px;
+  user-select: none;
+}

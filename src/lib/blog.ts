@@ -265,7 +265,7 @@ export function normalizeBlogPost(row: Record<string, unknown>): BlogPost {
     seoDescription,
     mainKeyword: getString(row.main_keyword) || undefined,
     subKeywords: getArray<string>(row.sub_keywords),
-    articleType: normalizeBlogCategory(row.article_type),
+    articleType: normalizeBlogCategory(row.article_type) || "product-knowledge",
     date: getDatePart(row.published_at, row.updated_at, row.created_at),
     image,
     coverImageAlt: getString(row.cover_image_alt, title),
@@ -504,4 +504,36 @@ export function getAbsoluteUrl(url: string, siteUrl: string) {
 
 export function getBlogCategoryDescription(slug: string, t?: BlogCategoryTranslator) {
   return translateCategoryField(slug, "description", t) || BLOG_CATEGORY_DESCRIPTIONS[slug] || "";
+}
+
+export function getBlogCategoryColor(category: string | null): { color: string; background: string } {
+  const normalized = normalizeBlogCategory(category);
+
+  switch (normalized) {
+    case "selection-guides":
+      return { color: "#059669", background: "#d1fae5" }; // green
+    case "comparisons":
+      return { color: "#2563eb", background: "#dbeafe" }; // blue
+    case "product-knowledge":
+      return { color: "#7c3aed", background: "#ede9fe" }; // purple
+    case "application-scenarios":
+      return { color: "#ea580c", background: "#fed7aa" }; // orange
+    case "faqs":
+      return { color: "#64748b", background: "#e2e8f0" }; // gray
+    default:
+      return { color: "var(--green)", background: "var(--green-soft, #f1faf3)" };
+  }
+}
+
+export const POSTS_PER_PAGE = 12;
+
+export function paginatePosts<T>(posts: T[], page: number, perPage: number = POSTS_PER_PAGE) {
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  return {
+    posts: posts.slice(start, end),
+    totalPages: Math.ceil(posts.length / perPage),
+    currentPage: page,
+    totalPosts: posts.length,
+  };
 }

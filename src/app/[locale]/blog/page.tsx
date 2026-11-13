@@ -4,16 +4,22 @@ import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
+import { BlogPagination } from "@/components/BlogPagination";
 import {
   BLOG_CATEGORY_LABELS,
   BLOG_CATEGORY_ORDER,
   countBlogPostsByCategory,
   getBlogCategoryLabel,
+  getBlogCategoryColor,
   getPublishedBlogPostsWithFallback,
+  paginatePosts,
   type BlogPost,
 } from "@/lib/blog";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ page?: string }>;
+};
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -29,11 +35,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function BlogPage({ params }: PageProps) {
+export default async function BlogPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
+  const { page: pageParam } = await searchParams;
+  const currentPage = Math.max(1, parseInt(pageParam || "1", 10));
+
   const t = await getTranslations({ locale, namespace: "blog" });
-  const blogPosts = await getPublishedBlogPostsWithFallback();
-  const counts = countBlogPostsByCategory(blogPosts);
+  const allBlogPosts = await getPublishedBlogPostsWithFallback();
+  const counts = countBlogPostsByCategory(allBlogPosts);
+  const { posts: blogPosts, totalPages } = paginatePosts(allBlogPosts, currentPage);
 
   return (
     <main>
@@ -72,12 +82,12 @@ export default async function BlogPage({ params }: PageProps) {
                     style={{
                       display: "inline-block",
                       marginLeft: 8,
-                      padding: "2px 8px",
-                      fontSize: 11,
+                      padding: "3px 10px",
+                      fontSize: 12,
                       fontWeight: 600,
-                      color: "var(--green)",
-                      background: "var(--green-soft, #f1faf3)",
-                      borderRadius: 10,
+                      color: getBlogCategoryColor(post.articleType).color,
+                      background: getBlogCategoryColor(post.articleType).background,
+                      borderRadius: 12,
                       verticalAlign: "middle",
                     }}
                   >
@@ -96,6 +106,8 @@ export default async function BlogPage({ params }: PageProps) {
           ))}
         </div>
       </section>
+
+      <BlogPagination currentPage={currentPage} totalPages={totalPages} basePath="/blog" />
     </main>
   );
 }

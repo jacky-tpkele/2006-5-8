@@ -6,6 +6,7 @@ import { InquiryModal } from "@/components/InquiryModal";
 import { ConfiguratorBanner } from "@/components/box-configurator/ConfiguratorBanner";
 import { CompanySection } from "@/app/[locale]/products/ac-mcb/CompanySection";
 import { BeyondSection } from "@/app/[locale]/products/ac-mcb/BeyondSection";
+import { LatestArticlesSection } from "@/components/LatestArticlesSection";
 import {
   exportMarkets,
   oemCapabilities,
@@ -347,6 +348,8 @@ export default async function HomePage({ params }: PageProps) {
           ))}
         </div>
       </section>
+
+      <LatestArticlesSection locale={locale} t={t} />
 
       <section className="section">
         <div className="oem-band">

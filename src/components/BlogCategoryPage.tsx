@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
+import { BlogPagination } from "@/components/BlogPagination";
 import { getTranslations } from "next-intl/server";
 import {
   BLOG_CATEGORY_ORDER,
@@ -9,6 +10,8 @@ import {
   getPublishedBlogPostsWithFallback,
   getBlogCategoryLabel,
   getBlogCategoryDescription,
+  getBlogCategoryColor,
+  paginatePosts,
   type BlogCategorySlug,
   type BlogPost,
 } from "@/lib/blog";
@@ -18,12 +21,14 @@ type BlogCategoryPageProps = {
   crumb: string;
   title: string;
   locale: string;
+  currentPage: number;
 };
 
-export async function BlogCategoryPage({ category, crumb, title, locale }: BlogCategoryPageProps) {
+export async function BlogCategoryPage({ category, crumb, title, locale, currentPage }: BlogCategoryPageProps) {
   const allPosts = await getPublishedBlogPostsWithFallback();
   const filtered = filterBlogPostsByCategory(allPosts, category);
   const counts = countBlogPostsByCategory(allPosts);
+  const { posts: paginatedPosts, totalPages } = paginatePosts(filtered, currentPage);
   const t = await getTranslations({ locale, namespace: "blog" });
 
   return (
@@ -69,7 +74,7 @@ export async function BlogCategoryPage({ category, crumb, title, locale }: BlogC
           </div>
         ) : (
           <div className="blog-grid">
-            {filtered.map((post: BlogPost) => (
+            {paginatedPosts.map((post: BlogPost) => (
               <article className="blog-card" key={post.slug}>
                 <Link href={`/blog/${post.slug}`} aria-label={post.title}>
                   <Image src={post.image} alt={post.title} width={470} height={210} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 470px" />
@@ -86,12 +91,12 @@ export async function BlogCategoryPage({ category, crumb, title, locale }: BlogC
                     style={{
                       display: "inline-block",
                       marginLeft: 8,
-                      padding: "2px 8px",
-                      fontSize: 11,
+                      padding: "3px 10px",
+                      fontSize: 12,
                       fontWeight: 600,
-                      color: "var(--green)",
-                      background: "var(--green-soft, #f1faf3)",
-                      borderRadius: 10,
+                      color: getBlogCategoryColor(post.articleType).color,
+                      background: getBlogCategoryColor(post.articleType).background,
+                      borderRadius: 12,
                       verticalAlign: "middle",
                     }}
                   >
@@ -110,6 +115,10 @@ export async function BlogCategoryPage({ category, crumb, title, locale }: BlogC
           </div>
         )}
       </section>
+
+      {filtered.length > 0 && (
+        <BlogPagination currentPage={currentPage} totalPages={totalPages} basePath={`/blog/${category}`} />
+      )}
     </main>
   );
 }

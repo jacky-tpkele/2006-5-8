@@ -4,7 +4,10 @@ import { alternateLanguages, localizedPath } from "@/lib/locale-path";
 import { BlogCategoryPage } from "@/components/BlogCategoryPage";
 import { getBlogCategoryLabel, getBlogCategoryDescription } from "@/lib/blog";
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ page?: string }>;
+};
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -22,10 +25,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ComparisonsPage({ params }: PageProps) {
+export default async function ComparisonsPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
+  const { page: pageParam } = await searchParams;
+  const currentPage = Math.max(1, parseInt(pageParam || "1", 10));
+
   const t = await getTranslations({ locale, namespace: "blog" });
   const label = getBlogCategoryLabel("comparisons", (k) => t(k));
 
-  return <BlogCategoryPage category="comparisons" title={label} crumb={`Blog · ${label}`} locale={locale} />;
+  return <BlogCategoryPage category="comparisons" title={label} crumb={`Blog · ${label}`} locale={locale} currentPage={currentPage} />;
 }
