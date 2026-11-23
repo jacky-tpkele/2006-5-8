@@ -199,7 +199,86 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // Legacy product pages with numeric suffixes (batch redirects)
+      {
+        source: "/products/ac-mcb-:variant(\\d+p-\\d+)",
+        destination: "/products/ac-mcb",
+        permanent: true,
+      },
+      {
+        source: "/products/dc-mcb-:variant(\\d+p-\\d+)",
+        destination: "/products/dc-mcb",
+        permanent: true,
+      },
+      {
+        source: "/products/ac-spd-:num",
+        destination: "/products/ac-spd",
+        permanent: true,
+      },
+      {
+        source: "/products/dc-spd-:num",
+        destination: "/products/dc-spd",
+        permanent: true,
+      },
+      {
+        source: "/products/combiner-box-:num",
+        destination: "/products/combiner-box",
+        permanent: true,
+      },
+      {
+        source: "/products/energy-meter-:num",
+        destination: "/products/energy-meter",
+        permanent: true,
+      },
+      {
+        source: "/products/voltage-protector-:num",
+        destination: "/products/voltage-protector",
+        permanent: true,
+      },
+      {
+        source: "/products/pn2-va2-:num",
+        destination: "/products/voltage-protector",
+        permanent: true,
+      },
+      {
+        source: "/products/ats-:num",
+        destination: "/products/ats",
+        permanent: true,
+      },
+
+      // Legacy miscellaneous routes
+      {
+        source: "/downloads",
+        destination: "/resources",
+        permanent: true,
+      },
+      {
+        source: "/productsall",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/productslv",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/aboutoem",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/en/products/spd",
+        destination: "/products/spd",
+        permanent: true,
+      },
+
       // Language route fixes
+      {
+        source: "/index.html",
+        destination: "/",
+        permanent: true,
+      },
       {
         source: "/ru/index.html",
         destination: "/ru",

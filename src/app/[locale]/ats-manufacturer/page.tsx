@@ -15,8 +15,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: data.seoDescription,
     keywords: data.seoKeywords,
     alternates: {
-      canonical: localizedPath(route, locale),
-      languages: alternateLanguages(route),
+      canonical: `https://www.tpkele.com${localizedPath(route, locale)}`,
+      languages: Object.fromEntries(
+        Object.entries(alternateLanguages(route)).map(([lang, path]) => [
+          lang,
+          `https://www.tpkele.com${path}`,
+        ])
+      ),
     },
     openGraph: {
       title: data.seoTitle,
