@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import Image from "next/image";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import "@/components/blog-hub.css";
 import { manufacturerMenu, resourcesMenu, navItems, productMenu, products, site, type ProductCategory } from "@/data/site";
 import { getProducts } from "@/lib/i18n";
 

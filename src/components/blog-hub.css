@@ -73,13 +73,12 @@
   grid-template-rows: 1fr 1fr;
 }
 .bh-featured-side a {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
 }
 .bh-featured-side .bh-cover {
-  aspect-ratio: auto;
-  height: 100%;
-  min-height: 150px;
+  aspect-ratio: 16 / 9;
+  height: auto;
 }
 .bh-featured-side .bh-body {
   padding: 18px 20px;
