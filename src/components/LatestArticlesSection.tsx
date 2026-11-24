@@ -29,7 +29,7 @@ export async function LatestArticlesSection({ locale, t }: LatestArticlesSection
           const categoryColors = getBlogCategoryColor(post.articleType);
 
           return (
-            <article className="blog-card" key={post.slug}>
+            <article className="blog-card blog-card--compact" key={post.slug}>
               <Link href={`/blog/${post.slug}`} aria-label={post.title}>
                 <Image
                   src={post.image}
@@ -67,7 +67,6 @@ export async function LatestArticlesSection({ locale, t }: LatestArticlesSection
                 <h2>
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
-                <p>{post.excerpt}</p>
                 <Link className="text-link" href={`/blog/${post.slug}`}>
                   Read Article →
                 </Link>

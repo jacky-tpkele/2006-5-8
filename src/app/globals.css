@@ -5281,6 +5281,15 @@ button.cb-option-card {
   font-weight: 700;
 }
 
+/* Homepage blog cards — no-crop image variant */
+.blog-card--compact img {
+  aspect-ratio: auto;
+  height: 210px;
+  object-fit: contain;
+  background: #fff;
+  padding: 12px;
+}
+
 .product-card-cta {
   margin-top: 16px;
   color: var(--green);
