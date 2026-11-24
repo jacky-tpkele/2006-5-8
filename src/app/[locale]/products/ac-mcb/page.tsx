@@ -10,6 +10,9 @@ import { CompanySection } from "./CompanySection";
 import { TripCurves } from "./TripCurves";
 import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { BeyondSection } from "./BeyondSection";
+import { ApplicationsSection } from "./ApplicationsSection";
+import { FAQSection } from "./FAQSection";
+import { RelatedArticles } from "./RelatedArticles";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -21,16 +24,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: { absolute: t("acMcb.seoTitle") },
     description: t("acMcb.seoDescription"),
     alternates: {
-      canonical: localizedPath("/products/ac-mcb", locale),
-      languages: alternateLanguages("/products/ac-mcb"),
+      canonical: `https://www.tpkele.com${localizedPath("/products/ac-mcb", locale)}`,
+      languages: Object.fromEntries(
+        Object.entries(alternateLanguages("/products/ac-mcb")).map(([lang, path]) => [
+          lang,
+          `https://www.tpkele.com${path}`,
+        ])
+      ),
     },
     keywords: [
-      "AC miniature circuit breaker supplier",
+      "AC MCB",
+      "AC miniature circuit breaker",
+      "ac mcb market",
       "MCB manufacturer",
       "DIN rail MCB",
       "circuit breaker 1P 2P 3P 4P",
       "IEC 60898 MCB",
       "low voltage circuit breaker",
+      "AC MCB supplier",
     ],
   };
 }
@@ -57,6 +68,9 @@ export default async function CircuitBreakersPage({ params }: PageProps) {
       <FeaturesGrid />
       <SpecsSection />
       <TripCurves />
+      <ApplicationsSection />
+      <FAQSection />
+      <RelatedArticles />
       <CompanySection />
       <BeyondSection locale={locale} title={t("acMcb.beyondTitle")} />
       <section className="section cta-section">

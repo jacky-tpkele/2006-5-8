@@ -4,12 +4,14 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { InquiryModal } from "@/components/InquiryModal";
 import { getTranslations } from "next-intl/server";
-import {
-  site,
-} from "@/data/site";
+import { site } from "@/data/site";
 import { getProducts, getSubCategories, getSubCategory } from "@/lib/i18n";
 import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
+import { ApplicationsSection } from "./ApplicationsSection";
+import { SelectionGuide } from "./SelectionGuide";
+import { FAQSection } from "./FAQSection";
+import { RelatedArticles } from "./RelatedArticles";
 
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -19,20 +21,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const subCat = getSubCategory("ac-spd", locale);
   if (!subCat) return {};
 
-  const canonical = localizedPath("/products/ac-spd", locale);
-
   return {
     title: subCat.seoTitle,
     description: subCat.seoDescription,
-    keywords: subCat.seoKeywords,
+    keywords: [
+      ...(subCat.seoKeywords ?? []),
+      "AC SPD",
+      "AC surge protection device",
+      "voltage protector AC",
+      "IEC 61643-11",
+      "Type 1 Type 2 SPD",
+    ],
     alternates: {
-      canonical,
-      languages: alternateLanguages("/products/ac-spd"),
+      canonical: `https://www.tpkele.com${localizedPath("/products/ac-spd", locale)}`,
+      languages: Object.fromEntries(
+        Object.entries(alternateLanguages("/products/ac-spd")).map(([lang, path]) => [
+          lang,
+          `https://www.tpkele.com${path}`,
+        ])
+      ),
     },
     openGraph: {
       title: subCat.seoTitle,
       description: subCat.seoDescription,
-      url: canonical,
+      url: `https://www.tpkele.com${localizedPath("/products/ac-spd", locale)}`,
       type: "website",
     },
   };
@@ -155,6 +167,10 @@ export default async function AcSpdPage({ params }: PageProps) {
         </section>
       )}
       <ApplicationLinks context="ac" locale={locale} item="ac-spd" />
+      <ApplicationsSection />
+      <SelectionGuide />
+      <FAQSection />
+      <RelatedArticles />
     </main>
   );
 }
