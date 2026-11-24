@@ -9,6 +9,11 @@
 .blog-rich {
   --blog-header-offset: 76px;
   --blog-journey-h: 48px;
+  /* 唯一的正文列宽度：容器可用宽度减去右侧目录与间距。
+     所有区块（标题/正文/CTA/关联产品）统一用它，保证左基线与宽度一致。 */
+  --blog-rail: 280px;
+  --blog-gap: 60px;
+  --blog-col: calc(100% - var(--blog-rail) - var(--blog-gap));
   max-width: 1180px;
   margin: 0 auto;
   padding: 34px 24px 72px;
@@ -37,7 +42,7 @@
 }
 
 .blog-rich__header {
-  max-width: 920px;
+  max-width: var(--blog-col);
 }
 .blog-rich__eyebrow {
   font-size: 12px;
@@ -199,11 +204,9 @@
 /* ---------- 新布局：正文优先 + 右侧目录 ---------- */
 .blog-rich__layout {
   display: grid;
-  grid-template-columns: minmax(0, 920px) 280px;
-  gap: 60px;
+  grid-template-columns: minmax(0, var(--blog-col)) var(--blog-rail);
+  gap: var(--blog-gap);
   align-items: start;
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 /* 正文区域 */
@@ -221,8 +224,8 @@
 
 /* NEXT BUYER STEP 移到底部，独立容器 */
 .blog-rich__cta-sidebar {
-  max-width: 920px;
-  margin: 40px auto 0;
+  max-width: var(--blog-col);
+  margin: 40px 0 0;
   border: 1px solid #d7e8dc;
   background: var(--green-soft);
   border-radius: 12px;
@@ -686,8 +689,16 @@
   background: var(--green);
 }
 
+/* 底部 CTA 与配置器卡片：同样并入正文列，避免全宽外扩 */
+.blog-rich .blog-article-cta,
+.blog-rich > .inline-cta-card {
+  max-width: var(--blog-col);
+  margin-top: 40px;
+}
+
 /* ---------- 关联产品 ---------- */
 .blog-rich__related {
+  max-width: var(--blog-col);
   margin-top: 40px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
@@ -736,6 +747,9 @@
 
 /* 平板：收起右侧目录，单列布局 */
 @media (max-width: 1080px) {
+  .blog-rich {
+    --blog-col: 100%;
+  }
   .blog-rich__layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;

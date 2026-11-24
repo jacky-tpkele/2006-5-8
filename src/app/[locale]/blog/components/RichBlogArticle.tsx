@@ -413,7 +413,7 @@ export default function RichBlogArticle({
 
       {(() => {
         const item = related.map(anyCtaItemForProduct).find(Boolean);
-        return item ? <ConfiguratorCta locale={locale} item={item} /> : null;
+        return item ? <ConfiguratorCta locale={locale} item={item} wrap={false} /> : null;
       })()}
 
       <div className="blog-article-cta">
