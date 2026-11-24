@@ -1,4 +1,4 @@
-import { blogPosts as staticBlogPosts, type BlogPost as StaticBlogPost } from "@/data/site";
+import { blogPosts as staticBlogPosts, products as siteProducts, type BlogPost as StaticBlogPost } from "@/data/site";
 import type { RichBlogArticle } from "@/data/blog/rcbo-au-nz-guide";
 import { getRichBlogArticles } from "@/data/blog/rcbo-au-nz-guide";
 import { getRichBlogArticles as getStudioRichArticles } from "@/data/blog/rich";
@@ -284,6 +284,19 @@ export function normalizeBlogPost(row: Record<string, unknown>): BlogPost {
   };
 }
 
+/**
+ * 静态文章原本不带分类，导致它们在分类页里"消失"。
+ * 这里按 slug 补上归属；没列出的保持 null（如公司新闻类）。
+ */
+const STATIC_POST_CATEGORY: Record<string, BlogCategorySlug> = {
+  "smart-circuit-breaker-vs-traditional-breaker": "comparisons",
+  "choose-right-mcb": "selection-guides",
+  "understanding-spd-surge": "product-knowledge",
+  "ats-modern-distribution": "product-knowledge",
+  "solar-combiner-box-safety": "application-scenarios",
+  "energy-meter-selection": "selection-guides",
+};
+
 function normalizeStaticBlogPost(post: StaticBlogPost): BlogPost {
   return {
     slug: post.slug,
@@ -291,7 +304,7 @@ function normalizeStaticBlogPost(post: StaticBlogPost): BlogPost {
     seoTitle: post.seoTitle || post.title,
     seoDescription: post.seoDescription,
     subKeywords: [],
-    articleType: null,
+    articleType: STATIC_POST_CATEGORY[post.slug] ?? null,
     date: post.date,
     image: post.image,
     coverImageAlt: post.title,
@@ -536,4 +549,40 @@ export function paginatePosts<T>(posts: T[], page: number, perPage: number = POS
     currentPage: page,
     totalPosts: posts.length,
   };
+}
+
+/**
+ * 产品线维度：不额外打标签，直接从文章的 relatedProducts 推导。
+ * key 用于 URL 查询参数 /blog?line=spd
+ */
+export const BLOG_PRODUCT_LINES: Array<{ key: string; label: string; category: string }> = [
+  { key: "mcb", label: "MCB", category: "MCB" },
+  { key: "rcbo", label: "RCBO", category: "RCBO" },
+  { key: "spd", label: "SPD", category: "SPD" },
+  { key: "ats", label: "ATS", category: "ATS" },
+  { key: "combiner-box", label: "Combiner Box", category: "Combiner Box" },
+  { key: "energy-meter", label: "Energy Meter", category: "Energy Meter" },
+  { key: "voltage-protector", label: "Voltage Protector", category: "Voltage Protector" },
+];
+
+export function getBlogPostProductLines(post: Pick<BlogPost, "relatedProducts">): string[] {
+  const keys = new Set<string>();
+  for (const slug of post.relatedProducts || []) {
+    const product = siteProducts.find((item) => item.slug === slug);
+    const line = BLOG_PRODUCT_LINES.find((l) => l.category === product?.category);
+    if (line) keys.add(line.key);
+  }
+  return [...keys];
+}
+
+export function countBlogPostsByProductLine(posts: Array<Pick<BlogPost, "relatedProducts">>) {
+  const counts: Record<string, number> = {};
+  for (const post of posts) {
+    for (const key of getBlogPostProductLines(post)) counts[key] = (counts[key] || 0) + 1;
+  }
+  return counts;
+}
+
+export function filterBlogPostsByProductLine<T extends Pick<BlogPost, "relatedProducts">>(posts: T[], key: string) {
+  return posts.filter((post) => getBlogPostProductLines(post).includes(key));
 }

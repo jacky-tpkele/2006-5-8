@@ -102,6 +102,9 @@ const RESOURCES_MENU_KEYS: Record<string, string> = {
   "/resources/faq": "faq",
 };
 
+// 与 lib/blog 的 BLOG_CATEGORY_ORDER 保持一致；这里不直接引入，避免把文章数据打进客户端包
+const BLOG_NAV_CATEGORIES = ["product-knowledge", "selection-guides", "comparisons", "application-scenarios", "faqs"];
+
 export function Header() {
   const pathname = usePathname();
   const locale = useLocale();
@@ -110,6 +113,7 @@ export function Header() {
   const tProductNav = useTranslations("productNav");
   const tResources = useTranslations("resourcesMenu");
   const tMfr = useTranslations("manufacturerMenu");
+  const tBlog = useTranslations("blog");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -280,6 +284,34 @@ export function Header() {
                         <li key={m.href}>
                           <Link href={m.href} onClick={() => setMenuOpen(false)}>
                             {mfrLabel(m.href, m.label)}
+                            <span className="mega-arrow">→</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.href === "/blog") {
+              return (
+                <div className="nav-dropdown" key={item.href}>
+                  <Link className={active ? "active" : undefined} href={item.href} onClick={() => setMenuOpen(false)}>
+                    {navLabel(item.href, item.label)}
+                  </Link>
+                  <div className="blog-dropdown-menu">
+                    <ul>
+                      <li>
+                        <Link href="/blog" onClick={() => setMenuOpen(false)}>
+                          {tBlog("navAll")}
+                          <span className="mega-arrow">→</span>
+                        </Link>
+                      </li>
+                      {BLOG_NAV_CATEGORIES.map((slug) => (
+                        <li key={slug}>
+                          <Link href={`/blog/${slug}`} onClick={() => setMenuOpen(false)}>
+                            {tBlog(`categories.${slug}.label`)}
                             <span className="mega-arrow">→</span>
                           </Link>
                         </li>

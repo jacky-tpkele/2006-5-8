@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { ComponentDef } from "@/data/box-configurator";
 import type { Copy } from "./copy";
 import { Stepper } from "./Stepper";
+import { DeviceShape } from "./DeviceShape";
 import s from "./configurator.module.css";
 
 type Props = {
@@ -51,7 +51,7 @@ export function ComponentConfigModal({ def, initialSpecs, initialQty, lang, t, i
         <div className={s.modalHeader}>
           <div className={s.modalHeadFlex}>
             <div className={s.modalImg}>
-              <Image src={def.image} alt={def.name[lang]} width={80} height={80} />
+              <DeviceShape kind={def.kind} size="md" />
             </div>
             <div>
               <h3>{def.name[lang]}</h3>

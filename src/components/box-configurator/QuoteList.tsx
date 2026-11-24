@@ -3,6 +3,7 @@
 import { componentById } from "@/data/box-configurator";
 import type { Copy } from "./copy";
 import { chosenSize, lineTitle, usedModules, type Line } from "./model";
+import { DeviceShape } from "./DeviceShape";
 import s from "./configurator.module.css";
 
 type Props = {
@@ -32,7 +33,6 @@ export function QuoteList({ lines, lang, t, onEdit, onRemove, onRequest, showReq
         <ul className={s.quoteItems}>
           {lines.map((l) => {
             const c = chosenSize(l);
-            const parts = l.items.map((i) => `${componentById(i.id)?.name[lang]} ×${i.qty}`);
             return (
               <li key={l.uid} className={s.quoteItem}>
                 <div className={s.quoteTop}>
@@ -44,7 +44,20 @@ export function QuoteList({ lines, lang, t, onEdit, onRemove, onRequest, showReq
                   {c && l.flow !== "empty" ? ` · ${c.size.model}` : ""}
                   {l.flow !== "empty" ? ` · ${usedModules(l)} ${t.modules}` : c?.size.dims ? ` · ${c.size.dims}` : ""}
                 </small>
-                {parts.length ? <p>{parts.join(", ")}</p> : null}
+                {l.items.length ? (
+                  <ul className={s.quoteParts}>
+                    {l.items.map((i) => {
+                      const def = componentById(i.id);
+                      if (!def) return null;
+                      return (
+                        <li key={i.uid}>
+                          <DeviceShape kind={def.kind} size="sm" />
+                          <span>{def.name[lang]} ×{i.qty}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : null}
                 <div className={s.quoteActions}>
                   <button type="button" onClick={() => onEdit(l)}>{t.edit}</button>
                   <button type="button" onClick={() => onRemove(l.uid)}>{t.remove}</button>

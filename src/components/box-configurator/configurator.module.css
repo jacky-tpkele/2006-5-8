@@ -120,11 +120,49 @@
 /* ---- Components ---- */
 .compGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .compCard{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:16px}
-.compImg{display:grid;place-items:center;height:76px;margin-bottom:6px;border-radius:10px;background:var(--wash)}
-.compImg img{max-height:64px;width:auto;object-fit:contain}
+.compImg{display:grid;place-items:center;height:76px;margin-bottom:6px;border-radius:10px;background:linear-gradient(160deg,#1a2325,#0c1213)}
 .compName{font-weight:800;font-size:14px;line-height:1.3}
 .compDesc{flex:1;font-size:12px;line-height:1.4;color:var(--muted)}
 .compCta{margin-top:8px;font-size:12px;font-weight:800;color:var(--green-dark)}
+
+/* ---- Device shape: standalone version of the rail's .device face, used on cards / lists ---- */
+.shape{--k:var(--c-mcb);flex:none;position:relative;display:grid;place-items:center;border-radius:4px;background:linear-gradient(#fbfcfb,#dfe6e2);box-shadow:0 2px 0 rgba(0,0,0,.22),inset 0 0 0 1px #c7d0cc}
+.shape::before{content:"";position:absolute;inset:0 0 auto 0;height:14%;min-height:3px;background:var(--k)}
+.shape i{display:block;position:relative;border-radius:2px;background:linear-gradient(180deg,#2b3634,#182220);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.shape i::before{content:"";position:absolute;left:50%;top:18%;width:42%;height:38%;margin-left:-21%;border-radius:1.5px;background:var(--k);box-shadow:0 0 6px color-mix(in srgb,var(--k) 70%,transparent)}
+.shape[data-kind="rcbo"],.shape[data-kind="rccb"]{--k:var(--c-rcbo)}
+.shape[data-kind="rccb"]{--k:var(--c-rccb)}
+.shape[data-kind="mccb"]{--k:var(--c-mccb)}
+.shape[data-kind="contactor"]{--k:var(--c-contactor)}
+.shape[data-kind="spd"]{--k:var(--c-spd)}
+.shape[data-kind="meter"]{--k:var(--c-meter)}
+.shape[data-kind="vp"]{--k:var(--c-vp)}
+.shape[data-kind="ats"]{--k:var(--c-ats)}
+.shape[data-kind="smart"]{--k:var(--c-smart)}
+.shape[data-kind="fuse"]{--k:var(--c-fuse)}
+.shape[data-kind="isolator"]{--k:var(--c-isolator)}
+.shape_sm{width:30px;height:36px}
+.shape_sm i{width:9px;height:15px}
+.shape_md{width:52px;height:64px}
+.shape_md i{width:16px;height:27px}
+.shape_lg{width:72px;height:88px}
+.shape_lg i{width:22px;height:37px}
+.shape[data-kind="meter"] i{width:72%;height:34%;border-radius:2px;background:#15231f;box-shadow:inset 0 0 0 1px #30423b}
+.shape[data-kind="meter"] i::before{content:"88:88";width:auto;height:auto;margin:0;inset:0;background:none;display:flex;align-items:center;justify-content:center;font-size:7px;letter-spacing:.4px;color:#5fe39a;font-weight:700;box-shadow:none}
+.shape_sm[data-kind="meter"] i::before{font-size:4.5px}
+.shape[data-kind="spd"] i{width:52%;height:52%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7df,#f6c46a 60%,#b8860b 100%);box-shadow:inset 0 0 0 2px #8a6200,0 0 0 3px #1c2b2a}
+.shape[data-kind="spd"] i::before{content:none}
+.shape[data-kind="vp"] i{width:70%;height:32%;background:#101a17;box-shadow:inset 0 0 0 1px #2d3f38}
+.shape[data-kind="vp"] i::before{content:"V";width:auto;height:auto;margin:0;inset:0;background:none;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--k);font-weight:800;box-shadow:none}
+.shape_sm[data-kind="vp"] i::before{font-size:8px}
+.shape[data-kind="ats"] i,.shape[data-kind="contactor"] i{width:70%;height:34%;background:#1c2b2a;box-shadow:inset 0 0 0 1px #30423b}
+.shape[data-kind="ats"] i::before,.shape[data-kind="contactor"] i::before{content:"";left:24%;top:50%;width:18%;height:18%;margin:-9% 0 0 -9%;border-radius:50%;background:var(--k);box-shadow:16px 0 0 rgba(255,255,255,.18)}
+.shape[data-kind="isolator"] i{width:60%;height:60%;border-radius:50%;background:linear-gradient(145deg,#333,#1a1a1a);box-shadow:inset 0 0 0 2px #0d0d0d,0 0 0 2px var(--k)}
+.shape[data-kind="isolator"] i::before{content:"";left:50%;top:10%;width:10%;height:30%;margin-left:-5%;border-radius:1px;background:#e5e7e5;box-shadow:none}
+.shape[data-kind="fuse"] i{width:34%;height:80%;border-radius:5px;background:linear-gradient(90deg,#8a5309,#b45309,#8a5309)}
+.shape[data-kind="fuse"] i::before{content:none}
+.shape[data-kind="rcbo"] i::after,.shape[data-kind="rccb"] i::after{content:"T";position:absolute;right:-34%;top:24%;width:28%;height:48%;border-radius:1px;background:#e8c04a;color:#4a3a06;font-size:7px;font-weight:800;line-height:1;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.shape_sm[data-kind="rcbo"] i::after,.shape_sm[data-kind="rccb"] i::after{font-size:5px}
 .countBadge{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--green);color:#fff;font-size:12px;font-weight:800}
 .compCard .countBadge{position:absolute;top:10px;right:10px;animation:pop .35s var(--ease)}
 @keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
@@ -165,10 +203,15 @@
 .wiring{position:absolute;left:8px;right:8px;top:2px;height:40px;pointer-events:none;z-index:1}
 .railLimit{align-self:stretch;margin:-6px -8px -6px 4px;border-left:2px dashed #4b5a5d;border-radius:0 10px 10px 0;background:repeating-linear-gradient(135deg,#0c1213 0 6px,#172022 6px 12px);position:relative;z-index:1}
 .railOver{box-shadow:inset 0 0 0 1.5px #ef4444;background:#2a1414}
-.device{position:relative;z-index:2;height:50px;margin:0 1px;border-radius:4px;background:linear-gradient(#ffffff,#e5eae8);box-shadow:0 2px 0 rgba(0,0,0,.25),inset 0 -6px 0 rgba(0,0,0,.05);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:5px 2px 4px;overflow:hidden;animation:snap .35s var(--ease) both}
-.device::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--k,var(--c-mcb))}
-.device i{display:block;width:9px;height:16px;margin-top:4px;border-radius:2px;background:var(--k,var(--c-mcb));box-shadow:inset 0 -6px 0 rgba(0,0,0,.18)}
-.device b{font-size:9px;line-height:1;font-weight:800;color:#24302d;white-space:nowrap;letter-spacing:-.02em}
+.device{position:relative;z-index:2;height:50px;margin:0 1px;border-radius:3px;background:linear-gradient(#fbfcfb,#dfe6e2);box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 0 0 1px #c7d0cc,inset 0 -7px 0 rgba(0,0,0,.06);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 2px 4px;overflow:hidden;animation:snap .35s var(--ease) both}
+.device::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--k,var(--c-mcb))}
+/* Screw heads top/bottom, like a real DIN unit face plate */
+.device::after{content:"";position:absolute;top:7px;left:50%;width:3px;height:3px;margin-left:-1.5px;border-radius:50%;background:#aab4b0;box-shadow:0 0 0 1px rgba(0,0,0,.15),0 36px 0 #aab4b0,0 36px 0 1px rgba(0,0,0,.15)}
+.device b{position:relative;z-index:1;font-size:9px;line-height:1;font-weight:800;color:#24302d;white-space:nowrap;letter-spacing:-.02em;margin-top:auto}
+
+/* Toggle lever: the switch body + handle, used by breaker-like kinds (mcb/mccb/rcbo/rccb/fuse) */
+.device i{display:block;position:relative;width:12px;height:20px;margin:16px 0 4px;border-radius:2px;background:linear-gradient(180deg,#2b3634,#182220);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.device i::before{content:"";position:absolute;left:50%;top:3px;width:6px;height:9px;margin-left:-3px;border-radius:1.5px;background:var(--k,var(--c-mcb));box-shadow:0 0 4px color-mix(in srgb,var(--k,var(--c-mcb)) 70%,transparent)}
 .device[data-kind="rcbo"],.dot[data-kind="rcbo"]{--k:var(--c-rcbo)}
 .device[data-kind="rccb"],.dot[data-kind="rccb"]{--k:var(--c-rccb)}
 .device[data-kind="mccb"],.dot[data-kind="mccb"]{--k:var(--c-mccb)}
@@ -181,9 +224,39 @@
 .device[data-kind="fuse"],.dot[data-kind="fuse"]{--k:var(--c-fuse)}
 .device[data-kind="isolator"],.dot[data-kind="isolator"]{--k:var(--c-isolator)}
 .dot[data-kind]{background:var(--k,var(--c-mcb))}
-.device[data-kind="meter"]{background:linear-gradient(#f4f6f6,#dfe5e3)}
-.device[data-kind="meter"] i{width:70%;height:12px;background:#1c2b2a;box-shadow:inset 0 0 0 2px #3c4a48}
-.device[data-kind="spd"] i{width:70%;height:14px;border-radius:3px;background:#f6c46a;box-shadow:inset 0 0 0 2px var(--c-spd)}
+
+/* RCBO/RCCB: dual lever (test button alongside the main toggle) */
+.device[data-kind="rcbo"] i,.device[data-kind="rccb"] i{width:9px;margin-left:-5px}
+.device[data-kind="rcbo"]::after,.device[data-kind="rccb"]::after{content:none}
+.device[data-kind="rcbo"] i::after,.device[data-kind="rccb"] i::after{content:"T";position:absolute;left:14px;top:6px;width:6px;height:11px;border-radius:1px;background:#e8c04a;color:#4a3a06;font-size:5px;font-weight:800;line-height:11px;text-align:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+
+/* Meter: LCD readout face instead of a toggle */
+.device[data-kind="meter"]{background:linear-gradient(#f4f6f6,#dce3e0)}
+.device[data-kind="meter"] i{width:78%;height:17px;margin:14px 0 4px;border-radius:2px;background:#15231f;box-shadow:inset 0 0 0 1px #30423b}
+.device[data-kind="meter"] i::before{content:"88:88";position:absolute;inset:0;width:auto;height:auto;margin:0;background:none;display:flex;align-items:center;justify-content:center;font-size:6px;letter-spacing:.5px;color:#5fe39a;font-weight:700;box-shadow:none}
+
+/* SPD: round indicator window (green = ok, like real surge arresters) */
+.device[data-kind="spd"] i{width:16px;height:16px;margin:14px 0 4px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7df,#f6c46a 60%,#b8860b 100%);box-shadow:inset 0 0 0 2px #8a6200,0 0 0 3px #1c2b2a}
+.device[data-kind="spd"] i::before{content:"";position:absolute;inset:0;border-radius:50%;background:none;box-shadow:none}
+
+/* Voltage protector: small LED-style digit window */
+.device[data-kind="vp"] i{width:70%;height:15px;margin:15px 0 4px;border-radius:2px;background:#101a17;box-shadow:inset 0 0 0 1px #2d3f38}
+.device[data-kind="vp"] i::before{content:"V";position:absolute;inset:0;width:auto;height:auto;margin:0;background:none;display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--c-vp);font-weight:800;box-shadow:none}
+
+/* ATS / contactor: wider dual-position block (two source indicators) */
+.device[data-kind="ats"] i,.device[data-kind="contactor"] i{width:70%;height:16px;margin:15px 0 4px;border-radius:2px;background:#1c2b2a;box-shadow:inset 0 0 0 1px #30423b;display:flex;align-items:center;justify-content:space-evenly}
+.device[data-kind="ats"] i::before,.device[data-kind="contactor"] i::before{content:"";position:absolute;left:22%;top:50%;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:var(--k);box-shadow:8px 0 0 rgba(255,255,255,.18)}
+
+/* Isolator: rotary knob */
+.device[data-kind="isolator"] i{width:18px;height:18px;margin:14px 0 4px;border-radius:50%;background:linear-gradient(145deg,#333,#1a1a1a);box-shadow:inset 0 0 0 2px #0d0d0d,0 0 0 2px var(--k)}
+.device[data-kind="isolator"] i::before{content:"";position:absolute;left:50%;top:2px;width:2.5px;height:7px;margin-left:-1.25px;border-radius:1px;background:#e5e7e5}
+
+/* Smart MCB: toggle + small wifi dot */
+.device[data-kind="smart"] i::after{content:"";position:absolute;right:-6px;top:-2px;width:4px;height:4px;border-radius:50%;background:var(--k);box-shadow:0 0 3px var(--k)}
+
+/* Fuse: slim cylindrical cartridge */
+.device[data-kind="fuse"] i{width:8px;height:22px;margin:12px 0 4px;border-radius:4px;background:linear-gradient(90deg,#8a5309,#b45309,#8a5309)}
+.device[data-kind="fuse"] i::before{content:"";position:absolute;inset:7px 0 auto 0;height:2px;background:none;box-shadow:none}
 @keyframes snap{from{opacity:0;transform:translateY(-16px) scale(.96)}to{opacity:1;transform:none}}
 .railWarn{margin:12px 0 0;font-size:12.5px;line-height:1.5;color:#ffb4a8}
 .railDisclaimer{margin:12px 0 0;padding:10px 12px;border-radius:10px;background:#f0f9ff;border:1px solid #bae6fd;color:#075985;font-size:12.5px;line-height:1.5}
@@ -224,7 +297,9 @@
 .quoteTop strong{font-size:14px;line-height:1.35}
 .qtyPill{flex:none;padding:2px 8px;border-radius:999px;background:var(--ink);color:#fff;font-size:12px;font-weight:800}
 .quoteItem small{display:block;margin-top:2px;font-size:12px;color:var(--muted)}
-.quoteItem p{margin:6px 0 0;font-size:12.5px;line-height:1.45;color:#3d4a46}
+.quoteParts{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 10px}
+.quoteParts li{display:flex;align-items:center;gap:6px;font-size:12px;color:#3d4a46}
+.quoteParts .shape{transform:scale(.7);transform-origin:left center;margin-right:-9px}
 .quoteActions{display:flex;gap:14px;margin-top:8px}
 .quoteActions button{border:0;background:none;padding:0;font-size:12.5px;font-weight:700;color:var(--green-dark)}
 .quoteActions button:last-child{color:var(--muted)}
@@ -344,8 +419,7 @@
 .modalBody .textLink{display:inline-block;margin-top:8px}
 .modalHeadFlex{display:flex;gap:16px;align-items:center;padding-right:44px}
 .modalHeadFlex p{margin:2px 0 4px;font-size:13.5px;color:var(--muted)}
-.modalImg{flex:none;display:grid;place-items:center;width:80px;height:80px;border-radius:14px;background:#fff;border:1px solid var(--line)}
-.modalImg img{max-width:70px;max-height:70px;object-fit:contain}
+.modalImg{flex:none;display:grid;place-items:center;width:80px;height:80px;border-radius:14px;background:linear-gradient(160deg,#1a2325,#0c1213)}
 .modalBody .qtyRow{margin-top:8px;padding-top:16px;border-top:1px dashed var(--line)}
 .modalFooter{display:flex;justify-content:flex-end;gap:8px;padding:16px 28px;border-top:1px solid var(--line)}
 

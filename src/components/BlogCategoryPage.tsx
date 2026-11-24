@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { PageTitle } from "@/components/PageTitle";
 import { BlogPagination } from "@/components/BlogPagination";
+import { BlogCard, BlogFeatured } from "@/components/BlogCard";
 import { getTranslations } from "next-intl/server";
 import {
   BLOG_CATEGORY_ORDER,
@@ -10,7 +10,6 @@ import {
   getPublishedBlogPostsWithFallback,
   getBlogCategoryLabel,
   getBlogCategoryDescription,
-  getBlogCategoryColor,
   paginatePosts,
   type BlogCategorySlug,
   type BlogPost,
@@ -28,17 +27,24 @@ export async function BlogCategoryPage({ category, crumb, title, locale, current
   const allPosts = await getPublishedBlogPostsWithFallback();
   const filtered = filterBlogPostsByCategory(allPosts, category);
   const counts = countBlogPostsByCategory(allPosts);
-  const { posts: paginatedPosts, totalPages } = paginatePosts(filtered, currentPage);
   const t = await getTranslations({ locale, namespace: "blog" });
+  const tr = (key: string) => t(key);
+
+  // 第 1 页：前 3 篇做精选，其余分页；后续页只显示分页列表
+  const showFeatured = currentPage === 1 && filtered.length > 3;
+  const featured = showFeatured ? filtered.slice(0, 3) : [];
+  const rest = showFeatured ? filtered.slice(3) : filtered;
+  const { posts: paginatedPosts, totalPages } = paginatePosts(rest, currentPage);
 
   return (
     <main>
-      <PageTitle title={title} crumb={crumb} />
+      <PageTitle
+        title={title}
+        crumb={title}
+        locale={locale}
+        parents={[{ label: t("breadcrumbBlog"), href: "/blog" }]}
+      />
       <section className="section">
-        <p style={{ color: "var(--muted)", marginBottom: 18, maxWidth: 760 }}>
-          {getBlogCategoryDescription(category, (k) => t(k))}
-        </p>
-
         <nav aria-label="Blog categories" className="category-strip" style={{ marginBottom: 24 }}>
           <Link href="/blog" className="category-chip">
             {t("allFilter")} <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts.all || 0})</span>
@@ -49,70 +55,48 @@ export async function BlogCategoryPage({ category, crumb, title, locale, current
               href={`/blog/${slug}`}
               className={slug === category ? "category-chip active" : "category-chip"}
             >
-              {getBlogCategoryLabel(slug, (k) => t(k))}
+              {getBlogCategoryLabel(slug, tr)}
               {counts[slug] ? <span style={{ opacity: 0.6, marginLeft: 4 }}>({counts[slug]})</span> : null}
             </Link>
           ))}
         </nav>
 
+        <div className="bh-intro">
+          <div>
+            <h2>{title}</h2>
+            <p>{getBlogCategoryDescription(category, tr)}</p>
+          </div>
+          <div className="bh-intro-count">
+            {filtered.length}
+            <small>{t("articlesCount", { count: filtered.length })}</small>
+          </div>
+        </div>
+
         {filtered.length === 0 ? (
-          <div
-            style={{
-              padding: "60px 20px",
-              textAlign: "center",
-              color: "var(--muted)",
-              border: "1px dashed var(--line)",
-              borderRadius: 8,
-            }}
-          >
-            <p style={{ fontSize: 16, marginBottom: 8 }}>No articles in this category yet.</p>
+          <div className="bh-empty">
+            <p style={{ fontSize: 16, marginBottom: 8 }}>{t("emptyCategory")}</p>
             <p style={{ fontSize: 13 }}>
               <Link href="/blog" className="text-link">
-                ← Browse all articles
+                {t("browseAll")}
               </Link>
             </p>
           </div>
         ) : (
-          <div className="blog-grid">
-            {paginatedPosts.map((post: BlogPost) => (
-              <article className="blog-card" key={post.slug}>
-                <Link href={`/blog/${post.slug}`} aria-label={post.title}>
-                  <Image src={post.image} alt={post.title} width={470} height={210} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 470px" />
-                </Link>
-                <div>
-                  <time dateTime={post.date}>
-                    {new Intl.DateTimeFormat(locale, {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    }).format(new Date(post.date))}
-                  </time>
-                  <span
-                    style={{
-                      display: "inline-block",
-                      marginLeft: 8,
-                      padding: "3px 10px",
-                      fontSize: 12,
-                      fontWeight: 600,
-                      color: getBlogCategoryColor(post.articleType).color,
-                      background: getBlogCategoryColor(post.articleType).background,
-                      borderRadius: 12,
-                      verticalAlign: "middle",
-                    }}
-                  >
-                    {getBlogCategoryLabel(post.articleType, (k) => t(k))}
-                  </span>
-                  <h2>
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h2>
-                  <p>{post.excerpt}</p>
-                  <Link className="text-link" href={`/blog/${post.slug}`}>
-                    {t("readArticle")}
-                  </Link>
+          <>
+            {showFeatured ? (
+              <>
+                <BlogFeatured posts={featured} locale={locale} t={tr} />
+                <div className="bh-section-head">
+                  <h2>{t("latestHeading")}</h2>
                 </div>
-              </article>
-            ))}
-          </div>
+              </>
+            ) : null}
+            <div className="blog-grid">
+              {paginatedPosts.map((post: BlogPost) => (
+                <BlogCard key={post.slug} post={post} locale={locale} t={tr} />
+              ))}
+            </div>
+          </>
         )}
       </section>
 

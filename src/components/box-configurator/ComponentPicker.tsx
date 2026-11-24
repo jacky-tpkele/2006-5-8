@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { componentById, components, defaultSpecs, type ComponentDef } from "@/data/box-configurator";
 import type { Copy } from "./copy";
 import { pruneCircuits, specText, uid, type Item, type Line } from "./model";
 import { Stepper } from "./Stepper";
 import { ComponentConfigModal } from "./ComponentConfigModal";
+import { DeviceShape } from "./DeviceShape";
 import s from "./configurator.module.css";
 
 type Props = { line: Line; set: (patch: Partial<Line>) => void; t: Copy; lang: "en" | "ru" };
@@ -39,7 +39,7 @@ export function ComponentPicker({ line, set, t, lang }: Props) {
           return (
             <button type="button" key={def.id} className={`${s.compCard} ${active ? s.active : ""}`} onClick={() => open(def)}>
               {n ? <span className={s.countBadge}>{n}</span> : null}
-              <span className={s.compImg}><Image src={def.image} alt="" width={72} height={72} /></span>
+              <span className={s.compImg}><DeviceShape kind={def.kind} size="lg" /></span>
               <span className={s.compName}>{def.name[lang]}</span>
               <span className={s.compDesc}>{def.desc[lang]}</span>
               <span className={s.compCta}>+ {t.configure}</span>
@@ -79,7 +79,7 @@ export function ComponentPicker({ line, set, t, lang }: Props) {
               if (!def) return null;
               return (
                 <li key={i.uid} className={s.itemRow}>
-                  <span className={s.dot} data-kind={def.kind} />
+                  <DeviceShape kind={def.kind} size="sm" />
                   <span className={s.itemMain}>
                     <strong>{def.name[lang]}</strong>
                     <small>{specText(i)}</small>
