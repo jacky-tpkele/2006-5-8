@@ -10,6 +10,10 @@ import {
 import { getProducts, getSubCategories, getSubCategory } from "@/lib/i18n";
 import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { alternateLanguages, localizedPath } from "@/lib/locale-path";
+import { ApplicationsSection } from "./ApplicationsSection";
+import { SelectionGuide } from "./SelectionGuide";
+import { FAQSection } from "./FAQSection";
+import { RelatedArticles } from "./RelatedArticles";
 
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -155,6 +159,10 @@ export default async function DcSpdPage({ params }: PageProps) {
         </section>
       )}
       <ApplicationLinks context="dc" locale={locale} item="dc-spd" />
+      <ApplicationsSection />
+      <SelectionGuide />
+      <FAQSection />
+      <RelatedArticles />
     </main>
   );
 }

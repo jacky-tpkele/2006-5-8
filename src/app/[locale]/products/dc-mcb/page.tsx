@@ -10,6 +10,9 @@ import { FeaturesGrid } from "./FeaturesGrid";
 import { SpecsSection } from "./SpecsSection";
 import { ApplicationLinks } from "@/components/distribution-boxes/ApplicationLinks";
 import { TripCurves } from "./TripCurves";
+import { ApplicationsSection } from "./ApplicationsSection";
+import { FAQSection } from "./FAQSection";
+import { RelatedArticles } from "./RelatedArticles";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -21,10 +24,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: { absolute: t("dcMcb.seoTitle") },
     description: t("dcMcb.seoDescription"),
     alternates: {
-      canonical: localizedPath("/products/dc-mcb", locale),
-      languages: alternateLanguages("/products/dc-mcb"),
+      canonical: `https://www.tpkele.com${localizedPath("/products/dc-mcb", locale)}`,
+      languages: Object.fromEntries(
+        Object.entries(alternateLanguages("/products/dc-mcb")).map(([lang, path]) => [
+          lang,
+          `https://www.tpkele.com${path}`,
+        ])
+      ),
     },
     keywords: [
+      "DC MCB",
+      "DC circuit breaker",
       "DC miniature circuit breaker supplier",
       "DC MCB manufacturer",
       "1500VDC MCB",
@@ -32,6 +42,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "battery storage DC breaker",
       "EV charging DC breaker",
       "IEC 60947-2 DC MCB",
+      "dc mcb for solar",
+      "spd dc 1000v",
     ],
   };
 }
@@ -70,6 +82,9 @@ export default async function DcCircuitBreakersPage({ params }: PageProps) {
       <FeaturesGrid />
       <SpecsSection />
       <TripCurves />
+      <ApplicationsSection />
+      <FAQSection />
+      <RelatedArticles />
       <CompanySection
         title="Your Dedicated DC MCB Supply Partner"
         intros={companyIntros}

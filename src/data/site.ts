@@ -3463,7 +3463,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Why MCB Selection Matters",
         paragraphs: [
           "A miniature circuit breaker (MCB) is the first line of overcurrent and short-circuit protection in any low voltage distribution board. Pick the wrong rating and you either get nuisance tripping that frustrates the end-user, or worse — a breaker that fails to trip during a fault and exposes downstream equipment and people to risk.",
-          "This guide walks through the four parameters professional installers and panel builders evaluate every time: rated current, breaking capacity, trip curve and pole configuration. We also cover the difference between [AC MCB](/products/category/mcb/ac-mcb) and [DC MCB](/products/category/mcb/dc-mcb) — they look similar but cannot be substituted.",
+          "This guide walks through the four parameters professional installers and panel builders evaluate every time: rated current, breaking capacity, trip curve and pole configuration. We also cover the difference between [AC MCB](/products/ac-mcb) and [DC MCB](/products/dc-mcb) — they look similar but cannot be substituted.",
         ],
       },
       {
@@ -3499,7 +3499,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "AC vs DC: Don't Confuse Them",
         paragraphs: [
-          "DC arcs are sustained — they do not extinguish naturally at zero crossings the way AC arcs do. A [DC MCB](/products/category/mcb/dc-mcb) uses arc-quenching chambers and magnetic blow-out designed for the energy in a PV string. Substituting an AC MCB on a DC circuit is one of the most dangerous mistakes in solar installation.",
+          "DC arcs are sustained — they do not extinguish naturally at zero crossings the way AC arcs do. A [DC MCB](/products/dc-mcb) uses arc-quenching chambers and magnetic blow-out designed for the energy in a PV string. Substituting an AC MCB on a DC circuit is one of the most dangerous mistakes in solar installation.",
           "TPKELE DC MCBs cover up to 1500V DC for utility-scale [solar DC protection](/solar-dc-protection).",
         ],
       },
@@ -3564,7 +3564,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Where to Install SPDs",
         paragraphs: [
-          "Best practice is a coordinated cascade: a Type 1 (or 1+2) at the main panel, Type 2 in sub-panels, and finer protection close to sensitive equipment. In a solar PV system, install [DC SPDs](/products/category/spd/dc-spd) in the combiner box and at the inverter DC input, plus [AC SPDs](/products/category/spd/ac-spd) on the inverter AC output and at the grid interconnect.",
+          "Best practice is a coordinated cascade: a Type 1 (or 1+2) at the main panel, Type 2 in sub-panels, and finer protection close to sensitive equipment. In a solar PV system, install [DC SPDs](/products/dc-spd) in the combiner box and at the inverter DC input, plus [AC SPDs](/products/category/spd/ac-spd) on the inverter AC output and at the grid interconnect.",
           "Keep SPD lead lengths short (typically under 50 cm total loop length) — long leads add inductance that defeats the protection.",
         ],
       },
@@ -3775,8 +3775,8 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Products We Showed",
         bullets: [
-          "1500V [DC MCBs](/products/category/mcb/dc-mcb) for utility-scale string protection.",
-          "Updated [DC SPD](/products/category/spd/dc-spd) range with improved indicator windows.",
+          "1500V [DC MCBs](/products/dc-mcb) for utility-scale string protection.",
+          "Updated [DC SPD](/products/dc-spd) range with improved indicator windows.",
           "Pre-assembled [plastic combiner boxes](/products/plastic-box-series) for 4 / 8 / 12 / 16 string inputs.",
           "Smart string-monitoring metal combiner boxes for utility EPCs.",
         ],
